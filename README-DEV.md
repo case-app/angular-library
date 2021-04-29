@@ -31,10 +31,10 @@ After building library :
 $ cd dist/abacus-angular-library
 $ npm link // May require sudo.
 ```
-Then go to your project that has `abacus-angular-library` as dependency and it the root folder (of the Angular project) :
+Then go to your `@case-app/case` project it the `/client` folder (Angular project) :
 
 ```bash
-$ npm link abacus-angular-library
+$ npm link @case-app/angular-library
 ```
 
 ## Publish to NPM
