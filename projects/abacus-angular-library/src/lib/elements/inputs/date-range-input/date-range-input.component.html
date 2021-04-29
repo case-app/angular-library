@@ -1,0 +1,35 @@
+<form [formGroup]="form" novalidate>
+  <div class="control" [ngClass]="{ 'is-danger': showErrors && form.invalid }">
+    <label for="date-from-{{ uniqueId }}-input">{{ label }}</label>
+    <div class="flex">
+      <div class="input-text">Du</div>
+
+      <input
+        angular-mydatepicker
+        id="date-from-{{ uniqueId }}-input"
+        class="input"
+        [placeholder]="placeholder"
+        [options]="datePickerOptions"
+        (dateChanged)="onDateChanged($event, 'dateFrom')"
+        (click)="dp.openCalendar()"
+        #dp="angular-mydatepicker"
+        formControlName="dateFrom"
+      />
+
+      <div class="input-text">au</div>
+
+      <input
+        angular-mydatepicker
+        id="date-to-{{ uniqueId }}-input"
+        class="input"
+        [placeholder]="placeholder"
+        [options]="datePickerOptions"
+        (dateChanged)="onDateChanged($event, 'dateTo')"
+        (click)="dp.openCalendar()"
+        #dp="angular-mydatepicker"
+        formControlName="dateTo"
+      />
+    </div>
+    <p class="help" *ngIf="helpText">{{ helpText }}</p>
+  </div>
+</form>

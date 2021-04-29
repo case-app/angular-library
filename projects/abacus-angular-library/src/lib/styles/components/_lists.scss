@@ -1,0 +1,38 @@
+.list-separated {
+  padding: $column-gap 0;
+  border-bottom: 1px solid $border-color;
+  @include flexbox;
+  @include justify-content(space-between);
+
+  > *:last-child {
+    padding-left: $gap;
+  }
+}
+
+.small-circle {
+  height: #{$field-height / 1.75};
+  width: #{$field-height / 1.75};
+  border-radius: $field-height;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  &.is-active {
+    border: 2px solid $white;
+    box-shadow: 0 10px 20px #dedede;
+  }
+
+  @include fullhd {
+    height: #{$field-height / 1.25};
+    width: #{$field-height / 1.25};
+    margin: 10px;
+  }
+}
+
+.mini-circle,
+.has-mini-circle .small-circle {
+  height: 8px;
+  width: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 5px;
+}

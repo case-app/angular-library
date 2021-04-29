@@ -1,0 +1,60 @@
+@import './../../../styles/variables';
+@import './../../../../../../../node_modules/bulma/sass/utilities/_all.sass';
+@import './../../../styles/commons/mixins';
+
+.pagination-previous,
+.pagination-next,
+.pagination-link {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 0;
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    transition: color 0.35s ease, background-color 0.05s ease-out;
+    -webkit-transition: color 0.35s ease, background-color 0.05s ease-out;
+    -moz-transition: color 0.35s ease, background-color 0.05s ease-out;
+    -ms-transition: color 0.35s ease, background-color 0.05s ease-out;
+    -o-transition: color 0.35s ease, background-color 0.05s ease-out;
+
+    &:hover {
+      transition: color 0.35s ease, background-color 0.05s ease-in;
+      -webkit-transition: color 0.35s ease, background-color 0.05s ease-in;
+      -moz-transition: color 0.35s ease, background-color 0.05s ease-in;
+      -ms-transition: color 0.35s ease, background-color 0.05s ease-in;
+      -o-transition: color 0.35s ease, background-color 0.05s ease-in;
+    }
+  }
+  &.is-current {
+    background-color: transparent;
+    border-color: transparent;
+
+    a {
+      color: $grey;
+
+      &:hover,
+      &:focus {
+        color: $grey;
+      }
+    }
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border-color: transparent;
+      cursor: text;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $link-alpha10;
+    border-color: transparent;
+  }
+}

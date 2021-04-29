@@ -1,0 +1,22 @@
+export enum InputType {
+  Checkbox,
+  ColorPicker,
+  DateRange,
+  Datepicker,
+  Email,
+  File,
+  Image,
+  GooglePlaces,
+  MultiSearch,
+  MultiSelect,
+  Number,
+  RichText,
+  Select,
+  Tel,
+  Text,
+  Textarea,
+  Password,
+  Toggle,
+  Radio,
+  Time
+}

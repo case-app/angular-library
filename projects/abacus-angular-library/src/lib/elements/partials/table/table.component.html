@@ -1,0 +1,153 @@
+<table class="table is-fullwidth is-hoverable" width="100%">
+  <thead class="top-margin">
+    <tr>
+      <th
+        *ngFor="let yield of yields"
+        [ngClass]="{
+          'has-text-right': yield.label === 'Reglement'
+        }"
+      >
+        <span *ngIf="yield.disableOrderBy">{{ yield.label }}</span>
+        <a class="no-deco" (click)="order(yield)" *ngIf="!yield.disableOrderBy"
+          >{{ yield.label }}
+          <span
+            class="tooltip has-tooltip has-tooltip-bottom"
+            [attr.data-tooltip]="yield.tooltip"
+          >
+            <i
+              class="icon icon-info is-size-5 has-text-link"
+              *ngIf="yield.tooltip"
+            ></i>
+          </span>
+          <i
+            *ngIf="
+              orderBy &&
+              (orderBy === yield.orderByProperty || orderBy === yield.property)
+            "
+            class="icon"
+            [ngClass]="{
+              'icon-chevron-up': this.orderByDesc,
+              'icon-chevron-down': !this.orderByDesc
+            }"
+          ></i>
+        </a>
+      </th>
+      <th
+        class="has-text-right"
+        *ngIf="definition.actionButtons && definition.actionButtons.length"
+      ></th>
+      <th
+        class="has-text-right"
+        width="115"
+        *ngIf="definition.dropdownLinks.length"
+      ></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let item of formattedItems; let i = index"
+      [ngClass]="{
+        'is-warning': item.isWarningHighlight,
+        'is-info': item.isInfoHighlight,
+        'is-success': item.isSuccessHighlight,
+        'is-disabled': item.isDisabledHighlight
+      }"
+    >
+      <td
+        *ngFor="let yield of item.yields"
+        [width]="yield.width"
+        [ngClass]="yield.className || { pointer: item.link }"
+        [ngSwitch]="yield.type"
+        (click)="goToLink(item.link)"
+      >
+        <abc-image-yield
+          *ngSwitchCase="YieldType.Image"
+          [imageObjects]="yield.propertyValue"
+          [label]="yield.secondPropertyValue"
+        ></abc-image-yield>
+
+        <abc-date-yield
+          *ngSwitchCase="YieldType.Date"
+          [date]="yield.propertyValue"
+        ></abc-date-yield>
+
+        <abc-currency-yield
+          *ngSwitchCase="YieldType.Currency"
+          [amount]="yield.propertyValue"
+        ></abc-currency-yield>
+
+        <abc-address-yield
+          *ngSwitchCase="YieldType.Address"
+          [address]="yield.propertyValue"
+          [openOnGoogleMapsLink]="false"
+        ></abc-address-yield>
+
+        <abc-download-yield
+          *ngSwitchCase="YieldType.Download"
+          [filePath]="yield.propertyValue"
+        ></abc-download-yield>
+
+        <abc-color-yield
+          *ngSwitchCase="YieldType.Color"
+          [color]="yield.propertyValue"
+          [text]="yield.secondPropertyValue"
+        ></abc-color-yield>
+
+        <abc-file-icon-yield
+          *ngSwitchCase="YieldType.FileIcon"
+          [path]="yield.propertyValue"
+        ></abc-file-icon-yield>
+
+        <abc-progress-bar-yield
+          *ngSwitchCase="YieldType.ProgressBar"
+          [progressValue]="yield.propertyValue"
+          [totalValue]="yield.secondPropertyValue"
+          [tooltipText]="yield.thirdPropertyValue"
+        ></abc-progress-bar-yield>
+
+        <abc-analog-progress-bar-yield
+          *ngSwitchCase="YieldType.AnalogProgressBar"
+          [progressPercentage]="yield.propertyValue"
+        ></abc-analog-progress-bar-yield>
+
+        <ng-container *ngSwitchDefault="">
+          {{ yield.propertyValue }}</ng-container
+        >
+      </td>
+      <td
+        class="has-text-right"
+        *ngIf="definition.actionButtons && definition.actionButtons.length"
+      >
+        <!-- Action buttons loop -->
+        <button
+          *ngFor="let actionButton of item.actionButtons"
+          [ngClass]="actionButton.className"
+          (click)="triggerCustomAction(actionButton, item)"
+        >
+          <i
+            class="icon is-size-5"
+            [ngClass]="actionButton.icon"
+            *ngIf="actionButton.icon"
+          ></i>
+          {{ actionButton.label }}
+        </button>
+      </td>
+      <td class="has-text-right" *ngIf="definition.dropdownLinks.length">
+        <abc-action-dropdown
+          [item]="item"
+          [definition]="definition"
+          [preventDeleteMessage]="item.preventDeleteMessage"
+          (itemDeleted)="openConfirmDeleteModal($event)"
+          (customActionEvent)="triggerCustomAction($event.link, $event.item)"
+        ></abc-action-dropdown>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<abc-confirm-delete-modal
+  [resourceToDelete]="itemToDelete"
+  (deleteCanceled)="itemToDelete = null"
+  [resourceName]="definition.slug"
+  *ngIf="itemToDelete"
+></abc-confirm-delete-modal>

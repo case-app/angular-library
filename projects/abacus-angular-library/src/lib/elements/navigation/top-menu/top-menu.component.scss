@@ -1,0 +1,13 @@
+@import './../../../styles/variables';
+@import './../../../../../../../node_modules/bulma/sass/utilities/_all.sass';
+@import './../../../styles/commons/mixins';
+
+@import './../../../styles/layout/top-menu';
+
+.ts-button {
+  width: 58px;
+}
+
+.planning-button {
+  width: 68px;
+}

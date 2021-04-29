@@ -1,0 +1,37 @@
+<div class="modal" [ngClass]="{ 'is-active': showModal }">
+  <div class="modal-background"></div>
+  <div class="modal-content notification is-light">
+    <div class="columns">
+      <div class="column">
+        <h4 class="title is-4">Etes-vous sûr ?</h4>
+
+        <!-- Conditional texts -->
+        <p *ngIf="resourceName === 'users'">
+          Voulez-vous vraiment supprimer l'utilisateur
+          <strong>{{ resourceToDelete.name }}</strong>
+          ?
+        </p>
+
+        <p>Cette action est irréversible.</p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column m-t-colgap p-b-0">
+        <div class="flex align-stretch flex-mobile space-between">
+          <button class="button is-link" (click)="confirmDelete()">
+            Supprimer
+          </button>
+          <button
+            class="button is-primary m-l-colgap pull-right"
+            (click)="cancel()"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="button is-light close" aria-label="close" (click)="cancel()">
+      <i class="icon icon-x is-size-2"></i>
+    </button>
+  </div>
+</div>

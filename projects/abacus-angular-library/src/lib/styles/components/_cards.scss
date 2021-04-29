@@ -1,0 +1,76 @@
+//_ Global style
+
+.card {
+  --border-color: #f7f7f7; // Grey Lighter
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 20px rgba($dark, 0.07);
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  &.no-shadow {
+    box-shadow: none;
+  }
+
+  &--is-displayed-on-modal {
+    .modal-content & {
+      border: 0;
+      padding: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+}
+
+.project-user {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(flex-start);
+  margin-bottom: 7.5px;
+
+  div {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(flex-start);
+    @include justify-content(center);
+    padding-left: $column-gap;
+
+    span {
+      &:last-child:not(:first-child) {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: $grey;
+      }
+    }
+  }
+}
+
+.has-v-separation {
+  position: relative;
+
+  @include widescreen {
+    &:before {
+      content: '';
+      position: absolute;
+      height: calc(100% - 56px);
+      width: 1px;
+      display: inline-block;
+      background-color: $border-color;
+      top: 56px;
+      left: calc(75% - 0.5px + 7.5px);
+    }
+  }
+
+  &--left {
+    &:before {
+      top: 0;
+      height: 100%;
+      left: calc(75% - 0.5px + 7.5px);
+    }
+  }
+}
