@@ -1,0 +1,216 @@
+<nav class="navbar" role="navigation" aria-label="main navigation" #menu>
+  <div>
+    <div
+      class="dropdown is-right"
+      [ngClass]="{ 'is-active': showUserMenu }"
+      *ngIf="currentUser"
+    >
+      <div class="user-box">
+        <a
+          [routerLink]="['/collaborateurs', currentUser.id, 'edit']"
+          aria-haspopup="true"
+          aria-controls="dropdown-menu2"
+        >
+          <abc-image
+            [path]="currentUser.image"
+            replacement="/assets/images/avatar.svg"
+            [title]="currentUser.name"
+            [alt]="currentUser.name"
+            className="avatar-sm"
+          >
+          </abc-image>
+        </a>
+      </div>
+    </div>
+    <a class="logo" routerLink="/" (click)="closeMenu()">
+      <img src="/assets/images/logo.svg" width="84" height="32" />
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+      (click)="toggleMenu()"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="hiding-layer" #hidingLayer></div>
+  <div class="navbar-menu" id="create-dropdown" #menuItems>
+    <div class="navbar-end">
+      <ul class="menu-list m-t-gutter menu-list--top">
+        <li *abcHasPermission="'browseProjects'">
+          <a routerLink="/missions" routerLinkActive="is-active">
+            <i class="icon m-r-md icon-grid is-size-4"></i>
+            <span class="p-l-xs">Missions</span>
+          </a>
+        </li>
+        <li *abcHasPermission="'browseOrders'">
+          <a routerLink="/orders" routerLinkActive="is-active">
+            <i class="icon m-r-md icon-box is-size-4"></i>
+            <span class="p-l-xs">Commandes</span>
+          </a>
+        </li>
+        <li
+          *abcHasPermission="{
+            requireOr: ['browseCustomers', 'browseReferents']
+          }"
+        >
+          <a (click)="toggleAccordion('customer')" class="has-submenu">
+            <span>
+              <i class="icon m-r-md icon-briefcase is-size-4"></i>
+              <span class="p-l-xs">CRM</span>
+            </span>
+            <i
+              class="icon icon-chevron-down m-r-xs"
+              *ngIf="activeAccordion !== 'customer'"
+            ></i>
+            <i
+              class="icon icon-chevron-up m-r-xs"
+              *ngIf="activeAccordion === 'customer'"
+            ></i>
+          </a>
+          <ul *ngIf="activeAccordion === 'customer'">
+            <li *abcHasPermission="'browseCustomers'">
+              <a routerLink="/clients" routerLinkActive="is-active">
+                <span class="p-l-xs">Clients</span>
+              </a>
+            </li>
+            <li *abcHasPermission="'browseReferents'">
+              <a routerLink="/responsables" routerLinkActive="is-active">
+                <span class="p-l-xs">Responsables</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li *abcHasPermission="'browseInvoices'">
+          <a (click)="toggleAccordion('invoice')" class="has-submenu">
+            <span>
+              <i class="icon m-r-md icon-file-text is-size-4"></i>
+              <span class="p-l-xs">Facturation</span>
+            </span>
+            <i
+              class="icon icon-chevron-down m-r-xs"
+              *ngIf="activeAccordion !== 'invoice'"
+            ></i>
+            <i
+              class="icon icon-chevron-up m-r-xs"
+              *ngIf="activeAccordion === 'invoice'"
+            ></i>
+          </a>
+          <ul *ngIf="activeAccordion === 'invoice'">
+            <li *abcHasPermission="'browseInvoices'">
+              <a routerLink="/factures" routerLinkActive="is-active">
+                <span class="p-l-xs">Factures</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- User sub menu -->
+        <li
+          *abcHasPermission="{ requireOr: ['browseUsers', 'browseTimeSheets'] }"
+        >
+          <a (click)="toggleAccordion('user')" class="has-submenu">
+            <span>
+              <i class="icon m-r-md icon-user is-size-4"></i>
+              <span class="p-l-xs">Collaborateurs</span>
+            </span>
+            <i
+              class="icon icon-chevron-down m-r-xs"
+              *ngIf="activeAccordion !== 'user'"
+            ></i>
+            <i
+              class="icon icon-chevron-up m-r-xs"
+              *ngIf="activeAccordion === 'user'"
+            ></i>
+          </a>
+
+          <ul *ngIf="activeAccordion === 'user'">
+            <li *abcHasPermission="'browseUsers'">
+              <a routerLink="/collaborateurs" routerLinkActive="is-active">
+                <span class="p-l-xs">Collaborateurs</span>
+              </a>
+            </li>
+            <li *abcHasPermission="'browseTimeSheets'">
+              <a routerLink="/time-sheets" routerLinkActive="is-active">
+                <span class="p-l-xs">Time sheets</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li
+          *abcHasPermission="{
+            requireOr: [
+              'browsePositions',
+              'browseDayOffs',
+              'browseServiceTypes',
+              'browseDeliverableTypes',
+              'browseNatures'
+            ]
+          }"
+        >
+          <a (click)="toggleAccordion('humanResource')" class="has-submenu">
+            <span>
+              <i class="icon m-r-md icon-settings is-size-4"></i>
+              <span class="p-l-xs">Préferences</span>
+            </span>
+            <i
+              class="icon icon-chevron-down m-r-xs"
+              *ngIf="activeAccordion !== 'humanResource'"
+            ></i>
+            <i
+              class="icon icon-chevron-up m-r-xs"
+              *ngIf="activeAccordion === 'humanResource'"
+            ></i>
+          </a>
+          <ul *ngIf="activeAccordion === 'humanResource'" class="last-ul">
+            <li *abcHasPermission="'browsePositions'">
+              <a routerLink="/profils" routerLinkActive="is-active">
+                <span class="p-l-xs">Profils</span>
+              </a>
+            </li>
+            <li *abcHasPermission="'browseDayOffs'">
+              <a
+                routerLink="/jours-off"
+                [queryParams]="defaultDaysOffParams"
+                routerLinkActive="is-active"
+              >
+                <span class="p-l-xs">Jours off</span>
+              </a>
+            </li>
+
+            <li *abcHasPermission="'browseServiceTypes'">
+              <a routerLink="/types-de-prestation" routerLinkActive="is-active">
+                <span class="p-l-xs">Types de prestation</span>
+              </a>
+            </li>
+            <li *abcHasPermission="'browseDeliverableTypes'">
+              <a routerLink="/livrables" routerLinkActive="is-active">
+                <span class="p-l-xs">Livrables</span>
+              </a>
+            </li>
+            <li *abcHasPermission="'browseNatures'">
+              <a routerLink="/natures" routerLinkActive="is-active">
+                <span class="p-l-xs">Natures</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="menu-list menu-list--bottom">
+        <li>
+          <a routerLink="/logout" (click)="closeMenu()">
+            <i class="icon m-r-md icon-log-out is-size-4"></i>
+            <span class="p-l-xs">Déconnexion</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

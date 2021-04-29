@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    <a routerLink="/">Accueil</a>
+  </li>
+
+  <li *ngFor="let breadcrumbLink of breadcrumbLinks">
+    <i class="icon icon-chevron-right p-x-md"></i>
+    <a [routerLink]="breadcrumbLink.path" *ngIf="breadcrumbLink.path">
+      {{ breadcrumbLink.label }}
+    </a>
+    <span *ngIf="!breadcrumbLink.path">{{ breadcrumbLink.label }}</span>
+  </li>
+</ul>

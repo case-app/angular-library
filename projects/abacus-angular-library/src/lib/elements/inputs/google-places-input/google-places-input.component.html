@@ -1,0 +1,26 @@
+<div class="control">
+  <label for="google-places-input-{{ uniqueId }}"
+    >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
+  >
+  <div
+    class="input-wrapper"
+    [ngClass]="{ 'is-danger': showErrors && form.invalid }"
+  >
+    <input
+      type="text"
+      class="input"
+      id="google-places-input-{{ uniqueId }}"
+      name="place"
+      (setAddress)="setAddress($event)"
+      (keyup)="onKeyup($event)"
+      [options]="{
+        type: 'street_address',
+        componentRestrictions: { country: 'FR' }
+      }"
+      autocomplete="off"
+      placeholder="{{ placeholder }}"
+      angularGooglePlace
+    />
+    <p class="help" *ngIf="helpText">{{ helpText }}</p>
+  </div>
+</div>

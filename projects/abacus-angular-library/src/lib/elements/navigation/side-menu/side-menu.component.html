@@ -1,0 +1,40 @@
+<ul class="menu-list m-t-gutter">
+  <ng-container *ngFor="let menuItem of menuItems; let i = index">
+    <li *abcHasPermission="{ requireOr: menuItem.permissionOr }">
+      <!-- Direct link -->
+      <ng-container *ngIf="menuItem.routePath">
+        <a [routerLink]="menuItem.routePath" routerLinkActive="is-active">
+          <i class="icon m-r-md is-size-4" [ngClass]="menuItem.icon"></i>
+          <span class="p-l-xs">{{ menuItem.label }}</span>
+        </a>
+      </ng-container>
+
+      <!-- Sub list -->
+      <ng-container *ngIf="menuItem.items && menuItem.items.length">
+        <a (click)="toggleAccordion('accordion-' + i)" class="has-submenu">
+          <span>
+            <i class="icon m-r-md is-size-4" [ngClass]="menuItem.icon"></i>
+            <span class="p-l-xs">{{ menuItem.label }}</span>
+          </span>
+          <i
+            class="icon icon-chevron-down m-r-xs"
+            *ngIf="activeAccordion !== 'accordion-' + i"
+          ></i>
+          <i
+            class="icon icon-chevron-up m-r-xs"
+            *ngIf="activeAccordion === 'accordion-' + i"
+          ></i>
+        </a>
+      </ng-container>
+      <ul *ngIf="activeAccordion === 'accordion-' + i">
+        <ng-container *ngFor="let subItem of menuItem.items">
+          <li *abcHasPermission="{ requireOr: subItem.permissionOr }">
+            <a [routerLink]="subItem.routePath" routerLinkActive="is-active">
+              <span class="p-l-xs">{{ subItem.label }}</span>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </li>
+  </ng-container>
+</ul>

@@ -1,0 +1,26 @@
+<nav
+  class="pagination is-centered m-y-gutter  is-rounded"
+  role="navigation"
+  aria-label="pagination"
+  *ngIf="paginator.lastPage > 1"
+>
+  <!-- Page list -->
+  <ul class="pagination-list">
+    <li *ngIf="pageArray[0] > 1">
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+
+    <li
+      class="pagination-link"
+      (click)="goToPage(pageNumber)"
+      *ngFor="let pageNumber of pageArray"
+      [ngClass]="{ 'is-current': paginator.currentPage == pageNumber }"
+    >
+      <a duration="400">{{ pageNumber }}</a>
+    </li>
+
+    <li *ngIf="pageArray[pageArray.length - 1] < paginator.lastPage">
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+  </ul>
+</nav>

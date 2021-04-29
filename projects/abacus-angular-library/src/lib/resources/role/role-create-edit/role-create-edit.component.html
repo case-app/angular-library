@@ -1,0 +1,105 @@
+<div class="flex flex-mobile space-between align-center m-b-gutter">
+  <div class="left-part">
+    <h1 class="title is-2 is-light" *ngIf="mode === 'create'">
+      Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
+      {{ definition.nameSingular }}
+    </h1>
+    <h1 class="title is-2 is-light" *ngIf="mode === 'edit'">
+      Modifier {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
+      {{ definition.nameSingular }}
+    </h1>
+  </div>
+  <div class="right-part">
+    <button
+      class="button is-primary is-hidden-touch"
+      (click)="submit()"
+      [ngClass]="{ 'is-loading': loading }"
+    >
+      Enregistrer
+    </button>
+    <button
+      class="button is-primary is-rounded is-hidden-desktop"
+      (click)="submit()"
+      [ngClass]="{ 'is-loading': loading }"
+    >
+      <i class="icon icon-save"></i>
+    </button>
+  </div>
+</div>
+
+<section>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="card">
+      <div class="columns">
+        <div class="column">
+          <p>
+            Attention : Changer le nom ou l'indentifiant d'un rôle existant
+            nécessite que tous les utilisateurs connectés se déconnectent et
+            reconnectent.
+          </p>
+        </div>
+      </div>
+      <!-- Fields -->
+      <div class="columns flex flex-wrap">
+        <ng-container *ngFor="let field of resolvedFields">
+          <div class="column" [ngClass]="field.className" *ngIf="!field.hidden">
+            <abc-input
+              [type]="field.inputType"
+              [initialValue]="field.initialValue"
+              [searchResources]="field.searchResources"
+              [maxSelectedItems]="field.maxSelectedItems"
+              [selectOptions]="field.selectOptions"
+              [label]="field.label"
+              [placeholder]="field.placeholder"
+              [validators]="field.validators"
+              [showErrors]="showErrors"
+              (valueChanged)="onValueChanged($event, field)"
+            ></abc-input>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Permissions -->
+      <div class="columns">
+        <div class="column m-y-lg">
+          <h2 class="title is-5">Permissions</h2>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <!-- Mass selection -->
+          <a
+            class="small-meta mass-selection-button has-text-grey-dark"
+            (click)="selectAll()"
+            >Tout sélectionner</a
+          >
+          <a
+            class="small-meta mass-selection-button has-text-grey-dark"
+            (click)="selectNone()"
+            >Déséléctionner tout</a
+          >
+        </div>
+      </div>
+
+      <div class="columns flex-wrap">
+        <div
+          class="column is-20-percent"
+          *ngFor="let permission of permissions"
+        >
+          <div class="control">
+            <label
+              class="checkbox fake-checkbox"
+              [ngClass]="{
+                'is-checked': permission.selected
+              }"
+              (click)="toggleSelected(permission)"
+              >{{ permission.name }}
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

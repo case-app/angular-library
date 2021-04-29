@@ -1,0 +1,32 @@
+<div
+  class="dropdown pull-right"
+  [ngClass]="{ 'is-active': isActive }"
+  *ngIf="this.links && this.links.length"
+>
+  <div class="dropdown-trigger">
+    <a
+      class="text-is-dark more"
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
+      (click)="isActive = !isActive"
+    >
+      <span>
+        <i class="icon icon-more-vertical is-size-4 has-text-black"></i>
+      </span>
+    </a>
+  </div>
+  <div class="dropdown-menu drop--left" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <ng-container *ngFor="let link of links">
+        <a
+          (click)="link.action()"
+          [title]="link.title"
+          class="dropdown-item"
+          [ngClass]="link.className"
+        >
+          {{ link.label }}
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<ng-container *ngIf="parsedAddress && parsedAddress.addressName">
+  <a
+    target="_blank"
+    class="has-text-black"
+    href="http://maps.google.com/?q={{ parsedAddress.streetNumber }}+{{
+      parsedAddress.route
+    }}+{{ parsedAddress.postalCode }}+{{ parsedAddress.locality }}"
+    *ngIf="openOnGoogleMapsLink"
+  >
+    <ng-container *ngIf="parsedAddress.streetNumber"
+      >{{ parsedAddress.streetNumber }}&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.route"
+      >{{ parsedAddress.route }},&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.postalCode"
+      >{{ parsedAddress.postalCode }}&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.locality">{{
+      parsedAddress.locality
+    }}</ng-container>
+    <ng-container
+      *ngIf="
+        !parsedAddress.streetNumber &&
+        !parsedAddress.route &&
+        !parsedAddress.postalCode &&
+        !parsedAddress.locality
+      "
+      >{{ parsedAddress.addressName }}</ng-container
+    >
+  </a>
+  <span *ngIf="!openOnGoogleMapsLink">
+    <ng-container *ngIf="parsedAddress.streetNumber"
+      >{{ parsedAddress.streetNumber }}&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.route"
+      >{{ parsedAddress.route }},&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.postalCode"
+      >{{ parsedAddress.postalCode }}&nbsp;</ng-container
+    >
+    <ng-container *ngIf="parsedAddress.locality">{{
+      parsedAddress.locality
+    }}</ng-container>
+    <ng-container
+      *ngIf="
+        !parsedAddress.streetNumber &&
+        !parsedAddress.route &&
+        !parsedAddress.postalCode &&
+        !parsedAddress.locality
+      "
+      >{{ parsedAddress.addressName }}</ng-container
+    >
+  </span>
+</ng-container>

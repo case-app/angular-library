@@ -1,0 +1,25 @@
+.card-user {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(flex-start);
+
+  + .card-user {
+    margin-top: 7.5px;
+  }
+
+  div {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(flex-start);
+    @include justify-content(center);
+    padding-left: $column-gap;
+
+    span {
+      &:last-child {
+        font-size: 1.1rem;
+
+        color: $grey-light;
+      }
+    }
+  }
+}

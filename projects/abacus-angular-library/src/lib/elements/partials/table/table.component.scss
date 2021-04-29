@@ -1,0 +1,9 @@
+@import './../../../styles/variables';
+@import './../../../../../../../node_modules/bulma/sass/utilities/_all.sass';
+@import './../../../styles/commons/mixins';
+
+abc-image-yield {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(flex-start);
+}

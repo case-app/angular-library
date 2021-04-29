@@ -1,0 +1,51 @@
+@import './../../../styles/variables';
+@import './../../../styles/commons/mixins';
+
+.list {
+  position: absolute;
+  height: auto;
+  min-width: 100%;
+  padding: #{$gap / 2} 0;
+  z-index: 6;
+  > * {
+    padding: 6px $column-gap;
+    @include inline-flex;
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+    width: 100%;
+  }
+}
+
+.fake-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &.label-danger {
+    color: $danger;
+  }
+  &.is-checked .checkmark {
+    background-color: $light;
+    box-shadow: 0 0 0 4px $link inset;
+    &:after {
+      display: block;
+    }
+  }
+  &.is-checked:focus .checkmark {
+    box-shadow: 0 0 0 4px $link inset;
+  }
+  &:focus .checkmark {
+    box-shadow: 0 0 0 4px $grey-light inset;
+  }
+  &:hover .checkmark {
+    box-shadow: 0 0 0 4px $grey-light inset;
+  }
+  &.is-checked:hover .checkmark {
+    box-shadow: 0 0 0 4px $link inset;
+  }
+}

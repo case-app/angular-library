@@ -1,0 +1,120 @@
+//__ Theme
+
+// Themes
+// @import './themes/green';
+// @import './themes/dark-blue';
+// @import './themes/sun';
+// @import './themes/dark-white';
+@import './themes/purple';
+
+// Colors
+
+$black: #263045 !default; // Overload
+$white: #fff !default; // Overload
+
+$dark: $black !default; // Overload
+$light: $white !default; // Overload
+
+$grey: #8798ad !default;
+
+$black-bis: $dark !default;
+$black-ter: $dark !default;
+$grey-darker: $dark !default;
+$grey-dark: #7e6d72;
+$grey-light: #b0bac9 !default;
+$grey-lighter: #e9eeff !default;
+$white-ter: $light !default;
+$white-bis: $light !default;
+
+$link: #5065ff !default; // Overload
+$link-light: #dfe5ff !default; //#eff2ff !default;
+$link-lighter: #f9faff !default;
+
+$link-alpha10: rgba($link, 0.1) !default;
+$link-alpha07: rgba($link, 0.07) !default;
+$link-alpha03: rgba($link, 0.03) !default;
+
+$primary: $link !default; // Overload
+$success: $link !default; // Overload
+
+$info: $link-light !default; // Overload
+$info-light: $link-light !default;
+$info-lighter: $link-lighter !default;
+
+$warning: #ff9d51 !default;
+$warning-light: #fceee3 !default;
+$warning-lighter: #fcf5f0 !default;
+
+$danger: #f05c22 !default;
+$danger-light: #f8ede9 !default;
+$danger-lighter: #fffbfa !default;
+
+$border-color-input: $link-alpha10 !default;
+$border-color: $grey-lighter !default;
+
+// Blocks
+$shadow: 0 10px 20px 0 rgba($dark, 0.07) !default;
+
+// fonts
+$bw-base-font-size: 1.8rem;
+
+// Typography
+$family-sans-serif: 'Rubik', sans-serif !default;
+$family-monospace: 'Rubik', sans-serif !default;
+$family-alt: 'Rubik', sans-serif !default;
+
+$size-1: 4.2rem !default;
+
+$size-2: 2.8rem !default;
+$size-2-alt: 3.4rem !default;
+$size-3: 2.4rem !default;
+$size-4: 2.1rem !default;
+$size-5: 1.5rem !default;
+$size-6: 1.3rem !default;
+$size-7: 1.2rem !default;
+$size-8: 1.1rem !default;
+
+$title-size: 3.4rem !default;
+$subtitle-size: 2.6rem !default;
+
+$title-weight: 400 !default;
+$title-weight-bold: 700 !default;
+
+$subtitle-weight: 400 !default;
+
+$weight-light: 100 !default;
+$weight-normal: 400 !default;
+$weight-bold: 700 !default;
+$weight-black: 900 !default;
+
+// Body
+$body-size: 18px !default;
+
+// Grid
+$gap: 30px !default;
+$column-gap: 15px !default;
+
+// Responsiveness
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$small-mobile: 375px !default;
+$tablet: 768px !default;
+$desktop: 1000px !default;
+$widescreen: 1188px !default;
+$fullhd: 1458px !default;
+
+//_ helpers
+
+$side-nav-background: $white !default;
+$nav-item-hover: $link-light !default;
+$nav-item-color: $grey !default;
+
+$field-background: $light !default;
+$field-background-hover: $light !default;
+$field-background-active: $light !default;
+$label-color: $grey !default;
+$placeholder: $grey-lighter !default;
+$field-border-focus: $link !default;
+
+$field-height: 45px !default;
+
+$card-color: $black !default;
