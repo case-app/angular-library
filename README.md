@@ -5,5 +5,5 @@ This project contains the [abacus-angular-library](https://www.npmjs.com/package
 ## Install
 
 ```bash
-npm i
+npm install
 ```
