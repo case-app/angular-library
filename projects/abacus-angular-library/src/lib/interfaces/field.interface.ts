@@ -5,6 +5,7 @@ import { ValidatorFn } from '@angular/forms'
 export interface Field {
   // Optional unique identifier if needed to add a FieldSpecialRule on it.
   id?: string
+  properties: { [key: string]: string }
 
   label: string
   placeholder?: string
@@ -16,8 +17,6 @@ export interface Field {
 
   validators: ValidatorFn[]
   editValidators?: ValidatorFn[]
-
-  properties?: { [key: string]: string }
 
   // Sometimes we are sending the field data as a property but we fetch it as a different prop,usually for relations
   // Ex: we send as user.positionId but we get it as user.position.id. The key is the item property

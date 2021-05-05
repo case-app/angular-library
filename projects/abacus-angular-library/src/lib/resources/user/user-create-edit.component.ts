@@ -6,13 +6,12 @@ import { AbcCreateEditComponent } from '../../components/abc-create-edit.compone
 import { InputType } from '../../enums/input-type.enum'
 import { Field } from '../../interfaces/field.interface'
 import { ResourceDefinition } from '../../interfaces/resource-definition.interface'
+import { Role } from '../../interfaces/resources/role.interface'
 import { BreadcrumbService } from '../../services/breadcrumb.service'
 import { FlashMessageService } from '../../services/flash-message.service'
 import { ResourceService } from '../../services/resource.service'
-
 import { abcCreateEditTemplate } from '../../templates/abc-create-edit.template'
 import { userDefinition } from './user.definition'
-import { UserFieldsGenerator } from './user.fields'
 
 @Component({
   template: abcCreateEditTemplate
@@ -26,7 +25,84 @@ export class UserCreateEditComponent
   // EditMyself only : Changing user's own email makes token obsolete.
   emailChanged = false
 
-  fields: Field[]
+  fields: Field[] = [
+    {
+      id: 'name',
+      label: 'Nom',
+      properties: {
+        value: 'name'
+      },
+      className: 'p-x-0-mobile is-6',
+      inputType: InputType.Text,
+      validators: [Validators.required]
+    },
+    {
+      id: 'roleId',
+      label: `Rôle`,
+      placeholder: `Choisir le rôle du collaborateur...`,
+      properties: { value: 'roleId' },
+      retrievedItemProperties: {
+        roleId: 'role.id'
+      },
+      inputType: InputType.Select,
+      selectOptions: () =>
+        this.customResourceService
+          .list('roles', { withoutPagination: true })
+          .toPromise()
+          .then((roleRes: Role[]) =>
+            roleRes.map((r) => ({
+              label: r.displayName,
+              value: r.id.toString()
+            }))
+          ),
+      className: 'p-x-0-mobile is-6',
+      validators: [Validators.required]
+    },
+    {
+      id: 'email',
+      label: 'Email',
+      properties: {
+        value: 'email'
+      },
+      className: 'p-x-0-mobile is-6',
+      inputType: InputType.Email,
+      validators: [Validators.required, Validators.email]
+    },
+    {
+      label: 'Mot de passe',
+      properties: {
+        value: 'password'
+      },
+      className: 'p-x-0-mobile is-6',
+      inputType: InputType.Password,
+      validators: [Validators.required],
+      editValidators: []
+    },
+    {
+      label: 'Avatar',
+      placeholder: 'Choisir un fichier image',
+      properties: { value: 'image' },
+      className: 'p-x-0-mobile is-6',
+      inputType: InputType.Image,
+      validators: []
+    },
+    {
+      label: 'Actif',
+      helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
+      properties: { value: 'isActive' },
+      initialValue: { value: false },
+      className: 'p-x-0-mobile is-6 aligned-checkbox',
+      inputType: InputType.Checkbox,
+      validators: []
+    },
+    {
+      label: 'Couleur',
+      properties: { value: 'color' },
+      className: 'p-x-0-mobile is-6',
+      inputType: InputType.ColorPicker,
+      validators: [Validators.required]
+    }
+  ]
 
   constructor(
     formBuilder: FormBuilder,
@@ -39,7 +115,7 @@ export class UserCreateEditComponent
     private customFlashMessageService: FlashMessageService,
     private customRouter: Router,
     private customActivatedRoute: ActivatedRoute,
-    private fieldsGenerator: UserFieldsGenerator
+    private customResourceService: ResourceService
   ) {
     super(
       formBuilder,
@@ -53,8 +129,6 @@ export class UserCreateEditComponent
   }
 
   ngOnInit() {
-    this.fields = this.fieldsGenerator.userFields
-
     if (this.isEditMyself) {
       this.initUserEditMyselfView()
     } else {
