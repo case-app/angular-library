@@ -10,7 +10,7 @@ export const userDefinition: ResourceDefinition = {
   gender: Gender.Masculine,
   slug: 'users',
   path: 'users',
-  hasDetailPage: true,
+  hasDetailPage: false,
   hasListPage: true,
   buttons: [LinkType.CREATE],
   defaultLink: LinkType.DETAIL,

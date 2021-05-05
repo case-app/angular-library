@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build abacus-angular-library",
-    "build:watch": "ng build abacus-angular-library --watch",
+    "build": "ng build abacus-angular-library --prod",
+    "build:watch": "ng build abacus-angular-library --prod --watch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
