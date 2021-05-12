@@ -2,17 +2,18 @@ import {
   Component,
   ElementRef,
   Inject,
+  Input,
   OnInit,
   Renderer2,
   ViewChild
 } from '@angular/core'
 import { Power2, TweenLite } from 'gsap'
-import * as moment from 'moment'
 
+import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
+import { MenuItem } from '../../../interfaces/menu-item.interface'
+import { User } from '../../../interfaces/resources/user.interface'
 import { AuthService } from '../../../services/auth.service'
 import { EventService } from '../../../services/event.service'
-import { User } from '../../../interfaces/resources/user.interface'
-import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
 
 @Component({
   selector: 'abc-touch-menu',
@@ -20,6 +21,7 @@ import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
   styleUrls: ['./touch-menu.component.scss']
 })
 export class TouchMenuComponent implements OnInit {
+  @Input() menuItems: MenuItem[]
   currentUser: User
   showMenu: boolean
   storagePath: string = this.config.storagePath
@@ -29,21 +31,9 @@ export class TouchMenuComponent implements OnInit {
   showUserMenu: boolean
   showLinkMenu: boolean
 
-  defaultMonitoringParams = {
-    dateFrom: moment()
-      .subtract(3, 'month')
-      .startOf('month')
-      .format('YYYY-MM-DD'),
-    dateTo: moment().format('YYYY-MM-DD')
-  }
-
-  defaultDaysOffParams = {
-    year: moment().format('YYYY')
-  }
-
   @ViewChild('menu', { static: false }) menuEl: ElementRef
   @ViewChild('hidingLayer', { static: false }) hidingLayerEl: ElementRef
-  @ViewChild('menuItems', { static: false }) menuItemsEl: ElementRef
+  @ViewChild('menuItemsEl', { static: false }) menuItemsEl: ElementRef
 
   constructor(
     private authService: AuthService,
@@ -57,7 +47,7 @@ export class TouchMenuComponent implements OnInit {
       this.currentUser = userRes
     })
 
-    // CLose menus on changing route
+    // Close menus on changing route.
     this.eventService.routeChanged.subscribe(() => {
       if (this.showMenu) {
         this.closeMenu()

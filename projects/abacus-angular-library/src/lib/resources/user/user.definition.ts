@@ -1,6 +1,5 @@
 import { Gender } from '../../enums/gender.enum'
 import { LinkType } from '../../enums/link-type.enum'
-import { YieldType } from '../../enums/yield-type.enum'
 import { ResourceDefinition } from '../../interfaces/resource-definition.interface'
 
 export const userDefinition: ResourceDefinition = {
@@ -8,6 +7,7 @@ export const userDefinition: ResourceDefinition = {
   nameSingular: 'collaborateur',
   namePlural: 'collaborateurs',
   gender: Gender.Masculine,
+  mainIdentifier: 'name',
   slug: 'users',
   path: 'users',
   hasDetailPage: false,

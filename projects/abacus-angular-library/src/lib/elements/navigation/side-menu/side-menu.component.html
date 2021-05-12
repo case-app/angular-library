@@ -25,16 +25,16 @@
             *ngIf="activeAccordion === 'accordion-' + i"
           ></i>
         </a>
+        <ul *ngIf="activeAccordion === 'accordion-' + i">
+          <ng-container *ngFor="let subItem of menuItem.items">
+            <li *abcHasPermission="{ requireOr: subItem.permissionsOr }">
+              <a [routerLink]="subItem.routePath" routerLinkActive="is-active">
+                <span class="p-l-xs">{{ subItem.label }}</span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
       </ng-container>
-      <ul *ngIf="activeAccordion === 'accordion-' + i">
-        <ng-container *ngFor="let subItem of menuItem.items">
-          <li *abcHasPermission="{ requireOr: subItem.permissionsOr }">
-            <a [routerLink]="subItem.routePath" routerLinkActive="is-active">
-              <span class="p-l-xs">{{ subItem.label }}</span>
-            </a>
-          </li>
-        </ng-container>
-      </ul>
     </li>
   </ng-container>
 </ul>
