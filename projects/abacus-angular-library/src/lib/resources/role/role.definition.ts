@@ -7,6 +7,7 @@ export const roleDefinition: ResourceDefinition = {
   nameSingular: 'rôle',
   namePlural: 'rôles',
   gender: Gender.Masculine,
+  mainIdentifier: 'displayName',
   slug: 'roles',
   hasDetailPage: false,
   hasListPage: true,

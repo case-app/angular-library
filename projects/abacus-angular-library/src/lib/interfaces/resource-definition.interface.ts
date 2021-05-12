@@ -3,7 +3,6 @@ import { LinkType } from '../enums/link-type.enum'
 import { ActionButton } from './action-button.interface'
 import { DropdownLink } from './dropdown-link.interface'
 import { KeyNumber } from './key-number.interface'
-import { Yield } from './yield.interface'
 
 export interface ResourceDefinition {
   title: string
@@ -22,6 +21,9 @@ export interface ResourceDefinition {
   buttons: LinkType[]
 
   defaultLink: LinkType
+
+  // Property name that is used to define the resource (ex: name, title, label...).
+  mainIdentifier: string
 
   // Prevent delete if resource has children that will generate a Foreign Key error.
   childrenThatPreventDelete?: {

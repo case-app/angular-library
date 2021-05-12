@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts'
 import { AbcChartComponent } from './components/abc-chart.component'
 import { AbcCreateEditComponent } from './components/abc-create-edit.component'
 import { AbcDatepickerComponent } from './components/abc-datepicker.component'
+import { AbcDetailComponent } from './components/abc-detail.component'
 import { AbcListComponent } from './components/abc-list.component'
 import { HasPermissionDirective } from './directives/has-permission.directive'
 import { AbcInputComponent } from './elements/inputs/abc-input/abc-input.component'
@@ -111,7 +112,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     // Components.
     AbcCreateEditComponent,
     AbcListComponent,
-    AbcCreateEditComponent,
+    AbcDetailComponent,
     AbcChartComponent,
     AbcDatepickerComponent,
 
@@ -213,6 +214,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     // Components.
     AbcCreateEditComponent,
     AbcListComponent,
+    AbcDetailComponent,
     AbcCreateEditComponent,
     AbcChartComponent,
     AbcDatepickerComponent,

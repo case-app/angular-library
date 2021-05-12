@@ -63,6 +63,7 @@ export { ViewportService } from './lib/services/viewport.service'
 // Components.
 export { AbcCreateEditComponent } from './lib/components/abc-create-edit.component'
 export { AbcListComponent } from './lib/components/abc-list.component'
+export { AbcDetailComponent } from './lib/components/abc-detail.component'
 export { AbcChartComponent } from './lib/components/abc-chart.component'
 export { AbcDatepickerComponent } from './lib/components/abc-datepicker.component'
 
