@@ -20,6 +20,7 @@ import { ResourceService } from '../services/resource.service'
 export class AbcListComponent {
   definition: ResourceDefinition
   paginator: Paginator<any>
+  createResourcePermission: string
 
   filters: Filter[]
   resolvedFilters: Filter[]
@@ -41,6 +42,7 @@ export class AbcListComponent {
   ) {}
 
   async initListView() {
+    this.createResourcePermission = `add${this.classify(this.definition.slug)}`
     this.resolvedFilters = await this.resolveFilters(this.filters)
 
     this.activatedRoute.queryParams.subscribe(async (queryParams) => {
@@ -229,5 +231,16 @@ export class AbcListComponent {
         }
       })
     }
+  }
+
+  classify(text: string): string {
+    const string = text.replace(
+      /^([A-Z])|[\s-_]+(\w)/g,
+      function (_match, p1, p2) {
+        if (p2) return p2.toUpperCase()
+        return p1.toLowerCase()
+      }
+    )
+    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 }

@@ -1,6 +1,6 @@
 import { InputType } from '../enums/input-type.enum'
 import { SelectOption } from './select-option.interface'
-import { ValidatorFn } from '@angular/forms'
+import { ValidatorFn, Validators } from '@angular/forms'
 
 export interface Field {
   // Optional unique identifier if needed to add a FieldSpecialRule on it.
@@ -15,7 +15,11 @@ export interface Field {
 
   inputType: InputType
 
-  validators: ValidatorFn[]
+  required?: boolean
+
+  // Optional validators for fields.
+  validators?: ValidatorFn[]
+  createValidators?: ValidatorFn[]
   editValidators?: ValidatorFn[]
 
   // Sometimes we are sending the field data as a property but we fetch it as a different prop,usually for relations

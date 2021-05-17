@@ -6,7 +6,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  ValidatorFn
+  Validators
 } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Observable } from 'rxjs'
@@ -82,7 +82,7 @@ export class AbcCreateEditComponent {
       .then((itemRes) => itemRes)
   }
 
-  // Return a promise of an array of filters with all async items retrieved.
+  // Return a promise of an array of fields with all async items retrieved.
   async resolveFields(fields: Field[]): Promise<Field[]> {
     const asyncFieldPromises: Promise<any>[] = []
 
@@ -91,10 +91,16 @@ export class AbcCreateEditComponent {
     }
 
     fields.forEach((field: Field) => {
-      field.validators =
-        this.mode === 'edit' && field.editValidators
-          ? field.editValidators
-          : field.validators
+      if (field.createValidators && field.editValidators) {
+        field.validators =
+          this.mode === 'create' ? field.createValidators : field.editValidators
+      } else if (!field.validators) {
+        field.validators = []
+      }
+
+      if (field.required) {
+        field.validators.push(Validators.required)
+      }
 
       if (typeof field.selectOptions === 'function') {
         asyncFieldPromises.push(
@@ -158,19 +164,16 @@ export class AbcCreateEditComponent {
         : null
     }
 
-    // Set validators
-    const validators: ValidatorFn[] =
-      this.mode === 'edit' && field.editValidators
-        ? field.editValidators
-        : field.validators
-
     // If the field is an array, create a FormArray.
     return Array.isArray(field.initialValue[fieldProp])
       ? this.formBuilder.array(
           field.initialValue[fieldProp] as any[],
-          validators
+          field.validators
         )
-      : this.formBuilder.control(field.initialValue[fieldProp], validators)
+      : this.formBuilder.control(
+          field.initialValue[fieldProp],
+          field.validators
+        )
   }
 
   setBreadcrumbs() {

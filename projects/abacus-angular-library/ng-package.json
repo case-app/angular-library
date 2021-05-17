@@ -2,7 +2,21 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/abacus-angular-library",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@auth0/angular-jwt": "@auth0/angular-jwt",
+      "@ckeditor/ckeditor5-angular": "@ckeditor/ckeditor5-angular0",
+      "angular-calendar": "angular-calendar",
+      "angular-calendar/date-adapters/date-fns": "angular-calendar/date-adapters/date-fns",
+      "angular-google-place": "angular-google-place",
+      "angular-mydatepicker": "angular-mydatepicker",
+      "ng2-charts": "ng2-charts",
+      "chart.js": "chart.js",
+      "http-status-codes": "http-status-codes",
+      "fast-levenshtein": "fast-levenshtein",
+      "@ckeditor/ckeditor5-build-classic": "@ckeditor/ckeditor5-build-classic",
+      "gsap": "gsap"
+    }
   },
   "whitelistedNonPeerDependencies": [
     "tslib",
