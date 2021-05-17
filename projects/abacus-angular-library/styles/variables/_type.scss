@@ -1,0 +1,43 @@
+// Typography
+$bw-base-font-size: 1.8rem;
+
+$family-sans-serif: 'Rubik', sans-serif !default;
+$family-monospace: 'Rubik', sans-serif !default;
+$family-alt: 'Rubik', sans-serif !default;
+
+$size-1: 4.2rem !default;
+
+$size-2: 2.8rem !default;
+$size-2-alt: 3.4rem !default;
+$size-3: 2.4rem !default;
+$size-4: 2.1rem !default;
+$size-5: 1.5rem !default;
+$size-6: 1.3rem !default;
+$size-7: 1.2rem !default;
+$size-8: 1.1rem !default;
+
+$title-size: 3.4rem !default;
+$subtitle-size: 2.6rem !default;
+
+$title-weight: 400 !default;
+$title-weight-bold: 700 !default;
+
+$subtitle-weight: 400 !default;
+
+$weight-light: 100 !default;
+$weight-normal: 400 !default;
+$weight-bold: 700 !default;
+$weight-black: 900 !default;
+
+.is-light {
+  font-weight: 300;
+}
+
+.is-bold,
+strong,
+b {
+  font-weight: 500;
+}
+span.highlighted {
+  color: red !important;
+}

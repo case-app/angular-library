@@ -1,0 +1,27 @@
+//controls
+$input-shadow: none !default;
+$control-padding-vertical: 0.375em !default;
+$control-padding-horizontal: #{$gap / 2} !default;
+$size-large: 3.2rem !default;
+$input-focus-box-shadow-size: 0px 11px 44px;
+$input-focus-box-shadow-color: rgba($black-ter, 0.055);
+$input-hover-border-color: rgba($black-ter, 0.05);
+$input-focus-border-color: rgba($black-ter, 0.1);
+$input-arrow: $primary;
+//shared
+$input-background-color: $grey-light;
+$input-placeholder-color: rgba($black-ter, 0.5) !default;
+$input-color: $black !default;
+$input-focus-box-shadow-color: $black !default;
+$input-radius: 0 !default;
+
+//Custom variables
+$field-background: $light !default;
+$field-background-hover: $light !default;
+$field-background-active: $light !default;
+
+$field-border-focus: $link !default;
+$field-height: 45px !default;
+
+$label-color: $grey !default;
+$placeholder: $grey-lighter !default;

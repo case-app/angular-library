@@ -1,30 +1,14 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500');
-
 // Variables
-@import './variables';
+@import './variables/all';
 
 // Bulma
 @import '../../../bulma/bulma';
-// TODO: FIXME: error on compilation when calling bulma tooltip.
-// @import '../../../../../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css';
 
 // Angular calendar
 @import '../../../angular-calendar/scss/angular-calendar';
 
 // Mixins & helpers
-@import './commons/helpers';
-@import './commons/mixins';
-
-// commons
-@import './commons/buttons';
-@import './commons/cards';
-@import './commons/forms';
-@import './commons/grid';
-@import './commons/icons';
-@import './commons/lists';
-@import './commons/nav';
-@import './commons/type';
+@import './helpers/helpers';
 
 // Components
 @import './components/buttons';
