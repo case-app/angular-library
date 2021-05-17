@@ -16,12 +16,10 @@ $input-focus-box-shadow-color: $black !default;
 $input-radius: 0 !default;
 
 //Custom variables
-$field-background: $light !default;
-$field-background-hover: $light !default;
-$field-background-active: $light !default;
-
+$field-background: $white-bis !default;
+$field-background-hover: $white-bis !default;
+$field-background-active: $white-bis !default;
+$placeholder: #8d929d !default;
+$field-border: $grey-light !default;
+$border: $grey-light !default;
 $field-border-focus: $link !default;
-$field-height: 45px !default;
-
-$label-color: $grey !default;
-$placeholder: $grey-lighter !default;

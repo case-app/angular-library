@@ -8,15 +8,19 @@
 // @import './../themes/purple';
 
 // variables
-@import './fonts';
-@import './colors';
-@import './grid';
+@import 'fonts';
+@import 'colors';
+@import 'grid';
 
-@import './buttons';
-@import './cards';
-@import './forms';
-@import './grid';
-@import './icons';
-@import './lists';
-@import './nav';
-@import './type';
+@import 'buttons';
+@import 'cards';
+@import 'generic';
+@import 'grid';
+@import 'icons';
+@import 'lists';
+@import 'forms';
+@import 'nav';
+@import 'type';
+@import 'notifications';
+@import 'spacing';
+@import 'tags';
