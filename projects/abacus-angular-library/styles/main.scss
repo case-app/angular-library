@@ -5,12 +5,12 @@
 @import './variables';
 
 // Bulma
-@import '../../../node_modules/bulma/bulma.sass';
+@import '../../../bulma/bulma';
 // TODO: FIXME: error on compilation when calling bulma tooltip.
 // @import '../../../../../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css';
 
 // Angular calendar
-@import '../../../node_modules/angular-calendar/scss/angular-calendar';
+@import '../../../angular-calendar/scss/angular-calendar';
 
 // Mixins & helpers
 @import './commons/helpers';
@@ -41,7 +41,3 @@
 @import './components/spinner';
 @import './components/table';
 @import './components/type';
-
-body {
-  background-color: red !important;
-}
