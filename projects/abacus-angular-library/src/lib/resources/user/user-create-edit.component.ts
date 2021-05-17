@@ -18,7 +18,8 @@ import { userDefinition } from './user.definition'
 })
 export class UserCreateEditComponent
   extends AbcCreateEditComponent
-  implements OnInit, OnDestroy {
+  implements OnInit, OnDestroy
+{
   definition: ResourceDefinition = userDefinition
   isEditMyself: boolean
 
@@ -34,7 +35,7 @@ export class UserCreateEditComponent
       },
       className: 'p-x-0-mobile is-6',
       inputType: InputType.Text,
-      validators: [Validators.required]
+      required: true
     },
     {
       id: 'roleId',
@@ -56,7 +57,7 @@ export class UserCreateEditComponent
             }))
           ),
       className: 'p-x-0-mobile is-6',
-      validators: [Validators.required]
+      required: true
     },
     {
       id: 'email',
@@ -66,7 +67,8 @@ export class UserCreateEditComponent
       },
       className: 'p-x-0-mobile is-6',
       inputType: InputType.Email,
-      validators: [Validators.required, Validators.email]
+      required: true,
+      validators: [Validators.email]
     },
     {
       label: 'Mot de passe',
@@ -75,7 +77,7 @@ export class UserCreateEditComponent
       },
       className: 'p-x-0-mobile is-6',
       inputType: InputType.Password,
-      validators: [Validators.required],
+      createValidators: [Validators.required],
       editValidators: []
     },
     {
@@ -83,8 +85,7 @@ export class UserCreateEditComponent
       placeholder: 'Choisir un fichier image',
       properties: { value: 'image' },
       className: 'p-x-0-mobile is-6',
-      inputType: InputType.Image,
-      validators: []
+      inputType: InputType.Image
     },
     {
       label: 'Actif',
@@ -92,15 +93,14 @@ export class UserCreateEditComponent
       properties: { value: 'isActive' },
       initialValue: { value: false },
       className: 'p-x-0-mobile is-6 aligned-checkbox',
-      inputType: InputType.Checkbox,
-      validators: []
+      inputType: InputType.Checkbox
     },
     {
       label: 'Couleur',
       properties: { value: 'color' },
       className: 'p-x-0-mobile is-6',
       inputType: InputType.ColorPicker,
-      validators: [Validators.required]
+      required: true
     }
   ]
 
