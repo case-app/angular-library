@@ -4,5 +4,11 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "assets": ["./assets"]
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "bulma",
+    "bulma-switch",
+    "bulma-tooltip"
+  ],
+  "assets": ["./assets", "./styles"]
 }
