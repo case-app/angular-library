@@ -9,7 +9,7 @@ export const roleFields: Field[] = [
       value: 'name'
     },
     inputType: InputType.Text,
-    validators: [Validators.required]
+    required: true
   },
   {
     label: 'Nom',
@@ -17,7 +17,7 @@ export const roleFields: Field[] = [
       value: 'displayName'
     },
     inputType: InputType.Text,
-    validators: [Validators.required]
+    required: true
   },
   {
     hidden: true,
@@ -27,7 +27,6 @@ export const roleFields: Field[] = [
     },
     selectOptions: [],
     inputType: InputType.MultiSelect,
-    validators: [],
     className: 'is-2'
   }
 ]

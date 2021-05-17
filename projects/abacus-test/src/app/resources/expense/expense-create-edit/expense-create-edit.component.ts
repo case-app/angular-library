@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { InputType } from '../../../../../../abacus/src/lib/enums/input-type.enum'
-import { Field } from '../../../../../../abacus/src/lib/interfaces/field.interface'
-import { ResourceDefinition } from '../../../../../../abacus/src/lib/interfaces/resource-definition.interface'
+
+import { InputType } from '../../../../../../abacus-angular-library/src/lib/enums/input-type.enum'
+import { Field } from '../../../../../../abacus-angular-library/src/lib/interfaces/field.interface'
+import { ResourceDefinition } from '../../../../../../abacus-angular-library/src/lib/interfaces/resource-definition.interface'
 import {
   AbcCreateEditComponent,
   abcCreateEditTemplate,
   BreadcrumbService,
   FlashMessageService,
   ResourceService
-} from '../../../../../../abacus/src/public-api'
-
+} from '../../../../../../abacus-angular-library/src/public-api'
 import { expenseDefinition } from '../expense.definition'
 
 @Component({
@@ -19,7 +19,8 @@ import { expenseDefinition } from '../expense.definition'
 })
 export class ExpenseCreateEditComponent
   extends AbcCreateEditComponent
-  implements OnInit {
+  implements OnInit
+{
   definition: ResourceDefinition = expenseDefinition
 
   fields: Field[] = [

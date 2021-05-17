@@ -56,5 +56,5 @@ routes.push(...(abcRoutes as Route[]))
 Import Abacus styles in your main styles.scss file :
 
 ```scss
-@import '../../abacus/src/lib/styles/main.scss';
+@import 'abacus-angular-library/styles/main';
 ```
