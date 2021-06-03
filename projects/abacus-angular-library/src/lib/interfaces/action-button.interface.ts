@@ -3,17 +3,13 @@ import { Params } from '@angular/router'
 export interface ActionButton {
   label: string
   icon?: string
-  className: string
-  permission: string
-  linkAction?: (
-    resource: any
-  ) => {
+  className?: string
+  permission?: string
+  linkAction?: (resource: any) => {
     path: string
-    queryParams: Params
+    queryParams?: Params
   }
-  patchAction?: (
-    resource: any
-  ) => {
+  patchAction?: (resource: any) => {
     resourceName: string
     id?: number | string
     suffix?: string
@@ -21,5 +17,5 @@ export interface ActionButton {
     successMessage: string
     errorMessage: string
   }
-  condition(resource: any): boolean
+  condition?: (resource: any) => boolean
 }

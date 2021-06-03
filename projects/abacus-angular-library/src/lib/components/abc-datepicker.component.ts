@@ -1,9 +1,6 @@
 import { Component } from '@angular/core'
-import {
-  IMyDate,
-  IMyDateModel,
-  IAngularMyDpOptions
-} from 'angular-mydatepicker'
+import { IAngularMyDpOptions, IMyDateModel } from 'angular-mydatepicker'
+import * as moment from 'moment'
 
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
@@ -16,34 +13,29 @@ export class AbcDatepickerComponent {
   }
 
   // Format YYYY-MM-DD to MyDatePicker format (today if date not specified)
+  // Format YYYY-MM-DD to MyDatePicker format (today if date not specified)
   formatStandardDate(
     dateString = new Date().toISOString().substring(0, 10)
-  ): { date: IMyDate } {
+  ): IMyDateModel {
     // In case of NULL dateString (!! Different than empty), we return null to make datepicker empty
     if (!dateString) {
       return null
     }
-    const spiltDateFrom = dateString.split('-')
     return {
-      date: {
-        year: parseInt(spiltDateFrom[0], 10),
-        month: parseInt(spiltDateFrom[1], 10),
-        day: parseInt(spiltDateFrom[2], 10)
-      }
+      isRange: false,
+      singleDate: { jsDate: moment(dateString, 'YYYY-MM-DD').toDate() },
+      dateRange: null
     }
   }
 
   // Format MyDatePicker format date to YYYY-MM-DD
   formatMyDatePickerDate(dateObject: IMyDateModel): string {
     return dateObject
-      ? `${
-          dateObject.singleDate.date.year
-        }-${dateObject.singleDate.date.month
+      ? `${dateObject.singleDate.date.year}-${dateObject.singleDate.date.month
           .toString()
-          .padStart(
-            2,
-            '0'
-          )}-${dateObject.singleDate.date.day.toString().padStart(2, '0')}`
+          .padStart(2, '0')}-${dateObject.singleDate.date.day
+          .toString()
+          .padStart(2, '0')}`
       : null
   }
 }

@@ -104,8 +104,9 @@ export class TableComponent implements OnInit {
       ) {
         this.definition.actionButtons.forEach((actionButton: ActionButton) => {
           if (
-            permissions.includes(actionButton.permission) &&
-            actionButton.condition(item)
+            (!actionButton.permission ||
+              permissions.includes(actionButton.permission)) &&
+            (!actionButton.condition || actionButton.condition(item))
           ) {
             item.actionButtons.push(actionButton)
           }
@@ -185,7 +186,7 @@ export class TableComponent implements OnInit {
 
     if (linkAction) {
       this.router.navigate([linkAction.path], {
-        queryParams: linkAction.queryParams
+        queryParams: linkAction.queryParams || {}
       })
     } else if (patchAction) {
       this.resourceService
