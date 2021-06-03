@@ -60,6 +60,7 @@ import { DateYieldComponent } from './elements/yields/date-yield/date-yield.comp
 import { DownloadYieldComponent } from './elements/yields/download-yield/download-yield.component'
 import { FileIconYieldComponent } from './elements/yields/file-icon-yield/file-icon-yield.component'
 import { ImageYieldComponent } from './elements/yields/image-yield/image-yield.component'
+import { NumberYieldComponent } from './elements/yields/number-yield/number-yield.component'
 import { ProgressBarYieldComponent } from './elements/yields/progress-bar-yield/progress-bar-yield.component'
 import { AbacusConfig } from './interfaces/abacus-config.interface'
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component'
@@ -164,6 +165,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     FileIconYieldComponent,
     ImageYieldComponent,
     ProgressBarYieldComponent,
+    NumberYieldComponent,
 
     // Pages.
     ForgotPasswordComponent,
@@ -267,6 +269,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     FileIconYieldComponent,
     ImageYieldComponent,
     ProgressBarYieldComponent,
+    NumberYieldComponent,
 
     // Pages.
     ForgotPasswordComponent,

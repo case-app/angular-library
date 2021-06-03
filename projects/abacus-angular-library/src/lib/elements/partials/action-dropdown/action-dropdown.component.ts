@@ -62,9 +62,12 @@ export class ActionDropdownComponent implements OnInit {
     })
   }
 
-  getLinkElement(
-    dropdownLink: DropdownLink
-  ): { label: string; title: string; action: () => void; className?: string } {
+  getLinkElement(dropdownLink: DropdownLink): {
+    label: string
+    title: string
+    action: () => void
+    className?: string
+  } {
     if (dropdownLink.type === LinkType.EDIT) {
       return {
         label: 'Modifier',
@@ -139,9 +142,8 @@ export class ActionDropdownComponent implements OnInit {
   @HostListener('document:click', ['$event.target'])
   onClick(target) {
     if (this.isActive) {
-      const dropdowns: NodeList = this.elementRef.nativeElement.querySelectorAll(
-        '.dropdown'
-      )
+      const dropdowns: NodeList =
+        this.elementRef.nativeElement.querySelectorAll('.dropdown')
       let clickedOut = true
       dropdowns.forEach((d: Node) => {
         if (d.contains(target)) {
