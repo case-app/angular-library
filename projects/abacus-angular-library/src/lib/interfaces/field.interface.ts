@@ -1,6 +1,7 @@
+import { ValidatorFn } from '@angular/forms'
+
 import { InputType } from '../enums/input-type.enum'
 import { SelectOption } from './select-option.interface'
-import { ValidatorFn, Validators } from '@angular/forms'
 
 export interface Field {
   // Optional unique identifier if needed to add a FieldSpecialRule on it.
@@ -8,12 +9,12 @@ export interface Field {
   properties: { [key: string]: string }
 
   label: string
+  inputType: InputType
+
   placeholder?: string
   helpText?: string
   hidden?: boolean
   className?: string
-
-  inputType: InputType
 
   required?: boolean
 
@@ -30,9 +31,8 @@ export interface Field {
   initialValue?: { [key: string]: any }
   forcedValue?: { [key: string]: any }
 
-  selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
-
   // Input-specific
+  selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
   searchResources?: string[]
   searchParams?: { [key: string]: string }
   maxSelectedItems?: number
