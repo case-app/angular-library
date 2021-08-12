@@ -1,6 +1,6 @@
-@import '../../styles/variables';
+@import '../../styles/variables/all';
 @import '../../../../node_modules/bulma/sass/utilities/_all.sass';
-@import '../../styles/commons/mixins';
+@import '../../styles/helpers/helpers';
 
 // .color-yield-wrapper class allow to display a color circle within a <td>
 .color-yield-wrapper {

@@ -25,7 +25,7 @@
 }
 
 th {
-  @extend .is-bold;
+  font-weight: $weight-bold;
 }
 table {
   font-size: $size-7;
@@ -71,9 +71,13 @@ h1,
 }
 
 .title--small {
-  @extend .label;
-  @extend .is-size-8;
-  @extend .m-b-0;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #303032;
+  padding-bottom: 5px;
+  display: inline-block;
+  font-size: $size-8;
+  margin-bottom: 0;
 }
 // Badges
 
@@ -235,4 +239,17 @@ button,
 .is-default,
 .is-default a {
   cursor: default;
+}
+
+.is-light {
+  font-weight: 300;
+}
+
+.is-bold,
+strong,
+b {
+  font-weight: 500;
+}
+span.highlighted {
+  color: red !important;
 }

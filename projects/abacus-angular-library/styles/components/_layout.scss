@@ -48,7 +48,7 @@ body {
   overflow: hidden;
   background: $main-background;
   color: $black;
-  font-size: 1.3rem;
+  font-size: $size-8;
 }
 
 .wrapper {
@@ -250,13 +250,7 @@ article {
 
 // Medias
 
-.avatar-sm {
-  width: 36px;
-  min-width: 36px;
-  max-width: 36px;
-  height: 36px;
-  min-height: 36px;
-  max-height: 36px;
+%avatarMainProps {
   border-radius: 50%;
 
   -webkit-border-radius: 50%;
@@ -272,12 +266,22 @@ article {
     background-color: $link;
     color: $light;
   }
+}
+.avatar-sm {
+  @extend %avatarMainProps
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
+
   &:not(.avatar-sm--number) {
     margin-top: 5px;
   }
 }
 .avatar-md {
-  @extend .avatar-sm;
+  @extend %avatarMainProps;
   width: 40px;
   min-width: 40px;
   max-width: 40px;

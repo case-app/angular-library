@@ -6,8 +6,8 @@
 }
 
 .dropdown-trigger:after {
-  @extend .icon;
-  @extend .icon-chevron-down;
+  @extend %icon;
+  content: $icon-chevron-down;
 }
 
 .navbar {

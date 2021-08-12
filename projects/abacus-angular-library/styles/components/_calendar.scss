@@ -40,11 +40,19 @@
 
       &:hover {
         &:before {
-          @extend .icon;
-          @extend .icon-plus;
-          @include flexbox;
-          @include align-items(center);
-          @include justify-content(center);
+          font-family: '#{$icomoon-font-family}' !important;
+          speak: none;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: $icon-plus;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-size: 3.3rem;
           position: absolute;
 

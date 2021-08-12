@@ -230,7 +230,7 @@ select {
 }
 
 a.dropdown-item {
-  font-size: 1.3rem;
+  font-size: $size-8;
   padding-right: 2rem;
   padding-left: 2rem;
 
@@ -452,7 +452,7 @@ select option:checked {
 
 .label,
 label {
-  font-size: 1.3rem;
+  font-size: $size-8;
   font-weight: 500;
   text-transform: uppercase;
   color: $label-color;
@@ -500,13 +500,13 @@ label {
   .currmonth {
     background: transparent !important;
     color: $black;
-    font-size: 1.3rem;
+    font-size: $size-8;
   }
   .prevmonth,
   .nextmonth {
     background: transparent !important;
     color: $grey-light;
-    font-size: 1.3rem;
+    font-size: $size-8;
   }
   .datevalue {
     width: 42px;
@@ -522,7 +522,7 @@ label {
     .highlight,
     .datevalue {
       color: $grey-light;
-      font-size: 1.3rem;
+      font-size: $size-8;
     }
   }
   .caltable {
@@ -534,12 +534,12 @@ label {
     background-color: $light !important;
 
     .headerbtncell .headerbtn {
-      @extend .icon;
-      @extend .icon-chevron-left;
+      @extend %icon;
+      content: $icon-chevron-left;
     }
     .headermonthtxt + .headerbtncell .headerbtn,
     .headeryeartxt + .headerbtncell .headerbtn {
-      @extend .icon-chevron-right;
+      content: $icon-chevron-right;
     }
 
     button,
@@ -593,13 +593,13 @@ label {
     }
 
     .mydpicon.icon-mydpcalendar {
-      @extend .icon;
-      @extend .icon-calendar;
+      @extend %icon;
+      content: $icon-calendar;
     }
   }
   .mydpicon.icon-mydpremove {
-    @extend .icon;
-    @extend .icon-x;
+    @extend %icon;
+    content: $icon-x;
     background-color: transparent;
   }
   table {
