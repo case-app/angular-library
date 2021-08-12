@@ -13,9 +13,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <span class="tag is-grey tag--event" *ngIf="!production">
-            <i
-              class="icon icon-info m-l-xs m-r-xs is-size-4 has-text-warning"
-            ></i>
+            <i class="icon icon-info ml-1 mr-1 is-size-4 has-text-warning"></i>
             <b>Pre-Production</b></span
           >
 
@@ -45,9 +43,7 @@
                   class="notification-item"
                   *ngFor="let notification of notifications"
                 >
-                  <div
-                    class="flex flex-wrap p-a-gutter justify-start align-center"
-                  >
+                  <div class="flex flex-wrap p-5 justify-start align-center">
                     <div class="notification-excerpt">
                       <ng-container *ngIf="!notification.linkPath">
                         <p>

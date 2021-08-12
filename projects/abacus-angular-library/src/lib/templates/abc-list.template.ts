@@ -1,6 +1,6 @@
 export const abcListTemplate = `
 <!-- Heading -->
-<div class="flex flex-mobile space-between align-center m-b-gutter">
+<div class="flex flex-mobile space-between align-center mb-5">
   <div class="left-part">
     <h1 class="title is-2 is-light">
       {{ definition.title }}
@@ -10,7 +10,7 @@ export const abcListTemplate = `
     <!-- Export button -->
     <a
       *ngIf="definition.buttons.indexOf(LinkType.EXPORT) > -1"
-      class="button is-link m-l-gutter is-hidden-touch"
+      class="button is-link ml-5 is-hidden-touch"
       routerLink="/{{ definition.path || definition.slug }}"
       [queryParams]="{ toXLS: 'true' }"
       queryParamsHandling="merge"
@@ -21,7 +21,7 @@ export const abcListTemplate = `
     <ng-container *abcHasPermission="createResourcePermission">
     <a
       *ngIf="definition.buttons.indexOf(LinkType.CREATE) > -1"
-      class="button is-primary m-l-gutter is-hidden-touch"
+      class="button is-primary ml-5 is-hidden-touch"
       routerLink="/{{ definition.path || definition.slug }}/create"
     >
       Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
@@ -29,7 +29,7 @@ export const abcListTemplate = `
     </a>
     <a
       *ngIf="definition.buttons.indexOf(LinkType.CREATE) > -1"
-      class="button is-rounded is-primary m-l-gutter is-hidden-desktop"
+      class="button is-rounded is-primary ml-5 is-hidden-desktop"
       routerLink="/{{ definition.path || definition.slug }}/create"
     >
       <i class="icon icon-plus"></i>
@@ -75,7 +75,7 @@ export const abcListTemplate = `
     <!-- Key numbers -->
     <div class="total total--alt is-hidden-mobile">
       <span
-        class="badge m-b-md m-t-lg"
+        class="badge mb-3 mt-6"
         [ngClass]="keyNumber.className"
         *ngFor="let keyNumber of definition.keyNumbers"
       >
@@ -86,7 +86,7 @@ export const abcListTemplate = `
       </span>
     </div>
   </div>
-  <div class="card p-a-0 has-table m-b-lg">
+  <div class="card p-0 has-table mb-6">
     <div class="table-responsive">
       <abc-table
         [items]="paginator.data"
@@ -106,7 +106,7 @@ export const abcListTemplate = `
   ></abc-pagination>
 </ng-container>
 
-<div *ngIf="loading" class="list-loading p-t-xl">
+<div *ngIf="loading" class="list-loading pt-7">
   <div></div>
   <div></div>
   <div></div>

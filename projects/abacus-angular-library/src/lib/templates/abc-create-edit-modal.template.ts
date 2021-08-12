@@ -42,7 +42,7 @@ export const abcCreateEditModalTemplate = `
     </div>
 
     <div class="columns">
-      <div class="column m-t-colgap p-b-0">
+      <div class="column mt-4 pb-0">
         <div class="flex flex-mobile align-stretch space-between">
           <button class="button" (click)="close()">Annuler</button>
           <button

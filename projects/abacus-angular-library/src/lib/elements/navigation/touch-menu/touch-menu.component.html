@@ -42,14 +42,14 @@
   <div class="hiding-layer" #hidingLayer></div>
   <div class="navbar-menu" id="create-dropdown" #menuItemsEl>
     <div class="navbar-end">
-      <ul class="menu-list m-t-gutter menu-list--top">
+      <ul class="menu-list mt-5 menu-list--top">
         <ng-container *ngFor="let menuItem of menuItems; let i = index">
           <li *abcHasPermission="{ requireOr: menuItem.permissionsOr }">
             <!-- Direct link -->
             <ng-container *ngIf="menuItem.routePath">
               <a [routerLink]="menuItem.routePath" routerLinkActive="is-active">
-                <i class="icon m-r-md is-size-4" [ngClass]="menuItem.icon"></i>
-                <span class="p-l-xs">{{ menuItem.label }}</span>
+                <i class="icon mr-3 is-size-4" [ngClass]="menuItem.icon"></i>
+                <span class="pl-1">{{ menuItem.label }}</span>
               </a>
             </ng-container>
 
@@ -60,18 +60,15 @@
                 class="has-submenu"
               >
                 <span>
-                  <i
-                    class="icon m-r-md is-size-4"
-                    [ngClass]="menuItem.icon"
-                  ></i>
-                  <span class="p-l-xs">{{ menuItem.label }}</span>
+                  <i class="icon mr-3 is-size-4" [ngClass]="menuItem.icon"></i>
+                  <span class="pl-1">{{ menuItem.label }}</span>
                 </span>
                 <i
-                  class="icon icon-chevron-down m-r-xs"
+                  class="icon icon-chevron-down mr-1"
                   *ngIf="activeAccordion !== 'accordion-' + i"
                 ></i>
                 <i
-                  class="icon icon-chevron-up m-r-xs"
+                  class="icon icon-chevron-up mr-1"
                   *ngIf="activeAccordion === 'accordion-' + i"
                 ></i>
               </a>
@@ -83,7 +80,7 @@
                       [routerLink]="subItem.routePath"
                       routerLinkActive="is-active"
                     >
-                      <span class="p-l-xs">{{ subItem.label }}</span>
+                      <span class="pl-1">{{ subItem.label }}</span>
                     </a>
                   </li>
                 </ng-container>
