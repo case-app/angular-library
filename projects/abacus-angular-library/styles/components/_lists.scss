@@ -1,8 +1,8 @@
 .list-separated {
   padding: $column-gap 0;
   border-bottom: 1px solid $border-color;
-  @include flexbox;
-  @include justify-content(space-between);
+  display: flex;
+  justify-content: space-between;
 
   > *:last-child {
     padding-left: $gap;

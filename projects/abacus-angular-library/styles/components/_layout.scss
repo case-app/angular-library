@@ -75,14 +75,14 @@ article {
 }
 
 .space-between {
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(center);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main__head {
-  @include flexbox;
-  @include align-items(center);
+  display: flex;
+  align-items: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
@@ -103,21 +103,21 @@ article {
 // IMG block
 
 .edit-mode {
-  @include flexbox;
-  @include align-items(center);
+  display: flex;
+  align-items: center;
 
   div {
-    @include flexbox;
-    @include align-items(center);
+    display: flex;
+    align-items: center;
     width: 100%;
     text-align: center;
-    @include justify-content(center);
+    justify-content: center;
   }
 }
 .remove-link {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box {
@@ -175,7 +175,7 @@ article {
 // Flexbox classes
 
 .flex {
-  @include flexbox;
+  display: flex;
   &:not(.flex-mobile) {
     @include mobile {
       display: unset;
@@ -184,68 +184,68 @@ article {
 }
 .flex-touch {
   @include touch {
-    @include flexbox;
+    display: flex;
   }
 }
 .flex-wrap-touch {
   @include touch {
-    @include flex-wrap(wrap);
+    flex-wrap: wrap;
   }
 }
 
 .flex-touch {
   @include touch {
-    @include flexbox;
+    display: flex;
   }
 }
 
 .dir-col-touch {
   @include touch {
-    @include flex-direction(column);
+    flex-direction: column;
   }
 }
 
 .wrap-touch {
   @include touch {
-    @include flex-wrap(wrap);
+    flex-wrap: wrap;
   }
 }
 .flex-wrap {
-  @include flex-wrap(wrap);
+  flex-wrap: wrap;
   &:not(.flex-wrap--mobile) {
     @include mobile {
-      @include flex-wrap(unset);
+      flex-wrap: unset;
     }
   }
 }
 .space-between {
-  @include justify-content(space-between);
-  @include align-items(center);
+  justify-content: space-between;
+  align-items: center;
 }
 
 .flex-end {
-  @include justify-content(flex-end);
+  justify-content: flex-end;
 }
 
 .flex-between {
-  @include justify-content(space-between);
+  justify-content: space-between;
 }
 
 .flex-column {
-  @include flex-direction(column);
+  flex-direction: column;
 }
 
 .justify-center {
-  @include justify-content(center);
+  justify-content: center;
 }
 .align-start {
-  @include align-items(start);
+  align-items: start;
 }
 .align-center {
-  @include align-items(center);
+  align-items: center;
 }
 .align-end {
-  @include align-items(flex-end);
+  align-items: flex-end;
 }
 
 // Medias
@@ -260,15 +260,15 @@ article {
   border: 1px solid $light;
   position: relative;
   &--number {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $link;
     color: $light;
   }
 }
 .avatar-sm {
-  @extend %avatarMainProps
+  @extend %avatarMainProps;
   width: 36px;
   min-width: 36px;
   max-width: 36px;
@@ -293,8 +293,8 @@ article {
   position: relative;
   z-index: 6;
   height: 100%;
-  @include inline-flex;
-  @include align-items(center);
+  display: inline-flex;
+  align-items: center;
 }
 
 @for $i from 1 through 6 {
@@ -312,8 +312,8 @@ article {
 
 .identity {
   height: 100%;
-  @include flexbox;
-  @include align-items(center);
+  display: flex;
+  align-items: center;
 
   a + a {
     padding-left: #{$column-gap / 2};
@@ -481,7 +481,7 @@ $bullet-colors: (
 }
 .flex-col-on-modal {
   .modal-content & {
-    @include flex-direction(column);
+    flex-direction: column;
   }
 }
 
@@ -517,9 +517,9 @@ $bullet-colors: (
   top: -14px;
   background-color: $primary;
 
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   > span {
     font-family: 'Rubik', sans-serif;

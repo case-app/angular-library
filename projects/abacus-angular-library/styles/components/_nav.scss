@@ -7,7 +7,7 @@
 
 .dropdown-trigger:after {
   @extend %icon;
-  content: $icon-chevron-down;
+  @extend .icon-chevron-down;
 }
 
 .navbar {
@@ -106,9 +106,9 @@
   }
   a {
     height: 94px;
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(flex-start);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -122,9 +122,9 @@
       width: 64px;
       min-width: 64px;
       background-color: $grey-lighter;
-      @include flexbox;
-      @include align-items(center);
-      @include justify-content(center);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.8rem;
       margin-right: 14px;
       border-radius: 32px;
@@ -134,7 +134,7 @@
       -o-border-radius: 32px;
     }
     span {
-      @include inline-flex;
+      display: inline-flex;
       width: calc(100% - 64px - 14px);
       color: $dark;
       font-weight: 500;
@@ -155,10 +155,10 @@
 .dropdown-trigger > a {
   width: 15px;
   height: 100%;
-  @include inline-flex;
+  display: inline-flex;
   box-sizing: content-box;
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
+  justify-content: center;
   padding-left: 9px;
 }
 
@@ -206,9 +206,9 @@
   top: 0;
   left: 306px;
   z-index: 33;
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include desktop {
     left: calc(25% - 1px);

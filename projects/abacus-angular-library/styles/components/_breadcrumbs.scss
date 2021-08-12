@@ -18,13 +18,13 @@ abc-breadcrumbs {
   }
 
   ul {
-    @include flexbox;
-    @include align-items(center);
+    display: flex;
+    align-items: center;
   }
 
   li {
-    @include inline-flex;
-    @include align-items(center);
+    display: inline-flex;
+    align-items: center;
 
     &:last-child a {
       color: inherit;

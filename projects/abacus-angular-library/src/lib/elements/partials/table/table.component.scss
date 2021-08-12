@@ -3,7 +3,7 @@
 @import './../../../../../styles/helpers/helpers';
 
 abc-image-yield {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(flex-start);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

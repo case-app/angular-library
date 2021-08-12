@@ -34,8 +34,8 @@
 //_ Fields
 .field.is-horizontal {
   .field-body {
-    @include flexbox;
-    @include align-items(center);
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -202,7 +202,7 @@ select {
       border: 0;
       color: $link;
       @include touch {
-        @include justify-content(center);
+        justify-content: center;
         width: 100%;
       }
     }
@@ -216,7 +216,7 @@ select {
   }
   .input-wrapper {
     max-width: 100%;
-    @include flexbox;
+    display: flex;
   }
 }
 
@@ -411,9 +411,9 @@ select option:checked {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  @include inline-flex;
-  @include align-items(center);
-  @include justify-content(center);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &.is-info {
     color: $info;
@@ -421,9 +421,9 @@ select option:checked {
   }
   > span,
   > i {
-    @include inline-flex;
-    @include align-items(center);
-    @include justify-content(center);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 2px 7px 0 7px;
     height: 100%;
 
@@ -436,7 +436,7 @@ select option:checked {
       padding: 0;
       width: 23px;
       padding-right: 3px;
-      @include justify-content(flex-end);
+      justify-content: flex-end;
     }
   }
   h1.title & {
@@ -535,11 +535,11 @@ label {
 
     .headerbtncell .headerbtn {
       @extend %icon;
-      content: $icon-chevron-left;
+      @extend .icon-chevron-left;
     }
     .headermonthtxt + .headerbtncell .headerbtn,
     .headeryeartxt + .headerbtncell .headerbtn {
-      content: $icon-chevron-right;
+      @extend .icon-chevron-right;
     }
 
     button,
@@ -594,12 +594,12 @@ label {
 
     .mydpicon.icon-mydpcalendar {
       @extend %icon;
-      content: $icon-calendar;
+      @extend .icon-calendar;
     }
   }
   .mydpicon.icon-mydpremove {
     @extend %icon;
-    content: $icon-x;
+    @extend .icon-x;
     background-color: transparent;
   }
   table {
@@ -683,9 +683,9 @@ my-date-picker {
 
   li {
     padding: 6px $column-gap;
-    @include inline-flex;
-    @include align-items(flex-start);
-    @include justify-content(flex-start);
+    display: inline-flex;
+    align-items: start;
+    justify-content: flex-start;
     width: 100%;
     i {
       margin-right: 10px;
@@ -769,8 +769,8 @@ my-date-picker {
 
 // TODO: Check if that is correct (imported from create-edit.
 .column--classic {
-  @include flexbox;
-  @include align-items(flex-end);
+  display: flex;
+  align-items: flex-end;
 
   > * {
     width: 100%;

@@ -4,10 +4,10 @@
 .welcome-wrapper {
   height: calc(100vh - 112px);
   width: 100%;
-  @include inline-flex;
-  @include align-items(center);
-  @include flex-direction(column);
-  @include justify-content(center);
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   img {
     margin-bottom: 2rem;

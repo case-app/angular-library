@@ -196,8 +196,8 @@ th {
   position: relative;
 
   > span {
-    @include flexbox;
-    @include align-items(center);
+    display: flex;
+    align-items: center;
     height: 100%;
   }
 }

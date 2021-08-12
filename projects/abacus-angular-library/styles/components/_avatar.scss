@@ -1,17 +1,17 @@
 .card-user {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(flex-start);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   + .card-user {
     margin-top: 7.5px;
   }
 
   div {
-    @include flexbox;
-    @include flex-direction(column);
-    @include align-items(flex-start);
-    @include justify-content(center);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
     padding-left: $column-gap;
 
     span {

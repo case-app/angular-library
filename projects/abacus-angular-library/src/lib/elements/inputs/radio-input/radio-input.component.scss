@@ -39,10 +39,10 @@
     opacity: 0.65;
   }
   .radio-cta {
-    @include flexbox;
-    @include flex-direction(column);
-    @include align-items(center);
-    @include justify-content(flex-start);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     font-weight: normal;
     text-transform: none;
     line-height: 1.5;

@@ -4,9 +4,9 @@
   right: 50px;
 
   .button {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 60px;
     width: 60px;
     border-radius: 50px;
@@ -41,9 +41,9 @@ button,
   }
 
   &.is-rounded {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 38px;
     width: 38px;
     border-radius: 50px;

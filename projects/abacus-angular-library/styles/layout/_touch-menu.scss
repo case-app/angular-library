@@ -28,15 +28,15 @@ nav {
     }
   }
   > div:first-child {
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include touch {
-      @include align-items(center);
+      align-items: center;
       height: 100%;
-      @include flex-direction(row-reverse);
-      @include justify-content(space-between);
+      flex-direction: row-reverse;
+      justify-content: space-between;
 
       > a {
         margin: 0;
@@ -60,9 +60,9 @@ nav {
   }
 
   .header-right {
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 80px;
     width: 80px;
   }
@@ -117,10 +117,10 @@ nav {
 .user-box > a {
   width: 39px;
   height: 100%;
-  @include inline-flex;
+  display: inline-flex;
   box-sizing: content-box;
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
+  justify-content: center;
   margin-right: 32px;
   @include mobile {
     margin-right: 30px;
@@ -171,9 +171,9 @@ nav {
     a {
       position: relative;
       color: $nav-item-color;
-      @include inline-flex;
-      @include align-items(center);
-      @include justify-content(flex-start);
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
       width: 100%;
       padding: 19px 33px;
       @include transition(color 0.25s ease);
@@ -197,12 +197,12 @@ nav {
       -ms-transition: color 0.35s ease, background-color 0.05s ease-out;
       -o-transition: color 0.35s ease, background-color 0.05s ease-out;
       &.has-submenu {
-        @include justify-content(space-between);
-        @include inline-flex;
+        justify-content: space-between;
+        display: inline-flex;
 
         > span {
-          @include inline-flex;
-          @include align-items(center);
+          display: inline-flex;
+          align-items: center;
         }
 
         + ul {
@@ -258,9 +258,9 @@ nav {
 .navbar-end {
   @include touch {
     height: 100%;
-    @include flexbox;
-    @include flex-direction(column);
-    @include justify-content(space-between);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .menu-list--bottom {
       li:last-child {
@@ -289,8 +289,8 @@ nav {
 
 .link-back {
   height: 100%;
-  @include inline-flex;
-  @include align-items(center);
-  @include justify-content(flex-start);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   padding-left: $gap !important;
 }

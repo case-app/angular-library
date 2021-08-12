@@ -9,9 +9,9 @@
   z-index: 6;
   > * {
     padding: 6px $column-gap;
-    @include inline-flex;
-    @include align-items(flex-start);
-    @include justify-content(flex-start);
+    display: inline-flex;
+    align-items: start;
+    justify-content: flex-start;
     width: 100%;
   }
 }

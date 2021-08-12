@@ -4,8 +4,8 @@
 
 // .color-yield-wrapper class allow to display a color circle within a <td>
 .color-yield-wrapper {
-  @include flexbox;
-  @include align-items(center);
+  display: flex;
+  align-items: center;
   height: 100%;
 }
 

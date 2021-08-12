@@ -75,9 +75,9 @@
   }
   .cal-events {
     position: relative;
-    @include flex-direction(column);
+    flex-direction: column;
     margin: 0;
-    @include justify-content(space-around);
+    justify-content: space-around;
     .cal-event {
       // position: absolute;
       width: 100%;
