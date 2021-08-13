@@ -1,20 +1,7 @@
 //_ Global style
 
 .card {
-  --border-color: #f7f7f7; // Grey Lighter
-  padding: 2rem;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 20px rgba($dark, 0.07);
-
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-
-  &.no-shadow {
-    box-shadow: none;
-  }
+  border: 1px solid $border-color;
 
   &--is-displayed-on-modal {
     .modal-content & {
@@ -43,7 +30,7 @@
       &:last-child:not(:first-child) {
         font-size: 1.1rem;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: $weight-bold;
         color: $grey;
       }
     }

@@ -1,0 +1,45 @@
+// Buttons
+$control-border-width: 0 !default;
+$button-hover-color: $danger !default;
+$button-padding-horizontal: 4rem !default;
+$radius: 2px !default;
+$control-height: 4rem !default;
+
+$custom-colors: (
+  'link-light': (
+    $link-light,
+    $dark,
+    $link-light,
+    $dark
+  ),
+  'primary-light': (
+    $primary-light,
+    $primary,
+    $white,
+    $primary
+  ),
+  'warning-light': (
+    $warning-light,
+    $warning,
+    $white,
+    $warning
+  ),
+  'danger-light': (
+    $danger-light,
+    $danger,
+    $white,
+    $danger
+  ),
+  'success-light': (
+    $success-light,
+    $success,
+    $white,
+    $success
+  ),
+  'info-light': (
+    $info-light,
+    $info,
+    $white,
+    $info
+  )
+);

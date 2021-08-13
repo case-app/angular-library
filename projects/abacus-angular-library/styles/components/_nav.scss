@@ -137,7 +137,7 @@
       display: inline-flex;
       width: calc(100% - 64px - 14px);
       color: $dark;
-      font-weight: 500;
+      font-weight: $weight-bold;
       @include transition(color 0.25s ease-in-out);
     }
 

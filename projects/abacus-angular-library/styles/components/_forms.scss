@@ -442,7 +442,7 @@ select option:checked {
   h1.title & {
     margin: 0 0 0 #{$column-gap / 2};
     padding: 0 20px;
-    font-weight: 500;
+    font-weight: $weight-bold;
     font-size: 14px;
     display: inline-block;
     line-height: 23px;
@@ -453,7 +453,7 @@ select option:checked {
 .label,
 label {
   font-size: $size-8;
-  font-weight: 500;
+  font-weight: $weight-bold;
   text-transform: uppercase;
   color: $label-color;
   padding-bottom: 5px;
@@ -557,7 +557,7 @@ label {
       border-radius: 0;
       background-color: transparent;
       color: $grey-light;
-      font-weight: 500;
+      font-weight: $weight-bold;
       text-transform: uppercase;
 
       @include transition(all 0.25s ease-in-out);
@@ -570,7 +570,7 @@ label {
   .weekdaytitle {
     background: transparent !important;
     color: $grey-light !important;
-    font-weight: 500 !important;
+    font-weight: $weight-bold !important;
     font-size: 1.3rem !important;
     width: 44px !important;
     max-width: 44px !important;
@@ -620,7 +620,7 @@ my-date-picker {
   border-top: 2px solid $border;
   border-bottom: 2px solid $border;
   color: $grey;
-  font-weight: 500;
+  font-weight: $weight-bold;
   @include mobile {
     background: $light;
     text-align: left !important;

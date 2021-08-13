@@ -37,7 +37,7 @@ table {
 // Main rules
 
 .light {
-  font-weight: 300 !important;
+  font-weight: $weight-light !important;
 }
 
 .is-size-8 {
@@ -45,7 +45,7 @@ table {
 }
 
 .is-medium {
-  font-weight: 500;
+  font-weight: $weight-bold;
 }
 //Title
 
@@ -63,7 +63,7 @@ h1.title.is-2 {
 h1,
 .title.is-1,
 .h1 {
-  font-weight: 100;
+  font-weight: $weight-light;
 
   @include touch {
     font-size: 3.2rem;
@@ -71,7 +71,7 @@ h1,
 }
 
 .title--small {
-  font-weight: 500;
+  font-weight: $weight-bold;
   text-transform: uppercase;
   color: #303032;
   padding-bottom: 5px;
@@ -85,7 +85,7 @@ h1,
   height: 25px;
   margin: 2.5px 5px 2.5px 0;
   padding: 2px 5px 0 5px !important;
-  font-weight: 500;
+  font-weight: $weight-bold;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -165,7 +165,7 @@ a {
   text-transform: none;
 }
 .is-regular {
-  font-weight: 400;
+  font-weight: $weight-normal;
 }
 
 a,
@@ -180,7 +180,7 @@ button,
 //_ Specific rules
 .status-text {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: $weight-bold;
   text-transform: uppercase;
 }
 
@@ -242,13 +242,13 @@ button,
 }
 
 .is-light {
-  font-weight: 300;
+  font-weight: $weight-light;
 }
 
 .is-bold,
 strong,
 b {
-  font-weight: 500;
+  font-weight: $weight-bold;
 }
 span.highlighted {
   color: red !important;
