@@ -129,7 +129,7 @@ hr {
   background-color: $border-color;
 }
 
-a {
+a:not(.button) {
   &.no-deco {
     color: inherit;
 
