@@ -1,14 +1,14 @@
 export const abcCreateEditModalTemplate = `
 <div class="modal is-active">
   <div class="modal-background"></div>
-  <div class="modal-content notification is-light">
+  <div class="modal-content notification has-text-weight-light">
     <div class="columns">
       <div class="column">
-        <h1 class="title is-2 is-light" *ngIf="mode === 'create'">
+        <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
           Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
           {{ definition.nameSingular }}
         </h1>
-        <h1 class="title is-2 is-light" *ngIf="mode === 'edit'">
+        <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'edit'">
           Modifier {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
           {{ definition.nameSingular }}
         </h1>

@@ -2,7 +2,7 @@ export const abcListTemplate = `
 <!-- Heading -->
 <div class="flex flex-mobile space-between align-center mb-5">
   <div class="left-part">
-    <h1 class="title is-2 is-light">
+    <h1 class="title is-2 has-text-weight-light">
       {{ definition.title }}
     </h1>
   </div>
@@ -43,7 +43,7 @@ export const abcListTemplate = `
   <div class="card">
     <div class="columns">
       <div class="column">
-        <h2 class="title is-6 is-bold is-uppercase text-is-grey">Filtres</h2>
+        <h2 class="title is-6 has-text-weight-bold is-uppercase has-text-grey">Filtres</h2>
       </div>
     </div>
     <div class="columns flex flex-wrap">

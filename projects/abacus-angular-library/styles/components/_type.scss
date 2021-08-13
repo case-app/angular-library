@@ -1,25 +1,3 @@
-.text-is-dark {
-  color: $dark;
-}
-.text-is-primary {
-  color: $primary;
-}
-.text-is-link {
-  color: $link;
-}
-.text-is-grey {
-  color: $grey;
-}
-.text-is-light {
-  color: $light;
-}
-.text-is-link-light {
-  color: $link-light;
-}
-.text-is-grey-light {
-  color: $grey-light;
-}
-
 .content.is-small {
   letter-spacing: 0.4px;
 }
@@ -34,19 +12,6 @@ table {
   }
 }
 
-// Main rules
-
-.light {
-  font-weight: $weight-light !important;
-}
-
-.is-size-8 {
-  font-size: $size-8;
-}
-
-.is-medium {
-  font-weight: $weight-bold;
-}
 //Title
 
 .title {
@@ -241,15 +206,11 @@ button,
   cursor: default;
 }
 
-.is-light {
-  font-weight: $weight-light;
-}
-
-.is-bold,
+// TODO: need to know if those rules are necessary. If not -> Remove it
 strong,
 b {
   font-weight: $weight-bold;
 }
 span.highlighted {
-  color: red !important;
+  color: $danger !important;
 }
