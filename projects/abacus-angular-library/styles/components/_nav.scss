@@ -34,7 +34,7 @@
     }
 
     .is-collapsed & {
-      left: 77px
+      left: 77px;
       width: calc(100% - 77px);
     }
   }

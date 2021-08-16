@@ -30,12 +30,12 @@ export const abcCreateEditTemplate = `
   </div>
 
   <form [formGroup]="form" *ngIf="form">
-    <div class="card mb-6">
+    <div class="card p-4">
       <!-- Fields -->
-      <div class="columns flex flex-wrap">
+      <div class="columns is-multiline">
         <ng-container *ngFor="let field of resolvedFields">
           <div
-            class="column column--classic"
+            class="column is-flex is-align-items-flex-end"
             [ngClass]="field.className"
             *ngIf="!field.hidden"
           >

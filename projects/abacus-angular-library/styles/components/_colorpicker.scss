@@ -17,17 +17,17 @@
   }
 }
 .circle {
-  height: $field-height;
-  width: $field-height;
-  border-radius: $field-height;
+  height: $control-height;
+  width: $control-height;
+  border-radius: $control-height;
   background-color: $white-bis;
   cursor: pointer;
 
   &:after {
     content: 'Modifier';
     display: inline-block;
-    line-height: $field-height;
-    padding-left: #{$field-height * 1.25};
+    line-height: $control-height;
+    padding-left: #{$control-height * 1.25};
   }
 
   .color-picker__wrapper.is-danger & {

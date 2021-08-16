@@ -1,7 +1,4 @@
 // Typography
-$bw-base-font-size: 1.8rem;
-
-// Typography
 $family-sans-serif: 'Rubik', sans-serif !default;
 $family-monospace: 'Rubik', sans-serif !default;
 $family-alt: 'Rubik', sans-serif !default;
@@ -35,6 +32,9 @@ $weight-light: 300 !default;
 $weight-normal: 400 !default;
 $weight-bold: 500 !default;
 $weight-black: 500 !default;
+
+$size-small: $size-6 !default;
+$size-normal: $size-5 !default;
 
 // Custom variables
 $letter-spacing: 0.4px !default;

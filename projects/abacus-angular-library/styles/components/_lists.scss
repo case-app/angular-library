@@ -10,9 +10,9 @@
 }
 
 .small-circle {
-  height: #{$field-height / 1.75};
-  width: #{$field-height / 1.75};
-  border-radius: $field-height;
+  height: #{$control-height / 1.75};
+  width: #{$control-height / 1.75};
+  border-radius: $control-height;
   display: inline-block;
   margin: 5px;
   cursor: pointer;
@@ -22,8 +22,8 @@
   }
 
   @include fullhd {
-    height: #{$field-height / 1.25};
-    width: #{$field-height / 1.25};
+    height: #{$control-height / 1.25};
+    width: #{$control-height / 1.25};
     margin: 10px;
   }
 }
