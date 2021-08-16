@@ -43,18 +43,17 @@ abc-select-input {
 
 label.checkbox,
 label.radio {
-  display: block;
-  position: relative;
   padding-left: 35px;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /* Hide the browser's default checkbox */
+  text-transform: uppercase;
+  color: $grey-dark;
+  font-weight: $weight-bold;
 
-  .aligned-checkbox & {
-    margin-bottom: 10px;
+  .has-checkbox-centered & {
+    margin-bottom: 14px;
   }
 
   &.label-danger {
