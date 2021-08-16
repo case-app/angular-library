@@ -12,7 +12,6 @@
 
 .navbar {
   position: relative;
-  height: 80px;
   &:before {
     position: absolute;
     content: '';
@@ -22,16 +21,21 @@
     border-bottom: 1px solid var(--border-color);
 
     @include tablet {
-      left: calc(25% - 1px);
-      width: calc(75% + 1px);
+      left: calc(25% + 1px);
+      width: calc(75% - 1px);
     }
     @include widescreen {
-      left: calc(16.66667% - 1px);
-      width: calc(73.33333% + 1px);
+      left: calc(16.66667% + 1px);
+      width: calc(83.33333% - 1px);
     }
     @include fullhd {
-      left: calc(12% - 1px);
-      width: calc(88% + 1px);
+      left: calc(12% + 1px);
+      width: calc(88% - 1px);
+    }
+
+    .is-collapsed & {
+      left: 77px;
+      width: calc(100% - 77px);
     }
   }
   > div:first-child {
@@ -202,7 +206,7 @@
   position: absolute;
   height: 80px;
   width: 80px;
-  border-right: 1px solid $border-color;
+  border: 1px solid $border-color;
   top: 0;
   left: 306px;
   z-index: 33;
@@ -217,7 +221,7 @@
     left: calc(16.66667% - 1px);
   }
   @include fullhd {
-    left: calc(12% - 1px);
+    left: calc(12% + 1px);
   }
 
   a {

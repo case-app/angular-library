@@ -256,11 +256,15 @@ a.dropdown-item {
   right: -8px;
 }
 
-.dropdown-menu .dropdown-content {
-  @include shadow($link-alpha07);
-  border: 1px solid $border;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.dropdown-content {
+  text-align: left;
+
+  .dropdown-menu & {
+    @include shadow($link-alpha07);
+    border: 1px solid $border;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .drop--left {

@@ -23,7 +23,7 @@ nav {
       width: calc(73.33333% + 1px);
     }
     @include fullhd {
-      left: calc(12% - 1px);
+      left: calc(12% + 1px);
       width: calc(88% + 1px);
     }
   }
