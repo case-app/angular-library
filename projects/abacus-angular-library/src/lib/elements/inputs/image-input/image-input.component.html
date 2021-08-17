@@ -6,8 +6,11 @@
 
   <div class="image" *ngIf="!imagePath">
     <div
-      class="input-wrapper"
-      [ngClass]="{ 'show-errors': showErrors, 'is-invalid': !imagePath }"
+      class="file"
+      [ngClass]="{
+        'show-errors': showErrors,
+        'is-invalid': !imagePath
+      }"
     >
       <label class="image-label">
         <!-- Input element -->

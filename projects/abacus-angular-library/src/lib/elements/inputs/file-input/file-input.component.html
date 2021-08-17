@@ -3,9 +3,9 @@
     {{ label }}<span class="has-text-danger" *ngIf="required">*</span>
   </label>
 
-  <div class="file" *ngIf="!filePath">
+  <div *ngIf="!filePath">
     <div
-      class="input-wrapper"
+      class="file"
       [ngClass]="{ 'show-errors': showErrors, 'is-invalid': !filePath }"
     >
       <label class="file-label">

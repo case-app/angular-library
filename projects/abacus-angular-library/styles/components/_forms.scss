@@ -51,14 +51,8 @@ label.radio {
   text-transform: uppercase;
   color: $grey-dark;
   font-weight: $weight-bold;
+  margin-bottom: 14px;
 
-  .has-checkbox-centered & {
-    margin-bottom: 14px;
-  }
-
-  &.label-danger {
-    color: $danger;
-  }
   input {
     position: absolute;
     opacity: 0;
@@ -66,12 +60,10 @@ label.radio {
     height: 0;
     width: 0;
 
-    /* When the checkbox is checked, add a colored background */
     &:checked ~ .checkmark {
       background-color: $light;
       box-shadow: 0 0 0 4px $link inset;
 
-      /* Show the checkmark when checked */
       &:after {
         display: block;
       }
@@ -84,7 +76,6 @@ label.radio {
     }
   }
 
-  /* On mouse-over, add a grey background color */
   &:hover input ~ .checkmark {
     box-shadow: 0 0 0 4px $grey-light inset;
   }
@@ -93,7 +84,6 @@ label.radio {
   }
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0;
@@ -101,15 +91,26 @@ label.radio {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: $light;
   box-shadow: 0 0 0 1px $grey-light inset;
   @include transition(all 0.2s ease-in-out);
 
-  /* Create the checkmark/indicator (hidden when not checked) */
   &:after {
     content: '';
     position: absolute;
     display: none;
     @include transition(all 0.2s ease-in-out);
+  }
+}
+.no-label {
+  @include tablet {
+    margin-top: 3.8rem;
+  }
+}
+
+.file-cta {
+  &.file-remove {
+    background-color: $light;
+    border: 0;
   }
 }
