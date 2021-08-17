@@ -55,6 +55,9 @@
         background-color: $link-light;
       }
     }
+    &:focus {
+      box-shadow: none;
+    }
   }
   .myDpMarkCurrDay {
     border: 0;
@@ -87,39 +90,63 @@
   .myDpCurrMonth,
   .myDpMarkCurrMonth,
   .myDpMarkCurrYear {
-    background: transparent !important;
+    background: transparent;
     color: $black;
     border: 0;
     font-size: 1.3rem;
   }
 
   .myDpCalTable {
-    height: $calendar-height !important;
+    height: $calendar-height;
   }
   .myDpMonthYearSelBar {
-    width: 100% !important;
-    height: $year-height !important;
-    background-color: $light !important;
+    width: 100%;
+    height: $year-height;
+    background-color: $light;
   }
   table {
     min-width: unset;
   }
-}
+  .myDpWeekDayTitle,
+  .myDpYearcell,
+  .myDpMonthcell {
+    font-size: $size-small;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 
-.myDpTableSingleDay,
-.myDpTableSingleMonth,
-.myDpTableSingleYear {
-  background: transparent !important;
-  &:hover {
-    background: transparent !important;
-    color: $link;
+    &:focus {
+      box-shadow: none;
+    }
   }
-}
-.myDpFooterBtn:focus,
-.myDpHeaderBtn:focus,
-.myDpMonthLabel:focus,
-.myDpYearLabel:focus {
-  color: $link !important;
+
+  .myDpSelectorArrow:after {
+    border-bottom-color: $light;
+  }
+
+  .myDpIconLeftArrow:before {
+    @extend %icon;
+    content: $icon-chevron-left;
+  }
+  .myDpIconRightArrow:before {
+    @extend %icon;
+    content: $icon-chevron-right;
+  }
+  .myDpTableSingleDay,
+  .myDpTableSingleMonth,
+  .myDpTableSingleYear {
+    background: transparent;
+    &:hover {
+      background: transparent;
+      color: $link;
+    }
+  }
+  .myDpFooterBtn:focus,
+  .myDpHeaderBtn:focus,
+  .myDpMonthLabel:focus,
+  .myDpYearLabel:focus {
+    color: $link !important;
+  }
 }
 
 .input-wrapper input[angular-mydatepicker] {
@@ -159,25 +186,4 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-}
-
-.myDpSelectorArrow:after {
-  border-bottom-color: $light !important;
-}
-
-.myDpIconLeftArrow:before {
-  @extend %icon;
-  content: $icon-chevron-left !important;
-}
-.myDpIconRightArrow:before {
-  @extend %icon;
-  content: $icon-chevron-right !important;
-}
-
-.myDpYearcell,
-.myDpMonthcell {
-  font-size: $size-small;
-  text-align: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
 }
