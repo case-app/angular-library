@@ -34,6 +34,12 @@ $input-disabled-placeholder-color: bulmaRgba(
   0.3
 ) !default;
 
+//Datepicker
+$calendar-height: 268px !default;
+$year-height: 42px !default;
+$day-cell-height: 32px !default;
+$day-cell-box-shadow-size: inset 0 0 0 2px !default;
+
 //Custom variables
 $field-background: $white-bis !default;
 $border: $grey-light !default;

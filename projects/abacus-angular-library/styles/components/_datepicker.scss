@@ -1,0 +1,182 @@
+.ng-mydp {
+  border: 0 !important;
+
+  * {
+    font-family: 'Rubik', sans-serif !important;
+  }
+
+  .myDpSelector {
+    border-color: $border;
+    height: auto !important;
+    @include shadow;
+
+    &:focus {
+      @include shadow;
+    }
+  }
+
+  .myDpPrevBtn,
+  .myDpNextBtn {
+    background: transparent !important;
+    color: $grey-light;
+    font-size: 1.3rem;
+  }
+
+  .myDpDayValue {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $day-cell-height;
+    height: $day-cell-height;
+    line-height: $day-cell-height;
+    border-radius: $day-cell-height;
+    text-align: center;
+    transition: all 0.18s ease-in-out;
+  }
+  .myDpSelectedDay .myDpDayValue,
+  .myDpSelectedDay:hover .myDpDayValue {
+    color: $white;
+    background-color: $link;
+    font-weight: $weight-bold;
+  }
+  .myDpDaycell {
+    height: $day-cell-height;
+    text-align: center;
+
+    &:first-child {
+      padding-left: 0 !important;
+    }
+    &:last-child {
+      padding-right: 0 !important;
+    }
+    &:hover {
+      .myDpDayValue {
+        color: $link;
+        background-color: $link-light;
+      }
+    }
+  }
+  .myDpMarkCurrDay {
+    border: 0;
+    box-shadow: $day-cell-box-shadow-size $link-light;
+    color: $link;
+  }
+
+  .myDpSelectedYear,
+  .myDpSelectedMonth {
+    color: $link;
+    font-weight: $weight-bold;
+  }
+
+  .myDpDaycell:nth-child(6),
+  .myDpDaycell:nth-child(7) {
+    .myDpHighlight,
+    .myDpDayValue {
+      color: $grey-light;
+      font-size: $size-small;
+    }
+
+    &:hover {
+      .myDpDayValue {
+        color: $link;
+        background-color: $link-light;
+      }
+    }
+  }
+
+  .myDpCurrMonth,
+  .myDpMarkCurrYear {
+    background: transparent !important;
+    color: $black;
+    border: 0;
+    font-size: 1.3rem;
+  }
+
+  .myDpCalTable {
+    height: $calendar-height !important;
+  }
+  .myDpMonthYearSelBar {
+    width: 100% !important;
+    height: $year-height !important;
+    background-color: $light !important;
+  }
+  table {
+    min-width: unset;
+  }
+}
+
+.myDpTableSingleDay,
+.myDpTableSingleMonth,
+.myDpTableSingleYear {
+  background: transparent !important;
+  &:hover {
+    background: transparent !important;
+    color: $link;
+  }
+}
+.myDpFooterBtn:focus,
+.myDpHeaderBtn:focus,
+.myDpMonthLabel:focus,
+.myDpYearLabel:focus {
+  color: $link !important;
+}
+
+.input-wrapper input[angular-mydatepicker] {
+  width: 100%;
+}
+
+.input-text {
+  width: $control-height;
+  min-width: $control-height;
+  height: $control-height;
+  line-height: $control-height;
+  background-color: $link-alpha03;
+  text-align: center;
+  border-top: 2px solid $border;
+  border-bottom: 2px solid $border;
+  color: $grey;
+  font-weight: 500;
+  @include mobile {
+    background: $light;
+    text-align: left !important;
+    border: 0;
+    color: $dark;
+  }
+  &:first-child {
+    border-left: $control-border-width solid $border;
+    border-top-left-radius: $input-radius;
+    border-bottom-left-radius: $input-radius;
+    @include mobile {
+      border: 0;
+    }
+
+    + input[angular-mydatepicker] {
+      border-radius: 0;
+    }
+  }
+  &:not(:first-child) + input[angular-mydatepicker] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.myDpSelectorArrow:after {
+  border-bottom-color: $light !important;
+}
+
+.myDpIconLeftArrow:before {
+  @extend %icon;
+  content: $icon-chevron-left !important;
+}
+.myDpIconRightArrow:before {
+  @extend %icon;
+  content: $icon-chevron-right !important;
+}
+
+.myDpYearcell,
+.myDpMonthcell {
+  font-size: $size-small;
+  text-align: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
