@@ -160,8 +160,8 @@
   line-height: $control-height;
   background-color: $link-alpha03;
   text-align: center;
-  border-top: 2px solid $border;
-  border-bottom: 2px solid $border;
+  border-top: $control-border-width solid $border;
+  border-bottom: $control-border-width solid $border;
   color: $grey;
   font-weight: 500;
   @include mobile {

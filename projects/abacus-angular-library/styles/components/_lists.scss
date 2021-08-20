@@ -17,7 +17,7 @@
   margin: 5px;
   cursor: pointer;
   &.is-active {
-    border: 2px solid $white;
+    border: $control-border-width solid $white;
     box-shadow: 0 10px 20px #dedede;
   }
 

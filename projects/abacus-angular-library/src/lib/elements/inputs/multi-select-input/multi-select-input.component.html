@@ -8,7 +8,8 @@
   <div
     class="select select--simulate"
     [ngClass]="{
-      'is-danger': showErrors && required && !selectedOptions.length
+      'is-danger': showErrors && required && !selectedOptions.length,
+      'is-focus': showList && selectOptions && selectOptions.length
     }"
     (click)="showList = !showList"
   >
@@ -25,7 +26,7 @@
   </div>
 
   <!-- Dropdown checkbox list -->
-  <div class="list" *ngIf="showList && selectOptions && selectOptions.length">
+  <div class="box" *ngIf="showList && selectOptions && selectOptions.length">
     <!-- Mass selection -->
     <a
       class="small-meta mass-selection-button has-text-grey-dark"
