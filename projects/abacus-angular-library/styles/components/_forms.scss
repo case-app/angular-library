@@ -21,7 +21,7 @@
   font-size: $size-small;
 }
 
-label:not(.file-label):not(.checkbox):not(.fake-checkbox) {
+label:not(.file-label):not(.checkbox) {
   font-size: $size-6;
   font-weight: $weight-bold;
   text-transform: uppercase;
@@ -40,8 +40,38 @@ abc-select-input {
 }
 
 //  Checkbox
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-label.checkbox,
+  &.is-checked .checkmark {
+    background-color: $light;
+    box-shadow: 0 0 0 4px $link inset;
+    &:after {
+      display: block;
+    }
+  }
+  &.is-checked:focus .checkmark {
+    box-shadow: 0 0 0 4px $link inset;
+  }
+  &:focus .checkmark {
+    box-shadow: 0 0 0 4px $grey-light inset;
+  }
+  &:hover .checkmark {
+    box-shadow: 0 0 0 4px $grey-light inset;
+  }
+  &.is-checked:hover .checkmark {
+    box-shadow: 0 0 0 4px $link inset;
+  }
+}
+
+// Radio
 label.radio {
   padding-left: 35px;
   -webkit-user-select: none;
@@ -60,7 +90,7 @@ label.radio {
     height: 0;
     width: 0;
 
-    &:checked ~ .checkmark {
+    &.is-checked ~ .checkmark {
       background-color: $light;
       box-shadow: 0 0 0 4px $link inset;
 
@@ -68,7 +98,7 @@ label.radio {
         display: block;
       }
     }
-    &:focus:checked ~ .checkmark {
+    &:focus.is-checked ~ .checkmark {
       box-shadow: 0 0 0 4px $link inset;
     }
     &:focus ~ .checkmark {
@@ -79,7 +109,7 @@ label.radio {
   &:hover input ~ .checkmark {
     box-shadow: 0 0 0 4px $grey-light inset;
   }
-  &:hover input:checked ~ .checkmark {
+  &:hover input.is-checked ~ .checkmark {
     box-shadow: 0 0 0 4px $link inset;
   }
 }
