@@ -43,7 +43,7 @@ abc-select-input {
 .checkbox {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: $checkbox-spacing;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -52,68 +52,26 @@ abc-select-input {
 
   &.is-checked .checkmark {
     background-color: $light;
-    box-shadow: 0 0 0 4px $link inset;
+    box-shadow: $checkbox-box-shadow-width $link inset;
     &:after {
       display: block;
     }
   }
   &.is-checked:focus .checkmark {
-    box-shadow: 0 0 0 4px $link inset;
+    box-shadow: $checkbox-box-shadow-width $link inset;
   }
   &:focus .checkmark {
-    box-shadow: 0 0 0 4px $grey-light inset;
+    box-shadow: $checkbox-box-shadow-width $grey-light inset;
   }
   &:hover .checkmark {
-    box-shadow: 0 0 0 4px $grey-light inset;
+    box-shadow: $checkbox-box-shadow-width $grey-light inset;
   }
   &.is-checked:hover .checkmark {
-    box-shadow: 0 0 0 4px $link inset;
+    box-shadow: $checkbox-box-shadow-width $link inset;
   }
 }
 
-// Radio
-label.radio {
-  padding-left: 35px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-transform: uppercase;
-  color: $grey-dark;
-  font-weight: $weight-bold;
-  margin-bottom: 14px;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-
-    &.is-checked ~ .checkmark {
-      background-color: $light;
-      box-shadow: 0 0 0 4px $link inset;
-
-      &:after {
-        display: block;
-      }
-    }
-    &:focus.is-checked ~ .checkmark {
-      box-shadow: 0 0 0 4px $link inset;
-    }
-    &:focus ~ .checkmark {
-      box-shadow: 0 0 0 4px $grey-light inset;
-    }
-  }
-
-  &:hover input ~ .checkmark {
-    box-shadow: 0 0 0 4px $grey-light inset;
-  }
-  &:hover input.is-checked ~ .checkmark {
-    box-shadow: 0 0 0 4px $link inset;
-  }
-}
-
+// Checkbox & radio
 .checkmark {
   position: absolute;
   top: 0;
@@ -138,6 +96,7 @@ label.radio {
   }
 }
 
+// File
 .file-cta {
   &.file-remove {
     background-color: $light;
