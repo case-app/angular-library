@@ -1,38 +1,13 @@
-.is-12percent-fullhd {
-  @include fullhd {
-    flex: none;
-    width: 12% !important;
-  }
-}
-.is-1-5 {
-  @include desktop {
-    flex: none;
-    width: 12.5% !important;
-  }
-  @include touch {
-    width: 100%;
-  }
-}
-.is-20-percent {
-  @include desktop {
-    flex: none;
-    width: 20% !important;
-  }
-  @include touch {
-    width: 100%;
-  }
-}
-
 .main.column {
   width: 100%;
   @include touch {
-    padding: 16px 32px;
+    padding: $column-gap $gap;
   }
   @include mobile {
-    padding: 16px 30px;
+    padding: $column-gap $gap;
   }
   @include desktop {
-    padding: 15px 32px;
+    padding: $column-gap $gap;
     width: 75%;
   }
   @include widescreen {
@@ -50,75 +25,6 @@
   }
 
   > article {
-    margin-top: 33px;
-  }
-}
-
-//  Custom
-.pr-0-tablet {
-  @include tablet {
-    padding-right: 0;
-  }
-}
-.pr-0-desktop {
-  @include desktop {
-    padding-right: 0;
-  }
-}
-.pl-6-mobile {
-  @include mobile {
-    padding-left: 3rem;
-  }
-}
-.pl-6-until-widescreen {
-  padding-left: 3rem;
-
-  @include widescreen {
-    padding-left: 0;
-  }
-}
-.pl-5-until-widescreen {
-  padding-left: 2rem;
-
-  @include widescreen {
-    padding-left: 0;
-  }
-}
-.px-5-until-widescreen {
-  padding-left: 2rem;
-  padding-right: 2rem;
-
-  @include widescreen {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.px-0-mobile {
-  @include mobile {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-.mx-0-mobile {
-  @include mobile {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-.mb-3-mobile {
-  @include mobile {
-    margin-bottom: 1rem;
-  }
-}
-
-.mb-6-desktop {
-  @include desktop {
-    margin-bottom: 3rem;
-  }
-}
-
-.is-hidden-until-widescreen {
-  @media screen and (max-width: $widescreen) {
-    display: none !important;
+    margin-top: $gap;
   }
 }
