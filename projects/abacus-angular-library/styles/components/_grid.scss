@@ -1,26 +1,48 @@
-.main.column {
-  width: 100%;
-  @include touch {
-    padding: $column-gap $gap;
+.is-12percent-fullhd {
+  @include fullhd {
+    flex: none;
+    width: 12% !important;
   }
-  @include mobile {
+}
+.is-1-5 {
+  @include desktop {
+    flex: none;
+    width: 12.5% !important;
+  }
+  @include touch {
+    width: 100%;
+  }
+}
+.is-20-percent {
+  @include desktop {
+    flex: none;
+    width: 20% !important;
+  }
+  @include touch {
+    width: 100%;
+  }
+}
+
+.main.column {
+  @include touch {
+    width: 100%;
     padding: $column-gap $gap;
   }
   @include desktop {
     padding: $column-gap $gap;
-    width: 75%;
+    width: calc(#{100% - $aside-width-desktop});
   }
   @include widescreen {
-    width: calc(100vw - 16.66667% - 32px);
+    width: calc(100vw - #{$aside-width-widescreen} - #{$gap});
   }
   @include fullhd {
-    padding: 15px 110px;
-    width: calc(100vw - 12% - 220px);
+    padding: $column-gap 110px;
+    width: calc(100vw - #{$aside-width-widescreen} - #{$main-padding-horizontal * 2});
   }
 
   .is-collapsed & {
     @include desktop {
-      width: calc(100vw - 78px - 220px);
+      width: calc(100vw - #{$aside-width-collapsed} - #{$aside-border-width} - #{$main-padding-horizontal});
     }
   }
 

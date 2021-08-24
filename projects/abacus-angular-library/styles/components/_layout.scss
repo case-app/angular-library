@@ -55,7 +55,7 @@ body {
 
 .wrapper,
 .aside {
-  min-height: calc(100vh - 80px + 30px);
+  min-height: calc(100vh - #{$navbar-height} + 30px);
 }
 .section {
   @include mobile {
@@ -537,34 +537,4 @@ $bullet-colors: (
 }
 .notification-excerpt {
   width: calc(100% - #{$gap} - 9px);
-}
-
-.bg-white-bis {
-  background-color: $white-bis;
-}
-.bg-white-ter {
-  background-color: $white-ter;
-}
-
-.bg-white {
-  background-color: $white;
-}
-
-.bg-link {
-  background-color: $link;
-}
-.bg-link-light {
-  background-color: $link-light;
-}
-
-.bg-success {
-  background-color: $success;
-}
-
-.bg-info {
-  background-color: $info;
-}
-
-.bg-plan {
-  background-color: #2effca;
 }

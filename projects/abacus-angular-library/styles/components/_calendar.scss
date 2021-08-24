@@ -174,7 +174,7 @@ my-calendar-tooltip-window {
         top: 78px !important;
         box-shadow: none;
         border: 0;
-        height: calc(100vh - 80px) !important;
+        height: calc(100vh - #{$navbar-height}) !important;
         box-shadow: none;
         overflow: hidden !important;
         margin-top: 0;

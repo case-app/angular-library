@@ -3,18 +3,17 @@
 abc-breadcrumbs {
   @include tablet {
     position: absolute;
-    left: calc(25% + 110px);
+    left: calc(#{$aside-width-tablet} + #{$main-padding-horizontal});
     z-index: 30;
-    top: 30.5px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   @include desktop {
-    left: calc(25% + 32px + 80px);
+    left: calc(#{$aside-width-desktop} + #{$gap} + #{$navbar-height});
   }
-  @include widescreen {
-    left: calc(16.66667% + 32px + 80px);
-  }
+
   @include fullhd {
-    left: calc(12% + 110px);
+    left: calc(#{$aside-width-fullhd} + #{$main-padding-horizontal});
   }
 
   ul {
