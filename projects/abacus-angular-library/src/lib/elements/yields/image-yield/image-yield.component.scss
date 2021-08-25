@@ -25,15 +25,5 @@
     justify-content: center;
     background-color: $link;
     color: $light;
-
-    @each $name, $pair in $colors {
-      $color: nth($pair, 1);
-      $color-invert: nth($pair, 2);
-
-      &.is-#{$name} {
-        background-color: $color;
-        color: $color-invert;
-      }
-    }
   }
 }

@@ -1,53 +1,32 @@
-table,
-.table {
-  > thead > tr,
-  > tbody > tr {
-    &.is-danger {
-      background-color: rgba($danger, 0.04);
-      border-left: 7px solid $danger;
-      color: $danger;
-    }
-    &.is-warning {
-      background-color: rgba($warning, 0.04);
-      border-left: 7px solid $warning;
-      color: $warning;
-    }
-    &.is-info {
-      background-color: rgba($info, 0.04);
-      border-left: 7px solid $info;
-      color: $info;
-    }
-    &.is-success {
-      background-color: rgba($success, 0.04);
-      border-left: 7px solid $success;
-      color: $success;
-    }
-    // TODO: Better color
-    &.is-disabled {
-      background-color: rgba($black, 0.04);
-      border-left: 7px solid $black;
-      color: rgba($black, 0.72);
-    }
-    &.is-link {
-      background-color: rgba($link, 0.04);
-      border-left: 7px solid $link;
-      color: $link;
-    }
+tr {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
 
-    &[class^='is-'] {
-      .dropdown-item {
-        color: $black;
+    &.is-#{$name} {
+      background-color: $color-invert;
+      border-left: $border-width-table-row-highlighted solid $color;
+      color: $color;
+    }
+  }
 
-        &:focus,
-        &:hover,
-        &:active,
-        &.is-active {
-          background-color: transparent;
-          color: $link;
-        }
+  &[class^='is-'] {
+    .dropdown-item {
+      color: $black;
+
+      &:focus,
+      &:hover,
+      &:active,
+      &.is-active {
+        background-color: transparent;
+        color: $link;
       }
     }
   }
+}
+
+table,
+.table {
   thead th,
   > tbody > tr > td,
   thead > tr > td,
@@ -59,10 +38,6 @@ table,
     }
     &:last-child {
       padding-right: $gap;
-    }
-
-    &.avatars {
-      min-width: 110px;
     }
 
     a {
