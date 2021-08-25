@@ -92,7 +92,7 @@ export class UserCreateEditComponent
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
       properties: { value: 'isActive' },
       initialValue: { value: false },
-      className: 'is-6 has-checkbox-centered',
+      className: 'is-6',
       inputType: InputType.Checkbox
     },
     {
