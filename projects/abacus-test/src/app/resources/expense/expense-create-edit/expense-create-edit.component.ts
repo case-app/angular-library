@@ -81,7 +81,7 @@ export class ExpenseCreateEditComponent
       placeholder: 'Refacturable au client',
       properties: { value: 'billableToCustomer' },
       initialValue: { value: false },
-      className: ' is-12-mobile is-6-tablet is-3-widescreen has-no-label',
+      className: ' is-12-mobile is-6-tablet is-3-widescreen',
       inputType: InputType.Checkbox,
       validators: []
     },

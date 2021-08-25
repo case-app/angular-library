@@ -90,11 +90,6 @@ abc-select-input {
     @include transition(all 0.2s ease-in-out);
   }
 }
-.has-no-label {
-  @include tablet {
-    margin-top: 3.8rem;
-  }
-}
 
 // File
 .file-cta {
