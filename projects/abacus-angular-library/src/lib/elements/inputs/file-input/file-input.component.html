@@ -37,7 +37,11 @@
   <!-- Uploaded file -->
   <div
     *ngIf="filePath"
-    class="has-current-file flex align-center space-between mt-1"
+    class="
+      has-current-file
+      is-flex is-justify-content-space-between is-align-items-center
+      mt-1
+    "
   >
     <a [href]="storagePath + '/' + filePath" target="_blank">
       {{ filePath }}

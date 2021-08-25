@@ -47,7 +47,7 @@ export class ExpenseCreateEditComponent
       },
       inputType: InputType.Text,
       validators: [Validators.required],
-      className: 'is-12-mobile is-6-tablet'
+      className: ' is-12-mobile is-6-tablet'
     },
     {
       label: 'Référence',
@@ -56,7 +56,7 @@ export class ExpenseCreateEditComponent
       },
       inputType: InputType.Text,
       validators: [],
-      className: 'is-12-mobile is-6-tablet is-3-widescreen'
+      className: ' is-12-mobile is-6-tablet is-3-widescreen'
     },
     {
       label: 'Montant HT',
@@ -66,13 +66,13 @@ export class ExpenseCreateEditComponent
       },
       inputType: InputType.Number,
       validators: [Validators.required],
-      className: 'is-12-mobile is-6-tablet is-3-widescreen'
+      className: ' is-12-mobile is-6-tablet is-3-widescreen'
     },
     {
       label: 'Reçu',
       placeholder: 'Choisir le reçu',
       properties: { value: 'attachment' },
-      className: 'is-12-mobile is-6-tablet is-3-widescreen',
+      className: ' is-12-mobile is-6-tablet is-3-widescreen',
       inputType: InputType.File,
       validators: []
     },
@@ -81,7 +81,7 @@ export class ExpenseCreateEditComponent
       placeholder: 'Refacturable au client',
       properties: { value: 'billableToCustomer' },
       initialValue: { value: false },
-      className: 'is-12-mobile is-6-tablet is-3-widescreen no-label',
+      className: ' is-12-mobile is-6-tablet is-3-widescreen has-no-label',
       inputType: InputType.Checkbox,
       validators: []
     },

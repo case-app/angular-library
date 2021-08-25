@@ -42,7 +42,11 @@
   <!-- Previously uploaded file -->
   <div
     *ngIf="imagePath"
-    class="has-current-file flex align-center space-between mt-1"
+    class="
+      has-current-file
+      is-flex is-align-items-center is-justify-content-space-between
+      mt-1
+    "
   >
     <abc-image [path]="imagePath"> </abc-image>
     <span class="file-cta file-remove">

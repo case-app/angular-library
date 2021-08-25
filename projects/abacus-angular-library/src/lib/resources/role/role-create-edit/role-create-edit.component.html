@@ -1,4 +1,6 @@
-<div class="flex flex-mobile space-between align-center mb-5">
+<div
+  class="is-flex is-justify-content-space-between is-align-items-center mb-5"
+>
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
       Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
@@ -40,7 +42,7 @@
         </div>
       </div>
       <!-- Fields -->
-      <div class="columns flex flex-wrap">
+      <div class="columns is-multiline is-align-items-flex-end">
         <ng-container *ngFor="let field of resolvedFields">
           <div class="column" [ngClass]="field.className" *ngIf="!field.hidden">
             <abc-input
@@ -82,12 +84,12 @@
         </div>
       </div>
 
-      <div class="columns flex-wrap">
+      <div class="columns is-multiline is-align-items-flex-end">
         <div
-          class="column is-20-percent"
+          class="column is-4-tablet is-3-desktop"
           *ngFor="let permission of permissions"
         >
-          <div class="control">
+          <div class="control my-4">
             <label
               class="checkbox"
               [ngClass]="{

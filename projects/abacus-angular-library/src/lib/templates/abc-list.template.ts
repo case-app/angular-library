@@ -1,6 +1,6 @@
 export const abcListTemplate = `
 <!-- Heading -->
-<div class="flex flex-mobile space-between align-center mb-5">
+<div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-5">
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">
       {{ definition.title }}
@@ -40,13 +40,13 @@ export const abcListTemplate = `
 
 <!-- Filters -->
 <section *ngIf="resolvedFilters && resolvedFilters.length">
-  <div class="card">
+  <div class="card p-4">
     <div class="columns">
       <div class="column">
         <h2 class="title is-6 has-text-weight-bold is-uppercase has-text-grey">Filtres</h2>
       </div>
     </div>
-    <div class="columns flex flex-wrap">
+    <div class="columns is-multiline is-align-items-flex-end">
       <div
         class="column"
         [ngClass]="filter.className"
@@ -69,7 +69,7 @@ export const abcListTemplate = `
 
 <!-- List -->
 <ng-container *ngIf="paginator">
-  <div class="flex space-between align-center relative">
+  <div class="is-flex is-justify-content-space-between is-align-items-center relative">
     <abc-meta [paginator]="paginator"></abc-meta>
 
     <!-- Key numbers -->

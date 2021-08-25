@@ -1,7 +1,7 @@
 <form [formGroup]="form" novalidate>
   <div class="control" [ngClass]="{ 'is-danger': showErrors && form.invalid }">
     <label for="date-from-{{ uniqueId }}-input">{{ label }}</label>
-    <div class="flex">
+    <div class="is-flex">
       <div class="input-text">Du</div>
 
       <input

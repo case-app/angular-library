@@ -15,7 +15,7 @@ export const abcCreateEditModalTemplate = `
       </div>
     </div>
 
-    <div class="columns flex flex-wrap">
+    <div class="columns is-multiline is-align-items-flex-end">
       <form [formGroup]="form" *ngIf="form" class="full-width">
         <ng-container *ngFor="let field of resolvedFields">
           <div class="column" [ngClass]="field.className" *ngIf="!field.hidden">
@@ -43,7 +43,7 @@ export const abcCreateEditModalTemplate = `
 
     <div class="columns">
       <div class="column mt-4 pb-0">
-        <div class="flex flex-mobile align-stretch space-between">
+        <div class="is-flex is-align-items-stretch is-justify-content-space-between">
           <button class="button" (click)="close()">Annuler</button>
           <button
             class="button is-primary is-hidden-touch"

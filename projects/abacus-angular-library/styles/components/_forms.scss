@@ -90,7 +90,7 @@ abc-select-input {
     @include transition(all 0.2s ease-in-out);
   }
 }
-.no-label {
+.has-no-label {
   @include tablet {
     margin-top: 3.8rem;
   }

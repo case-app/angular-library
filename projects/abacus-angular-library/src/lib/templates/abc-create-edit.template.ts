@@ -1,6 +1,6 @@
 export const abcCreateEditTemplate = `
 <section>
-  <div class="flex flex-mobile space-between align-center mb-5">
+  <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
     <div class="left-part">
       <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
         Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
@@ -32,7 +32,7 @@ export const abcCreateEditTemplate = `
   <form [formGroup]="form" *ngIf="form">
     <div class="card p-4">
       <!-- Fields -->
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-align-items-flex-end">
         <ng-container *ngFor="let field of resolvedFields">
           <div
             class="column is-flex is-align-items-flex-end"
