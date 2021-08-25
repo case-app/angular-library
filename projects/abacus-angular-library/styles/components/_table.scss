@@ -1,3 +1,6 @@
+thead {
+  white-space: nowrap;
+}
 tr {
   @each $name, $pair in $colors {
     $color: nth($pair, 1);
@@ -9,78 +12,13 @@ tr {
       color: $color;
     }
   }
-
-  &[class^='is-'] {
-    .dropdown-item {
-      color: $black;
-
-      &:focus,
-      &:hover,
-      &:active,
-      &.is-active {
-        background-color: transparent;
-        color: $link;
-      }
-    }
-  }
 }
 
-table,
-.table {
-  thead th,
-  > tbody > tr > td,
-  thead > tr > td,
-  thead th {
-    vertical-align: middle !important;
-
-    &:first-child {
-      padding-left: $gap;
-    }
-    &:last-child {
-      padding-right: $gap;
-    }
-
-    a {
-      color: inherit;
-      &:hover,
-      &:focus {
-        color: inherit;
-      }
-      &.has-text-link {
-        font-weight: $weight-bold;
-      }
-    }
-  }
-}
-
-.more {
-  height: 100%;
-  position: relative;
-
-  > span {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-}
-
-.is-nowrap {
-  white-space: nowrap;
-}
-
-// New
 th {
   white-space: nowrap;
   text-transform: uppercase;
 }
-
-thead {
-  white-space: nowrap;
-}
-
 td {
-  @include transition(all 0.05s ease-in-out);
-
   &.is-narrow {
     padding-top: 0.8em;
     padding-bottom: 0.8em;

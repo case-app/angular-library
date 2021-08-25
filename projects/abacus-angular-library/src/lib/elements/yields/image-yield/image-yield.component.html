@@ -16,7 +16,10 @@
     </a>
   </ng-container>
 </ng-container>
-<a class="has-avatar has-avatar tooltip has-tooltip has-tooltip-right">
+<a
+  class="has-avatar has-avatar tooltip has-tooltip has-tooltip-right"
+  *ngIf="imageObjects.length > maxLength"
+>
   <span class="avatar is-number">
     + {{ imageObjects.length - maxLength }}
   </span>

@@ -75,7 +75,7 @@ export const abcListTemplate = `
     <!-- Key numbers -->
     <div class="total total--alt is-hidden-mobile">
       <span
-        class="badge mb-3 mt-6"
+        class="badge mb-3"
         [ngClass]="keyNumber.className"
         *ngFor="let keyNumber of definition.keyNumbers"
       >

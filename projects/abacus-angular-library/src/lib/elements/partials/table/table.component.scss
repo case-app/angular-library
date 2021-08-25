@@ -8,3 +8,34 @@ abc-image-yield {
   align-items: center;
   justify-content: flex-start;
 }
+
+td,
+th {
+  vertical-align: middle !important;
+
+  &:first-child {
+    padding-left: $gap;
+  }
+  &:last-child {
+    padding-right: $gap;
+  }
+
+  a {
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+  }
+}
+
+.more {
+  height: 100%;
+  position: relative;
+
+  > span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
