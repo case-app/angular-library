@@ -10,7 +10,7 @@
         [replacement]="defaultImage"
         [title]="imageObject.label"
         [alt]="imageObject.label"
-        className="avatar-sm"
+        className="avatar"
       >
       </abc-image>
     </a>
@@ -20,8 +20,6 @@
   class="has-avatar has-avatar tooltip has-tooltip has-tooltip-right"
   *ngIf="imageObjects.length > maxLength"
 >
-  <span class="avatar-sm avatar-sm--number">
-    + {{ imageObjects.length - maxLength }}
-  </span>
+  <span class="avatar is-link"> + {{ imageObjects.length - maxLength }} </span>
 </a>
-<span *ngIf="label">{{ label }}</span>
+<span *ngIf="label" class="ml-2">{{ label }}</span>

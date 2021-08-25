@@ -86,8 +86,8 @@ export const abcListTemplate = `
       </span>
     </div>
   </div>
-  <div class="card p-0 has-table mb-6">
-    <div class="table-responsive">
+  <div class="card p-0 mb-6">
+    <div class="table-container">
       <abc-table
         [items]="paginator.data"
         [definition]="definition"

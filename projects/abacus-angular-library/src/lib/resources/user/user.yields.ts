@@ -7,7 +7,8 @@ export const userYields: Yield[] = [
     property: 'imageObjects',
     secondProperty: 'name',
     orderByProperty: 'name',
-    type: YieldType.Image
+    type: YieldType.Image,
+    className: 'is-narrow'
   },
   {
     label: 'Rôle',

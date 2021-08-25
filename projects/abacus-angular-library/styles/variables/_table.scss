@@ -1,0 +1,11 @@
+$table-cell-padding: 1.5em 0.75em !default;
+
+$table-head-cell-border-width: 0 0 1px !default;
+$table-head-cell-color: $grey !default;
+$table-foot-cell-border-width: 1px 0 0 !default;
+$table-foot-cell-color: $grey !default;
+
+$table-row-hover-background-color: rgba($link, 0.01) !default;
+
+$table-striped-row-even-background-color: rgba($white-bis, 0.5) !default;
+$table-striped-row-even-hover-background-color: rgba($white-ter, 0.5) !default;

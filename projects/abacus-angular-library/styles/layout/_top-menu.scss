@@ -10,7 +10,6 @@
     border-bottom: 1px solid $border-color;
 
     abc-top-menu:not(.is-collapsed) & {
-
       @include desktop {
         left: calc(#{$aside-width-desktop} + #{$aside-border-width});
         width: calc(100% - #{$aside-width-desktop} - #{$aside-border-width});
@@ -31,7 +30,7 @@
     align-items: center;
     flex: none;
     background-color: $side-nav-background;
-    
+
     @include desktop {
       width: calc(#{$aside-width-desktop} + 1px);
     }
@@ -49,7 +48,7 @@
   padding: 0 0 0 33px;
   width: 100%;
   height: 100%;
-  
+
   &--image {
     height: 100%;
     max-height: 100%;
@@ -236,7 +235,7 @@
 .buttons {
   padding-right: 0;
   @include fullhd {
-    padding-right: calc(#{$main-padding-horizontal} - 18px);
+    padding-right: calc(#{$main-padding-horizontal} - #{$column-gap} - 18px);
   }
 }
 

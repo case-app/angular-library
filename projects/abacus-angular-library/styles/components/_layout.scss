@@ -245,62 +245,6 @@ article {
   align-items: flex-end;
 }
 
-// Medias
-
-%avatarMainProps {
-  border-radius: 50%;
-
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border: 1px solid $light;
-  position: relative;
-  &--number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $link;
-    color: $light;
-  }
-}
-.avatar-sm {
-  @extend %avatarMainProps;
-  width: 36px;
-  min-width: 36px;
-  max-width: 36px;
-  height: 36px;
-  min-height: 36px;
-  max-height: 36px;
-
-  &:not(.avatar-sm--number) {
-    margin-top: 5px;
-  }
-}
-.avatar-md {
-  @extend %avatarMainProps;
-  width: 40px;
-  min-width: 40px;
-  max-width: 40px;
-  height: 40px;
-  min-height: 40px;
-  max-height: 40px;
-}
-.has-avatar {
-  position: relative;
-  z-index: 6;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-}
-
-@for $i from 1 through 6 {
-  .has-avatar:nth-child(#{$i}) {
-    left: calc(#{$i} * 8px * -1);
-    z-index: #{6 - $i};
-  }
-}
-
 .has-checkbox {
   .checkbox {
     top: -5.5px;
