@@ -1,39 +1,4 @@
 @import './../../../../../styles/variables/all';
 @import '../../../../../../../node_modules/bulma/sass/utilities/derived-variables';
 @import './../../../../../styles/helpers/helpers';
-
-$avatar-diameter: 36px !default;
-$avatar-diameter-small: 24px !default;
-$avatar-diameter-large: 60px !default;
-
-.avatar {
-  display: block;
-  border-radius: 50%;
-  border: 1px solid $light;
-  position: relative;
-
-  &:not(.is-large):not(.is-small) {
-    width: $avatar-diameter;
-    min-width: $avatar-diameter;
-    max-width: $avatar-diameter;
-    height: $avatar-diameter;
-    min-height: $avatar-diameter;
-    max-height: $avatar-diameter;
-  }
-  &.is-small {
-    width: $avatar-diameter-small;
-    min-width: $avatar-diameter-small;
-    max-width: $avatar-diameter-small;
-    height: $avatar-diameter-small;
-    min-height: $avatar-diameter-small;
-    max-height: $avatar-diameter-small;
-  }
-  &.is-large {
-    width: $avatar-diameter-large;
-    min-width: $avatar-diameter-large;
-    max-width: $avatar-diameter-large;
-    height: $avatar-diameter-large;
-    min-height: $avatar-diameter-large;
-    max-height: $avatar-diameter-large;
-  }
-}
+@import './../../../../../styles/components/avatar';
