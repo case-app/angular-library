@@ -7,9 +7,9 @@
             <figure class="avatar">
               <img src="../../../../assets/images/logo.svg" alt="logo" />
             </figure>
-            <h3 class="title is-2 m-y-gutter">Connectez-vous</h3>
+            <h3 class="title is-2 my-5">Connectez-vous</h3>
             <form [formGroup]="loginForm" (submit)="submitForm(loginForm)">
-              <div class="field m-b-gutter">
+              <div class="field mb-5">
                 <div class="control">
                   <input
                     class="input is-large"
@@ -21,7 +21,7 @@
                 </div>
               </div>
 
-              <div class="field m-b-gutter">
+              <div class="field mb-5">
                 <div class="control">
                   <input
                     class="input is-large"
@@ -33,10 +33,10 @@
                 </div>
               </div>
               <button
-                class="button is-block is-primary is-large is-fullwidth m-b-md"
+                class="button is-block is-primary is-large is-fullwidth mb-3"
                 [disabled]="loginForm.invalid"
               >
-                <span class="is-bold">Se connecter</span>
+                <span class="has-text-weight-bold">Se connecter</span>
               </button>
               <a routerLink="/forgot-password">Mot de passe oublié ?</a>
             </form>

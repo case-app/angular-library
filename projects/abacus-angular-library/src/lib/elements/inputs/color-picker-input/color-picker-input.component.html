@@ -1,6 +1,6 @@
 <div class="control">
   <div
-    class="color-picker__wrapper"
+    class="color-picker-wrapper"
     [ngClass]="{ 'is-danger': showErrors && form.invalid }"
   >
     <label
@@ -13,8 +13,8 @@
       (click)="showList = !showList"
     ></div>
 
-    <div class="card block color-list" *ngIf="showList">
-      <label class="full-width m-l-md">Sélectionnez une couleur</label>
+    <div class="card block color-list px-4 pt-6 pb-4" *ngIf="showList">
+      <label class="full-width ml-3">Sélectionnez une couleur</label>
 
       <div
         class="small-circle"

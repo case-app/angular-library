@@ -30,7 +30,7 @@
     "angular-calendar": "^0.28.16",
     "angular-google-place": "github:lujakob/angular-google-place-package",
     "angular-mydatepicker": "^0.10.3",
-    "bulma": "^0.7.4",
+    "bulma": "^0.9.3",
     "bulma-switch": "^2.0.0",
     "bulma-tooltip": "^3.0.0",
     "chart.js": "^2.9.3",

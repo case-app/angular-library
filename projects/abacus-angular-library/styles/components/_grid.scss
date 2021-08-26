@@ -24,101 +24,29 @@
 }
 
 .main.column {
-  width: 100%;
   @include touch {
-    padding: 16px 32px;
-  }
-  @include mobile {
-    padding: 16px 30px;
+    width: 100%;
+    padding: $column-gap $gap;
   }
   @include desktop {
-    padding: 15px 32px;
-    width: 75%;
+    padding: $column-gap $gap;
+    width: calc(#{100% - $aside-width-desktop});
   }
   @include widescreen {
-    width: calc(100vw - 16.66667% - 32px);
+    width: calc(100vw - #{$aside-width-widescreen} - #{$gap});
   }
   @include fullhd {
-    padding: 15px 110px;
-    width: calc(100vw - 12% - 220px);
+    padding: $column-gap 110px;
+    width: calc(100vw - #{$aside-width-widescreen} - #{$main-padding-horizontal * 2});
   }
 
   .is-collapsed & {
     @include desktop {
-      width: calc(100vw - 78px - 220px);
+      width: calc(100vw - #{$aside-width-collapsed} - #{$aside-border-width} - #{$main-padding-horizontal});
     }
   }
 
   > article {
-    margin-top: 33px;
-  }
-}
-
-//  Custom
-.p-r-0-tablet {
-  @include tablet {
-    padding-right: 0;
-  }
-}
-.p-r-0-desktop {
-  @include desktop {
-    padding-right: 0;
-  }
-}
-.p-l-lg-mobile {
-  @include mobile {
-    padding-left: 3rem;
-  }
-}
-.p-l-lg-until-widescreen {
-  padding-left: 3rem;
-
-  @include widescreen {
-    padding-left: 0;
-  }
-}
-.p-l-gutter-until-widescreen {
-  padding-left: 2rem;
-
-  @include widescreen {
-    padding-left: 0;
-  }
-}
-.p-x-gutter-until-widescreen {
-  padding-left: 2rem;
-  padding-right: 2rem;
-
-  @include widescreen {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.p-x-0-mobile {
-  @include mobile {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-.m-x-0-mobile {
-  @include mobile {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-.m-b-md-mobile {
-  @include mobile {
-    margin-bottom: 1rem;
-  }
-}
-
-.m-b-lg-desktop {
-  @include desktop {
-    margin-bottom: 3rem;
-  }
-}
-
-.is-hidden-until-widescreen {
-  @media screen and (max-width: $widescreen) {
-    display: none !important;
+    margin-top: $gap;
   }
 }

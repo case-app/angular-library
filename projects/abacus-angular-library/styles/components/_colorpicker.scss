@@ -1,15 +1,15 @@
-@import '../../styles/variables';
+@import '../../styles/variables/all';
 @import '../../../../node_modules/bulma/sass/utilities/_all.sass';
-@import '../../styles/commons/mixins';
+@import '../../styles/helpers/helpers';
 
 // .color-yield-wrapper class allow to display a color circle within a <td>
 .color-yield-wrapper {
-  @include flexbox;
-  @include align-items(center);
+  display: flex;
+  align-items: center;
   height: 100%;
 }
 
-.color-picker__wrapper {
+.color-picker-wrapper {
   position: relative;
   width: 100%;
   label {
@@ -17,55 +17,55 @@
   }
 }
 .circle {
-  height: $field-height;
-  width: $field-height;
-  border-radius: $field-height;
+  height: $control-height;
+  width: $control-height;
+  border-radius: $control-height;
   background-color: $white-bis;
   cursor: pointer;
 
   &:after {
     content: 'Modifier';
     display: inline-block;
-    line-height: $field-height;
-    padding-left: #{$field-height * 1.25};
+    line-height: $control-height;
+    padding-left: #{$control-height * 1.25};
   }
 
-  .color-picker__wrapper.is-danger & {
-    box-shadow: 0 0 0 1px $danger;
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    .color-picker-wrapper.is-#{$name} & {
+      box-shadow: 0 0 0 1px $color;
+    }
   }
 }
 
 .color-list {
-  --border-color: #f7f7f7; // Grey Lighter
   position: absolute;
   width: 100%;
   z-index: 1;
   margin-top: 10px;
+
   @include mobile {
     position: relative;
   }
 
+  &:before,
   &:after {
     content: '';
     position: absolute;
-    top: -5px;
     left: 16px;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 0 6px 6px 6px;
+  }
+
+  &:after {
+    top: -5px;
     border-color: transparent transparent $light transparent;
   }
 
   &:before {
-    content: '';
-    position: absolute;
     top: -6px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 6px 6px 6px;
-    border-color: transparent transparent var(--border-color) transparent;
+    border-color: transparent transparent $grey-lighter transparent;
   }
 }
