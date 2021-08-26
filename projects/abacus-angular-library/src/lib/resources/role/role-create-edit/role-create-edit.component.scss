@@ -1,17 +1,1 @@
-@import './../../../../../styles/variables/all';
-@import './../../../../../styles/helpers/helpers';
 
-.list {
-  position: absolute;
-  height: auto;
-  min-width: 100%;
-  padding: #{$gap / 2} 0;
-  z-index: 6;
-  > * {
-    padding: 6px $column-gap;
-    display: inline-flex;
-    align-items: start;
-    justify-content: flex-start;
-    width: 100%;
-  }
-}

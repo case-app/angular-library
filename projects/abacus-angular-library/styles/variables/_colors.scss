@@ -17,8 +17,8 @@ $white-bis: #f5f7f9 !default;
 $link: #5c1ee8 !default;
 $link-light: #eee8fd !default;
 
-$primary: $link !default;
-$primary-light: $link-light !default;
+$primary: #466b84 !default;
+$primary-light: #f1f9ff !default;
 
 $success: #57b3a0 !default;
 $success-light: #eff7f5 !default;
@@ -41,3 +41,18 @@ $link-alpha07: rgba($link, 0.07) !default;
 $link-alpha03: rgba($link, 0.03) !default;
 $main-background: $white-bis !default;
 $border-color-input: $link-alpha10 !default;
+
+$icon-color-1: #ad8875 !default;
+$icon-color-2: #6f627a !default;
+$icon-color-3: #6f627a !default;
+$icon-color-4: #ff8080 !default;
+$icon-color-5: #774e94 !default;
+$icon-color-6: #87655c !default;
+$icon-color-7: #ffc155 !default;
+$icon-color-8: #fa8c43 !default;
+$icon-color-9: #53788d !default;
+$icon-color-10: $danger !default;
+$icon-color-11: $success !default;
+$icon-color-12: $warning !default;
+$icon-color-13: $link !default;
+$icon-color-13: $info !default;
