@@ -1,3 +1,9 @@
-@import './../../../../../styles/variables';
-@import './../../../../../styles/commons/mixins';
+@import './../../../../../styles/variables/all';
+@import './../../../../../../../node_modules/bulma/sass/utilities/_all.sass';
+@import './../../../../../styles/helpers/helpers';
+
 @import './../../../../../styles/layout/side-menu';
+
+a {
+  color: violet;
+}

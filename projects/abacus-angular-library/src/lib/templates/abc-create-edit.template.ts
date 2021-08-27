@@ -1,12 +1,12 @@
 export const abcCreateEditTemplate = `
 <section>
-  <div class="flex flex-mobile space-between align-center m-b-gutter">
+  <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
     <div class="left-part">
-      <h1 class="title is-2 is-light" *ngIf="mode === 'create'">
+      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
         Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
         {{ definition.nameSingular }}
       </h1>
-      <h1 class="title is-2 is-light" *ngIf="mode === 'edit'">
+      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'edit'">
         Modifier {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
         {{ definition.nameSingular }}
       </h1>
@@ -30,12 +30,12 @@ export const abcCreateEditTemplate = `
   </div>
 
   <form [formGroup]="form" *ngIf="form">
-    <div class="card m-b-lg">
+    <div class="card p-4">
       <!-- Fields -->
-      <div class="columns flex flex-wrap">
+      <div class="columns is-multiline is-align-items-flex-end">
         <ng-container *ngFor="let field of resolvedFields">
           <div
-            class="column column--classic"
+            class="column is-flex is-align-items-flex-end"
             [ngClass]="field.className"
             *ngIf="!field.hidden"
           >

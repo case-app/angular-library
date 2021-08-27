@@ -20,6 +20,7 @@ import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
 })
 export class TopMenuComponent implements OnInit {
   currentUser: User
+  isCollapsed = false
   notifications: Notification[]
   newNotificationCount = 0
 

@@ -1,31 +1,9 @@
-.text-is-dark {
-  color: $dark;
-}
-.text-is-primary {
-  color: $primary;
-}
-.text-is-link {
-  color: $link;
-}
-.text-is-grey {
-  color: $grey;
-}
-.text-is-light {
-  color: $light;
-}
-.text-is-link-light {
-  color: $link-light;
-}
-.text-is-grey-light {
-  color: $grey-light;
-}
-
 .content.is-small {
   letter-spacing: 0.4px;
 }
 
 th {
-  @extend .is-bold;
+  font-weight: $weight-bold;
 }
 table {
   font-size: $size-7;
@@ -34,19 +12,6 @@ table {
   }
 }
 
-// Main rules
-
-.light {
-  font-weight: 300 !important;
-}
-
-.is-size-8 {
-  font-size: $size-8;
-}
-
-.is-medium {
-  font-weight: 500;
-}
 //Title
 
 .title {
@@ -63,7 +28,7 @@ h1.title.is-2 {
 h1,
 .title.is-1,
 .h1 {
-  font-weight: 100;
+  font-weight: $weight-light;
 
   @include touch {
     font-size: 3.2rem;
@@ -71,9 +36,13 @@ h1,
 }
 
 .title--small {
-  @extend .label;
-  @extend .is-size-8;
-  @extend .m-b-0;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  color: #303032;
+  padding-bottom: 5px;
+  display: inline-block;
+  font-size: $size-8;
+  margin-bottom: 0;
 }
 // Badges
 
@@ -81,10 +50,10 @@ h1,
   height: 25px;
   margin: 2.5px 5px 2.5px 0;
   padding: 2px 5px 0 5px !important;
-  font-weight: 500;
-  @include inline-flex;
-  @include justify-content(center);
-  @include align-items(center);
+  font-weight: $weight-bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   @include touch {
     font-size: 0.825em;
@@ -125,7 +94,7 @@ hr {
   background-color: $border-color;
 }
 
-a {
+a:not(.button) {
   &.no-deco {
     color: inherit;
 
@@ -161,7 +130,7 @@ a {
   text-transform: none;
 }
 .is-regular {
-  font-weight: 400;
+  font-weight: $weight-normal;
 }
 
 a,
@@ -176,7 +145,7 @@ button,
 //_ Specific rules
 .status-text {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: $weight-bold;
   text-transform: uppercase;
 }
 
@@ -216,9 +185,9 @@ button,
 }
 
 .visible-on-hover {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -235,4 +204,13 @@ button,
 .is-default,
 .is-default a {
   cursor: default;
+}
+
+// TODO: need to know if those rules are necessary. If not -> Remove it
+strong,
+b {
+  font-weight: $weight-bold;
+}
+span.highlighted {
+  color: $danger !important;
 }

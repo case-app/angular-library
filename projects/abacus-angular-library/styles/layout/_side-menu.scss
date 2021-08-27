@@ -7,9 +7,9 @@ li {
     position: relative;
 
     color: $nav-item-color;
-    @include inline-flex;
-    @include align-items(center);
-    @include justify-content(flex-start);
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     padding: 19px 33px;
     transition: color 0.35s ease, background-color 0.05s ease-out;
@@ -33,12 +33,12 @@ li {
     }
 
     &.has-submenu {
-      @include justify-content(space-between);
-      @include inline-flex;
+      justify-content: space-between;
+      display: inline-flex;
 
       > span {
-        @include inline-flex;
-        @include align-items(center);
+        display: inline-flex;
+        align-items: center;
       }
 
       + ul {
@@ -93,5 +93,5 @@ li {
 }
 
 .flex {
-  @include flexbox;
+  display: flex;
 }

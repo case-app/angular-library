@@ -9,16 +9,18 @@
       >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
     >
 
-    <div class="input-wrapper">
-      <div *ngIf="selectedSearchResults.length" class="m-y-xs">
-        <span
-          class="tag is-dark"
-          *ngFor="let selectedSearchResult of selectedSearchResults"
-        >
-          <span>
-            <!-- Icon-->
-            <i
-              class="icon is-size-5"
+    <div
+      *ngIf="selectedSearchResults.length"
+      class="field is-grouped is-grouped-multiline"
+    >
+      <div
+        class="control"
+        *ngFor="let selectedSearchResult of selectedSearchResults"
+      >
+        <div class="tags has-addons">
+          <span class="tag is-link"
+            ><i
+              class="icon pr-5 pl-3"
               [ngClass]="{
                 'icon-user':
                   selectedSearchResult.resourceName === 'users' ||
@@ -47,74 +49,84 @@
                 'icon-star': selectedSearchResult.resourceName === 'suppliers',
                 'icon-box': selectedSearchResult.resourceName === 'orders'
               }"
-            ></i>
-          </span>
-
-          <span>{{ selectedSearchResult.shortLabel }}</span>
-          <span
-            class="pointer close-tag"
+            ></i
+            >{{ selectedSearchResult.shortLabel }}</span
+          >
+          <a
+            class="tag is-delete has-background-link-light"
             (click)="toggleItem(selectedSearchResult)"
             *ngIf="!readonly"
-          >
-            <i class="icon is-size-5 icon-x"></i>
-          </span>
-        </span>
+          ></a>
+        </div>
       </div>
-      <div class="multisearch-input-field">
-        <input
-          id="multi-search-input-{{ uniqueId }}"
-          type="text"
-          class="input"
-          (keyup)="onSearchInputKeyup($event)"
-          [placeholder]="selectedSearchResults.length ? '' : placeholder"
-          (focus)="showList = true"
-          [disabled]="
-            readonly ||
-            (maxSelectedItems &&
-              selectedSearchResults.length >= maxSelectedItems)
-          "
-          #searchInput
-        />
-        <ul class="list" *ngIf="showList && suggestedSearchResults.length">
-          <li
-            *ngFor="let searchResult of suggestedSearchResults; let i = index"
-            class="pointer"
-            [ngClass]="{
-              'is-active': selectedSearchResults.indexOf(searchResult) > -1,
-              'is-focused': focusedItemIndex === i
-            }"
-            (click)="toggleItem(searchResult)"
-          >
-            <!-- Icon-->
-            <i
-              class="icon is-size-5"
-              [ngClass]="{
-                'icon-user':
-                  searchResult.resourceName === 'users' ||
-                  searchResult.resourceName === 'referents',
-                'icon-map-pin': searchResult.resourceName === 'localities',
-                'icon-file-text': searchResult.resourceName === 'invoices',
-                'icon-home': searchResult.resourceName === 'agencies',
-                'icon-trending-up': searchResult.resourceName === 'expenses',
-                'icon-hash': searchResult.resourceName === 'technicians',
-                'icon-clipboard': searchResult.resourceName === 'statements',
-                'icon-pie-chart': searchResult.resourceName === 'markets',
-                'icon-file': searchResult.resourceName === 'receipts',
-                'icon-grid': searchResult.resourceName === 'projects',
-                'icon-briefcase': searchResult.resourceName === 'customers',
-                'icon-users': searchResult.resourceName === 'referents',
-                'icon-file-plus':
-                  searchResult.resourceName === 'acceptanceReports',
-                'icon-tag': searchResult.resourceName === 'types',
-                'icon-star': searchResult.resourceName === 'suppliers',
-                'icon-box': searchResult.resourceName === 'orders'
-              }"
-            ></i>
-            <span innerHTML="{{ searchResult.label }}"></span>
-          </li>
-        </ul>
-      </div>
-      <p class="help" *ngIf="helpText">{{ helpText }}</p>
     </div>
+    <div class="multisearch-input-field">
+      <input
+        id="multi-search-input-{{ uniqueId }}"
+        type="text"
+        class="input"
+        (keyup)="onSearchInputKeyup($event)"
+        [placeholder]="selectedSearchResults.length ? '' : placeholder"
+        (focus)="showList = true"
+        [disabled]="
+          readonly ||
+          (maxSelectedItems && selectedSearchResults.length >= maxSelectedItems)
+        "
+        #searchInput
+      />
+      <ul class="box list" *ngIf="showList && suggestedSearchResults.length">
+        <li
+          *ngFor="let searchResult of suggestedSearchResults; let i = index"
+          class="pointer"
+          [ngClass]="{
+            'is-active': selectedSearchResults.indexOf(searchResult) > -1,
+            'is-focused': focusedItemIndex === i
+          }"
+          (click)="toggleItem(searchResult)"
+        >
+          <!-- Icon-->
+          <i
+            class="icon is-size-5"
+            [ngClass]="{
+              'icon-user has-icon-color-1':
+                searchResult.resourceName === 'users' ||
+                searchResult.resourceName === 'referents',
+              'icon-map-pin has-icon-color-2':
+                searchResult.resourceName === 'localities',
+              'icon-file-text has-icon-color-3':
+                searchResult.resourceName === 'invoices',
+              'icon-home has-icon-color-4':
+                searchResult.resourceName === 'agencies',
+              'icon-trending-up has-icon-color-5':
+                searchResult.resourceName === 'expenses',
+              'icon-hash has-icon-color-6':
+                searchResult.resourceName === 'technicians',
+              'icon-clipboard has-icon-color-7':
+                searchResult.resourceName === 'statements',
+              'icon-pie-chart has-icon-color-8':
+                searchResult.resourceName === 'markets',
+              'icon-file has-icon-color-9':
+                searchResult.resourceName === 'receipts',
+              'icon-grid has-icon-color-10':
+                searchResult.resourceName === 'projects',
+              'icon-briefcase has-icon-color-11':
+                searchResult.resourceName === 'customers',
+              'icon-users has-icon-color-12':
+                searchResult.resourceName === 'referents',
+              'icon-file-plus has-icon-color-13':
+                searchResult.resourceName === 'acceptanceReports',
+              'icon-tag has-icon-color-1':
+                searchResult.resourceName === 'types',
+              'icon-star has-icon-color-2':
+                searchResult.resourceName === 'suppliers',
+              'icon-box has-icon-color-3':
+                searchResult.resourceName === 'orders'
+            }"
+          ></i>
+          <span innerHTML="{{ searchResult.label }}"></span>
+        </li>
+      </ul>
+    </div>
+    <p class="help" *ngIf="helpText">{{ helpText }}</p>
   </div>
 </div>

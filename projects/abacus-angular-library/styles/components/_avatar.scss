@@ -1,25 +1,35 @@
-.card-user {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(flex-start);
+$avatar-diameter: 36px !default;
+$avatar-diameter-small: 24px !default;
+$avatar-diameter-large: 60px !default;
 
-  + .card-user {
-    margin-top: 7.5px;
+.avatar {
+  display: block;
+  border-radius: 50%;
+  border: 1px solid $light;
+  position: relative;
+
+  &:not(.is-large):not(.is-small) {
+    width: $avatar-diameter;
+    min-width: $avatar-diameter;
+    max-width: $avatar-diameter;
+    height: $avatar-diameter;
+    min-height: $avatar-diameter;
+    max-height: $avatar-diameter;
   }
-
-  div {
-    @include flexbox;
-    @include flex-direction(column);
-    @include align-items(flex-start);
-    @include justify-content(center);
-    padding-left: $column-gap;
-
-    span {
-      &:last-child {
-        font-size: 1.1rem;
-
-        color: $grey-light;
-      }
-    }
+  &.is-small {
+    width: $avatar-diameter-small;
+    min-width: $avatar-diameter-small;
+    max-width: $avatar-diameter-small;
+    height: $avatar-diameter-small;
+    min-height: $avatar-diameter-small;
+    max-height: $avatar-diameter-small;
+  }
+  &.is-large {
+    width: $avatar-diameter-large;
+    min-width: $avatar-diameter-large;
+    max-width: $avatar-diameter-large;
+    height: $avatar-diameter-large;
+    min-height: $avatar-diameter-large;
+    max-height: $avatar-diameter-large;
   }
 }

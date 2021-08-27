@@ -1,175 +1,31 @@
-.is-fixed {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-
-  .button {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
-    height: 60px;
-    width: 60px;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-    box-shadow: 0 6px 16px 0 rgba($primary, 0.2);
-  }
-}
-
 button,
 .button {
-  --button-height: 4rem;
-  --padding-x: 4rem;
-  --border-radius: 2px;
-
-  height: var(--button-height);
-  padding: 0 var(--padding-x);
-  border-radius: var(--border-radius);
-  font-size: $size-5 !important;
-  font-weight: 500;
-
-  &:focus,
-  &:active,
-  &:hover,
-  &:focus:not(:active) {
-    box-shadow: none;
-  }
-  &:not(.is-outlined) {
-    border: 0;
-  }
-
-  &.is-rounded {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
-    height: 38px;
-    width: 38px;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-  }
-  &.is-large {
-    height: 45px !important;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  &.is-link {
-    color: $link;
-    background-color: $link-light;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      background-color: $link-lighter;
-      color: $link;
-      box-shadow: none;
-    }
-
-    &[disabled] {
-      color: $link;
-      background-color: $link-light;
-    }
-  }
+  font-weight: $weight-bold;
+  transition: all 0.1s ease-in-out;
 
   &.is-large {
-    height: 45px !important;
-    padding-top: 0;
-    padding-bottom: 0;
+    height: 5rem;
   }
 
-  &.is-warning {
-    color: $warning;
-    background-color: $warning-light;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      background-color: $warning-lighter;
-      color: $warning;
-      box-shadow: none;
+  .icon {
+    &:first-child:not(:last-child) {
+      @include ltr-property(
+        'margin',
+        calc(
+          #{-1 / 2 * $button-padding-horizontal} - #{$button-border-width} - 13.5px
+        ),
+        false
+      );
+      @include ltr-property('margin', $button-padding-horizontal / 4);
     }
-  }
-  &.is-primary {
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      box-shadow: none;
+    &:last-child:not(:first-child) {
+      @include ltr-property('margin', $button-padding-horizontal / 4, false);
+      @include ltr-property(
+        'margin',
+        calc(
+          #{-1 / 2 * $button-padding-horizontal} - #{$button-border-width} - 13.5px
+        )
+      );
     }
-  }
-
-  &.is-info {
-    color: $link;
-    background-color: $info-light;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      background-color: $info-lighter;
-      color: $link;
-      box-shadow: none;
-    }
-    &.is-outlined {
-      &:hover {
-        color: $primary;
-      }
-    }
-  }
-  &.is-grey {
-    color: $grey-dark;
-    background-color: $grey-lighter;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      background-color: rgba($grey-lighter, 0.72);
-      color: $grey-dark;
-      box-shadow: none;
-    }
-    &.is-outlined {
-      &:hover {
-        color: $primary;
-      }
-    }
-  }
-
-  &.is-default {
-    color: $light;
-    background-color: $warning;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      color: $light;
-      background-color: rgba($warning, 0.9);
-      box-shadow: none;
-    }
-  }
-
-  &.is-transparent {
-    background-color: transparent !important;
-
-    &:hover,
-    &:focus,
-    &:focus:not(:active) {
-      background-color: transparent !important;
-      box-shadow: none;
-    }
-  }
-}
-
-.button--back {
-  position: absolute;
-  left: 24px;
-  top: 20px;
-  text-decoration: none !important;
-}
-
-.button-group {
-  @include desktop {
-    min-width: 370px;
   }
 }

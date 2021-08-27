@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
-.icon {
+%icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: '#{$icomoon-font-family}' !important;
   speak: none;
@@ -23,6 +23,9 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon {
+  @extend %icon;
 }
 
 .icon-award1 {

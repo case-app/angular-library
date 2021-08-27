@@ -1,9 +1,41 @@
-@import './../../../../../styles/variables';
+@import './../../../../../styles/variables/all';
 @import './../../../../../../../node_modules/bulma/sass/utilities/_all.sass';
-@import './../../../../../styles/commons/mixins';
+@import './../../../../../styles/helpers/helpers';
 
+abc-image,
 abc-image-yield {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(flex-start);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+td,
+th {
+  vertical-align: middle !important;
+
+  &:first-child {
+    padding-left: $gap;
+  }
+  &:last-child {
+    padding-right: $gap;
+  }
+
+  a {
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+  }
+}
+
+.more {
+  height: 100%;
+  position: relative;
+
+  > span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 }

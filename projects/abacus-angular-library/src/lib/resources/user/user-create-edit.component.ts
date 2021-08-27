@@ -33,7 +33,7 @@ export class UserCreateEditComponent
       properties: {
         value: 'name'
       },
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       inputType: InputType.Text,
       required: true
     },
@@ -56,7 +56,7 @@ export class UserCreateEditComponent
               value: r.id.toString()
             }))
           ),
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       required: true
     },
     {
@@ -65,7 +65,7 @@ export class UserCreateEditComponent
       properties: {
         value: 'email'
       },
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       inputType: InputType.Email,
       required: true,
       validators: [Validators.email]
@@ -75,7 +75,7 @@ export class UserCreateEditComponent
       properties: {
         value: 'password'
       },
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       inputType: InputType.Password,
       createValidators: [Validators.required],
       editValidators: []
@@ -84,7 +84,7 @@ export class UserCreateEditComponent
       label: 'Avatar',
       placeholder: 'Choisir un fichier image',
       properties: { value: 'image' },
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       inputType: InputType.Image
     },
     {
@@ -92,13 +92,13 @@ export class UserCreateEditComponent
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
       properties: { value: 'isActive' },
       initialValue: { value: false },
-      className: 'p-x-0-mobile is-6 aligned-checkbox',
+      className: 'is-6',
       inputType: InputType.Checkbox
     },
     {
       label: 'Couleur',
       properties: { value: 'color' },
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       inputType: InputType.ColorPicker,
       required: true
     }
