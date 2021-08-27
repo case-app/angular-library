@@ -1,11 +1,11 @@
 <div
-  class="dropdown pull-right"
+  class="dropdown is-left"
   [ngClass]="{ 'is-active': isActive }"
   *ngIf="this.links && this.links.length"
 >
   <div class="dropdown-trigger">
     <a
-      class="text-is-dark more"
+      class="has-text-dark more"
       aria-haspopup="true"
       aria-controls="dropdown-menu"
       (click)="isActive = !isActive"
