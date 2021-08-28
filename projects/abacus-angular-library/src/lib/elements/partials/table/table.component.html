@@ -56,9 +56,13 @@
       <td
         *ngFor="let yield of item.yields"
         [width]="yield.width"
-        [ngClass]="yield.className || { pointer: item.link }"
+        class="{{ yield.className }}"
+        [ngClass]="{
+          pointer: definition.defaultLink,
+          'has-custom-link': yield.link
+        }"
         [ngSwitch]="yield.type"
-        (click)="goToLink(item.link)"
+        (click)="goToLink(yield.link || item.link, item.isDisabledHighlight)"
       >
         <abc-image-yield
           *ngSwitchCase="YieldType.Image"

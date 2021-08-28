@@ -10,7 +10,6 @@ import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt'
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular'
 import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
-import { AngularGooglePlaceModule } from 'angular-google-place'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
 
@@ -27,7 +26,6 @@ import { DateRangeInputComponent } from './elements/inputs/date-range-input/date
 import { DatepickerInputComponent } from './elements/inputs/datepicker-input/datepicker-input.component'
 import { EmailInputComponent } from './elements/inputs/email-input/email-input.component'
 import { FileInputComponent } from './elements/inputs/file-input/file-input.component'
-import { GooglePlacesInputComponent } from './elements/inputs/google-places-input/google-places-input.component'
 import { ImageInputComponent } from './elements/inputs/image-input/image-input.component'
 import { MultiSearchInputComponent } from './elements/inputs/multi-search-input/multi-search-input.component'
 import { MultiSelectInputComponent } from './elements/inputs/multi-select-input/multi-select-input.component'
@@ -125,7 +123,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     DatepickerInputComponent,
     EmailInputComponent,
     FileInputComponent,
-    GooglePlacesInputComponent,
     ImageInputComponent,
     MultiSearchInputComponent,
     MultiSelectInputComponent,
@@ -186,7 +183,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularGooglePlaceModule,
     AngularMyDatePickerModule,
     CKEditorModule,
     JwtModule.forRoot({
@@ -229,7 +225,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     DatepickerInputComponent,
     EmailInputComponent,
     FileInputComponent,
-    GooglePlacesInputComponent,
     ImageInputComponent,
     MultiSearchInputComponent,
     MultiSelectInputComponent,

@@ -6,7 +6,6 @@ export enum InputType {
   Email,
   File,
   Image,
-  GooglePlaces,
   MultiSearch,
   MultiSelect,
   Number,
