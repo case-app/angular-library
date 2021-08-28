@@ -93,6 +93,11 @@ export class TableComponent implements OnInit {
           item,
           itemYield.forthProperty
         )
+
+        if (typeof itemYield.link === 'function') {
+          itemYield.link = itemYield.link(item)
+        }
+
         item.yields.push(itemYield)
       })
 
@@ -169,11 +174,28 @@ export class TableComponent implements OnInit {
     this.itemToDelete = this.items.find((i) => i.id === itemId)
   }
 
-  goToLink(path: string[]) {
-    if (!path) {
+  goToLink(path: string[] | string, isDisabled: boolean): void {
+    if (!path || isDisabled) {
       return
     }
-    this.router.navigate(path)
+
+    // Separate queryParams from linkPath to use in Angular Router.
+    if (typeof path === 'string' && path.includes('?')) {
+      const urlArray: string[] = path.split('?')
+      const pathWithoutParams = urlArray[0]
+      const stringParams: string = urlArray[1]
+      const queryParams = JSON.parse(
+        '{"' +
+          decodeURI(stringParams)
+            .replace(/"/g, '\\"')
+            .replace(/&/g, '","')
+            .replace(/=/g, '":"') +
+          '"}'
+      )
+      this.router.navigate([pathWithoutParams], { queryParams })
+    } else {
+      this.router.navigate(typeof path === 'string' ? [path] : path)
+    }
   }
 
   triggerCustomAction(
