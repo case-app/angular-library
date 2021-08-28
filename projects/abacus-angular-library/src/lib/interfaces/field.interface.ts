@@ -6,7 +6,9 @@ import { SelectOption } from './select-option.interface'
 export interface Field {
   // Optional unique identifier if needed to add a FieldSpecialRule on it.
   id?: string
-  properties: { [key: string]: string }
+
+  property?: string
+  properties?: { [key: string]: string }
 
   label: string
   inputType: InputType

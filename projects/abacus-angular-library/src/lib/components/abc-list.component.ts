@@ -137,7 +137,11 @@ export class AbcListComponent {
     this.resolvedFilters.forEach((filter: Filter) => {
       filter.initialValue = {}
 
-      Object.keys(filter.properties).forEach((inputProp: string) => {
+      if (filter.property) {
+        filter.properties = { value: filter.property }
+      }
+
+      Object.keys(filter.properties || []).forEach((inputProp: string) => {
         const filterProp: string = filter.properties[inputProp]
         if (queryParams[filterProp]) {
           filter.initialValue[inputProp] = queryParams[filterProp]

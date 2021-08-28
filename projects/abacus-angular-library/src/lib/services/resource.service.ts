@@ -1,8 +1,10 @@
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { HttpParams, HttpClient } from '@angular/common/http'
-import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
+
 import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { SelectOption } from '../interfaces/select-option.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +39,13 @@ export class ResourceService {
           return res
         })
       )
+  }
+
+  listSelectOptions(
+    resourceName: string,
+    refineParams?: object
+  ): Promise<SelectOption[]> {
+    return this.list(`${resourceName}/select-options`, refineParams).toPromise()
   }
 
   show(

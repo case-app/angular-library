@@ -3,7 +3,12 @@ import { SelectOption } from './select-option.interface'
 
 export interface Filter {
   label: string
-  properties: { [key: string]: string }
+
+  // Property or properties changed by the filer.
+  // Example: single property "lateInvoicesOnly" or multiple property {dateFrom: "startDateFrom", dateTo: "startDateTo"}
+  property?: string
+  properties?: { [key: string]: string }
+
   placeholder?: string
   initialValue?: { [key: string]: string }
   inputType: InputType
