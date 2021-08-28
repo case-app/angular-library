@@ -3,9 +3,9 @@
     {{ label }}<span class="has-text-danger" *ngIf="required">*</span>
   </label>
 
-  <div class="file" *ngIf="!filePath">
+  <div *ngIf="!filePath">
     <div
-      class="input-wrapper"
+      class="file"
       [ngClass]="{ 'show-errors': showErrors, 'is-invalid': !filePath }"
     >
       <label class="file-label">
@@ -37,7 +37,11 @@
   <!-- Uploaded file -->
   <div
     *ngIf="filePath"
-    class="has-current-file flex align-center space-between m-t-sm"
+    class="
+      has-current-file
+      is-flex is-justify-content-space-between is-align-items-center
+      mt-1
+    "
   >
     <a [href]="storagePath + '/' + filePath" target="_blank">
       {{ filePath }}

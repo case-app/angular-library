@@ -75,7 +75,6 @@ export { DateRangeInputComponent } from './lib/elements/inputs/date-range-input/
 export { DatepickerInputComponent } from './lib/elements/inputs/datepicker-input/datepicker-input.component'
 export { EmailInputComponent } from './lib/elements/inputs/email-input/email-input.component'
 export { FileInputComponent } from './lib/elements/inputs/file-input/file-input.component'
-export { GooglePlacesInputComponent } from './lib/elements/inputs/google-places-input/google-places-input.component'
 export { ImageInputComponent } from './lib/elements/inputs/image-input/image-input.component'
 export { MultiSearchInputComponent } from './lib/elements/inputs/multi-search-input/multi-search-input.component'
 export { MultiSelectInputComponent } from './lib/elements/inputs/multi-select-input/multi-select-input.component'

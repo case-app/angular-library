@@ -1,230 +1,26 @@
-table,
-.table {
-  min-width: 100%;
-  max-width: 100%;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  color: $dark;
-  @include touch {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  &--fw {
-    min-width: 100%;
-  }
-
-  td.has-switch {
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    .field {
-      position: relative;
-      top: -2px;
-    }
-  }
-
-  > thead > tr,
-  > tbody > tr {
-    &:last-child td {
-      border-bottom: 0;
-    }
-    > td {
-      height: 50px;
-
-      @include touch {
-        height: 91px;
-      }
-
-      &.two-actions {
-        @include touch {
-          min-width: 124px;
-        }
-      }
-    }
-    &.is-danger {
-      background-color: rgba($danger, 0.04);
-      border-left: 7px solid $danger;
-      color: $danger;
-    }
-    &.is-warning {
-      background-color: rgba($warning, 0.04);
-      border-left: 7px solid $warning;
-      color: $warning;
-    }
-    &.is-info {
-      background-color: rgba($info, 0.04);
-      border-left: 7px solid $info;
-      color: $info;
-    }
-    &.is-success {
-      background-color: rgba($success, 0.04);
-      border-left: 7px solid $success;
-      color: $success;
-    }
-    // TODO: Better color
-    &.is-disabled {
-      background-color: rgba($black, 0.04);
-      border-left: 7px solid $black;
-      color: rgba($black, 0.72);
-    }
-    &.is-link {
-      background-color: rgba($link, 0.04);
-      border-left: 7px solid $link;
-      color: $link;
-    }
-
-    &[class^='is-'] {
-      .dropdown-item {
-        color: $black;
-
-        &:focus,
-        &:hover,
-        &:active,
-        &.is-active {
-          background-color: transparent;
-          color: $link;
-        }
-      }
-    }
-  }
-
-  &.lh-small > tbody > tr {
-    > td {
-      @include touch {
-        height: 50px;
-      }
-    }
-  }
-
-  &.is-large {
-    tr td {
-      padding: 1.25em 1.25em;
-    }
-  }
-
-  thead th,
-  > tbody > tr > td,
-  thead > tr > td,
-  thead th {
-    vertical-align: middle !important;
-    border-width: 0 0 1px !important;
-    border-color: $border-color;
-    padding-right: 16.5px;
-    padding-left: 16.5px;
-
-    &:first-child {
-      padding-left: 33px;
-    }
-    &:last-child {
-      padding-right: 33px;
-    }
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    &.avatars {
-      min-width: 110px;
-    }
-
-    a {
-      color: inherit;
-      &:hover,
-      &:focus {
-        color: inherit;
-      }
-      &.has-text-link {
-        font-weight: 500;
-      }
-    }
-
-    @include touch {
-      padding: 1.5em 0.75em;
-    }
-  }
-  thead {
-    white-space: nowrap;
-    th {
-      white-space: nowrap;
-      text-transform: uppercase;
-      color: $grey;
-    }
-  }
-
-  &.is-hoverable tbody tr:not(.is-selected) {
-    @include transition(all 0.05s ease-in-out);
-    &:hover {
-      background-color: $link-alpha03;
-    }
-  }
-
-  &.no-border {
-    tr,
-    th,
-    td {
-      border: 0;
-    }
-  }
-
-  .modal-content & {
-    min-width: 100%;
-  }
-
-  .modal-content &.is-bordered td {
-    border: 1px solid $border-color !important;
-  }
+thead {
+  white-space: nowrap;
 }
-table.is-hoverable tbody tr:not(.is-selected):hover,
-.table.is-hoverable tbody tr:not(.is-selected):hover {
-  background: rgba($link, 0.01) !important;
+tr {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      background-color: $color-invert;
+      border-left: $border-width-table-row-highlighted solid $color;
+      color: $color;
+    }
+  }
 }
 
 th {
   white-space: nowrap;
-  .top-margin & {
-    padding-top: 46px;
+  text-transform: uppercase;
+}
+td {
+  &.is-narrow {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
   }
-}
-
-.top-margin-none .top-margin th {
-  padding-top: 10px;
-}
-
-.more {
-  height: 100%;
-  position: relative;
-
-  > span {
-    @include flexbox;
-    @include align-items(center);
-    height: 100%;
-  }
-}
-
-.table-responsive {
-  position: relative;
-  display: block;
-  overflow-x: auto;
-  width: 100%;
-  padding-bottom: 6rem;
-}
-
-.multiple-table .table td {
-  border: 0;
-}
-
-.has-table {
-  position: relative;
-  display: block;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-
-th .icon-info {
-  position: relative;
-  top: 1.5px;
-  margin-left: 5px;
 }

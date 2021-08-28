@@ -6,8 +6,11 @@
 
   <div class="image" *ngIf="!imagePath">
     <div
-      class="input-wrapper"
-      [ngClass]="{ 'show-errors': showErrors, 'is-invalid': !imagePath }"
+      class="file"
+      [ngClass]="{
+        'show-errors': showErrors,
+        'is-invalid': !imagePath
+      }"
     >
       <label class="image-label">
         <!-- Input element -->
@@ -39,7 +42,11 @@
   <!-- Previously uploaded file -->
   <div
     *ngIf="imagePath"
-    class="has-current-file flex align-center space-between m-t-sm"
+    class="
+      has-current-file
+      is-flex is-align-items-center is-justify-content-space-between
+      mt-1
+    "
   >
     <abc-image [path]="imagePath"> </abc-image>
     <span class="file-cta file-remove">

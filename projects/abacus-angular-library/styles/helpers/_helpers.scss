@@ -1,0 +1,15 @@
+// Transitions
+
+@mixin transition($val: ease 0.5s) {
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  -o-transition: $val;
+  transition: $val;
+  -ms-transition: $val;
+  webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@mixin shadow($shadow-color: $black) {
+  box-shadow: 0 42px 64px rgba($shadow-color, 0.16);
+}

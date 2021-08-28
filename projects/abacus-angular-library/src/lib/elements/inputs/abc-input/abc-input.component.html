@@ -84,18 +84,6 @@
     *ngSwitchCase="InputType.Email"
   ></abc-email-input>
 
-  <abc-google-places-input
-    [label]="label"
-    [uniqueId]="uniqueId"
-    [placeholder]="placeholder"
-    [initialValue]="initialValue"
-    [showErrors]="showErrors"
-    [validators]="validators"
-    [helpText]="helpText"
-    (valueChanged)="onValueChanged($event)"
-    *ngSwitchCase="InputType.GooglePlaces"
-  ></abc-google-places-input>
-
   <abc-multi-search-input
     [label]="label"
     [uniqueId]="uniqueId"

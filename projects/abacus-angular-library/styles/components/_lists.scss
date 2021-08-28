@@ -1,8 +1,8 @@
 .list-separated {
   padding: $column-gap 0;
   border-bottom: 1px solid $border-color;
-  @include flexbox;
-  @include justify-content(space-between);
+  display: flex;
+  justify-content: space-between;
 
   > *:last-child {
     padding-left: $gap;
@@ -10,20 +10,20 @@
 }
 
 .small-circle {
-  height: #{$field-height / 1.75};
-  width: #{$field-height / 1.75};
-  border-radius: $field-height;
+  height: #{$control-height / 1.75};
+  width: #{$control-height / 1.75};
+  border-radius: $control-height;
   display: inline-block;
   margin: 5px;
   cursor: pointer;
   &.is-active {
-    border: 2px solid $white;
+    border: $control-border-width solid $white;
     box-shadow: 0 10px 20px #dedede;
   }
 
   @include fullhd {
-    height: #{$field-height / 1.25};
-    width: #{$field-height / 1.25};
+    height: #{$control-height / 1.25};
+    width: #{$control-height / 1.25};
     margin: 10px;
   }
 }

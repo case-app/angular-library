@@ -30,10 +30,8 @@ export class UserCreateEditComponent
     {
       id: 'name',
       label: 'Nom',
-      properties: {
-        value: 'name'
-      },
-      className: 'p-x-0-mobile is-6',
+      property: 'name',
+      className: 'is-6',
       inputType: InputType.Text,
       required: true
     },
@@ -41,7 +39,7 @@ export class UserCreateEditComponent
       id: 'roleId',
       label: `Rôle`,
       placeholder: `Choisir le rôle du collaborateur...`,
-      properties: { value: 'roleId' },
+      property: 'roleId',
       retrievedItemProperties: {
         roleId: 'role.id'
       },
@@ -56,26 +54,22 @@ export class UserCreateEditComponent
               value: r.id.toString()
             }))
           ),
-      className: 'p-x-0-mobile is-6',
+      className: 'is-6',
       required: true
     },
     {
       id: 'email',
       label: 'Email',
-      properties: {
-        value: 'email'
-      },
-      className: 'p-x-0-mobile is-6',
+      property: 'email',
+      className: 'is-6',
       inputType: InputType.Email,
       required: true,
       validators: [Validators.email]
     },
     {
       label: 'Mot de passe',
-      properties: {
-        value: 'password'
-      },
-      className: 'p-x-0-mobile is-6',
+      property: 'password',
+      className: 'is-6',
       inputType: InputType.Password,
       createValidators: [Validators.required],
       editValidators: []
@@ -83,22 +77,22 @@ export class UserCreateEditComponent
     {
       label: 'Avatar',
       placeholder: 'Choisir un fichier image',
-      properties: { value: 'image' },
-      className: 'p-x-0-mobile is-6',
+      property: 'image',
+      className: 'is-6',
       inputType: InputType.Image
     },
     {
       label: 'Actif',
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
-      properties: { value: 'isActive' },
+      property: 'isActive',
       initialValue: { value: false },
-      className: 'p-x-0-mobile is-6 aligned-checkbox',
+      className: 'is-6',
       inputType: InputType.Checkbox
     },
     {
       label: 'Couleur',
-      properties: { value: 'color' },
-      className: 'p-x-0-mobile is-6',
+      property: 'color',
+      className: 'is-6',
       inputType: InputType.ColorPicker,
       required: true
     }

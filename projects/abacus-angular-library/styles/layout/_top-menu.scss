@@ -1,25 +1,27 @@
 .navbar {
   position: relative;
-  height: 80px;
+  height: $navbar-height;
   &:before {
     position: absolute;
     content: '';
     top: 0;
     height: 100%;
     width: 100%;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid $border-color;
 
-    @include tablet {
-      left: calc(25% - 1px);
-      width: calc(75% + 1px);
-    }
-    @include widescreen {
-      left: calc(16.66667% - 1px);
-      width: calc(73.33333% + 1px);
-    }
-    @include fullhd {
-      left: calc(12% - 1px);
-      width: calc(88% + 1px);
+    abc-top-menu:not(.is-collapsed) & {
+      @include desktop {
+        left: calc(#{$aside-width-desktop} + #{$aside-border-width});
+        width: calc(100% - #{$aside-width-desktop} - #{$aside-border-width});
+      }
+      @include widescreen {
+        left: calc(#{$aside-width-widescreen} + #{$aside-border-width});
+        width: calc(100% - #{$aside-width-widescreen} - #{$aside-border-width});
+      }
+      @include fullhd {
+        left: calc(#{$aside-width-fullhd} + #{$aside-border-width});
+        width: calc(100% - #{$aside-width-fullhd} - #{$aside-border-width});
+      }
     }
   }
   > div:first-child {
@@ -28,30 +30,33 @@
     align-items: center;
     flex: none;
     background-color: $side-nav-background;
-    @include tablet {
-      width: calc(25% - 1px);
+
+    @include desktop {
+      width: calc(#{$aside-width-desktop} + 1px);
     }
     @include widescreen {
-      width: calc(16.66667% - 1px);
+      width: calc(#{$aside-width-widescreen} + 1px);
     }
     @include fullhd {
-      width: calc(12% - 1px);
+      width: calc(#{$aside-width-fullhd} + 1px);
     }
   }
 }
 
 .logo {
   display: inline-block;
-  padding: 8px 0 0 33px;
+  padding: 0 0 0 33px;
+  width: 100%;
+  height: 100%;
+
+  &--image {
+    height: 100%;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+  }
 }
 
-.dashboard-title {
-  display: inline-block;
-  padding-left: 20px;
-  font-size: 15px;
-  font-family: 'Georgia', 'Times New Roman', sans-serif;
-  color: black;
-}
 .navbar-item img {
   max-height: unset;
 }
@@ -89,7 +94,7 @@
 .notification-list {
   position: relative;
   overflow-y: auto;
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - #{$navbar-height});
 }
 
 .drop--notifications {
@@ -108,10 +113,6 @@
   background-color: $white;
   border-left: 1px solid $border-color;
   @include shadow;
-
-  @include fullhd {
-    right: -300px;
-  }
 
   &:after {
     display: none;
@@ -147,9 +148,9 @@
   }
   a {
     height: 94px;
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(flex-start);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -163,9 +164,9 @@
       width: 64px;
       min-width: 64px;
       background-color: $link-light;
-      @include flexbox;
-      @include align-items(center);
-      @include justify-content(center);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.8rem;
       margin-right: 14px;
       border-radius: 32px;
@@ -175,10 +176,10 @@
       -o-border-radius: 32px;
     }
     span {
-      @include inline-flex;
+      display: inline-flex;
       width: calc(100% - 64px - 14px);
       color: $dark;
-      font-weight: 500;
+      font-weight: $weight-bold;
       @include transition(color 0.25s ease-in-out);
     }
 
@@ -196,10 +197,10 @@
 .dropdown-trigger > a {
   width: 24px;
   height: 100%;
-  @include inline-flex;
+  display: inline-flex;
   box-sizing: content-box;
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
+  justify-content: center;
   margin-right: 24px;
 }
 
@@ -232,9 +233,9 @@
 }
 
 .buttons {
-  padding-right: 15px;
+  padding-right: 0;
   @include fullhd {
-    padding-right: 110px;
+    padding-right: calc(#{$main-padding-horizontal} - #{$column-gap} - 18px);
   }
 }
 

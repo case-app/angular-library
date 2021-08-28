@@ -1,7 +1,7 @@
 nav {
   position: relative;
   z-index: 9;
-  height: 80px;
+  height: $navbar-height;
   width: 100vw;
   background-color: $side-nav-background;
 
@@ -18,39 +18,30 @@ nav {
       left: 0;
       width: 100%;
     }
-    @include widescreen {
-      left: calc(16.66667% - 1px);
-      width: calc(73.33333% + 1px);
-    }
-    @include fullhd {
-      left: calc(12% - 1px);
-      width: calc(88% + 1px);
-    }
   }
   > div:first-child {
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @include touch {
-      @include align-items(center);
+    
+      align-items: center;
       height: 100%;
-      @include flex-direction(row-reverse);
-      @include justify-content(space-between);
+      flex-direction: row-reverse;
+      justify-content: space-between;
 
       > a {
         margin: 0;
         padding: 0;
       }
-    }
   }
 
   .navbar-burger {
-    height: 80px;
+    height: $navbar-height;
     width: 76px;
     color: $nav-item-color;
     @include tablet {
-      width: 80px;
+      width: $navbar-height;
     }
 
     &:hover {
@@ -60,11 +51,11 @@ nav {
   }
 
   .header-right {
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
-    height: 80px;
-    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $navbar-height;
+    width: $navbar-height;
   }
 }
 
@@ -117,10 +108,10 @@ nav {
 .user-box > a {
   width: 39px;
   height: 100%;
-  @include inline-flex;
+  display: inline-flex;
   box-sizing: content-box;
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
+  justify-content: center;
   margin-right: 32px;
   @include mobile {
     margin-right: 30px;
@@ -137,10 +128,10 @@ nav {
 
 .navbar-menu {
   display: block;
-  height: calc(100vh - 80px);
+  height: calc(100vh - #{$navbar-height});
   width: 260px;
   position: absolute;
-  top: 80px;
+  top: $navbar-height;
   left: -261px;
   box-shadow: 1px 0 0 0 rgba($side-nav-background, 0.1);
   padding-bottom: 0;
@@ -171,9 +162,9 @@ nav {
     a {
       position: relative;
       color: $nav-item-color;
-      @include inline-flex;
-      @include align-items(center);
-      @include justify-content(flex-start);
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
       width: 100%;
       padding: 19px 33px;
       @include transition(color 0.25s ease);
@@ -197,12 +188,12 @@ nav {
       -ms-transition: color 0.35s ease, background-color 0.05s ease-out;
       -o-transition: color 0.35s ease, background-color 0.05s ease-out;
       &.has-submenu {
-        @include justify-content(space-between);
-        @include inline-flex;
+        justify-content: space-between;
+        display: inline-flex;
 
         > span {
-          @include inline-flex;
-          @include align-items(center);
+          display: inline-flex;
+          align-items: center;
         }
 
         + ul {
@@ -256,41 +247,38 @@ nav {
 }
 
 .navbar-end {
-  @include touch {
+  
     height: 100%;
-    @include flexbox;
-    @include flex-direction(column);
-    @include justify-content(space-between);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .menu-list--bottom {
       li:last-child {
         border-top: 1px solid rgba($nav-item-color, 0.1);
       }
-    }
+    
   }
 }
 
 .hiding-layer {
-  @include desktop {
-    display: none;
-  }
-  @include touch {
+  
     display: block;
     position: absolute;
-    top: 80px;
+    top: $navbar-height;
     left: 0;
     width: 100vw;
     opacity: 0;
     visibility: hidden;
-    height: calc(100vh - 80px);
+    height: calc(100vh - #{$navbar-height});
     background: $side-nav-background;
-  }
+  
 }
 
 .link-back {
   height: 100%;
-  @include inline-flex;
-  @include align-items(center);
-  @include justify-content(flex-start);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   padding-left: $gap !important;
 }
