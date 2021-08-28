@@ -13,9 +13,9 @@ export class FlashMessageService {
   }> = new Subject()
 
   timeout: number
-  defaultTimeout: 6000
+  defaultTimeout = 6000
 
-  constructor(@Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig) {
+  constructor(@Inject('ABACUS_CONFIG_TOKEN') config: AbacusConfig) {
     this.timeout = config.flashMessageTimeout || this.defaultTimeout
   }
 
