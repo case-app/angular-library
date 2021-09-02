@@ -30,9 +30,7 @@ export class UserCreateEditComponent
     {
       id: 'name',
       label: 'Nom',
-      properties: {
-        value: 'name'
-      },
+      property: 'name',
       className: 'is-6',
       inputType: InputType.Text,
       required: true
@@ -41,7 +39,7 @@ export class UserCreateEditComponent
       id: 'roleId',
       label: `Rôle`,
       placeholder: `Choisir le rôle du collaborateur...`,
-      properties: { value: 'roleId' },
+      property: 'roleId',
       retrievedItemProperties: {
         roleId: 'role.id'
       },
@@ -62,9 +60,7 @@ export class UserCreateEditComponent
     {
       id: 'email',
       label: 'Email',
-      properties: {
-        value: 'email'
-      },
+      property: 'email',
       className: 'is-6',
       inputType: InputType.Email,
       required: true,
@@ -72,9 +68,7 @@ export class UserCreateEditComponent
     },
     {
       label: 'Mot de passe',
-      properties: {
-        value: 'password'
-      },
+      property: 'password',
       className: 'is-6',
       inputType: InputType.Password,
       createValidators: [Validators.required],
@@ -83,21 +77,21 @@ export class UserCreateEditComponent
     {
       label: 'Avatar',
       placeholder: 'Choisir un fichier image',
-      properties: { value: 'image' },
+      property: 'image',
       className: 'is-6',
       inputType: InputType.Image
     },
     {
       label: 'Actif',
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
-      properties: { value: 'isActive' },
+      property: 'isActive',
       initialValue: { value: false },
       className: 'is-6',
       inputType: InputType.Checkbox
     },
     {
       label: 'Couleur',
-      properties: { value: 'color' },
+      property: 'color',
       className: 'is-6',
       inputType: InputType.ColorPicker,
       required: true

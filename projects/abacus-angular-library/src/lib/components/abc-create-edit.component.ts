@@ -129,7 +129,11 @@ export class AbcCreateEditComponent {
     fields.forEach((field: Field) => {
       field.initialValue = {}
 
-      Object.keys(field.properties).forEach((fieldProp: string) => {
+      if (field.property) {
+        field.properties = { value: field.property }
+      }
+
+      Object.keys(field.properties || []).forEach((fieldProp: string) => {
         // Get name of the property and path if different from controlName.
         const controlName: string = field.properties[fieldProp]
 
