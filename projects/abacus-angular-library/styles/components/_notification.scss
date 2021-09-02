@@ -64,3 +64,8 @@
       0.01s display linear, transform 0.22s ease-in-out;
   }
 }
+.notification-list {
+  position: relative;
+  overflow-y: auto;
+  max-height: calc(100vh - #{$navbar-height});
+}
