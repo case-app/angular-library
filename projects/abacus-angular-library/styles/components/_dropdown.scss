@@ -1,6 +1,9 @@
 .dropdown-item {
   font-size: $size-6;
 }
-.dropdown-divider {
-  margin: 1rem 0;
+
+.dropdown-menu {
+  &.is-large {
+    min-width: $dropdown-menu-large-min-width;
+  }
 }

@@ -21,7 +21,7 @@
 
           <!-- Notifications -->
           <div
-            class="dropdown mr-6"
+            class="dropdown mr-6 is-right"
             [ngClass]="{ 'is-active': showNotificationMenu }"
           >
             <div class="dropdown-trigger">
@@ -43,46 +43,48 @@
                 </span>
               </a>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-menu is-large" id="dropdown-menu2" role="menu">
               <div class="dropdown-content">
-                <div class="dropdown-item">
-                  <div class="notification-list">
+                <ng-container
+                  *ngFor="let notification of notifications; last as isLast"
+                >
+                  <div class="dropdown-item">
                     <div
-                      class="notification-item"
-                      *ngFor="let notification of notifications"
+                      class="
+                        is-flex is-flex-wrap-wrap
+                        p-5
+                        is-justify-content-start is-align-items-center
+                      "
                     >
-                      <div
-                        class="
-                          is-flex is-flex-wrap-wrap
-                          p-5
-                          is-justify-content-start is-align-items-center
-                        "
-                      >
-                        <div class="notification-excerpt">
-                          <ng-container *ngIf="!notification.linkPath">
-                            <p>
-                              {{ notification.description }}
-                            </p>
-                          </ng-container>
-                          <p *ngIf="notification.linkPath">
-                            <a
-                              [routerLink]="notification.linkPath"
-                              [queryParams]="notification.queryParams"
-                              >{{ notification.description }}
-                            </a>
+                      <div class="notification-excerpt">
+                        <ng-container *ngIf="!notification.linkPath">
+                          <p>
+                            {{ notification.description }}
                           </p>
-                          <p class="content is-small has-text-grey">
-                            le {{ notification.date | date }}
-                          </p>
-                        </div>
-                        <span
-                          *ngIf="notification.isHighlighted"
-                          class="notification-dot"
-                        ></span>
+                        </ng-container>
+                        <p *ngIf="notification.linkPath">
+                          <a
+                            [routerLink]="notification.linkPath"
+                            [queryParams]="notification.queryParams"
+                            >{{ notification.description }}
+                          </a>
+                        </p>
+                        <p
+                          class="
+                            is-size-8
+                            pt-1
+                            is-uppercase is-font-weight-500
+                            has-text-weight-medium
+                          "
+                        >
+                          le {{ notification.date | date }}
+                        </p>
                       </div>
+                      <span class="notification-dot"></span>
                     </div>
                   </div>
-                </div>
+                  <hr class="dropdown-divider" *ngIf="!isLast" />
+                </ng-container>
               </div>
             </div>
           </div>
@@ -114,15 +116,14 @@
               </a>
             </div>
             <div class="dropdown-menu is-small" role="menu">
-              <div class="dropdown-content is-small">
+              <div class="dropdown-content">
                 <a
                   routerLink="/collaborateurs/myself/edit"
                   class="dropdown-item"
                 >
                   Modifier mon profil
                 </a>
-              </div>
-              <div class="dropdown-content is-small">
+                <hr class="dropdown-divider" />
                 <a routerLink="/logout" class="dropdown-item"> Deconnexion </a>
               </div>
             </div>
