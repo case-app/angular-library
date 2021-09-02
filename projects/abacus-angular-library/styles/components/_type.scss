@@ -171,46 +171,7 @@ button,
   }
 }
 
-// _ Tags
-
-.tag--event {
-  padding: 8px 12px !important;
-  margin: 0 $gap 0 0 !important;
-  border-radius: 3px !important;
-  > b {
-    background: -webkit-linear-gradient($warning, $danger);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-.visible-on-hover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  @include transition(all 0.18s ease-in-out);
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
 .is-default,
 .is-default a {
   cursor: default;
-}
-
-// TODO: need to know if those rules are necessary. If not -> Remove it
-strong,
-b {
-  font-weight: $weight-bold;
-}
-span.highlighted {
-  color: $danger !important;
 }

@@ -12,7 +12,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @include transition(left 0.3s ease-in-out);
+  transition: left 0.3s ease-in-out;
 
   .button {
     width: $touchButtonWidth;

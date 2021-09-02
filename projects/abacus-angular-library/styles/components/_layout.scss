@@ -115,7 +115,7 @@ article {
 
 .modal-background {
   background-color: rgba($dark, 0.86);
-  @include transition(all 0.2s ease-out);
+  transition: all 0.2s ease-out;
 }
 
 .modal-content {
@@ -340,26 +340,6 @@ $bullet-colors: (
   border: 0;
 }
 
-.new-notifications {
-  position: absolute;
-  height: 19px;
-  width: 19px;
-  border-radius: 19px;
-  border: 3px solid $white;
-  right: -12px;
-  top: -14px;
-  background-color: $primary;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  > span {
-    font-family: 'Rubik', sans-serif;
-    font-size: 11px;
-    color: $white;
-  }
-}
 .notification-item {
   border-bottom: 1px solid $border-color;
 }

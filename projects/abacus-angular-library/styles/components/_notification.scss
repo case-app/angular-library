@@ -1,0 +1,54 @@
+.has-notifications {
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  border-radius: 19px;
+  border: 3px solid $white;
+  right: -12px;
+  top: -14px;
+  background-color: $primary;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > span {
+    font-family: 'Rubik', sans-serif;
+    font-size: 11px;
+    color: $white;
+  }
+}
+
+.drop--notifications {
+  position: absolute;
+  left: unset;
+  right: -205px;
+  top: 48px;
+  height: auto;
+  width: 330px;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transform: translateX(#{$gap});
+  transition: opacity 0.22s ease-in-out, 0.01s visibility linear 0.22s,
+    0.01s display linear 0.22s transform 0.22s ease-in-out;
+  background-color: $white;
+  border-left: 1px solid $border-color;
+  @include shadow;
+
+  &:after {
+    display: none;
+  }
+  &:before {
+    display: none;
+  }
+
+  .dropdown.is-active & {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    transition: opacity 0.22s ease-in-out, 0.01s visibility linear,
+      0.01s display linear, transform 0.22s ease-in-out;
+  }
+}

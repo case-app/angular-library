@@ -24,16 +24,15 @@ nav {
     justify-content: center;
     align-items: center;
 
-    
-      align-items: center;
-      height: 100%;
-      flex-direction: row-reverse;
-      justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 
-      > a {
-        margin: 0;
-        padding: 0;
-      }
+    > a {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .navbar-burger {
@@ -167,7 +166,7 @@ nav {
       justify-content: flex-start;
       width: 100%;
       padding: 19px 33px;
-      @include transition(color 0.25s ease);
+      transition: color 0.25s ease;
 
       i {
         height: 18px;
@@ -247,32 +246,28 @@ nav {
 }
 
 .navbar-end {
-  
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    .menu-list--bottom {
-      li:last-child {
-        border-top: 1px solid rgba($nav-item-color, 0.1);
-      }
-    
+  .menu-list--bottom {
+    li:last-child {
+      border-top: 1px solid rgba($nav-item-color, 0.1);
+    }
   }
 }
 
 .hiding-layer {
-  
-    display: block;
-    position: absolute;
-    top: $navbar-height;
-    left: 0;
-    width: 100vw;
-    opacity: 0;
-    visibility: hidden;
-    height: calc(100vh - #{$navbar-height});
-    background: $side-nav-background;
-  
+  display: block;
+  position: absolute;
+  top: $navbar-height;
+  left: 0;
+  width: 100vw;
+  opacity: 0;
+  visibility: hidden;
+  height: calc(100vh - #{$navbar-height});
+  background: $side-nav-background;
 }
 
 .link-back {
