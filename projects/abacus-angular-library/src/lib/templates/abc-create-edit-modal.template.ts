@@ -46,14 +46,14 @@ export const abcCreateEditModalTemplate = `
         <div class="is-flex is-align-items-stretch is-justify-content-space-between">
           <button class="button" (click)="close()">Annuler</button>
           <button
-            class="button is-primary is-hidden-touch"
+            class="button is-link is-hidden-touch"
             (click)="submit()"
             [ngClass]="{ 'is-loading': loading }"
           >
             Enregistrer
           </button>
           <button
-            class="button is-primary is-hidden-desktop"
+            class="button is-link is-hidden-desktop"
             (click)="submit()"
             [ngClass]="{ 'is-loading': loading }"
           >
