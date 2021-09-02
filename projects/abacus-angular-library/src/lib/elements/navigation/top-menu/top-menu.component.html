@@ -21,7 +21,7 @@
 
           <!-- Notifications -->
           <div
-            class="dropdown"
+            class="dropdown mr-6"
             [ngClass]="{ 'is-active': showNotificationMenu }"
           >
             <div class="dropdown-trigger">
@@ -32,10 +32,14 @@
                 (click)="toggleNotificationMenu()"
               >
                 <span class="icon has-text-expo">
-                  <i class="icon icon-bell"></i>
-                  <span class="has-notifications" *ngIf="newNotificationCount">
-                    <span>{{ newNotificationCount }}</span>
-                  </span>
+                  <i class="icon icon-bell is-size-4">
+                    <span
+                      class="has-notifications"
+                      *ngIf="newNotificationCount"
+                    >
+                      <span>{{ newNotificationCount }}</span>
+                    </span>
+                  </i>
                 </span>
               </a>
             </div>

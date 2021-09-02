@@ -1,20 +1,32 @@
-.has-notifications {
+.has-notification {
   position: absolute;
-  height: 19px;
-  width: 19px;
-  border-radius: 19px;
-  border: 3px solid $white;
-  right: -12px;
-  top: -14px;
-  background-color: $primary;
-
+  right: -3px;
+  top: -3px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: $notification-dot-width;
+  width: $notification-dot-width;
+  border-radius: $notification-dot-width;
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    &.is-#{$name} {
+      background-color: $color;
+      color: $color-invert;
+    }
+  }
 
   > span {
-    font-family: 'Rubik', sans-serif;
-    font-size: 11px;
+    position: relative;
+    top: 1px;
+    left: 0px;
+    display: flex;
+    font-family: $family-sans-serif;
+    font-size: $size-8;
+    font-weight: $weight-bold;
+    line-height: $size-8;
     color: $white;
   }
 }
