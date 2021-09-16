@@ -1,8 +1,8 @@
-<p align="center">Abacus Nest Library</p>
+<p align="center">CASE Angular Library</p>
  
 ## Description
 
-Abacus Nest Library
+CASE Angular Library
 
 ## Installation
 
@@ -29,7 +29,7 @@ $ npm run build:watch
 After building library :
 
 ```bash
-$ cd dist/abacus-angular-library
+$ cd dist/case-angular-library
 $ npm link // May require sudo.
 ```
 
@@ -41,7 +41,7 @@ $ npm link @case-app/angular-library
 
 ## Publish to NPM
 
-First ensure that you update the version number in `/projects/abacus-angular-library/package.json` and then run :
+First ensure that you update the version number in `/projects/case-angular-library/package.json` and then run :
 
 ```bash
 npm run publish

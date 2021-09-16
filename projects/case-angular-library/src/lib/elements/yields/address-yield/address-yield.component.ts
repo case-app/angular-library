@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core'
 import { AddressObject } from '../../../interfaces/address-object.interface'
 
 @Component({
-  selector: 'abc-address-yield',
+  selector: 'case-address-yield',
   templateUrl: './address-yield.component.html',
   styleUrls: ['./address-yield.component.scss']
 })

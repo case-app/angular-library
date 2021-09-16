@@ -4,7 +4,7 @@ import { Chart } from 'chart.js'
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
 })
-export class AbcChartComponent {
+export class CaseChartComponent {
   constructor() {
     // Rounded corners.
     // @ts-ignore : Chart.elements is not on @types file.

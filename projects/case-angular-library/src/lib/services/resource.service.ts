@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 import { SelectOption } from '../interfaces/select-option.interface'
 
 @Injectable({
@@ -12,7 +12,7 @@ import { SelectOption } from '../interfaces/select-option.interface'
 export class ResourceService {
   constructor(
     private http: HttpClient,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   list(resourceName: string, refineParams?: object): Observable<any> {

@@ -1,19 +1,19 @@
-# Abacus Angular Library
+# CASE Angular Library
 
-Angular library version of the Abacus application for the client. Made by [Buddyweb](https://buddyweb.fr)
+Angular library version of the CASE application for the client. Made by [Buddyweb](https://buddyweb.fr)
 
 ## Installation
 
 NPM
 
 ```bash
-npm i abacus-angular-library
+npm i case-angular-library
 ```
 
 Import module in `app.module.ts` :
 
 ```typescript
-import { AbacusModule } from 'abacus-angular-library'
+import { CaseModule } from 'case-angular-library'
 import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    AbacusModule.forRoot({
+    CaseModule.forRoot({
       baseUrl: environment.baseUrl,
       apiBaseUrl: environment.apiBaseUrl,
       storagePath: environment.storagePath,
@@ -39,22 +39,22 @@ import { ReactiveFormsModule } from '@angular/forms'
 })
 ```
 
-Add abacus routes in `app-routing.module.ts`
+Add CASE routes in `app-routing.module.ts`
 
 ```typescript
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard],
-  },
+    canActivate: [AuthGuard]
+  }
 ]
 
-routes.push(...(abcRoutes as Route[]))
+routes.push(...(caseRoutes as Route[]))
 ```
 
-Import Abacus styles in your main styles.scss file :
+Import CASE styles in your main styles.scss file :
 
 ```scss
-@import 'abacus-angular-library/styles/main';
+@import 'case-angular-library/styles/main';
 ```

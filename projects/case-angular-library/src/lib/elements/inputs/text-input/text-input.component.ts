@@ -7,14 +7,14 @@ import {
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 
 @Component({
-  selector: 'abc-text-input',
+  selector: 'case-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss']
 })
-export class TextInputComponent implements OnChanges, AbcInput {
+export class TextInputComponent implements OnChanges, CaseInput {
   @Input() label: string
   @Input() initialValue: { value: string }
   @Input() placeholder: string

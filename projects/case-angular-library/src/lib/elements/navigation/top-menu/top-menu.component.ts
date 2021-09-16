@@ -11,10 +11,10 @@ import { EventService } from '../../../services/event.service'
 import { ResourceService } from '../../../services/resource.service'
 import { Notification } from '../../../interfaces/resources/notification.interface'
 import { User } from '../../../interfaces/resources/user.interface'
-import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
+import { CaseConfig } from '../../../interfaces/case-config.interface'
 
 @Component({
-  selector: 'abc-top-menu',
+  selector: 'case-top-menu',
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss']
 })
@@ -36,7 +36,7 @@ export class TopMenuComponent implements OnInit {
     private resourceService: ResourceService,
     private eventService: EventService,
     private elementRef: ElementRef,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   ngOnInit() {

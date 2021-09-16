@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
-  selector: 'abc-color-yield',
+  selector: 'case-color-yield',
   templateUrl: './color-yield.component.html',
   styleUrls: ['./color-yield.component.scss']
 })

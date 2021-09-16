@@ -10,10 +10,10 @@ import { User } from '../interfaces/resources/user.interface'
 import { AuthService } from '../services/auth.service'
 
 @Directive({
-  selector: '[abcHasPermission]'
+  selector: '[caseHasPermission]'
 })
 export class HasPermissionDirective implements OnInit {
-  @Input() set abcHasPermission(
+  @Input() set caseHasPermission(
     val:
       | string
       | { requireAnd?: string[]; requireOr?: string[]; hideIf?: string[] }

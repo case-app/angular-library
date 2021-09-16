@@ -7,15 +7,15 @@ import {
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { SelectOption } from '../../../interfaces/select-option.interface'
 
 @Component({
-  selector: 'abc-radio-input',
+  selector: 'case-radio-input',
   templateUrl: './radio-input.component.html',
   styleUrls: ['./radio-input.component.scss']
 })
-export class RadioInputComponent implements OnChanges, AbcInput {
+export class RadioInputComponent implements OnChanges, CaseInput {
   @Input() label: string
   @Input() placeholder: string
   @Input() helpText: string

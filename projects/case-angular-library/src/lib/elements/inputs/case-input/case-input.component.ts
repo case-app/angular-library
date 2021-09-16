@@ -2,17 +2,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { ValidatorFn } from '@angular/forms'
 
 import { InputType } from '../../../enums/input-type.enum'
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { SelectOption } from '../../../interfaces/select-option.interface'
 
 @Component({
-  selector: 'abc-input',
-  templateUrl: './abc-input.component.html',
-  styleUrls: ['./abc-input.component.scss']
+  selector: 'case-input',
+  templateUrl: './case-input.component.html',
+  styleUrls: ['./case-input.component.scss']
 })
 
 // * Default ABC input wrapper that calls the other ones
-export class AbcInputComponent implements AbcInput {
+export class CaseInputComponent implements CaseInput {
   // Common props.
   @Input() type: InputType
   @Input() properties: string[]

@@ -11,15 +11,15 @@ import {
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { SelectOption } from '../../../interfaces/select-option.interface'
 
 @Component({
-  selector: 'abc-multi-select-input',
+  selector: 'case-multi-select-input',
   templateUrl: './multi-select-input.component.html',
   styleUrls: ['./multi-select-input.component.scss']
 })
-export class MultiSelectInputComponent implements AbcInput, OnInit, OnChanges {
+export class MultiSelectInputComponent implements CaseInput, OnInit, OnChanges {
   @Input() label: string
   @Input() initialValue: { value: string[] } = { value: [] }
   @Input() selectOptions: SelectOption[]

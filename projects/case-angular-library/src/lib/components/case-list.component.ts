@@ -4,7 +4,7 @@ import { timer } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 
 import { LinkType } from '../enums/link-type.enum'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 import { Filter } from '../interfaces/filter.interface'
 import { KeyNumber } from '../interfaces/key-number.interface'
 import { OrderByChangedEvent } from '../interfaces/order-by-changed-event.interface'
@@ -17,7 +17,7 @@ import { ResourceService } from '../services/resource.service'
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
 })
-export class AbcListComponent {
+export class CaseListComponent {
   definition: ResourceDefinition
   paginator: Paginator<any>
   createResourcePermission: string
@@ -38,7 +38,7 @@ export class AbcListComponent {
     private breadcrumbService: BreadcrumbService,
     private resourceService: ResourceService,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   async initListView() {

@@ -10,18 +10,18 @@ import {
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
-import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseConfig } from '../../../interfaces/case-config.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { HTMLInputEvent } from '../../../interfaces/html-input-event.interface'
 import { FlashMessageService } from '../../../services/flash-message.service'
 import { UploadService } from '../../../services/upload.service'
 
 @Component({
-  selector: 'abc-image-input',
+  selector: 'case-image-input',
   templateUrl: './image-input.component.html',
   styleUrls: ['./image-input.component.scss']
 })
-export class ImageInputComponent implements AbcInput, OnChanges {
+export class ImageInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() placeholder: string
   @Input() helpText: string
@@ -47,7 +47,7 @@ export class ImageInputComponent implements AbcInput, OnChanges {
   constructor(
     private uploadService: UploadService,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   ngOnChanges() {

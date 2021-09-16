@@ -8,17 +8,18 @@ import {
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { IMyDateModel } from 'angular-mydatepicker'
 
-import { AbcDatepickerComponent } from '../../../components/abc-datepicker.component'
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseDatepickerComponent } from '../../../components/case-datepicker.component'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 
 @Component({
-  selector: 'abc-datepicker-input',
+  selector: 'case-datepicker-input',
   templateUrl: './datepicker-input.component.html',
   styleUrls: ['./datepicker-input.component.scss']
 })
 export class DatepickerInputComponent
-  extends AbcDatepickerComponent
-  implements AbcInput, OnChanges {
+  extends CaseDatepickerComponent
+  implements CaseInput, OnChanges
+{
   @Input() label: string
   @Input() helpText: string
   // Accepts YYYY-MM-DD formatted date

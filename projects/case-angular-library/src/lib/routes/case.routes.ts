@@ -13,7 +13,7 @@ import { RoleListComponent } from '../resources/role/role-list/role-list.compone
 import { UserCreateEditComponent } from '../resources/user/user-create-edit.component'
 import { UserListComponent } from '../resources/user/user-list.component'
 
-export const abcRoutes: Route[] = [
+export const caseRoutes: Route[] = [
   // Auth.
   {
     path: 'login',

@@ -1,4 +1,4 @@
-export const abcListTemplate = `
+export const caseListTemplate = `
 <!-- Heading -->
 <div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-5">
   <div class="left-part">
@@ -18,7 +18,7 @@ export const abcListTemplate = `
       Exporter
     </a>
     <!-- Create button -->
-    <ng-container *abcHasPermission="createResourcePermission">
+    <ng-container *caseHasPermission="createResourcePermission">
     <a
       *ngIf="definition.buttons.indexOf(LinkType.CREATE) > -1"
       class="button is-link ml-5 is-hidden-touch"
@@ -52,7 +52,7 @@ export const abcListTemplate = `
         [ngClass]="filter.className"
         *ngFor="let filter of resolvedFilters"
       >
-        <abc-input
+        <case-input
           [type]="filter.inputType"
           [properties]="filter.properties"
           [initialValue]="filter.initialValue"
@@ -61,7 +61,7 @@ export const abcListTemplate = `
           [searchResources]="filter.searchResources"
           [placeholder]="filter.placeholder"
           (valueChanged)="onFilterValueChanged($event, filter)"
-        ></abc-input>
+        ></case-input>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@ export const abcListTemplate = `
 <!-- List -->
 <ng-container *ngIf="paginator">
   <div class="is-flex is-justify-content-space-between is-align-items-center relative">
-    <abc-meta [paginator]="paginator"></abc-meta>
+    <case-meta [paginator]="paginator"></case-meta>
 
     <!-- Key numbers -->
     <div class="total total--alt is-hidden-mobile">
@@ -88,7 +88,7 @@ export const abcListTemplate = `
   </div>
   <div class="card p-0 mb-6">
     <div class="table-container">
-      <abc-table
+      <case-table
         [items]="paginator.data"
         [definition]="definition"
         [yields]="yields"
@@ -96,14 +96,14 @@ export const abcListTemplate = `
         [orderByDesc]="orderByDesc"
         (orderByChanged)="onOrderByChanged($event)"
         (reloadPrompted)="reload()"
-      ></abc-table>
+      ></case-table>
     </div>
   </div>
 
-  <abc-pagination
+  <case-pagination
     [paginator]="paginator"
     (pageChange)="onPageChanged($event)"
-  ></abc-pagination>
+  ></case-pagination>
 </ng-container>
 
 <div *ngIf="loading" class="list-loading pt-7">

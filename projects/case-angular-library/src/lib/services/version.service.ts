@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { FlashMessageService } from './flash-message.service'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 
 // Check regularly if a new version is available and force reload is it is the case.
 @Injectable({
@@ -16,7 +16,7 @@ export class VersionService {
   constructor(
     private http: HttpClient,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   checkForNewVersions() {

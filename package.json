@@ -1,16 +1,16 @@
 {
-  "name": "abacus-angular-library-wrapper",
+  "name": "case-angular-library-wrapper",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build abacus-angular-library --prod",
-    "build:watch": "ng build abacus-angular-library --watch",
+    "build": "ng build case-angular-library --prod",
+    "build:watch": "ng build case-angular-library --watch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "publish": "ng build abacus-angular-library --prod && cd dist/abacus-angular-library && npm pack && npm publish --access public"
+    "publish": "ng build case-angular-library --prod && cd dist/case-angular-library && npm pack && npm publish --access public"
   },
   "license": "(MIT OR Apache-2.0)",
   "private": true,

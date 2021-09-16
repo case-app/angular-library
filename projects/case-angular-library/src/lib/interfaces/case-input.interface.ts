@@ -1,7 +1,7 @@
 import { EventEmitter } from '@angular/core'
 import { ValidatorFn } from '@angular/forms'
 
-export interface AbcInput {
+export interface CaseInput {
   label: string
   initialValue: any
   valueChanged: EventEmitter<any>

@@ -9,7 +9,7 @@ import { ResourceService } from '../services/resource.service'
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
 })
-export class AbcDetailComponent {
+export class CaseDetailComponent {
   item: any
   definition: ResourceDefinition
 

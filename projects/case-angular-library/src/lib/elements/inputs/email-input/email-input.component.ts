@@ -7,14 +7,14 @@ import {
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 
 @Component({
-  selector: 'abc-email-input',
+  selector: 'case-email-input',
   templateUrl: './email-input.component.html',
   styleUrls: ['./email-input.component.scss']
 })
-export class EmailInputComponent implements AbcInput, OnChanges {
+export class EmailInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() placeholder: string
   @Input() helpText: string

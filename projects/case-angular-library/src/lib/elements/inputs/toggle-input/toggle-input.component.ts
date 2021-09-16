@@ -5,15 +5,15 @@ import {
   EventEmitter,
   OnChanges
 } from '@angular/core'
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { ValidatorFn, FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
-  selector: 'abc-toggle-input',
+  selector: 'case-toggle-input',
   templateUrl: './toggle-input.component.html',
   styleUrls: ['./toggle-input.component.scss']
 })
-export class ToggleInputComponent implements AbcInput, OnChanges {
+export class ToggleInputComponent implements CaseInput, OnChanges {
   @Input() set initialValue(val: boolean) {
     this.checked = val
   }

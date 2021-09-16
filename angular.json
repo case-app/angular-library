@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "abacus-angular-library": {
+    "case-angular-library": {
       "projectType": "library",
-      "root": "projects/abacus-angular-library",
-      "sourceRoot": "projects/abacus-angular-library/src",
+      "root": "projects/case-angular-library",
+      "sourceRoot": "projects/case-angular-library/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/abacus-angular-library/tsconfig.lib.json",
-            "project": "projects/abacus-angular-library/ng-package.json"
+            "tsConfig": "projects/case-angular-library/tsconfig.lib.json",
+            "project": "projects/case-angular-library/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/abacus-angular-library/tsconfig.lib.prod.json"
+              "tsConfig": "projects/case-angular-library/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/abacus-angular-library/src/test.ts",
-            "tsConfig": "projects/abacus-angular-library/tsconfig.spec.json",
-            "karmaConfig": "projects/abacus-angular-library/karma.conf.js"
+            "main": "projects/case-angular-library/src/test.ts",
+            "tsConfig": "projects/case-angular-library/tsconfig.spec.json",
+            "karmaConfig": "projects/case-angular-library/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/abacus-angular-library/tsconfig.lib.json",
-              "projects/abacus-angular-library/tsconfig.spec.json"
+              "projects/case-angular-library/tsconfig.lib.json",
+              "projects/case-angular-library/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -42,5 +42,5 @@
       }
     }
   },
-  "defaultProject": "abacus"
+  "defaultProject": "case-angular-library"
 }

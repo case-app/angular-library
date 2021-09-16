@@ -1,4 +1,4 @@
-export const abcCreateEditModalTemplate = `
+export const caseCreateEditModalTemplate = `
 <div class="modal is-active">
   <div class="modal-background"></div>
   <div class="modal-content notification has-text-weight-light">
@@ -19,7 +19,7 @@ export const abcCreateEditModalTemplate = `
       <form [formGroup]="form" *ngIf="form" class="full-width">
         <ng-container *ngFor="let field of resolvedFields">
           <div class="column" [ngClass]="field.className" *ngIf="!field.hidden">
-            <abc-input
+            <case-input
               [type]="field.inputType"
               [initialValue]="field.initialValue"
               [searchResources]="field.searchResources"
@@ -35,7 +35,7 @@ export const abcCreateEditModalTemplate = `
               [validators]="field.validators"
               [showErrors]="showErrors"
               (valueChanged)="onValueChanged($event, field)"
-            ></abc-input>
+            ></case-input>
           </div>
         </ng-container>
       </form>

@@ -12,18 +12,18 @@ import {
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import * as fastLevenshtein from 'fast-levenshtein'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { HTMLInputEvent } from '../../../interfaces/html-input-event.interface'
 import { SearchResult } from '../../../interfaces/search-result.interface'
 import { ResourceService } from '../../../services/resource.service'
 
 @Component({
-  selector: 'abc-multi-search-input',
+  selector: 'case-multi-search-input',
   templateUrl: './multi-search-input.component.html',
   styleUrls: ['./multi-search-input.component.scss'],
   providers: [ResourceService]
 })
-export class MultiSearchInputComponent implements AbcInput, OnChanges {
+export class MultiSearchInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() initialValue: {
     [key: string]: string[]

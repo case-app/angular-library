@@ -1,5 +1,5 @@
 <ng-container [ngSwitch]="type">
-  <abc-text-input
+  <case-text-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -9,9 +9,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Text"
-  ></abc-text-input>
+  ></case-text-input>
 
-  <abc-textarea-input
+  <case-textarea-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -21,9 +21,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Textarea"
-  ></abc-textarea-input>
+  ></case-textarea-input>
 
-  <abc-checkbox-input
+  <case-checkbox-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -33,9 +33,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Checkbox"
-  ></abc-checkbox-input>
+  ></case-checkbox-input>
 
-  <abc-color-picker-input
+  <case-color-picker-input
     [label]="label"
     [uniqueId]="uniqueId"
     [initialValue]="initialValue"
@@ -44,9 +44,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.ColorPicker"
-  ></abc-color-picker-input>
+  ></case-color-picker-input>
 
-  <abc-datepicker-input
+  <case-datepicker-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -56,9 +56,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Datepicker"
-  ></abc-datepicker-input>
+  ></case-datepicker-input>
 
-  <abc-date-range-input
+  <case-date-range-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -69,9 +69,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.DateRange"
-  ></abc-date-range-input>
+  ></case-date-range-input>
 
-  <abc-email-input
+  <case-email-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -82,9 +82,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Email"
-  ></abc-email-input>
+  ></case-email-input>
 
-  <abc-multi-search-input
+  <case-multi-search-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -97,9 +97,9 @@
     [maxSelectedItems]="maxSelectedItems"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.MultiSearch"
-  ></abc-multi-search-input>
+  ></case-multi-search-input>
 
-  <abc-multi-select-input
+  <case-multi-select-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -113,9 +113,9 @@
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.MultiSelect"
   >
-  </abc-multi-select-input>
+  </case-multi-select-input>
 
-  <abc-number-input
+  <case-number-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -128,9 +128,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Number"
-  ></abc-number-input>
+  ></case-number-input>
 
-  <abc-time-input
+  <case-time-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -140,9 +140,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Time"
-  ></abc-time-input>
+  ></case-time-input>
 
-  <abc-rich-text-input
+  <case-rich-text-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -152,9 +152,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.RichText"
-  ></abc-rich-text-input>
+  ></case-rich-text-input>
 
-  <abc-select-input
+  <case-select-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -165,9 +165,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Select"
-  ></abc-select-input>
+  ></case-select-input>
 
-  <abc-radio-input
+  <case-radio-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -178,9 +178,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Radio"
-  ></abc-radio-input>
+  ></case-radio-input>
 
-  <abc-tel-input
+  <case-tel-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -190,9 +190,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Tel"
-  ></abc-tel-input>
+  ></case-tel-input>
 
-  <abc-password-input
+  <case-password-input
     [label]="label"
     [uniqueId]="uniqueId"
     [initialValue]="initialValue"
@@ -201,9 +201,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Password"
-  ></abc-password-input>
+  ></case-password-input>
 
-  <abc-toggle-input
+  <case-toggle-input
     [label]="label"
     [uniqueId]="uniqueId"
     [initialValue]="initialValue"
@@ -212,9 +212,9 @@
     [helpText]="helpText"
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Toggle"
-  ></abc-toggle-input>
+  ></case-toggle-input>
 
-  <abc-file-input
+  <case-file-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -227,9 +227,9 @@
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.File"
   >
-  </abc-file-input>
+  </case-file-input>
 
-  <abc-image-input
+  <case-image-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
@@ -241,5 +241,5 @@
     (valueChanged)="onValueChanged($event)"
     *ngSwitchCase="InputType.Image"
   >
-  </abc-image-input>
+  </case-image-input>
 </ng-container>

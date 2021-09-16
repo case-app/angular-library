@@ -1,8 +1,8 @@
 /*
- * Public API Surface of Abacus
+ * Public API Surface of CASE
  */
 
-export * from './lib/abacus.module'
+export * from './lib/case.module'
 
 // Guards.
 export { AuthGuard } from './lib/guards/auth.guard'
@@ -22,8 +22,8 @@ export { LinkType } from './lib/enums/link-type.enum'
 export { YieldType } from './lib/enums/yield-type.enum'
 
 // Interfaces
-export { AbacusConfig } from './lib/interfaces/abacus-config.interface'
-export { AbcInput } from './lib/interfaces/abc-input.interface'
+export { CaseConfig } from './lib/interfaces/case-config.interface'
+export { CaseInput } from './lib/interfaces/case-input.interface'
 export { ActionButton } from './lib/interfaces/action-button.interface'
 export { AddressObject } from './lib/interfaces/address-object.interface'
 export { BreadcrumbLink } from './lib/interfaces/breadcrumb-link.interface'
@@ -61,14 +61,14 @@ export { VersionService } from './lib/services/version.service'
 export { ViewportService } from './lib/services/viewport.service'
 
 // Components.
-export { AbcCreateEditComponent } from './lib/components/abc-create-edit.component'
-export { AbcListComponent } from './lib/components/abc-list.component'
-export { AbcDetailComponent } from './lib/components/abc-detail.component'
-export { AbcChartComponent } from './lib/components/abc-chart.component'
-export { AbcDatepickerComponent } from './lib/components/abc-datepicker.component'
+export { CaseCreateEditComponent } from './lib/components/case-create-edit.component'
+export { CaseListComponent } from './lib/components/case-list.component'
+export { CaseDetailComponent } from './lib/components/case-detail.component'
+export { CaseChartComponent } from './lib/components/case-chart.component'
+export { CaseDatepickerComponent } from './lib/components/case-datepicker.component'
 
 // Elements: Inputs.
-export { AbcInputComponent } from './lib/elements/inputs/abc-input/abc-input.component'
+export { CaseInputComponent } from './lib/elements/inputs/case-input/case-input.component'
 export { CheckboxInputComponent } from './lib/elements/inputs/checkbox-input/checkbox-input.component'
 export { ColorPickerInputComponent } from './lib/elements/inputs/color-picker-input/color-picker-input.component'
 export { DateRangeInputComponent } from './lib/elements/inputs/date-range-input/date-range-input.component'
@@ -131,10 +131,10 @@ export { RoleListComponent } from './lib/resources/role/role-list/role-list.comp
 export { RoleCreateEditComponent } from './lib/resources/role/role-create-edit/role-create-edit.component'
 
 // Templates.
-export { abcCreateEditTemplate } from './lib/templates/abc-create-edit.template'
-export { abcCreateEditModalTemplate } from './lib/templates/abc-create-edit-modal.template'
-export { abcListTemplate } from './lib/templates/abc-list.template'
+export { caseCreateEditTemplate } from './lib/templates/case-create-edit.template'
+export { caseCreateEditModalTemplate } from './lib/templates/case-create-edit-modal.template'
+export { caseListTemplate } from './lib/templates/case-list.template'
 
 // Other.
-export { abcConstants } from './lib/constants/abc.constants'
-export { abcRoutes } from './lib/routes/abc.routes'
+export { caseConstants } from './lib/constants/case.constants'
+export { caseRoutes } from './lib/routes/case.routes'

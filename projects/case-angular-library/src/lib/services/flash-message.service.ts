@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core'
 import { Subject } from 'rxjs'
 
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class FlashMessageService {
   timeout: number
   defaultTimeout = 6000
 
-  constructor(@Inject('ABACUS_CONFIG_TOKEN') config: AbacusConfig) {
+  constructor(@Inject('CASE_CONFIG_TOKEN') config: CaseConfig) {
     this.timeout = config.flashMessageTimeout || this.defaultTimeout
   }
 

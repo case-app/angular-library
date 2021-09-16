@@ -9,14 +9,14 @@ import {
 } from '@angular/core'
 import { Power2, TweenLite } from 'gsap'
 
-import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
+import { CaseConfig } from '../../../interfaces/case-config.interface'
 import { MenuItem } from '../../../interfaces/menu-item.interface'
 import { User } from '../../../interfaces/resources/user.interface'
 import { AuthService } from '../../../services/auth.service'
 import { EventService } from '../../../services/event.service'
 
 @Component({
-  selector: 'abc-touch-menu',
+  selector: 'case-touch-menu',
   templateUrl: './touch-menu.component.html',
   styleUrls: ['./touch-menu.component.scss']
 })
@@ -39,7 +39,7 @@ export class TouchMenuComponent implements OnInit {
     private authService: AuthService,
     private eventService: EventService,
     private renderer: Renderer2,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   ngOnInit() {

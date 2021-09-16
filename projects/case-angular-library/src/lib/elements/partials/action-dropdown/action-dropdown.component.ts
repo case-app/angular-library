@@ -17,7 +17,7 @@ import { FlashMessageService } from '../../../services/flash-message.service'
 import { ResourceService } from '../../../services/resource.service'
 
 @Component({
-  selector: 'abc-action-dropdown',
+  selector: 'case-action-dropdown',
   templateUrl: './action-dropdown.component.html',
   styleUrls: ['./action-dropdown.component.scss']
 })

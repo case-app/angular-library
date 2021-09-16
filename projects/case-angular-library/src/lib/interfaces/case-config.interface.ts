@@ -1,4 +1,4 @@
-export interface AbacusConfig {
+export interface CaseConfig {
   baseUrl: string
   apiBaseUrl: string
   storagePath: string

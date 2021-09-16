@@ -13,13 +13,13 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
 
-import { AbcChartComponent } from './components/abc-chart.component'
-import { AbcCreateEditComponent } from './components/abc-create-edit.component'
-import { AbcDatepickerComponent } from './components/abc-datepicker.component'
-import { AbcDetailComponent } from './components/abc-detail.component'
-import { AbcListComponent } from './components/abc-list.component'
+import { CaseChartComponent } from './components/case-chart.component'
+import { CaseCreateEditComponent } from './components/case-create-edit.component'
+import { CaseDatepickerComponent } from './components/case-datepicker.component'
+import { CaseDetailComponent } from './components/case-detail.component'
+import { CaseListComponent } from './components/case-list.component'
 import { HasPermissionDirective } from './directives/has-permission.directive'
-import { AbcInputComponent } from './elements/inputs/abc-input/abc-input.component'
+import { CaseInputComponent } from './elements/inputs/case-input/case-input.component'
 import { CheckboxInputComponent } from './elements/inputs/checkbox-input/checkbox-input.component'
 import { ColorPickerInputComponent } from './elements/inputs/color-picker-input/color-picker-input.component'
 import { DateRangeInputComponent } from './elements/inputs/date-range-input/date-range-input.component'
@@ -60,7 +60,7 @@ import { FileIconYieldComponent } from './elements/yields/file-icon-yield/file-i
 import { ImageYieldComponent } from './elements/yields/image-yield/image-yield.component'
 import { NumberYieldComponent } from './elements/yields/number-yield/number-yield.component'
 import { ProgressBarYieldComponent } from './elements/yields/progress-bar-yield/progress-bar-yield.component'
-import { AbacusConfig } from './interfaces/abacus-config.interface'
+import { CaseConfig } from './interfaces/case-config.interface'
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component'
 import { LoginComponent } from './pages/auth/login/login.component'
 import { LogoutComponent } from './pages/auth/logout/logout.component'
@@ -109,14 +109,14 @@ export function jwtOptionsFactory(authService: AuthService) {
     HasPermissionDirective,
 
     // Components.
-    AbcCreateEditComponent,
-    AbcListComponent,
-    AbcDetailComponent,
-    AbcChartComponent,
-    AbcDatepickerComponent,
+    CaseCreateEditComponent,
+    CaseListComponent,
+    CaseDetailComponent,
+    CaseChartComponent,
+    CaseDatepickerComponent,
 
     // Elements: Inputs
-    AbcInputComponent,
+    CaseInputComponent,
     CheckboxInputComponent,
     ColorPickerInputComponent,
     DateRangeInputComponent,
@@ -210,15 +210,15 @@ export function jwtOptionsFactory(authService: AuthService) {
     HasPermissionDirective,
 
     // Components.
-    AbcCreateEditComponent,
-    AbcListComponent,
-    AbcDetailComponent,
-    AbcCreateEditComponent,
-    AbcChartComponent,
-    AbcDatepickerComponent,
+    CaseCreateEditComponent,
+    CaseListComponent,
+    CaseDetailComponent,
+    CaseCreateEditComponent,
+    CaseChartComponent,
+    CaseDatepickerComponent,
 
     // Elements: Inputs
-    AbcInputComponent,
+    CaseInputComponent,
     CheckboxInputComponent,
     ColorPickerInputComponent,
     DateRangeInputComponent,
@@ -275,12 +275,10 @@ export function jwtOptionsFactory(authService: AuthService) {
     HomeComponent
   ]
 })
-export class AbacusModule {
-  static forRoot(
-    configuration: AbacusConfig
-  ): ModuleWithProviders<AbacusModule> {
+export class CaseModule {
+  static forRoot(configuration: CaseConfig): ModuleWithProviders<CaseModule> {
     return {
-      ngModule: AbacusModule,
+      ngModule: CaseModule,
       providers: [
         AuthService,
         BreadcrumbService,
@@ -291,7 +289,7 @@ export class AbacusModule {
         UploadService,
         VersionService,
         ViewportService,
-        { provide: 'ABACUS_CONFIG_TOKEN', useValue: configuration }
+        { provide: 'CASE_CONFIG_TOKEN', useValue: configuration }
       ]
     }
   }

@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { AbacusConfig } from '../interfaces/abacus-config.interface'
 export class UploadService {
   constructor(
     private http: HttpClient,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   uploadImage(resourceName: string, fileContent: any): Observable<any> {

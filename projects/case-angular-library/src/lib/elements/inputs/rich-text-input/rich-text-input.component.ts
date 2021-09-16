@@ -9,14 +9,14 @@ import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { ChangeEvent, CKEditor5 } from '@ckeditor/ckeditor5-angular'
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 
 @Component({
-  selector: 'abc-rich-text-input',
+  selector: 'case-rich-text-input',
   templateUrl: './rich-text-input.component.html',
   styleUrls: ['./rich-text-input.component.scss']
 })
-export class RichTextInputComponent implements AbcInput, OnChanges {
+export class RichTextInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() initialValue: { value: string }
   @Input() placeholder: string

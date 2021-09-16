@@ -64,55 +64,55 @@
         [ngSwitch]="yield.type"
         (click)="goToLink(yield.link || item.link, item.isDisabledHighlight)"
       >
-        <abc-image-yield
+        <case-image-yield
           *ngSwitchCase="YieldType.Image"
           [imageObjects]="yield.propertyValue"
           [label]="yield.secondPropertyValue"
-        ></abc-image-yield>
+        ></case-image-yield>
 
-        <abc-date-yield
+        <case-date-yield
           *ngSwitchCase="YieldType.Date"
           [date]="yield.propertyValue"
-        ></abc-date-yield>
+        ></case-date-yield>
 
-        <abc-currency-yield
+        <case-currency-yield
           *ngSwitchCase="YieldType.Currency"
           [amount]="yield.propertyValue"
-        ></abc-currency-yield>
+        ></case-currency-yield>
 
-        <abc-address-yield
+        <case-address-yield
           *ngSwitchCase="YieldType.Address"
           [address]="yield.propertyValue"
           [openOnGoogleMapsLink]="false"
-        ></abc-address-yield>
+        ></case-address-yield>
 
-        <abc-download-yield
+        <case-download-yield
           *ngSwitchCase="YieldType.Download"
           [filePath]="yield.propertyValue"
-        ></abc-download-yield>
+        ></case-download-yield>
 
-        <abc-color-yield
+        <case-color-yield
           *ngSwitchCase="YieldType.Color"
           [color]="yield.propertyValue"
           [text]="yield.secondPropertyValue"
-        ></abc-color-yield>
+        ></case-color-yield>
 
-        <abc-file-icon-yield
+        <case-file-icon-yield
           *ngSwitchCase="YieldType.FileIcon"
           [path]="yield.propertyValue"
-        ></abc-file-icon-yield>
+        ></case-file-icon-yield>
 
-        <abc-progress-bar-yield
+        <case-progress-bar-yield
           *ngSwitchCase="YieldType.ProgressBar"
           [progressValue]="yield.propertyValue"
           [totalValue]="yield.secondPropertyValue"
           [tooltipText]="yield.thirdPropertyValue"
-        ></abc-progress-bar-yield>
+        ></case-progress-bar-yield>
 
-        <abc-analog-progress-bar-yield
+        <case-analog-progress-bar-yield
           *ngSwitchCase="YieldType.AnalogProgressBar"
           [progressPercentage]="yield.propertyValue"
-        ></abc-analog-progress-bar-yield>
+        ></case-analog-progress-bar-yield>
 
         <ng-container *ngSwitchDefault="">
           {{ yield.propertyValue }}</ng-container
@@ -137,21 +137,21 @@
         </button>
       </td>
       <td class="has-text-right" *ngIf="definition.dropdownLinks.length">
-        <abc-action-dropdown
+        <case-action-dropdown
           [item]="item"
           [definition]="definition"
           [preventDeleteMessage]="item.preventDeleteMessage"
           (itemDeleted)="openConfirmDeleteModal($event)"
           (customActionEvent)="triggerCustomAction($event.link, $event.item)"
-        ></abc-action-dropdown>
+        ></case-action-dropdown>
       </td>
     </tr>
   </tbody>
 </table>
 
-<abc-confirm-delete-modal
+<case-confirm-delete-modal
   [resourceToDelete]="itemToDelete"
   (deleteCanceled)="itemToDelete = null"
   [resourceName]="definition.slug"
   *ngIf="itemToDelete"
-></abc-confirm-delete-modal>
+></case-confirm-delete-modal>

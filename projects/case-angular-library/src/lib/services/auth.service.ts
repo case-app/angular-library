@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import * as HttpStatus from 'http-status-codes'
 import { Observable, of, ReplaySubject } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 
 import { User } from '../interfaces/resources/user.interface'
 import { FlashMessageService } from './flash-message.service'
@@ -22,7 +22,7 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {
     // Set token if saved in local storage
     this.token = localStorage.getItem(this.config.tokenName)

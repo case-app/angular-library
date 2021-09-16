@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 import { MetaObject } from '../interfaces/meta-object.interface'
 
 @Injectable({
@@ -10,7 +10,7 @@ export class MetaService {
   constructor(
     private title: Title,
     private meta: Meta,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   defaultMeta: MetaObject = {

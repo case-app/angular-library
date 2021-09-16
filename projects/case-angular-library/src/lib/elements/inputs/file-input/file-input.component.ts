@@ -9,19 +9,19 @@ import {
   ViewChild
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
-import { AbacusConfig } from '../../../interfaces/abacus-config.interface'
+import { CaseConfig } from '../../../interfaces/case-config.interface'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { HTMLInputEvent } from '../../../interfaces/html-input-event.interface'
 import { FlashMessageService } from '../../../services/flash-message.service'
 import { UploadService } from '../../../services/upload.service'
 
 @Component({
-  selector: 'abc-file-input',
+  selector: 'case-file-input',
   templateUrl: './file-input.component.html',
   styleUrls: ['./file-input.component.scss']
 })
-export class FileInputComponent implements AbcInput, OnChanges {
+export class FileInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() placeholder: string
   @Input() helpText: string
@@ -48,7 +48,7 @@ export class FileInputComponent implements AbcInput, OnChanges {
   constructor(
     private uploadService: UploadService,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
   ngOnChanges() {

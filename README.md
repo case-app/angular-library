@@ -1,6 +1,6 @@
-# Abacus Angular Library
+# CASE Angular Library
 
-This project contains the [abacus-angular-library](https://www.npmjs.com/package/abacus-angular-library) and an Angular app.
+This project contains the [case-angular-library](https://www.npmjs.com/package/case-angular-library) and an Angular app.
 
 ## Install
 

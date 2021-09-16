@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/abacus-angular-library",
+  "dest": "../../dist/case-angular-library",
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {

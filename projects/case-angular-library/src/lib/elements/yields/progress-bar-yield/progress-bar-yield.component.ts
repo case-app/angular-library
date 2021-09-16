@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'abc-progress-bar-yield',
+  selector: 'case-progress-bar-yield',
   templateUrl: './progress-bar-yield.component.html',
   styleUrls: ['./progress-bar-yield.component.scss']
 })

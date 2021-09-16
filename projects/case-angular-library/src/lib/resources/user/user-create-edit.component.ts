@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
-import { AbcCreateEditComponent } from '../../components/abc-create-edit.component'
+import { CaseCreateEditComponent } from '../../components/case-create-edit.component'
 import { InputType } from '../../enums/input-type.enum'
 import { Field } from '../../interfaces/field.interface'
 import { ResourceDefinition } from '../../interfaces/resource-definition.interface'
@@ -10,14 +10,14 @@ import { Role } from '../../interfaces/resources/role.interface'
 import { BreadcrumbService } from '../../services/breadcrumb.service'
 import { FlashMessageService } from '../../services/flash-message.service'
 import { ResourceService } from '../../services/resource.service'
-import { abcCreateEditTemplate } from '../../templates/abc-create-edit.template'
+import { caseCreateEditTemplate } from '../../templates/case-create-edit.template'
 import { userDefinition } from './user.definition'
 
 @Component({
-  template: abcCreateEditTemplate
+  template: caseCreateEditTemplate
 })
 export class UserCreateEditComponent
-  extends AbcCreateEditComponent
+  extends CaseCreateEditComponent
   implements OnInit, OnDestroy
 {
   definition: ResourceDefinition = userDefinition

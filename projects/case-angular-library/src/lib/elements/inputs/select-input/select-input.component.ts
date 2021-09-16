@@ -9,15 +9,15 @@ import {
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { SelectOption } from '../../../interfaces/select-option.interface'
 
 @Component({
-  selector: 'abc-select-input',
+  selector: 'case-select-input',
   templateUrl: './select-input.component.html',
   styleUrls: ['./select-input.component.scss']
 })
-export class SelectInputComponent implements AbcInput, OnInit, OnChanges {
+export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
   @Input() label: string
   @Input() placeholder: string
   @Input() helpText: string

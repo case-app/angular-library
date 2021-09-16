@@ -7,14 +7,14 @@ import {
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 
 @Component({
-  selector: 'abc-checkbox-input',
+  selector: 'case-checkbox-input',
   templateUrl: './checkbox-input.component.html',
   styleUrls: ['./checkbox-input.component.scss']
 })
-export class CheckboxInputComponent implements AbcInput, OnChanges {
+export class CheckboxInputComponent implements CaseInput, OnChanges {
   @Input() initialValue: { value: string }
   @Input() label: string
   @Input() placeholder: string

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
-import { AbcCreateEditComponent } from '../../../components/abc-create-edit.component'
+import { CaseCreateEditComponent } from '../../../components/case-create-edit.component'
 import { InputType } from '../../../enums/input-type.enum'
 import { Field } from '../../../interfaces/field.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
@@ -19,8 +19,9 @@ import { roleFields } from '../role.fields'
   styleUrls: ['./role-create-edit.component.scss']
 })
 export class RoleCreateEditComponent
-  extends AbcCreateEditComponent
-  implements OnInit {
+  extends CaseCreateEditComponent
+  implements OnInit
+{
   definition: ResourceDefinition = roleDefinition
   fields: Field[] = roleFields
 

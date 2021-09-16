@@ -5,7 +5,7 @@ import * as moment from 'moment'
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
 })
-export class AbcDatepickerComponent {
+export class CaseDatepickerComponent {
   datePickerOptions: IAngularMyDpOptions = {
     dateFormat: 'dd/mm/yyyy',
     selectorWidth: '310px',

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core'
 import { ActivatedRouteSnapshot, Router } from '@angular/router'
 import { Observable } from 'rxjs'
-import { AbacusConfig } from '../interfaces/abacus-config.interface'
+import { CaseConfig } from '../interfaces/case-config.interface'
 
 import { FlashMessageService } from '../services/flash-message.service'
 
@@ -12,7 +12,7 @@ export class AuthGuard {
   constructor(
     private router: Router,
     private flashMessageService: FlashMessageService,
-    @Inject('ABACUS_CONFIG_TOKEN') private config: AbacusConfig
+    @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot

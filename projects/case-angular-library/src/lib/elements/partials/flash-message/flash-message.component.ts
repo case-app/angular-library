@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FlashMessageService } from '../../../services/flash-message.service'
 
 @Component({
-  selector: 'abc-flash-message',
+  selector: 'case-flash-message',
   templateUrl: './flash-message.component.html',
   styleUrls: ['./flash-message.component.scss']
 })

@@ -13,7 +13,7 @@ import { FlashMessageService } from '../../../services/flash-message.service'
 import { ResourceService } from '../../../services/resource.service'
 
 @Component({
-  selector: 'abc-table',
+  selector: 'case-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })

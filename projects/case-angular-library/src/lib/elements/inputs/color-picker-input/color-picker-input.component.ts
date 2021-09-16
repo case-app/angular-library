@@ -9,15 +9,15 @@ import {
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
-import { AbcInput } from '../../../interfaces/abc-input.interface'
+import { CaseInput } from '../../../interfaces/case-input.interface'
 import { colors } from './colors'
 
 @Component({
-  selector: 'abc-color-picker-input',
+  selector: 'case-color-picker-input',
   templateUrl: './color-picker-input.component.html',
   styleUrls: ['./color-picker-input.component.scss']
 })
-export class ColorPickerInputComponent implements AbcInput, OnChanges {
+export class ColorPickerInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() helpText: string
   @Input() initialValue: {

@@ -1,4 +1,4 @@
-export const abcCreateEditTemplate = `
+export const caseCreateEditTemplate = `
 <section>
   <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
     <div class="left-part">
@@ -39,7 +39,7 @@ export const abcCreateEditTemplate = `
             [ngClass]="field.className"
             *ngIf="!field.hidden"
           >
-            <abc-input
+            <case-input
               [type]="field.inputType"
               [initialValue]="field.initialValue"
               [searchResources]="field.searchResources"
@@ -54,7 +54,7 @@ export const abcCreateEditTemplate = `
               [validators]="field.validators"
               [showErrors]="showErrors"
               (valueChanged)="onValueChanged($event, field)"
-            ></abc-input>
+            ></case-input>
           </div>
         </ng-container>
       </div>

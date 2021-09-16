@@ -21,7 +21,7 @@ import { ResourceService } from '../services/resource.service'
 @Component({
   template: 'NO UI TO BE FOUND HERE!'
 })
-export class AbcCreateEditComponent {
+export class CaseCreateEditComponent {
   item: any
   definition: ResourceDefinition
   fieldSpecialRules?: FieldSpecialRule[] = []

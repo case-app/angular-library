@@ -11,14 +11,14 @@
           aria-haspopup="true"
           aria-controls="dropdown-menu2"
         >
-          <abc-image
+          <case-image
             [path]="currentUser.image"
             replacement="/assets/images/avatar.svg"
             [title]="currentUser.name"
             [alt]="currentUser.name"
             className="avatar"
           >
-          </abc-image>
+          </case-image>
         </a>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="navbar-end">
       <ul class="menu-list mt-5 menu-list--top">
         <ng-container *ngFor="let menuItem of menuItems; let i = index">
-          <li *abcHasPermission="{ requireOr: menuItem.permissionsOr }">
+          <li *caseHasPermission="{ requireOr: menuItem.permissionsOr }">
             <!-- Direct link -->
             <ng-container *ngIf="menuItem.routePath">
               <a [routerLink]="menuItem.routePath" routerLinkActive="is-active">
@@ -75,7 +75,7 @@
 
               <ul *ngIf="activeAccordion === 'accordion-' + i">
                 <ng-container *ngFor="let subItem of menuItem.items">
-                  <li *abcHasPermission="{ requireOr: subItem.permissionsOr }">
+                  <li *caseHasPermission="{ requireOr: subItem.permissionsOr }">
                     <a
                       [routerLink]="subItem.routePath"
                       routerLinkActive="is-active"

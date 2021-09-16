@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'abc-image-yield',
+  selector: 'case-image-yield',
   templateUrl: './image-yield.component.html',
   styleUrls: ['./image-yield.component.scss']
 })

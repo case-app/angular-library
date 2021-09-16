@@ -1,6 +1,6 @@
 <ul class="menu-list mt-5">
   <ng-container *ngFor="let menuItem of menuItems; let i = index">
-    <li *abcHasPermission="{ requireOr: menuItem.permissionsOr }">
+    <li *caseHasPermission="{ requireOr: menuItem.permissionsOr }">
       <!-- Direct link -->
       <ng-container *ngIf="menuItem.routePath">
         <a [routerLink]="menuItem.routePath" routerLinkActive="is-active">
@@ -27,7 +27,7 @@
         </a>
         <ul *ngIf="activeAccordion === 'accordion-' + i">
           <ng-container *ngFor="let subItem of menuItem.items">
-            <li *abcHasPermission="{ requireOr: subItem.permissionsOr }">
+            <li *caseHasPermission="{ requireOr: subItem.permissionsOr }">
               <a [routerLink]="subItem.routePath" routerLinkActive="is-active">
                 <span class="pl-1">{{ subItem.label }}</span>
               </a>

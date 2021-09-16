@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core'
 import { FileMime } from '../../../enums/file-mime.enum'
 
 @Component({
-  selector: 'abc-file-icon-yield',
+  selector: 'case-file-icon-yield',
   templateUrl: './file-icon-yield.component.html',
   styleUrls: ['./file-icon-yield.component.scss']
 })

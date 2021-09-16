@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import { Paginator } from '../../../interfaces/paginator.interface'
 
 @Component({
-  selector: 'abc-meta',
+  selector: 'case-meta',
   templateUrl: './meta.component.html',
   styleUrls: ['./meta.component.scss']
 })

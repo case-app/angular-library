@@ -4,7 +4,7 @@ import { BreadcrumbLink } from '../../../interfaces/breadcrumb-link.interface'
 import { MetaService } from '../../../services/meta.service'
 
 @Component({
-  selector: 'abc-breadcrumbs',
+  selector: 'case-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss']
 })
@@ -22,9 +22,8 @@ export class BreadcrumbsComponent implements OnInit {
         setTimeout(() => {
           this.breadcrumbLinks = newValue
           if (this.breadcrumbLinks.length) {
-            const currentLink: BreadcrumbLink = this.breadcrumbLinks[
-              this.breadcrumbLinks.length - 1
-            ]
+            const currentLink: BreadcrumbLink =
+              this.breadcrumbLinks[this.breadcrumbLinks.length - 1]
 
             this.metaService.setTags({
               title: currentLink.label,

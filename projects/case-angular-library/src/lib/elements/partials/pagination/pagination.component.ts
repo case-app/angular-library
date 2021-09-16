@@ -8,7 +8,7 @@ import {
 import { Paginator } from '../../../interfaces/paginator.interface'
 
 @Component({
-  selector: 'abc-pagination',
+  selector: 'case-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })

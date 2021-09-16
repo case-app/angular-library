@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: 'abc-analog-progress-bar-yield',
+  selector: 'case-analog-progress-bar-yield',
   templateUrl: './analog-progress-bar-yield.component.html',
   styleUrls: ['./analog-progress-bar-yield.component.scss']
 })
