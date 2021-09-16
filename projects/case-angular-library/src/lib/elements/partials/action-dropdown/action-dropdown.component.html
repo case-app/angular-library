@@ -1,5 +1,5 @@
 <div
-  class="dropdown is-left"
+  class="dropdown is-right"
   [ngClass]="{ 'is-active': isActive }"
   *ngIf="this.links && this.links.length"
 >
@@ -15,7 +15,7 @@
       </span>
     </a>
   </div>
-  <div class="dropdown-menu drop--left" id="dropdown-menu" role="menu">
+  <div class="dropdown-menu is-right" id="dropdown-menu" role="menu">
     <div class="dropdown-content">
       <ng-container *ngFor="let link of links">
         <a
