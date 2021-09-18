@@ -10,13 +10,14 @@
       <span class="pagination-ellipsis">&hellip;</span>
     </li>
 
-    <li
-      class="pagination-link"
-      (click)="goToPage(pageNumber)"
-      *ngFor="let pageNumber of pageArray"
-      [ngClass]="{ 'is-current': paginator.currentPage == pageNumber }"
-    >
-      <a duration="400">{{ pageNumber }}</a>
+    <li *ngFor="let pageNumber of pageArray">
+      <a
+        (click)="goToPage(pageNumber)"
+        class="pagination-link"
+        [ngClass]="{ 'is-current': paginator.currentPage == pageNumber }"
+        duration="400"
+        >{{ pageNumber }}</a
+      >
     </li>
 
     <li *ngIf="pageArray[pageArray.length - 1] < paginator.lastPage">

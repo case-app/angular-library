@@ -31,14 +31,16 @@
 
 <section>
   <form [formGroup]="form" *ngIf="form">
-    <div class="card">
+    <div class="card p-4">
       <div class="columns">
         <div class="column">
-          <p>
-            Attention : Changer le nom ou l'indentifiant d'un rôle existant
-            nécessite que tous les utilisateurs connectés se déconnectent et
-            reconnectent.
-          </p>
+          <article class="message is-warning">
+            <div class="message-body">
+              ⚠️ Changer <strong>le nom ou l'indentifiant</strong> d'un rôle
+              existant nécessite que tous les utilisateurs connectés se
+              déconnectent et reconnectent.
+            </div>
+          </article>
         </div>
       </div>
       <!-- Fields -->
@@ -86,7 +88,7 @@
 
       <div class="columns is-multiline is-align-items-flex-end">
         <div
-          class="column is-4-tablet is-3-desktop"
+          class="column is-4-tablet is-3-desktop py-0"
           *ngFor="let permission of permissions"
         >
           <div class="control my-4">

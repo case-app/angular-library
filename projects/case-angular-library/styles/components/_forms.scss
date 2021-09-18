@@ -61,10 +61,10 @@ case-select-input {
     box-shadow: $checkbox-box-shadow-width $link inset;
   }
   &:focus .checkmark {
-    box-shadow: $checkbox-box-shadow-width $grey-light inset;
+    box-shadow: $checkbox-box-shadow-width rgba($grey, 0.75) inset;
   }
   &:hover .checkmark {
-    box-shadow: $checkbox-box-shadow-width $grey-light inset;
+    box-shadow: $checkbox-box-shadow-width rgba($grey, 0.75) inset;
   }
   &.is-checked:hover .checkmark {
     box-shadow: $checkbox-box-shadow-width $link inset;
@@ -80,7 +80,7 @@ case-select-input {
   width: 16px;
   border-radius: 50%;
   background-color: $light;
-  box-shadow: 0 0 0 1px $grey-light inset;
+  box-shadow: 0 0 0 1px rgba($grey, 0.75) inset;
   transition: all 0.2s ease-in-out;
 
   &:after {

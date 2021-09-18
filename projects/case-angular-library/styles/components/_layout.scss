@@ -55,7 +55,7 @@ body {
 
 .wrapper,
 .aside {
-  min-height: calc(100vh - #{$navbar-height} + 30px);
+  min-height: calc(100vh - #{$navbar-height} + #{$gap});
 }
 .section {
   @include mobile {
@@ -69,6 +69,7 @@ aside {
 
 main {
   min-height: calc(100vh - 25px - 88px);
+  margin-top: $gap;
 }
 
 .main__head {
@@ -277,7 +278,7 @@ $bullet-colors: (
   background-color: $field-background;
   border: 1px solid $border;
   width: 100%;
-  .has-v-separation & {
+  .has-vertical-separation & {
     width: 100%;
     @include tablet {
       position: relative;
