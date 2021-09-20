@@ -37,16 +37,16 @@
   }
   @include fullhd {
     padding: $column-gap 110px;
-    width: calc(100vw - #{$aside-width-widescreen} - #{$main-padding-horizontal * 2});
+    width: calc(
+      100vw - #{$aside-width-widescreen} - #{$main-padding-horizontal * 2}
+    );
   }
 
   .is-collapsed & {
     @include desktop {
-      width: calc(100vw - #{$aside-width-collapsed} - #{$aside-border-width} - #{$main-padding-horizontal});
+      width: calc(
+        100vw - #{$aside-width-collapsed} - #{$aside-border-width} - #{$main-padding-horizontal}
+      );
     }
-  }
-
-  > article {
-    margin-top: $gap;
   }
 }

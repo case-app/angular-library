@@ -1,17 +1,17 @@
 .aside {
   background: $side-nav-background;
-  flex:none;
+  flex: none;
   @include tablet {
-width: $aside-width-tablet;
+    width: $aside-width-tablet;
   }
   @include desktop {
-width: $aside-width-desktop;
+    width: $aside-width-desktop;
   }
   @include widescreen {
-width: $aside-width-widescreen;
+    width: $aside-width-widescreen;
   }
   @include fullhd {
-width: $aside-width-fullhd;
+    width: $aside-width-fullhd;
   }
   .is-collapsed & {
     width: 78px !important;
@@ -32,7 +32,7 @@ width: $aside-width-fullhd;
     height: 100%;
     border-bottom: 1px solid $border-color;
     @include mobile {
-      width: 100%
+      width: 100%;
     }
 
     @include tablet {
@@ -63,7 +63,6 @@ width: $aside-width-fullhd;
     align-items: center;
   }
 }
-
 
 .sidebar {
   float: left;
@@ -114,7 +113,7 @@ width: $aside-width-fullhd;
     box-shadow: 10px 10px 20px rgba(48, 48, 50, 0.07);
 
     li a {
-      padding-left: 33px !important;
+      padding-left: $gap !important;
     }
   }
 }

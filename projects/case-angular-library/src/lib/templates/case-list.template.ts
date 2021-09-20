@@ -1,6 +1,6 @@
 export const caseListTemplate = `
 <!-- Heading -->
-<div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-5">
+<div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-2">
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">
       {{ definition.title }}

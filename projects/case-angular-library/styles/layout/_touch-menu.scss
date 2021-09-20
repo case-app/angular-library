@@ -60,7 +60,7 @@ nav {
 
 .logo {
   display: inline-block;
-  padding: 8px 0 0 33px;
+  padding: 8px 0 0 $gap;
 }
 
 .dashboard-title {
@@ -165,7 +165,7 @@ nav {
       align-items: center;
       justify-content: flex-start;
       width: 100%;
-      padding: 19px 33px;
+      padding: 19px $gap;
       transition: color 0.25s ease;
 
       i {

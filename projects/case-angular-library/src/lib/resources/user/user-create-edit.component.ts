@@ -31,7 +31,7 @@ export class UserCreateEditComponent
       id: 'name',
       label: 'Nom',
       property: 'name',
-      className: 'is-6',
+      className: 'is-3',
       inputType: InputType.Text,
       required: true
     },
@@ -54,14 +54,14 @@ export class UserCreateEditComponent
               value: r.id.toString()
             }))
           ),
-      className: 'is-6',
+      className: 'is-3',
       required: true
     },
     {
       id: 'email',
       label: 'Email',
       property: 'email',
-      className: 'is-6',
+      className: 'is-3',
       inputType: InputType.Email,
       required: true,
       validators: [Validators.email]
@@ -69,7 +69,7 @@ export class UserCreateEditComponent
     {
       label: 'Mot de passe',
       property: 'password',
-      className: 'is-6',
+      className: 'is-3',
       inputType: InputType.Password,
       createValidators: [Validators.required],
       editValidators: []
@@ -78,7 +78,7 @@ export class UserCreateEditComponent
       label: 'Avatar',
       placeholder: 'Choisir un fichier image',
       property: 'image',
-      className: 'is-6',
+      className: 'is-3',
       inputType: InputType.Image
     },
     {
@@ -86,7 +86,7 @@ export class UserCreateEditComponent
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
       property: 'isActive',
       initialValue: { value: false },
-      className: 'is-6',
+      className: 'is-3',
       inputType: InputType.Checkbox
     },
     {

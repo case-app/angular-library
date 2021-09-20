@@ -21,7 +21,7 @@
   > span {
     position: relative;
     top: 1px;
-    left: 0px;
+    left: 0;
     display: flex;
     font-family: $family-sans-serif;
     font-size: $size-8;
@@ -31,41 +31,20 @@
   }
 }
 
-.drop--notifications {
-  position: absolute;
-  left: unset;
-  right: -205px;
-  top: 48px;
-  height: auto;
-  width: 330px;
-  opacity: 0;
-  visibility: hidden;
-  display: none;
-  transform: translateX(#{$gap});
-  transition: opacity 0.22s ease-in-out, 0.01s visibility linear 0.22s,
-    0.01s display linear 0.22s transform 0.22s ease-in-out;
-  background-color: $white;
-  border-left: 1px solid $border-color;
-  @include shadow;
-
-  &:after {
-    display: none;
+.notification {
+  position: fixed;
+  bottom: 20px;
+  z-index: 99;
+  @include tablet {
+    width: 80vw;
+    left: 10vw;
   }
-  &:before {
-    display: none;
+  @include desktop {
+    left: calc(50vw - 310px);
+    width: 620px;
   }
-
-  .dropdown.is-active & {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    display: block;
-    transition: opacity 0.22s ease-in-out, 0.01s visibility linear,
-      0.01s display linear, transform 0.22s ease-in-out;
+  @include mobile {
+    width: calc(100% - 40px);
+    left: 20px;
   }
-}
-.notification-list {
-  position: relative;
-  overflow-y: auto;
-  max-height: calc(100vh - #{$navbar-height});
 }

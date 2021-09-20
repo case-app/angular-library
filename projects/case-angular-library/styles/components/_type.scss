@@ -133,13 +133,11 @@ a:not(.button) {
   font-weight: $weight-normal;
 }
 
-a,
-button,
-.button {
-  &.is-disabled,
+a {
   &[disabled] {
     cursor: no-drop;
-    color: $grey-light !important;
+    pointer-events: none;
+    color: $grey-light;
   }
 }
 //_ Specific rules

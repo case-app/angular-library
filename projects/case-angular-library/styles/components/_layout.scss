@@ -55,7 +55,7 @@ body {
 
 .wrapper,
 .aside {
-  min-height: calc(100vh - #{$navbar-height} + 30px);
+  min-height: calc(100vh - #{$navbar-height} + #{$gap});
 }
 .section {
   @include mobile {
@@ -67,8 +67,9 @@ aside {
   border-right: 1px solid $border-color;
 }
 
-article {
+main {
   min-height: calc(100vh - 25px - 88px);
+  margin-top: $gap;
 }
 
 .main__head {
@@ -111,46 +112,8 @@ article {
   justify-content: center;
 }
 
-// Modals
-
-.modal-background {
-  background-color: rgba($dark, 0.86);
-  transition: all 0.2s ease-out;
-}
-
-.modal-content {
-  padding: 28px;
-  p {
-    &:first-child {
-      margin-bottom: 20px;
-    }
-  }
-}
-
 .pointer {
   cursor: pointer;
-}
-
-.notification.is-success,
-.notification.is-info {
-  color: $dark;
-}
-.flash-messages {
-  position: fixed;
-  bottom: 20px;
-  z-index: 99;
-  @include tablet {
-    width: 80vw;
-    left: 10vw;
-  }
-  @include desktop {
-    left: calc(50vw - 310px);
-    width: 620px;
-  }
-  @include mobile {
-    width: calc(100% - 40px);
-    left: 20px;
-  }
 }
 
 .identity {
@@ -277,7 +240,7 @@ $bullet-colors: (
   background-color: $field-background;
   border: 1px solid $border;
   width: 100%;
-  .has-v-separation & {
+  .has-separation-vertical & {
     width: 100%;
     @include tablet {
       position: relative;

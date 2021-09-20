@@ -11,7 +11,7 @@ li {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding: 19px 33px;
+    padding: 19px $gap;
     transition: color 0.35s ease, background-color 0.05s ease-out;
     -webkit-transition: color 0.35s ease, background-color 0.05s ease-out;
     -moz-transition: color 0.35s ease, background-color 0.05s ease-out;
