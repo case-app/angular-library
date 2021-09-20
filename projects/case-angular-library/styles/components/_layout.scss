@@ -116,28 +116,6 @@ main {
   cursor: pointer;
 }
 
-.notification.is-success,
-.notification.is-info {
-  color: $dark;
-}
-.flash-messages {
-  position: fixed;
-  bottom: 20px;
-  z-index: 99;
-  @include tablet {
-    width: 80vw;
-    left: 10vw;
-  }
-  @include desktop {
-    left: calc(50vw - 310px);
-    width: 620px;
-  }
-  @include mobile {
-    width: calc(100% - 40px);
-    left: 20px;
-  }
-}
-
 .identity {
   height: 100%;
   display: flex;
