@@ -1,0 +1,42 @@
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core'
+import { ValidatorFn, Validators } from '@angular/forms'
+
+import { CaseInput } from '../../../interfaces/case-input.interface'
+
+@Component({
+  selector: 'case-checkbox-input',
+  templateUrl: './checkbox-input.component.html',
+  styleUrls: ['./checkbox-input.component.scss']
+})
+export class CheckboxInputComponent implements CaseInput, OnChanges {
+  @Input() initialValue: { value: string }
+  @Input() label: string
+  @Input() placeholder: string
+  @Input() helpText: string
+  @Input() showErrors = false
+  @Input() validators: ValidatorFn[] = []
+  @Input() uniqueId: string
+
+  @Output() valueChanged: EventEmitter<{
+    value: boolean
+  }> = new EventEmitter()
+
+  checked: boolean
+  required: boolean
+
+  ngOnChanges() {
+    this.checked = this.initialValue && !!this.initialValue.value
+    this.required = this.validators.includes(Validators.required)
+  }
+
+  toggleCheck() {
+    this.checked = !this.checked
+    this.valueChanged.emit({ value: this.checked })
+  }
+}

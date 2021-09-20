@@ -14,7 +14,7 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "abacus-angular-library": ["dist/abacus-angular-library"]
+      "case-angular-library": ["dist/case-angular-library"]
     }
   },
   "angularCompilerOptions": {
