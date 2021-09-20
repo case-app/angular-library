@@ -1,43 +1,4 @@
-//_ Global style
-
-.card {
-  border: 1px solid $border-color;
-
-  &--is-displayed-on-modal {
-    .modal-content & {
-      border: 0;
-      padding: 0;
-      box-shadow: none;
-      background: transparent;
-    }
-  }
-}
-
-.project-user {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 7.5px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-left: $column-gap;
-
-    span {
-      &:last-child:not(:first-child) {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        font-weight: $weight-bold;
-        color: $grey;
-      }
-    }
-  }
-}
-
-.has-vertical-separation {
+.has-separation-vertical {
   position: relative;
 
   @include widescreen {

@@ -112,22 +112,6 @@ main {
   justify-content: center;
 }
 
-// Modals
-
-.modal-background {
-  background-color: rgba($dark, 0.86);
-  transition: all 0.2s ease-out;
-}
-
-.modal-content {
-  padding: 28px;
-  p {
-    &:first-child {
-      margin-bottom: 20px;
-    }
-  }
-}
-
 .pointer {
   cursor: pointer;
 }
@@ -278,7 +262,7 @@ $bullet-colors: (
   background-color: $field-background;
   border: 1px solid $border;
   width: 100%;
-  .has-vertical-separation & {
+  .has-separation-vertical & {
     width: 100%;
     @include tablet {
       position: relative;
