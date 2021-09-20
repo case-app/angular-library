@@ -1,13 +1,17 @@
-<ul>
-  <li>
-    <a routerLink="/">Accueil</a>
-  </li>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a routerLink="/">Accueil</a>
+    </li>
 
-  <li *ngFor="let breadcrumbLink of breadcrumbLinks">
-    <i class="icon icon-chevron-right px-3"></i>
-    <a [routerLink]="breadcrumbLink.path" *ngIf="breadcrumbLink.path">
-      {{ breadcrumbLink.label }}
-    </a>
-    <span *ngIf="!breadcrumbLink.path">{{ breadcrumbLink.label }}</span>
-  </li>
-</ul>
+    <li
+      *ngFor="let breadcrumbLink of breadcrumbLinks"
+      [ngClass]="{ 'is-active': !breadcrumbLink.path }"
+    >
+      <!-- <i class="icon icon-chevron-right px-3"></i> -->
+      <a [routerLink]="breadcrumbLink.path" *ngIf="breadcrumbLink.path">
+        {{ breadcrumbLink.label }}
+      </a>
+    </li>
+  </ul>
+</nav>
