@@ -28,7 +28,7 @@
     "@ckeditor/ckeditor5-build-classic": "^15.0.0",
     "@types/ckeditor__ckeditor5-core": "^11.0.2",
     "angular-calendar": "^0.28.16",
-    "angular-mydatepicker": "^0.10.3",
+    "angular-mydatepicker": "^0.11.5",
     "bulma": "^0.9.3",
     "bulma-switch": "^2.0.0",
     "bulma-tooltip": "^3.0.0",
