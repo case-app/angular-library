@@ -16,6 +16,7 @@
             "project": "projects/case-angular-library/ng-package.json"
           },
           "configurations": {
+            "development": {},
             "production": {
               "tsConfig": "projects/case-angular-library/tsconfig.lib.prod.json"
             }

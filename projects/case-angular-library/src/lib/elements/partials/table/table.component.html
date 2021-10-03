@@ -1,12 +1,7 @@
 <table class="table is-fullwidth is-hoverable" width="100%">
   <thead class="top-margin">
     <tr>
-      <th
-        *ngFor="let yield of yields"
-        [ngClass]="{
-          'has-text-right': yield.label === 'Reglement'
-        }"
-      >
+      <th *ngFor="let yield of yields">
         <span *ngIf="yield.disableOrderBy">{{ yield.label }}</span>
         <a class="no-deco" (click)="order(yield)" *ngIf="!yield.disableOrderBy"
           >{{ yield.label }}
