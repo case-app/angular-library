@@ -51,7 +51,7 @@ export class ImageInputComponent implements CaseInput, OnChanges {
   ) {}
 
   ngOnChanges() {
-    this.imagePath = this.initialValue.value
+    this.imagePath = this.initialValue && this.initialValue.value
     this.required = this.validators.includes(Validators.required)
   }
 
