@@ -1,0 +1,78 @@
+<!-- Heading -->
+<div
+  class="
+    is-flex
+    flex-mobile
+    is-justify-content-space-between is-align-items-center
+    mb-2
+  "
+>
+  <div class="left-part">
+    <h1 class="title is-2 has-text-weight-light">Cars (dummy resource)</h1>
+    <p><a routerLink="/create-edit">Go to create edit page</a></p>
+  </div>
+</div>
+
+<!-- Filters -->
+<section *ngIf="resolvedFilters && resolvedFilters.length">
+  <div class="card p-4">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title is-6 has-text-weight-bold is-uppercase has-text-grey">
+          Filtres
+        </h2>
+      </div>
+    </div>
+    <div class="columns is-multiline is-align-items-flex-end">
+      <div
+        class="column"
+        [ngClass]="filter.className"
+        *ngFor="let filter of resolvedFilters"
+      >
+        <case-input
+          [type]="filter.inputType"
+          [properties]="filter.properties"
+          [initialValue]="filter.initialValue"
+          [selectOptions]="filter.selectOptions"
+          [label]="filter.label"
+          [searchResources]="filter.searchResources"
+          [placeholder]="filter.placeholder"
+        ></case-input>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- List -->
+<ng-container *ngIf="paginator">
+  <div
+    class="
+      is-flex is-justify-content-space-between is-align-items-center
+      relative
+    "
+  >
+    <case-meta [paginator]="paginator"></case-meta>
+  </div>
+  <div class="card p-0 mb-6">
+    <div class="table-container"></div>
+  </div>
+
+  <case-pagination [paginator]="paginator"></case-pagination>
+</ng-container>
+
+<div *ngIf="loading" class="list-loading pt-7">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+  <div class="is-hidden-touch"></div>
+</div>

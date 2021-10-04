@@ -2,10 +2,10 @@
 @import './variables/all';
 
 // Bulma
-@import '../../../bulma/bulma';
+@import 'bulma/bulma';
 
 // Angular calendar
-@import '../../../angular-calendar/scss/angular-calendar';
+@import 'angular-calendar/scss/angular-calendar';
 
 // Mixins & helpers
 @import './helpers/helpers';

@@ -24,7 +24,17 @@ or to watch file changes :
 $ npm run build:watch
 ```
 
-### Create a NPM Link to work live
+### Development Workflow : CASE Angular Library showcase app
+
+The showcase app in this repository "case-angular-library-showcase" is an example application that consumes the CASE Angular Library. The recommend way to develop is to work on this app calling elements directly from the library. You can serve the showcase app by doing so
+
+```bash
+ng serve
+```
+
+To test it before publishing, it is recommended to test it on a local CASE app install with a NPM Link to the library as explained below.
+
+### Create a NPM Link to test on local CASE app
 
 After building library :
 
