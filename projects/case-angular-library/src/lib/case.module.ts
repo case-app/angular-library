@@ -66,14 +66,12 @@ import { LoginComponent } from './pages/auth/login/login.component'
 import { LogoutComponent } from './pages/auth/logout/logout.component'
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component'
 import { Error404Component } from './pages/error404/error404.component'
-import { HomeComponent } from './pages/home/home.component'
 import { EurosPipe } from './pipes/euros.pipe'
 import { StripHtmlPipe } from './pipes/strip-html.pipe'
 import { TruncatePipe } from './pipes/truncate.pipe'
 import { RoleCreateEditComponent } from './resources/role/role-create-edit/role-create-edit.component'
 import { RoleListComponent } from './resources/role/role-list/role-list.component'
-import { UserCreateEditComponent } from './resources/user/user-create-edit.component'
-import { UserListComponent } from './resources/user/user-list.component'
+
 import { AuthService } from './services/auth.service'
 import { BreadcrumbService } from './services/breadcrumb.service'
 import { EventService } from './services/event.service'
@@ -170,11 +168,8 @@ export function jwtOptionsFactory(authService: AuthService) {
     LogoutComponent,
     ResetPasswordComponent,
     Error404Component,
-    HomeComponent,
 
     // Default resources.
-    UserListComponent,
-    UserCreateEditComponent,
     RoleCreateEditComponent,
     RoleListComponent
   ],
@@ -271,8 +266,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     LoginComponent,
     LogoutComponent,
     ResetPasswordComponent,
-    Error404Component,
-    HomeComponent
+    Error404Component
   ]
 })
 export class CaseModule {

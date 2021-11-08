@@ -7,11 +7,8 @@ import { LoginComponent } from '../pages/auth/login/login.component'
 import { LogoutComponent } from '../pages/auth/logout/logout.component'
 import { ResetPasswordComponent } from '../pages/auth/reset-password/reset-password.component'
 import { Error404Component } from '../pages/error404/error404.component'
-import { HomeComponent } from '../pages/home/home.component'
 import { RoleCreateEditComponent } from '../resources/role/role-create-edit/role-create-edit.component'
 import { RoleListComponent } from '../resources/role/role-list/role-list.component'
-import { UserCreateEditComponent } from '../resources/user/user-create-edit.component'
-import { UserListComponent } from '../resources/user/user-list.component'
 
 export const caseRoutes: Route[] = [
   // Auth.
@@ -30,48 +27,6 @@ export const caseRoutes: Route[] = [
   {
     path: 'reset-password',
     component: ResetPasswordComponent
-  },
-
-  // Pages.
-  {
-    path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
-
-  // Users.
-  {
-    path: 'users',
-    component: UserListComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'users/create',
-    component: UserCreateEditComponent,
-    canActivate: [AuthGuard, PermissionGuard],
-    data: {
-      permission: 'addUsers',
-      mode: 'create'
-    }
-  },
-  {
-    path: 'users/myself/edit',
-    component: UserCreateEditComponent,
-    canActivate: [AuthGuard, PermissionGuard],
-    data: {
-      mode: 'edit',
-      permission: 'readOwnUsers',
-      editMyself: true
-    }
-  },
-  {
-    path: 'users/:id/edit',
-    component: UserCreateEditComponent,
-    canActivate: [AuthGuard, PermissionGuard],
-    data: {
-      mode: 'edit',
-      permission: 'editUsers'
-    }
   },
 
   // Roles.
