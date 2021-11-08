@@ -109,6 +109,10 @@
           [progressPercentage]="yield.propertyValue"
         ></case-analog-progress-bar-yield>
 
+        <ng-container *ngSwitchCase="YieldType.Check">
+          <i class="icon icon-check1" *ngIf="yield.propertyValue"></i>
+        </ng-container>
+
         <ng-container *ngSwitchDefault="">
           {{ yield.propertyValue }}</ng-container
         >

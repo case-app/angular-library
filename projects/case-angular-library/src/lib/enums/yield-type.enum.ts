@@ -1,12 +1,13 @@
 export enum YieldType {
-  Text,
-  Date,
   Address,
-  Image,
-  Currency,
-  ProgressBar,
-  Download,
+  AnalogProgressBar,
   Color,
+  Check,
+  Currency,
+  Date,
+  Download,
   FileIcon,
-  AnalogProgressBar
+  Image,
+  ProgressBar,
+  Text
 }
