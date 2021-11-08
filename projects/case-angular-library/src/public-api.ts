@@ -122,11 +122,8 @@ export { LoginComponent } from './lib/pages/auth/login/login.component'
 export { LogoutComponent } from './lib/pages/auth/logout/logout.component'
 export { ResetPasswordComponent } from './lib/pages/auth/reset-password/reset-password.component'
 export { Error404Component } from './lib/pages/error404/error404.component'
-export { HomeComponent } from './lib/pages/home/home.component'
 
 // Default resources.
-export { UserListComponent } from './lib/resources/user/user-list.component'
-export { UserCreateEditComponent } from './lib/resources/user/user-create-edit.component'
 export { RoleListComponent } from './lib/resources/role/role-list/role-list.component'
 export { RoleCreateEditComponent } from './lib/resources/role/role-create-edit/role-create-edit.component'
 
