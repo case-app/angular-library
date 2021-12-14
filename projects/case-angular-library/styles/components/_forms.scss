@@ -32,6 +32,21 @@ label:not(.file-label):not(.checkbox) {
     margin-top: $column-gap;
   }
 }
+select,
+.select {
+  font-size: $size-normal;
+
+  &.is-small {
+    border-radius: $control-radius-small;
+    font-size: $size-small;
+  }
+  &.is-medium {
+    font-size: $size-medium;
+  }
+  &.is-large {
+    font-size: $size-large;
+  }
+}
 
 case-input,
 .select,
