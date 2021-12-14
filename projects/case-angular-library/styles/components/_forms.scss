@@ -16,12 +16,12 @@
   color: $input-placeholder-color !important;
 }
 
-label:not(.file-label):not(.checkbox) {
+label:not(.file-label):not(.checkbox):not(.image-label) {
   font-size: $size-6;
   font-weight: $weight-bold;
   text-transform: uppercase;
   padding-bottom: 5px;
-  color: $grey;
+  color: $label-color;
   display: inline-block;
   @include touch {
     margin-top: $column-gap;
