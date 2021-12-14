@@ -16,11 +16,6 @@
   color: $input-placeholder-color !important;
 }
 
-.control {
-  text-transform: uppercase;
-  font-size: $size-small;
-}
-
 label:not(.file-label):not(.checkbox) {
   font-size: $size-6;
   font-weight: $weight-bold;
@@ -109,7 +104,6 @@ case-select-input {
 // File
 .file-cta {
   &.file-remove {
-    background-color: $light;
     border: 0;
   }
 }
