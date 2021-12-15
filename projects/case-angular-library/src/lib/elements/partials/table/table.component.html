@@ -98,6 +98,12 @@
           [path]="yield.propertyValue"
         ></case-file-icon-yield>
 
+        <case-icon-yield
+          *ngSwitchCase="YieldType.Icon"
+          [icon]="yield.propertyValue"
+          [tooltip]="yield.secondPropertyValue"
+        ></case-icon-yield>
+
         <case-progress-bar-yield
           *ngSwitchCase="YieldType.ProgressBar"
           [progressValue]="yield.propertyValue"

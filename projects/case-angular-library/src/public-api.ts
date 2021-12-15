@@ -115,6 +115,7 @@ export { FileIconYieldComponent } from './lib/elements/yields/file-icon-yield/fi
 export { ImageYieldComponent } from './lib/elements/yields/image-yield/image-yield.component'
 export { ProgressBarYieldComponent } from './lib/elements/yields/progress-bar-yield/progress-bar-yield.component'
 export { NumberYieldComponent } from './lib/elements/yields/number-yield/number-yield.component'
+export { IconYieldComponent } from './lib/elements/yields/icon-yield/icon-yield.component'
 
 // Pages.
 export { ForgotPasswordComponent } from './lib/pages/auth/forgot-password/forgot-password.component'
