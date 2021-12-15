@@ -31,6 +31,8 @@ $input-disabled-placeholder-color: bulmaRgba(
   0.3
 ) !default;
 
+$label-color: $grey !default;
+
 //Datepicker
 $calendar-height: 268px !default;
 $year-height: 42px !default;
@@ -42,3 +44,4 @@ $field-background: $white-bis !default;
 $border: $grey-light !default;
 $checkbox-spacing: 35px !default;
 $checkbox-box-shadow-width: 0 0 0 4px !default;
+$select-font-size: 1.5rem !default;
