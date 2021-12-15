@@ -19,38 +19,8 @@
       >
         <div class="tags has-addons">
           <span class="tag is-link"
-            ><i
-              class="icon pr-5 pl-3"
-              [ngClass]="{
-                'icon-user':
-                  selectedSearchResult.resourceName === 'users' ||
-                  selectedSearchResult.resourceName === 'referents',
-                'icon-file-text':
-                  selectedSearchResult.resourceName === 'invoices',
-                'icon-map-pin':
-                  selectedSearchResult.resourceName === 'localities',
-                'icon-home': selectedSearchResult.resourceName === 'agencies',
-                'icon-trending-up':
-                  selectedSearchResult.resourceName === 'expenses',
-                'icon-hash':
-                  selectedSearchResult.resourceName === 'technicians',
-                'icon-clipboard':
-                  selectedSearchResult.resourceName === 'statements',
-                'icon-pie-chart':
-                  selectedSearchResult.resourceName === 'markets',
-                'icon-file': selectedSearchResult.resourceName === 'receipts',
-                'icon-grid': selectedSearchResult.resourceName === 'projects',
-                'icon-briefcase':
-                  selectedSearchResult.resourceName === 'customers',
-                'icon-users': selectedSearchResult.resourceName === 'referents',
-                'icon-file-plus':
-                  selectedSearchResult.resourceName === 'acceptanceReports',
-                'icon-tag': selectedSearchResult.resourceName === 'types',
-                'icon-star': selectedSearchResult.resourceName === 'suppliers',
-                'icon-box': selectedSearchResult.resourceName === 'orders'
-              }"
-            ></i
-            >{{ selectedSearchResult.shortLabel }}</span
+            ><i class="icon pr-5 pl-3 icon-grid"></i
+            >{{ selectedSearchResult.label }}</span
           >
           <a
             class="tag is-delete has-background-link-light"
@@ -87,44 +57,7 @@
           (click)="toggleItem(searchResult)"
         >
           <!-- Icon-->
-          <i
-            class="icon is-size-5"
-            [ngClass]="{
-              'icon-user has-icon-color-1':
-                searchResult.resourceName === 'users' ||
-                searchResult.resourceName === 'referents',
-              'icon-map-pin has-icon-color-2':
-                searchResult.resourceName === 'localities',
-              'icon-file-text has-icon-color-3':
-                searchResult.resourceName === 'invoices',
-              'icon-home has-icon-color-4':
-                searchResult.resourceName === 'agencies',
-              'icon-trending-up has-icon-color-5':
-                searchResult.resourceName === 'expenses',
-              'icon-hash has-icon-color-6':
-                searchResult.resourceName === 'technicians',
-              'icon-clipboard has-icon-color-7':
-                searchResult.resourceName === 'statements',
-              'icon-pie-chart has-icon-color-8':
-                searchResult.resourceName === 'markets',
-              'icon-file has-icon-color-9':
-                searchResult.resourceName === 'receipts',
-              'icon-grid has-icon-color-10':
-                searchResult.resourceName === 'projects',
-              'icon-briefcase has-icon-color-11':
-                searchResult.resourceName === 'customers',
-              'icon-users has-icon-color-12':
-                searchResult.resourceName === 'referents',
-              'icon-file-plus has-icon-color-13':
-                searchResult.resourceName === 'acceptanceReports',
-              'icon-tag has-icon-color-1':
-                searchResult.resourceName === 'types',
-              'icon-star has-icon-color-2':
-                searchResult.resourceName === 'suppliers',
-              'icon-box has-icon-color-3':
-                searchResult.resourceName === 'orders'
-            }"
-          ></i>
+          <i class="icon is-size-5 icon-grid"></i>
           <span innerHTML="{{ searchResult.label }}"></span>
         </li>
       </ul>

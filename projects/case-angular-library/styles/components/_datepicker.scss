@@ -158,12 +158,24 @@
   min-width: $control-height;
   height: $control-height;
   line-height: $control-height;
+  font-size: $size-normal;
   background-color: $link-alpha03;
   text-align: center;
   border-top: $control-border-width solid $border;
   border-bottom: $control-border-width solid $border;
   color: $grey;
   font-weight: 500;
+  &.is-small {
+    border-radius: $control-radius-small;
+    font-size: $size-small;
+  }
+  &.is-medium {
+    font-size: $size-medium;
+  }
+  &.is-large {
+    font-size: $size-large;
+  }
+
   @include mobile {
     background: $light;
     text-align: left !important;
