@@ -128,8 +128,8 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
           this.suggestedSearchResults = searchResultsRes
             .sort(
               (a: SearchResult, b: SearchResult) =>
-                fastLevenshtein.get(this.terms, a.shortLabel) -
-                fastLevenshtein.get(this.terms, b.shortLabel)
+                fastLevenshtein.get(this.terms, a.label) -
+                fastLevenshtein.get(this.terms, b.label)
             )
             .slice(0, 20)
 
