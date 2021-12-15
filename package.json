@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build case-angular-library --configuration=development",
-    "build:prod": "ng build case-angular-library --prod",
+    "build:prod": "ng build case-angular-library --configuration=production",
     "build:watch": " ng build case-angular-library --configuration=development --watch",
     "test": "ng test",
     "lint": "ng lint",

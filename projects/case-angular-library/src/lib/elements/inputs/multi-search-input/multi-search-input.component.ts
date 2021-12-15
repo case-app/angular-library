@@ -124,12 +124,12 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
           ...this.params
         })
         .subscribe((searchResultsRes: SearchResult[]) => {
-          // Sort by Levenshtein distance and limit array
+          // Sort by Levenshtein distance and limit array.
           this.suggestedSearchResults = searchResultsRes
             .sort(
               (a: SearchResult, b: SearchResult) =>
-                fastLevenshtein.get(this.terms, a.shortLabel) -
-                fastLevenshtein.get(this.terms, b.shortLabel)
+                fastLevenshtein.get(this.terms, a.label) -
+                fastLevenshtein.get(this.terms, b.label)
             )
             .slice(0, 20)
 
@@ -167,11 +167,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
     // Format "array-of-ids" name based on resource name. Ex: cars => carIds.
     return Object.keys(emittedValueObject).reduce((acc, resourceName) => {
-      acc[
-        resourceName === 'localities'
-          ? 'localities'
-          : resourceName.slice(0, -1) + 'Ids'
-      ] = emittedValueObject[resourceName]
+      acc[resourceName.toLowerCase() + 'Ids'] = emittedValueObject[resourceName]
       return acc
     }, {})
   }

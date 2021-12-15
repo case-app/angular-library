@@ -40,7 +40,7 @@ export const caseListTemplate = `
 
 <!-- Filters -->
 <section *ngIf="resolvedFilters && resolvedFilters.length">
-  <div class="card p-4">
+  <div class="card p-4 mb-6 mt-4">
     <div class="columns">
       <div class="column">
         <h2 class="title is-6 has-text-weight-bold is-uppercase has-text-grey">Filtres</h2>
