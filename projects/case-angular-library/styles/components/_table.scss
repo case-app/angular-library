@@ -24,3 +24,9 @@ td {
     padding-bottom: 0.8em;
   }
 }
+
+// override
+.table.is-narrow td,
+.table.is-narrow th {
+  padding: $table-cell-padding-narrow;
+}
