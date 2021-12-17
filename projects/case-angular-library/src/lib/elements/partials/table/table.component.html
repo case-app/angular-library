@@ -45,7 +45,8 @@
         'is-warning': item.isWarningHighlight,
         'is-info': item.isInfoHighlight,
         'is-success': item.isSuccessHighlight,
-        'is-disabled': item.isDisabledHighlight
+        'is-disabled': item.isDisabledHighlight,
+        'is-danger': item.isDangerHighlight
       }"
     >
       <td
@@ -96,6 +97,12 @@
           *ngSwitchCase="YieldType.FileIcon"
           [path]="yield.propertyValue"
         ></case-file-icon-yield>
+
+        <case-icon-yield
+          *ngSwitchCase="YieldType.Icon"
+          [icon]="yield.propertyValue"
+          [tooltip]="yield.secondPropertyValue"
+        ></case-icon-yield>
 
         <case-progress-bar-yield
           *ngSwitchCase="YieldType.ProgressBar"
