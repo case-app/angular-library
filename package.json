@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "publish": "ng build case-angular-library --prod && cd dist/case-angular-library && npm pack && npm publish --access public"
+    "publish": "ng build case-angular-library --configuration=production && cd dist/case-angular-library && npm pack && npm publish --access public"
   },
   "license": "(MIT OR Apache-2.0)",
   "private": true,
