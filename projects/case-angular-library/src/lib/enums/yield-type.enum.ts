@@ -3,6 +3,7 @@ export enum YieldType {
   AnalogProgressBar,
   Color,
   Check,
+  Icon,
   Currency,
   Date,
   Download,

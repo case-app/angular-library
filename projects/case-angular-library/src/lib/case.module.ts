@@ -57,6 +57,7 @@ import { CurrencyYieldComponent } from './elements/yields/currency-yield/currenc
 import { DateYieldComponent } from './elements/yields/date-yield/date-yield.component'
 import { DownloadYieldComponent } from './elements/yields/download-yield/download-yield.component'
 import { FileIconYieldComponent } from './elements/yields/file-icon-yield/file-icon-yield.component'
+import { IconYieldComponent } from './elements/yields/icon-yield/icon-yield.component'
 import { ImageYieldComponent } from './elements/yields/image-yield/image-yield.component'
 import { NumberYieldComponent } from './elements/yields/number-yield/number-yield.component'
 import { ProgressBarYieldComponent } from './elements/yields/progress-bar-yield/progress-bar-yield.component'
@@ -161,6 +162,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     ImageYieldComponent,
     ProgressBarYieldComponent,
     NumberYieldComponent,
+    IconYieldComponent,
 
     // Pages.
     ForgotPasswordComponent,
@@ -171,7 +173,8 @@ export function jwtOptionsFactory(authService: AuthService) {
 
     // Default resources.
     RoleCreateEditComponent,
-    RoleListComponent
+    RoleListComponent,
+    IconYieldComponent
   ],
   imports: [
     CommonModule,
@@ -260,6 +263,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     ImageYieldComponent,
     ProgressBarYieldComponent,
     NumberYieldComponent,
+    IconYieldComponent,
 
     // Pages.
     ForgotPasswordComponent,
