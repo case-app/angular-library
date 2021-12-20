@@ -4,9 +4,6 @@ export interface Yield {
   // Label that will be shown on UI.
   label: string
 
-  // Displays a tooltip on mouseover.
-  tooltip?: string
-
   // Object property name.
   property: string
 
@@ -15,13 +12,16 @@ export interface Yield {
   thirdProperty?: string
   forthProperty?: string
 
+  // Displays a tooltip on mouseover.
+  tooltip?: string
+
   // Custom link on click.
   link?: string | ((item: any) => string)
 
   // Disables possibility to order by this prop. Useful when sorting for this prop does not make sense or is a calculated prop.
   disableOrderBy?: boolean
 
-  // Property to be ordered by. If not specified, "property" is used
+  // Property to be ordered by. If not specified, "property" is used.
   orderByProperty?: string
 
   // Output type for display (default YieldType.Text)
@@ -32,6 +32,9 @@ export interface Yield {
 
   // Class of the yield
   className?: string
+
+  // Specific to one or several YieldType.
+  icon?: string
 
   // Calculated
   propertyValue?: string
