@@ -173,3 +173,11 @@ a {
 .is-default a {
   cursor: default;
 }
+
+.has-custom-link {
+  text-decoration: underline;
+
+  &:hover {
+    color: $link;
+  }
+}
