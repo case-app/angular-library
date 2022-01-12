@@ -79,19 +79,6 @@ main {
   margin-bottom: 2rem;
 }
 
-.full-height {
-  height: 100%;
-}
-.full-width {
-  width: 100%;
-}
-
-.relative {
-  position: relative;
-}
-.absolute {
-  position: absolute;
-}
 // IMG block
 
 .edit-mode {
@@ -299,7 +286,7 @@ $bullet-colors: (
   }
 }
 
-.no-border {
+.is-borderless {
   border: 0;
 }
 

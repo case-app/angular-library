@@ -158,7 +158,6 @@ a {
 }
 
 //_ Tooltip
-
 .tooltip {
   &:before {
     background-color: $dark !important;
@@ -172,4 +171,12 @@ a {
 .is-default,
 .is-default a {
   cursor: default;
+}
+
+.has-custom-link {
+  text-decoration: underline;
+
+  &:hover {
+    color: $link;
+  }
 }
