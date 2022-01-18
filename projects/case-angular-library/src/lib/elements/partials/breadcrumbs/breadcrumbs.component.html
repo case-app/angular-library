@@ -8,10 +8,10 @@
       *ngFor="let breadcrumbLink of breadcrumbLinks"
       [ngClass]="{ 'is-active': !breadcrumbLink.path }"
     >
-      <!-- <i class="icon icon-chevron-right px-3"></i> -->
       <a [routerLink]="breadcrumbLink.path" *ngIf="breadcrumbLink.path">
         {{ breadcrumbLink.label }}
       </a>
+      <span *ngIf="!breadcrumbLink.path">{{ breadcrumbLink.label }}</span>
     </li>
   </ul>
 </nav>
