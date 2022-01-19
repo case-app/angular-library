@@ -30,8 +30,8 @@ export interface Field {
   // and the value is the real path to that value.
   retrievedItemProperties?: { [key: string]: string }
 
+  // initialValue?: { [key: string]: any; } | (() => Promise<{ [key: string]: any; }>)
   initialValue?: { [key: string]: any }
-  forcedValue?: { [key: string]: any }
 
   // Input-specific
   selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)

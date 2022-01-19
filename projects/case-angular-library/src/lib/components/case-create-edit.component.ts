@@ -116,7 +116,7 @@ export class CaseCreateEditComponent {
         this.fieldSpecialRules.find((rule) => rule.fieldId === field.id)
       if (specialRuleForField) {
         field.hidden = specialRuleForField.hidden
-        field.forcedValue = specialRuleForField.forcedValue
+        field.initialValue = specialRuleForField.initialValue
       }
     })
 
@@ -160,13 +160,9 @@ export class CaseCreateEditComponent {
         ]
       : null
     // Set initial value of field.
-    if (field.forcedValue) {
-      field.initialValue = field.forcedValue
-    } else {
-      field.initialValue[fieldProp] = this.item
-        ? this.getItemValue(this.item, retrievedItemProp || controlName)
-        : null
-    }
+    field.initialValue[fieldProp] = this.item
+      ? this.getItemValue(this.item, retrievedItemProp || controlName)
+      : null
 
     // If the field is an array, create a FormArray.
     return Array.isArray(field.initialValue[fieldProp])
@@ -309,7 +305,7 @@ export class CaseCreateEditComponent {
 
   // Set custom value to Field.
   setFieldValue(field: Field, value: any): void {
-    field.forcedValue = value
+    field.initialValue = value
     this.resetFieldFormControls(field)
   }
 

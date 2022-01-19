@@ -18,7 +18,10 @@ export class CreateEditComponent {
       property: 'name',
       className: 'is-3',
       inputType: InputType.Text,
-      required: true
+      required: true,
+      initialValue: {
+        value: 'test 1'
+      }
     },
     {
       id: 'roleId',
@@ -49,7 +52,10 @@ export class CreateEditComponent {
       className: 'is-3',
       inputType: InputType.Email,
       required: true,
-      validators: [Validators.email]
+      validators: [Validators.email],
+      initialValue: {
+        value: 'test 1'
+      }
     },
     {
       label: 'Mot de passe',
@@ -57,7 +63,10 @@ export class CreateEditComponent {
       className: 'is-3',
       inputType: InputType.Password,
       createValidators: [Validators.required],
-      editValidators: []
+      editValidators: [],
+      initialValue: {
+        value: 'test 1'
+      }
     },
     {
       label: 'Avatar',
