@@ -1,16 +1,26 @@
 import { Component } from '@angular/core'
-import { Validators } from '@angular/forms'
+import { FormBuilder, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+
+import { roleDefinition } from '../../../../../case-angular-library/src/lib/resources/role/role.definition'
 import {
+  BreadcrumbService,
+  CaseCreateEditComponent,
+  caseCreateEditTemplate,
   Field,
-  InputType
+  FlashMessageService,
+  InputType,
+  ResourceDefinition,
+  ResourceService
 } from '../../../../../case-angular-library/src/public-api'
+import { carDefinition } from '../car.definition'
 
 @Component({
-  selector: 'app-create-edit',
-  templateUrl: './create-edit.component.html',
-  styleUrls: ['./create-edit.component.scss']
+  template: caseCreateEditTemplate
 })
-export class CreateEditComponent {
+export class CreateEditComponent extends CaseCreateEditComponent {
+  definition: ResourceDefinition = carDefinition
+
   fields: Field[] = [
     {
       id: 'name',
@@ -18,7 +28,11 @@ export class CreateEditComponent {
       property: 'name',
       className: 'is-3',
       inputType: InputType.Text,
-      required: true
+      required: true,
+      initialValue: () =>
+        Promise.resolve({
+          value: 'test ASYNC'
+        })
     },
     {
       id: 'roleId',
@@ -49,7 +63,10 @@ export class CreateEditComponent {
       className: 'is-3',
       inputType: InputType.Email,
       required: true,
-      validators: [Validators.email]
+      validators: [Validators.email],
+      initialValue: {
+        value: 'test 1'
+      }
     },
     {
       label: 'Mot de passe',
@@ -57,7 +74,10 @@ export class CreateEditComponent {
       className: 'is-3',
       inputType: InputType.Password,
       createValidators: [Validators.required],
-      editValidators: []
+      editValidators: [],
+      initialValue: {
+        value: 'test 1'
+      }
     },
     {
       label: 'Avatar',
@@ -80,7 +100,40 @@ export class CreateEditComponent {
       className: 'is-6',
       inputType: InputType.ColorPicker,
       required: true
+    },
+    {
+      label: 'Rechercher un projet',
+      placeholder:
+        'Rechercher par N° de projet (interne ou client), par client ou responsable...',
+      inputType: InputType.MultiSearch,
+      className: 'is-6',
+      searchResources: [carDefinition, roleDefinition],
+      properties: {
+        cartIds: 'carIds'
+      }
     }
   ]
-  loading = false
+
+  constructor(
+    formBuilder: FormBuilder,
+    router: Router,
+    activatedRoute: ActivatedRoute,
+    resourceService: ResourceService,
+    breadcrumbService: BreadcrumbService,
+    flashMessageService: FlashMessageService,
+    private customResourceService: ResourceService
+  ) {
+    super(
+      formBuilder,
+      router,
+      breadcrumbService,
+      resourceService,
+      flashMessageService,
+      activatedRoute
+    )
+  }
+
+  ngOnInit() {
+    this.initCreateEditView()
+  }
 }

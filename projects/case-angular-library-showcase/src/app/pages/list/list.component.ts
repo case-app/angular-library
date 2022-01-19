@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core'
+import { Validators } from '@angular/forms'
+import { Filter } from '../../../../../../dist/case-angular-library/public-api'
 import {
   Gender,
+  InputType,
   LinkType,
   Paginator,
   ResourceDefinition,
   Yield
 } from '../../../../../case-angular-library/src/public-api'
+import { carDefinition } from '../car.definition'
 
 @Component({
   selector: 'app-list',
@@ -13,6 +17,8 @@ import {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  requiredValidator = [Validators.required]
+
   paginator: Paginator<any> = {
     data: [{ name: 'Volvo' }, { name: 'Mercedes' }],
     currentPage: 1,
@@ -28,19 +34,19 @@ export class ListComponent implements OnInit {
       property: 'name'
     }
   ]
-  definition: ResourceDefinition = {
-    title: 'Cars',
-    nameSingular: 'car',
-    namePlural: 'cars',
-    gender: Gender.Feminine,
-    slug: 'cars',
-    buttons: [],
-    defaultLink: LinkType.CREATE,
-    mainIdentifier: 'id',
-    dropdownLinks: []
-  }
+  resolvedFilters: Filter[] = [
+    {
+      label: 'Projets à facturer',
+      inputType: InputType.Checkbox,
+      property: 'toBillOnly',
+      initialValue: {
+        value: 'true'
+      }
+    }
+  ]
+
+  definition: ResourceDefinition = carDefinition
   loading = false
-  resolvedFilters = []
 
   constructor() {}
 

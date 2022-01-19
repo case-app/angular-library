@@ -31,7 +31,10 @@ export class CheckboxInputComponent implements CaseInput, OnChanges {
   required: boolean
 
   ngOnChanges() {
-    this.checked = this.initialValue && !!this.initialValue.value
+    this.checked =
+      this.initialValue &&
+      !!this.initialValue.value &&
+      this.initialValue.value !== 'false'
     this.required = this.validators.includes(Validators.required)
   }
 

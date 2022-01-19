@@ -76,7 +76,7 @@ export class RoleCreateEditComponent
       await this.getItem(this.customActivatedRoute.snapshot.params.id)
     }
 
-    this.form = this.generateForm(this.fields)
+    this.form = await this.generateForm(this.fields)
 
     // Check permissionIds boxes.
     this.permissions.forEach((permission: Permission) => {

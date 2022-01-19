@@ -1,7 +1,3 @@
-// Import bulma switch before to custom it
-// TODO: FIXME not compiling
-// @import '../../../../../../node_modules/bulma-switch/dist/css/bulma-switch.min.sass';
-
 //_ Vars
 :root {
   --bg: transparent;
@@ -771,7 +767,7 @@ my-date-picker {
   }
 }
 
-// TODO: Check if that is correct (imported from create-edit.
+// TODO: Check if that is correct (imported from create-edit).
 .column--classic {
   display: flex;
   align-items: flex-end;
