@@ -1,11 +1,6 @@
 <!-- Heading -->
 <div
-  class="
-    is-flex
-    flex-mobile
-    is-justify-content-space-between is-align-items-center
-    mb-2
-  "
+  class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-2"
 >
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">Cars (dummy resource)</h1>
@@ -14,7 +9,7 @@
 </div>
 
 <!-- Filters -->
-<section *ngIf="resolvedFilters && resolvedFilters.length">
+<section>
   <div class="card p-4 mt-4 mb-6">
     <div class="columns">
       <div class="column">
@@ -46,23 +41,41 @@
 <!-- List -->
 <ng-container *ngIf="paginator">
   <div
-    class="
-      is-flex is-justify-content-space-between is-align-items-center
-      relative
-    "
+    class="is-flex is-justify-content-space-between is-align-items-center relative"
   >
     <case-meta [paginator]="paginator"> </case-meta>
     <case-icon-yield
       icon="icon-grid"
       tooltip="this is the tooltip There is a link to a 404 in doc. If we paste the snippet in the resource definition page, we have several issues that are note expected. An error says that Invoice cannot be found but It looks complicated to undestand which file we should import to fix this issue. Should we create an interface ? If yes, where and how ? "
     ></case-icon-yield>
-  </div>
-  <div class="card p-0 mb-6">
-    <div class="table-container"></div>
-  </div>
 
-  <case-pagination [paginator]="paginator"></case-pagination>
+    <case-currency-yield [amount]="30"></case-currency-yield>
+
+    <case-pagination [paginator]="paginator"></case-pagination>
+  </div>
 </ng-container>
+
+<!-- Inputs -->
+<h2 class="title is-2">Inputs</h2>
+
+<case-email-input
+  label="votre email"
+  placeholder="allez..."
+  showErrors="true"
+  [validators]="requiredValidator"
+></case-email-input>
+<case-datepicker-input
+  showErrors="true"
+  [validators]="requiredValidator"
+></case-datepicker-input>
+<case-multi-search-input
+  showErrors="true"
+  [validators]="requiredValidator"
+></case-multi-search-input>
+
+<div class="card p-0 mb-6">
+  <div class="table-container"></div>
+</div>
 
 <div *ngIf="loading" class="list-loading pt-7">
   <div></div>

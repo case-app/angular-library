@@ -4,10 +4,9 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  Output,
   OnChanges,
-  SimpleChange,
-  OnInit
+  Output,
+  SimpleChange
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
@@ -19,7 +18,7 @@ import { SelectOption } from '../../../interfaces/select-option.interface'
   templateUrl: './multi-select-input.component.html',
   styleUrls: ['./multi-select-input.component.scss']
 })
-export class MultiSelectInputComponent implements CaseInput, OnInit, OnChanges {
+export class MultiSelectInputComponent implements CaseInput, OnChanges {
   @Input() label: string
   @Input() initialValue: { value: string[] } = { value: [] }
   @Input() selectOptions: SelectOption[]
@@ -42,13 +41,17 @@ export class MultiSelectInputComponent implements CaseInput, OnInit, OnChanges {
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit() {
+  ngOnChanges(changes: { selectOptions?: SimpleChange }) {
+    // Reset form value if we change select options.
+    if (this.isInputSetUp && changes.selectOptions) {
+      this.selectNone()
+    }
+
     this.selectedOptions = (this.initialValue && this.initialValue.value) || []
 
     if (typeof this.selectedOptions === 'string') {
       this.selectedOptions = [this.selectedOptions]
     }
-
     if (this.selectOptions && this.selectOptions.length) {
       this.selectOptions.forEach((selectOption: SelectOption) => {
         if (this.selectedOptions.find((sI) => sI === selectOption.value)) {
@@ -57,15 +60,7 @@ export class MultiSelectInputComponent implements CaseInput, OnInit, OnChanges {
       })
     }
     this.required = this.validators.includes(Validators.required)
-
     this.isInputSetUp = true
-  }
-
-  // Reset form value if we change select options.
-  ngOnChanges(changes: { selectOptions?: SimpleChange }) {
-    if (this.isInputSetUp && changes.selectOptions) {
-      this.selectNone()
-    }
   }
 
   toggleSelected(option: SelectOption) {
