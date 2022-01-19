@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
+import { Filter } from '../../../../../../dist/case-angular-library/public-api'
 import {
   Gender,
+  InputType,
   LinkType,
   Paginator,
   ResourceDefinition,
@@ -31,6 +33,17 @@ export class ListComponent implements OnInit {
       property: 'name'
     }
   ]
+  resolvedFilters: Filter[] = [
+    {
+      label: 'Projets à facturer',
+      inputType: InputType.Checkbox,
+      property: 'toBillOnly',
+      initialValue: {
+        value: 'true'
+      }
+    }
+  ]
+
   definition: ResourceDefinition = {
     title: 'Cars',
     nameSingular: 'car',
@@ -43,7 +56,6 @@ export class ListComponent implements OnInit {
     dropdownLinks: []
   }
   loading = false
-  resolvedFilters = []
 
   constructor() {}
 
