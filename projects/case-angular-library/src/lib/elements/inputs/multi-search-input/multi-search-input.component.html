@@ -1,14 +1,8 @@
-<div
-  class="multiselect-box"
-  [ngClass]="{
-    'is-danger': showErrors && required && !selectedSearchResults.length
-  }"
->
+<div class="multiselect-box">
   <div class="control">
     <label for="multi-search-input-{{ uniqueId }}"
       >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
     >
-
     <div
       *ngIf="selectedSearchResults.length"
       class="field is-grouped is-grouped-multiline"
@@ -44,6 +38,9 @@
           readonly ||
           (maxSelectedItems && selectedSearchResults.length >= maxSelectedItems)
         "
+        [ngClass]="{
+          'is-danger': showErrors && required && !selectedSearchResults.length
+        }"
         #searchInput
       />
       <ul class="box list" *ngIf="showList && suggestedSearchResults.length">

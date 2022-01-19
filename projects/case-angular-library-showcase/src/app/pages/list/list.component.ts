@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Validators } from '@angular/forms'
 import {
   Gender,
   LinkType,
@@ -13,6 +14,8 @@ import {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  requiredValidator = [Validators.required]
+
   paginator: Paginator<any> = {
     data: [{ name: 'Volvo' }, { name: 'Mercedes' }],
     currentPage: 1,
