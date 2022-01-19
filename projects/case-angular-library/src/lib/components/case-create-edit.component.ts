@@ -67,7 +67,7 @@ export class CaseCreateEditComponent {
     }
 
     this.resolvedFields = await this.resolveFields(this.fields)
-    this.form = this.generateForm(this.resolvedFields)
+    this.form = await this.generateForm(this.resolvedFields)
 
     if (!this.isModal) {
       this.setBreadcrumbs()
@@ -124,20 +124,20 @@ export class CaseCreateEditComponent {
   }
 
   // Create ReactiveForm based on resource definition.
-  generateForm(fields: Field[]): FormGroup {
+  async generateForm(fields: Field[]): Promise<FormGroup> {
     const form: FormGroup = this.formBuilder.group({})
     fields.forEach((field: Field) => {
       if (field.property) {
         field.properties = { value: field.property }
       }
 
-      Object.keys(field.properties || []).forEach((fieldProp: string) => {
+      Object.keys(field.properties || []).forEach(async (fieldProp: string) => {
         // Get name of the property and path if different from controlName.
         const controlName: string = field.properties[fieldProp]
 
         form.addControl(
           controlName,
-          this.generateControl(field, fieldProp, controlName)
+          await this.generateControl(field, fieldProp, controlName)
         )
       })
     })
@@ -145,11 +145,11 @@ export class CaseCreateEditComponent {
     return form
   }
 
-  generateControl(
+  async generateControl(
     field: Field,
     fieldProp: string,
     controlName: string
-  ): AbstractControl | FormArray {
+  ): Promise<AbstractControl | FormArray> {
     const retrievedItemProp: string = field.retrievedItemProperties
       ? field.retrievedItemProperties[
           Object.keys(field.retrievedItemProperties).find(
@@ -171,7 +171,9 @@ export class CaseCreateEditComponent {
         [fieldProp]: itemValue
       }
     } else if (field.initialValue) {
-      field.initialValue = field.initialValue
+      if (typeof field.initialValue === 'function') {
+        field.initialValue = await field.initialValue().then((res) => res)
+      }
     } else {
       field.initialValue = {
         [fieldProp]: null
@@ -307,12 +309,12 @@ export class CaseCreateEditComponent {
 
   // Reset Form Control from Field.
   resetFieldFormControls(field: Field): void {
-    Object.keys(field.properties).forEach((fieldProp: string) => {
+    Object.keys(field.properties).forEach(async (fieldProp: string) => {
       const controlName: string = field.properties[fieldProp]
 
       this.form.setControl(
         controlName,
-        this.generateControl(field, fieldProp, controlName)
+        await this.generateControl(field, fieldProp, controlName)
       )
     })
   }

@@ -28,12 +28,10 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       className: 'is-3',
       inputType: InputType.Text,
       required: true,
-      initialValue: {
-        value: 'test 1'
-      },
-      forcedValue: {
-        value: 'test forced'
-      }
+      initialValue: () =>
+        Promise.resolve({
+          value: 'test ASYNC'
+        })
     },
     {
       id: 'roleId',
