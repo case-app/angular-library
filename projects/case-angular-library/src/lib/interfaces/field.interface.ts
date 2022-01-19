@@ -1,6 +1,7 @@
 import { ValidatorFn } from '@angular/forms'
 
 import { InputType } from '../enums/input-type.enum'
+import { ResourceDefinition } from './resource-definition.interface'
 import { SelectOption } from './select-option.interface'
 
 export interface Field {
@@ -39,7 +40,7 @@ export interface Field {
 
   // Input-specific
   selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
-  searchResources?: string[]
+  searchResources?: ResourceDefinition[]
   searchParams?: { [key: string]: string }
   maxSelectedItems?: number
   min?: number

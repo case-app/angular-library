@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
+import { roleDefinition } from '../../../../../case-angular-library/src/lib/resources/role/role.definition'
 import {
   BreadcrumbService,
   CaseCreateEditComponent,
@@ -99,6 +100,17 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       className: 'is-6',
       inputType: InputType.ColorPicker,
       required: true
+    },
+    {
+      label: 'Rechercher un projet',
+      placeholder:
+        'Rechercher par N° de projet (interne ou client), par client ou responsable...',
+      inputType: InputType.MultiSearch,
+      className: 'is-6',
+      searchResources: [carDefinition, roleDefinition],
+      properties: {
+        cartIds: 'carIds'
+      }
     }
   ]
 

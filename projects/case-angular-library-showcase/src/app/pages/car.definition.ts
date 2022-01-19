@@ -8,6 +8,8 @@ export const carDefinition: ResourceDefinition = {
   title: 'Cars',
   nameSingular: 'car',
   namePlural: 'cars',
+  className: 'Car',
+  icon: 'icon-file-text',
   gender: Gender.Feminine,
   slug: 'cars',
   buttons: [],

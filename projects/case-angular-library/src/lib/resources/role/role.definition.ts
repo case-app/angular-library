@@ -6,6 +6,8 @@ export const roleDefinition: ResourceDefinition = {
   title: 'Rôles',
   nameSingular: 'rôle',
   namePlural: 'rôles',
+  className: 'Role',
+  icon: 'icon-pie-chart',
   gender: Gender.Masculine,
   mainIdentifier: 'displayName',
   slug: 'roles',

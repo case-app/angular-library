@@ -14,6 +14,7 @@ import * as fastLevenshtein from 'fast-levenshtein'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
 import { HTMLInputEvent } from '../../../interfaces/html-input-event.interface'
+import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { SearchResult } from '../../../interfaces/search-result.interface'
 import { ResourceService } from '../../../services/resource.service'
 
@@ -31,7 +32,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   @Input() placeholder: string
   @Input() helpText: string
 
-  @Input() resources: string[]
+  @Input() resources: ResourceDefinition[]
   @Input() params: { [key: string]: string }
   @Input() maxSelectedItems
   @Input() readonly = false
@@ -53,6 +54,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   focusedItemIndex: number
   form: FormGroup
   required: boolean
+  defaultIcon = 'icon-grid'
 
   constructor(
     private elementRef: ElementRef,
@@ -119,7 +121,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
       this.resourceService
         .list('search', {
-          resources: this.resources,
+          resources: this.resources.map((rD) => rD.className),
           terms: this.terms,
           ...this.params
         })
@@ -142,8 +144,8 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   formatToEmit(selectedResults: SearchResult[]): { [key: string]: any } {
     const emittedValueObject: {
       [key: string]: any
-    } = this.resources.reduce((acc, resourceName: string) => {
-      acc[resourceName] = []
+    } = this.resources.reduce((acc, resourceDefinition: ResourceDefinition) => {
+      acc[resourceDefinition.className] = []
       return acc
     }, {})
 
@@ -199,6 +201,15 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
       this.toggleItem(this.suggestedSearchResults[this.focusedItemIndex])
       delete this.focusedItemIndex
     }
+  }
+
+  getResourceIcon(resourceClassName: string): string {
+    console.log(resourceClassName)
+    const resource: ResourceDefinition = this.resources.find(
+      (r) => r.className === resourceClassName
+    )
+
+    return resource ? resource.icon : this.defaultIcon
   }
 
   // Click outside closes list
