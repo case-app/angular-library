@@ -204,7 +204,6 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   }
 
   getResourceIcon(resourceClassName: string): string {
-    console.log(resourceClassName)
     const resource: ResourceDefinition = this.resources.find(
       (r) => r.className === resourceClassName
     )

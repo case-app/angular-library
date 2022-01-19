@@ -48,6 +48,7 @@
         'is-disabled': item.isDisabledHighlight,
         'is-danger': item.isDangerHighlight
       }"
+      class="pos-{{ i }} rev-pos-{{ formattedItems.length - 1 - i }}"
     >
       <td
         *ngFor="let yield of item.yields"
