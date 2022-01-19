@@ -9,6 +9,7 @@ import {
   ResourceDefinition,
   Yield
 } from '../../../../../case-angular-library/src/public-api'
+import { carDefinition } from '../car.definition'
 
 @Component({
   selector: 'app-list',
@@ -44,17 +45,7 @@ export class ListComponent implements OnInit {
     }
   ]
 
-  definition: ResourceDefinition = {
-    title: 'Cars',
-    nameSingular: 'car',
-    namePlural: 'cars',
-    gender: Gender.Feminine,
-    slug: 'cars',
-    buttons: [],
-    defaultLink: LinkType.CREATE,
-    mainIdentifier: 'id',
-    dropdownLinks: []
-  }
+  definition: ResourceDefinition = carDefinition
   loading = false
 
   constructor() {}

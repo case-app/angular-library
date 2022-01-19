@@ -1,16 +1,25 @@
 import { Component } from '@angular/core'
-import { Validators } from '@angular/forms'
+import { FormBuilder, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+
 import {
+  BreadcrumbService,
+  CaseCreateEditComponent,
+  caseCreateEditTemplate,
   Field,
-  InputType
+  FlashMessageService,
+  InputType,
+  ResourceDefinition,
+  ResourceService
 } from '../../../../../case-angular-library/src/public-api'
+import { carDefinition } from '../car.definition'
 
 @Component({
-  selector: 'app-create-edit',
-  templateUrl: './create-edit.component.html',
-  styleUrls: ['./create-edit.component.scss']
+  template: caseCreateEditTemplate
 })
-export class CreateEditComponent {
+export class CreateEditComponent extends CaseCreateEditComponent {
+  definition: ResourceDefinition = carDefinition
+
   fields: Field[] = [
     {
       id: 'name',
@@ -21,6 +30,9 @@ export class CreateEditComponent {
       required: true,
       initialValue: {
         value: 'test 1'
+      },
+      forcedValue: {
+        value: 'test forced'
       }
     },
     {
@@ -91,5 +103,27 @@ export class CreateEditComponent {
       required: true
     }
   ]
-  loading = false
+
+  constructor(
+    formBuilder: FormBuilder,
+    router: Router,
+    activatedRoute: ActivatedRoute,
+    resourceService: ResourceService,
+    breadcrumbService: BreadcrumbService,
+    flashMessageService: FlashMessageService,
+    private customResourceService: ResourceService
+  ) {
+    super(
+      formBuilder,
+      router,
+      breadcrumbService,
+      resourceService,
+      flashMessageService,
+      activatedRoute
+    )
+  }
+
+  ngOnInit() {
+    this.initCreateEditView()
+  }
 }

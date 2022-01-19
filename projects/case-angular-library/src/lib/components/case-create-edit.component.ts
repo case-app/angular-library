@@ -116,7 +116,7 @@ export class CaseCreateEditComponent {
         this.fieldSpecialRules.find((rule) => rule.fieldId === field.id)
       if (specialRuleForField) {
         field.hidden = specialRuleForField.hidden
-        field.initialValue = specialRuleForField.initialValue
+        field.forcedValue = specialRuleForField.forcedValue
       }
     })
 
@@ -127,8 +127,6 @@ export class CaseCreateEditComponent {
   generateForm(fields: Field[]): FormGroup {
     const form: FormGroup = this.formBuilder.group({})
     fields.forEach((field: Field) => {
-      field.initialValue = {}
-
       if (field.property) {
         field.properties = { value: field.property }
       }
@@ -159,10 +157,26 @@ export class CaseCreateEditComponent {
           )
         ]
       : null
-    // Set initial value of field.
-    field.initialValue[fieldProp] = this.item
-      ? this.getItemValue(this.item, retrievedItemProp || controlName)
-      : null
+
+    // Set initial value of field, in order: forcedValue, itemValue (fetched), initialValue, null.
+    if (field.forcedValue) {
+      field.initialValue = field.forcedValue
+    }
+    const itemValue: any = this.getItemValue(
+      this.item,
+      retrievedItemProp || controlName
+    )
+    if (itemValue) {
+      field.initialValue = {
+        [fieldProp]: itemValue
+      }
+    } else if (field.initialValue) {
+      field.initialValue = field.initialValue
+    } else {
+      field.initialValue = {
+        [fieldProp]: null
+      }
+    }
 
     // If the field is an array, create a FormArray.
     return Array.isArray(field.initialValue[fieldProp])
