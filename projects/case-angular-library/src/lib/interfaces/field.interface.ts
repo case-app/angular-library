@@ -33,8 +33,9 @@ export interface Field {
   // In order to set defined values on form generation, we can chose between a soft option "initialValue" that adds a value
   // if no item value is available, or a force option "forcedValue" that overrides existing values.
   forcedValue?: { [key: string]: any }
-  initialValue?: { [key: string]: any }
-  // initialValue?: { [key: string]: any; } | (() => Promise<{ [key: string]: any; }>)
+  initialValue?:
+    | { [key: string]: any }
+    | (() => Promise<{ [key: string]: any }>)
 
   // Input-specific
   selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
