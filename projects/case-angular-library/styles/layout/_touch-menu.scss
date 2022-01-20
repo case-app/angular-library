@@ -142,12 +142,16 @@
       width: 100vw;
       left: -100vw;
     }
+
+    &.is-active {
+      left: 0;
+    }
   }
   // Sub menu on Touch
 
   .menu-list {
     &:first-child {
-      height: calc(100vh - 160px);
+      height: calc(100vh - #{$navbar-height} - 2.5rem);
       position: relative;
       overflow: scroll;
     }
