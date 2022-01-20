@@ -12,10 +12,13 @@
 @import './helpers/helpers';
 
 // Components
+@import './components/analog-progress-bar';
+@import './components/avatar';
 @import './components/buttons';
 @import './components/breadcrumbs';
 @import './components/calendar';
 @import './components/cards';
+@import './components/colorpicker';
 @import './components/datepicker';
 @import './components/dropdown';
 @import './components/forms';
@@ -25,6 +28,8 @@
 @import './components/layout';
 @import './components/lists';
 @import './components/modals';
+@import './components/multisearch';
+@import './components/multiselect';
 @import './components/nav';
 @import './components/notification';
 @import './components/pagination';
@@ -35,6 +40,7 @@
 
 // Layouts
 @import './layout/error404';
+@import './layout/login';
 @import './layout/side-menu';
 @import './layout/top-menu';
 @import './layout/touch-menu';
