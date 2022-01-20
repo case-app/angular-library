@@ -33,18 +33,14 @@
 
 .notification {
   position: fixed;
-  bottom: 20px;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 99;
   @include tablet {
-    width: 80vw;
-    left: 10vw;
+    width: 320px;
   }
-  @include desktop {
-    left: calc(50vw - 310px);
-    width: 620px;
-  }
+
   @include mobile {
-    width: calc(100% - 40px);
-    left: 20px;
+    width: calc(100% - 4rem);
   }
 }

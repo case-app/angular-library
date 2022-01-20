@@ -68,7 +68,7 @@ aside {
 }
 
 main {
-  min-height: calc(100vh - 25px - 88px);
+  min-height: calc(100vh - #{$gap} - #{$navbar-height});
   margin-top: $gap;
 }
 
@@ -171,56 +171,6 @@ main {
     );
   }
 }
-// Bullets
-
-$bullet-colors: (
-  progress-1: #240986,
-  progress-2: #5c1ee8,
-  progress-3: #a676f8,
-  progress-4: #00c3f9,
-  progress-5: #65f2fd,
-  progress-6: #73e6d0
-);
-
-.bullet {
-  height: 8px;
-  width: 8px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  display: inline-block;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-@each $status, $bullet-color in $bullet-colors {
-  .#{$status} {
-    background: $bullet-color;
-
-    &.is-white {
-      background-color: #e8e8e8;
-    }
-  }
-  .text-#{$status} {
-    color: $bullet-color;
-  }
-  .badge.is-#{$status} {
-    background-color: rgba($bullet-color, 0.1);
-    color: darken($bullet-color, 26%);
-  }
-}
-
-.text-status {
-  position: relative;
-  top: -2px;
-  margin-right: 8px;
-}
 
 .comment {
   padding: #{$gap / 2};
@@ -270,11 +220,6 @@ $bullet-colors: (
   display: none;
   .modal-content & {
     display: block;
-  }
-}
-.flex-col-on-modal {
-  .modal-content & {
-    flex-direction: column;
   }
 }
 
