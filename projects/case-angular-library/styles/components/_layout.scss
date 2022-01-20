@@ -11,7 +11,6 @@
   outline: none;
 }
 html {
-  font-size: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
   text-rendering: optimizeLegibility;
@@ -24,7 +23,7 @@ html {
   -webkit-font-smoothing: antialiased;
 
   @include touch {
-    font-size: 10.22px;
+    font-size: $body-size-touch;
   }
 
   &.is-clipped {
