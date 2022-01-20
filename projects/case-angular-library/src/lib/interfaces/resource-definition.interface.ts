@@ -10,6 +10,11 @@ export interface ResourceDefinition {
   namePlural: string
   gender: Gender
 
+  // Server-side class name.
+  className: string
+
+  icon: string
+
   // Path for communication with remote API.
   slug: string
 

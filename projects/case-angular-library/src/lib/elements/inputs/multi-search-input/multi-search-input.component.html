@@ -1,14 +1,8 @@
-<div
-  class="multiselect-box"
-  [ngClass]="{
-    'is-danger': showErrors && required && !selectedSearchResults.length
-  }"
->
+<div class="multiselect-box">
   <div class="control">
     <label for="multi-search-input-{{ uniqueId }}"
       >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
     >
-
     <div
       *ngIf="selectedSearchResults.length"
       class="field is-grouped is-grouped-multiline"
@@ -19,7 +13,11 @@
       >
         <div class="tags has-addons">
           <span class="tag is-link"
-            ><i class="icon pr-5 pl-3 icon-grid"></i
+            ><i
+              class="icon pr-5 pl-3 {{
+                getResourceIcon(selectedSearchResult.resourceName)
+              }}"
+            ></i
             >{{ selectedSearchResult.label }}</span
           >
           <a
@@ -44,6 +42,9 @@
           readonly ||
           (maxSelectedItems && selectedSearchResults.length >= maxSelectedItems)
         "
+        [ngClass]="{
+          'is-danger': showErrors && required && !selectedSearchResults.length
+        }"
         #searchInput
       />
       <ul class="box list" *ngIf="showList && suggestedSearchResults.length">
@@ -57,7 +58,11 @@
           (click)="toggleItem(searchResult)"
         >
           <!-- Icon-->
-          <i class="icon is-size-5 icon-grid"></i>
+          <i
+            class="icon is-size-5 {{
+              getResourceIcon(searchResult.resourceName)
+            }}"
+          ></i>
           <span innerHTML="{{ searchResult.label }}"></span>
         </li>
       </ul>

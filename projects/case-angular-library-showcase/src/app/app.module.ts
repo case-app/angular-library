@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core'
+import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
+
 import { CaseModule } from '../../../case-angular-library/src/public-api'
 import { environment } from '../environments/environment'
-
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component';
-import { ListComponent } from './pages/list/list.component';
+import { AppComponent } from './app.component'
 import { CreateEditComponent } from './pages/create-edit/create-edit.component'
+import { ListComponent } from './pages/list/list.component'
 
 @NgModule({
   declarations: [AppComponent, ListComponent, CreateEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     CaseModule.forRoot({
       baseUrl: environment.baseUrl,
       apiBaseUrl: environment.apiBaseUrl,

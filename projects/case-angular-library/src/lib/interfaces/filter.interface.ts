@@ -1,4 +1,5 @@
 import { InputType } from '../enums/input-type.enum'
+import { ResourceDefinition } from './resource-definition.interface'
 import { SelectOption } from './select-option.interface'
 
 export interface Filter {
@@ -16,6 +17,6 @@ export interface Filter {
   async?: boolean
 
   // Input-specific props
-  searchResources?: string[]
+  searchResources?: ResourceDefinition[]
   selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
 }
