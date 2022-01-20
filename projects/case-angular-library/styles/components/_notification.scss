@@ -5,9 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: $notification-dot-width;
-  width: $notification-dot-width;
-  border-radius: $notification-dot-width;
+  height: $has-notification-width;
+  width: $has-notification-width;
+  border-radius: $has-notification-width;
 
   @each $name, $pair in $colors {
     $color: nth($pair, 1);
@@ -43,4 +43,20 @@
   @include mobile {
     width: calc(100% - 4rem);
   }
+}
+
+.notification-item {
+  border-bottom: 1px solid $border-color;
+}
+
+.notification-dot {
+  width: $notification-dot-width;
+  height: $notification-dot-width;
+  background-color: $link;
+  border-radius: $notification-dot-width;
+  display: inline-block;
+  margin-left: $gap;
+}
+.notification-excerpt {
+  width: calc(100% - #{$gap} - #{notification-dot-width});
 }
