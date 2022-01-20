@@ -11,7 +11,9 @@
       <a [routerLink]="breadcrumbLink.path" *ngIf="breadcrumbLink.path">
         {{ breadcrumbLink.label }}
       </a>
-      <span *ngIf="!breadcrumbLink.path">{{ breadcrumbLink.label }}</span>
+      <a class="is-active" *ngIf="!breadcrumbLink.path">{{
+        breadcrumbLink.label
+      }}</a>
     </li>
   </ul>
 </nav>
