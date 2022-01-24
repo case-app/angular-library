@@ -8,7 +8,7 @@
         angular-mydatepicker
         id="date-from-{{ uniqueId }}-input"
         class="input"
-        [placeholder]="placeholder"
+        [placeholder]="placeholder || ' ...'"
         [options]="datePickerOptions"
         (dateChanged)="onDateChanged($event, 'dateFrom')"
         (click)="dp.openCalendar()"
@@ -22,7 +22,7 @@
         angular-mydatepicker
         id="date-to-{{ uniqueId }}-input"
         class="input"
-        [placeholder]="placeholder || 'Pick a date ...'"
+        [placeholder]="placeholder || ' ...'"
         [options]="datePickerOptions"
         (dateChanged)="onDateChanged($event, 'dateTo')"
         (click)="dp.openCalendar()"
