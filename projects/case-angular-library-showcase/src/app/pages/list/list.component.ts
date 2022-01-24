@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
-import { Filter } from '../../../../../../dist/case-angular-library/public-api'
+import { Filter } from '../../../../../case-angular-library/src/public-api'
 import {
   Gender,
   InputType,

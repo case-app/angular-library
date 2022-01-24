@@ -111,6 +111,11 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       properties: {
         cartIds: 'carIds'
       }
+    },
+    {
+      label: 'Adresse',
+      className: 'is-3',
+      inputType: InputType.Address
     }
   ]
 
