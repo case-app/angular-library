@@ -242,11 +242,13 @@
     *ngSwitchCase="InputType.Image"
   >
   </case-image-input>
+
   <case-address-input
     [label]="label"
     [uniqueId]="uniqueId"
     [placeholder]="placeholder"
     [initialValue]="initialValue"
+    [helpText]="helpText"
     [showErrors]="showErrors"
     [validators]="validators"
     (valueChanged)="onValueChanged($event)"

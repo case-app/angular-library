@@ -1,10 +1,17 @@
+<!-- TODO: is-danger highlight if required and empty and showErrors -->
 <div class="control">
   <label for="address-input-{{ uniqueId }}"
-    >{{ label }}<span class="has-text-danger">*</span></label
+    >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
   >
   <geoapify-geocoder-autocomplete
-    [lang]="'fr'"
-    [placeholder]="'Entrer votre adresse'"
+    lang="fr"
+    [filterByCountryCode]="['fr']"
+    type="amenity"
+    [placeholder]="placeholder || 'Entrez votre adresse'"
+    [debounceDelay]="200"
+    (placeSelect)="onPlaceSelected($event)"
   >
   </geoapify-geocoder-autocomplete>
+
+  <p class="help" *ngIf="helpText">{{ helpText }}</p>
 </div>

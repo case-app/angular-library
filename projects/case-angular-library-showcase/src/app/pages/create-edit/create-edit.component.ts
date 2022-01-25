@@ -113,9 +113,11 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       }
     },
     {
-      label: 'Adresse',
+      label: 'Testt',
       className: 'is-3',
-      inputType: InputType.Address
+      inputType: InputType.Address,
+      required: true,
+      helpText: 'testes'
     }
   ]
 
