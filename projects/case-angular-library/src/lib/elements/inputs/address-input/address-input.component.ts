@@ -44,10 +44,10 @@ export class AddressInputComponent implements OnInit, CaseInput {
 
   private convertGEOJSONFeatureToAddress(feature: Feature): Address {
     return {
-      addressName: feature.properties.address,
-      route: feature.properties.address,
+      addressName: feature.properties.formatted,
+      route: feature.properties.street || feature.properties.address_line1,
       locality: feature.properties.city,
-      postalCode: feature.properties.postCode,
+      postalCode: feature.properties.postcode,
       country: feature.properties.country
     }
   }
