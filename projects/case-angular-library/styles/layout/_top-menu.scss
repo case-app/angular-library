@@ -26,9 +26,10 @@
   }
   > div:first-child {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex: none;
+    width: 100%;
     background-color: $side-nav-background;
 
     @include desktop {
