@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
-
 import {
   Filter,
   InputType,

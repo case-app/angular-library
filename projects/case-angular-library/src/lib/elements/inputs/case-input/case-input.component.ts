@@ -11,7 +11,7 @@ import { SelectOption } from '../../../interfaces/select-option.interface'
   styleUrls: ['./case-input.component.scss']
 })
 
-// * Default ABC input wrapper that calls the other ones
+// * Default CASE input wrapper that calls the other ones
 export class CaseInputComponent implements CaseInput {
   // Common props.
   @Input() type: InputType
