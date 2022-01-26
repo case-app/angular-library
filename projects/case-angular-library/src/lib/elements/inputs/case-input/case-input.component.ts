@@ -34,6 +34,7 @@ export class CaseInputComponent implements CaseInput {
   @Input() maxSelectedItems = 50
   @Input() searchParams: { [key: string]: string }
   @Input() copyDateFromOnDateTo = false
+  @Input() secondPlaceholder: string
 
   @Output() valueChanged: EventEmitter<any> = new EventEmitter()
 

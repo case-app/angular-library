@@ -3,10 +3,14 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
+  ViewChild
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms'
-import { IMyDateModel } from 'angular-mydatepicker'
+import {
+  AngularMyDatePickerDirective,
+  IMyDateModel
+} from 'angular-mydatepicker'
 
 import { CaseDatepickerComponent } from '../../../components/case-datepicker.component'
 import { CaseInput } from '../../../interfaces/case-input.interface'
@@ -20,11 +24,15 @@ export class DateRangeInputComponent
   extends CaseDatepickerComponent
   implements CaseInput, OnChanges
 {
+  @ViewChild('dp1') dp1: AngularMyDatePickerDirective
+  @ViewChild('dp2') dp2: AngularMyDatePickerDirective
+
   @Input() label: string
   @Input() helpText: string
   // Accepts YYYY-MM-DD formatted dates
   @Input() initialValue: { dateFrom: string; dateTo: string }
   @Input() placeholder: string
+  @Input() secondPlaceholder: string
   @Input() showErrors = false
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
@@ -98,5 +106,9 @@ export class DateRangeInputComponent
     }
 
     this.valueChanged.emit(this.outputValues)
+  }
+
+  clear(datepickerName: string) {
+    this[datepickerName].clearDate()
   }
 }
