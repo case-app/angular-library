@@ -12,8 +12,8 @@
           [ngClass]="{ 'is-danger': showErrors && form.invalid }"
           formControlName="select"
         >
-          <option value="" disabled selected hidden>
-            {{ placeholder || 'Aucun filtre' }}
+          <option value="" disabled selected *ngIf="placeholder">
+            {{ placeholder }}
           </option>
           <option
             [value]="option.value"

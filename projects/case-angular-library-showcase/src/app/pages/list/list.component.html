@@ -79,9 +79,9 @@
 ></case-date-range-input>
 
 <case-input
-  [type]="InputType.DateRange"
+  [type]="InputType.Datepicker"
   [placeholder]="'first'"
-  [secondPlaceholder]="'second'"
+  (valueChanged)="dateChanged($event)"
 ></case-input>
 
 <div class="card p-0 mb-6">

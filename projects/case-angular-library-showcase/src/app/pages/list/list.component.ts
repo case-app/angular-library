@@ -52,4 +52,8 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  dateChanged(event) {
+    console.log(event)
+  }
 }
