@@ -35,7 +35,7 @@
         class="input"
         (keyup)="onSearchInputKeyup($event)"
         [placeholder]="
-          selectedSearchResults.length ? '' : placeholder || 'Search ...'
+          selectedSearchResults.length ? '' : placeholder || label + '...'
         "
         (focus)="showList = true"
         [disabled]="

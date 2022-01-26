@@ -51,6 +51,7 @@ export const caseCreateEditTemplate = `
               [max]="field.max"
               [label]="field.label"
               [placeholder]="field.placeholder"
+              [secondPlaceholder]="field.secondPlaceholder"
               [validators]="field.validators"
               [showErrors]="showErrors"
               (valueChanged)="onValueChanged($event, field)"

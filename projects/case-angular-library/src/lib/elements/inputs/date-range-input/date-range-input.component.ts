@@ -25,6 +25,7 @@ export class DateRangeInputComponent
   // Accepts YYYY-MM-DD formatted dates
   @Input() initialValue: { dateFrom: string; dateTo: string }
   @Input() placeholder: string
+  @Input() secondPlaceholder: string
   @Input() showErrors = false
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
