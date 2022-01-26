@@ -1,12 +1,16 @@
-$avatar-diameter: 36px !default;
-$avatar-diameter-small: 24px !default;
-$avatar-diameter-large: 60px !default;
-
 .avatar {
   display: block;
   border-radius: 50%;
   border: 1px solid $light;
   position: relative;
+
+  &.is-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $link;
+    color: $light;
+  }
 
   &:not(.is-large):not(.is-small) {
     width: $avatar-diameter;
@@ -31,5 +35,20 @@ $avatar-diameter-large: 60px !default;
     height: $avatar-diameter-large;
     min-height: $avatar-diameter-large;
     max-height: $avatar-diameter-large;
+  }
+}
+
+.has-avatar {
+  position: relative;
+  z-index: 6;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      left: calc(#{$i} * 8px * -1);
+      z-index: #{6 - $i};
+    }
   }
 }
