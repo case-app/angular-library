@@ -79,8 +79,9 @@
 ></case-date-range-input>
 
 <case-input
-  [type]="InputType.Datepicker"
+  [type]="InputType.Address"
   [placeholder]="'first'"
+  [initialValue]="{ value: { addressName: 'my addres' } }"
   (valueChanged)="dateChanged($event)"
 ></case-input>
 

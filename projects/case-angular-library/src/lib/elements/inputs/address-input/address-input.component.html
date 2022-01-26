@@ -1,7 +1,10 @@
-<!-- TODO: is-danger highlight if required and empty and showErrors -->
 <div class="control">
   <label for="address-input-{{ uniqueId }}"
     >{{ label }}<span class="has-text-danger" *ngIf="required">*</span></label
+  >
+  <!-- TODO: is-danger highlight if required and empty and showErrors -->
+  <span *ngIf="required && showErrors && !address && !addressName"
+    >RED BORDERS ON !</span
   >
   <geoapify-geocoder-autocomplete
     lang="fr"
@@ -9,6 +12,7 @@
     [placeholder]="placeholder || 'Entrez votre adresse'"
     [debounceDelay]="200"
     (placeSelect)="onPlaceSelected($event)"
+    [value]="addressName"
   >
   </geoapify-geocoder-autocomplete>
 

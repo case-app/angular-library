@@ -1,17 +1,22 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 import { Feature } from 'geojson'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
 import { Address } from './adress.interface'
 
-// ! TODO: FIXME: We should be able to select an address.
 @Component({
   selector: 'case-address-input',
   templateUrl: './address-input.component.html',
   styleUrls: ['./address-input.component.scss']
 })
-export class AddressInputComponent implements OnInit, CaseInput {
+export class AddressInputComponent implements OnChanges, CaseInput {
   @Input() label: string
   @Input() initialValue: any
   @Input() showErrors: boolean
@@ -23,23 +28,23 @@ export class AddressInputComponent implements OnInit, CaseInput {
 
   @Output() valueChanged: EventEmitter<string> = new EventEmitter()
 
+  addressName: string
+  address: Address
   required: boolean
 
-  constructor() {}
-  ngOnInit(): void {
-    console.log(this.validators)
-
+  ngOnChanges(): void {
     this.required = this.validators.includes(Validators.required)
 
-    // TODO: display initial value (edit mode).
+    this.addressName =
+      this.initialValue &&
+      this.initialValue.value &&
+      this.initialValue.value.addressName
   }
 
   onPlaceSelected(selectedPlace: Feature): void {
-    const address: Address = this.convertGEOJSONFeatureToAddress(selectedPlace)
+    this.address = this.convertGEOJSONFeatureToAddress(selectedPlace)
 
-    console.log(selectedPlace, address)
-
-    this.valueChanged.emit(JSON.stringify(address))
+    this.valueChanged.emit(JSON.stringify(this.address))
   }
 
   private convertGEOJSONFeatureToAddress(feature: Feature): Address {
