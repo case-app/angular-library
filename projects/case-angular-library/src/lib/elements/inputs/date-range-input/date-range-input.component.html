@@ -11,8 +11,8 @@
         [placeholder]="placeholder || 'Date de début...'"
         [options]="datePickerOptions"
         (dateChanged)="onDateChanged($event, 'dateFrom')"
-        (click)="dp.openCalendar()"
-        #dp="angular-mydatepicker"
+        (click)="dp1.openCalendar()"
+        #dp1="angular-mydatepicker"
         formControlName="dateFrom"
       />
 
@@ -25,8 +25,8 @@
         [placeholder]="secondPlaceholder || 'Date de fin...'"
         [options]="datePickerOptions"
         (dateChanged)="onDateChanged($event, 'dateTo')"
-        (click)="dp.openCalendar()"
-        #dp="angular-mydatepicker"
+        (click)="dp2.openCalendar()"
+        #dp2="angular-mydatepicker"
         formControlName="dateTo"
       />
     </div>
