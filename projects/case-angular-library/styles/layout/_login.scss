@@ -7,36 +7,37 @@
   top: 0;
   height: 100vh;
   @include touch {
-    width: 66.66667%;
+    width: $col-left-width-tablet;
   }
   @include mobile {
-    width: 100%;
+    width: $col-left-width-mobile;
   }
   @include desktop {
-    width: 40%;
+    width: $col-left-width-desktop;
   }
 
   @include widescreen {
-    width: 33.33333%;
+    width: $col-left-width-widescreen;
   }
 
   > div {
     margin: auto;
     margin: auto;
     @include widescreen {
-      max-width: 482px;
-      min-width: 382px;
+      max-width: $col-left-max-width-widescreen;
+      min-width: $col-left-min-width-widescreen;
     }
     @include desktop {
-      max-width: 424px;
-      min-width: 360px;
+      max-width: $col-left-max-width-desktop;
+      min-width: $col-left-min-width-desktop;
     }
     @include tablet {
-      max-width: 100%;
-      min-width: 43%;
+      max-width: $col-left-max-width-tablet;
+      min-width: $col-left-min-width-tablet;
     }
     @include mobile {
-      min-width: 86%;
+      max-width: $col-left-max-width-mobile;
+      min-width: $col-left-min-width-mobile;
     }
   }
 }
@@ -118,13 +119,13 @@
   justify-content: center;
 
   @include touch {
-    width: 33.33333%;
+    width: calc(100% - #{$col-left-width-tablet});
   }
   @include mobile {
     display: none;
   }
   @include widescreen {
-    width: 66.66666%;
+    width: calc(100% - #{$col-left-width-widescreen});
   }
   .drawing {
     width: 25%;

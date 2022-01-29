@@ -30,7 +30,7 @@
   }
   @include desktop {
     padding: $column-gap $gap;
-    width: calc(#{100% - $aside-width-desktop});
+    width: calc(100% - #{$aside-width-desktop});
   }
   @include widescreen {
     width: calc(100vw - #{$aside-width-widescreen} - #{$gap});
