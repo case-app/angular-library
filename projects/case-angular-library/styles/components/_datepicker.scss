@@ -191,8 +191,10 @@
   + div > input[angular-mydatepicker] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-right: $control-height;
   }
+}
+input[angular-mydatepicker] {
+  padding-right: $control-height;
 }
 
 .datepicker-clear {
