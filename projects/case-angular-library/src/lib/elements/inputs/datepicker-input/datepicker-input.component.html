@@ -7,7 +7,7 @@
       angular-mydatepicker
       class="input"
       id="datepicker-input-{{ uniqueId }}"
-      [placeholder]="placeholder"
+      [placeholder]="placeholder || 'Pick a date ...'"
       [options]="datePickerOptions"
       [ngClass]="{ 'is-danger': showErrors && form.invalid }"
       (dateChanged)="onDateChanged($event)"
@@ -15,6 +15,7 @@
       #dp="angular-mydatepicker"
       formControlName="date"
     />
+    <a (click)="clear()">Clear</a>
 
     <p class="help" *ngIf="helpText">{{ helpText }}</p>
   </div>

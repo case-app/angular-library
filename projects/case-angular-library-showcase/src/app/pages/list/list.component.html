@@ -73,6 +73,18 @@
   [validators]="requiredValidator"
 ></case-multi-search-input>
 
+<case-date-range-input
+  [placeholder]="'test'"
+  [secondPlaceholder]="'date to'"
+></case-date-range-input>
+
+<case-input
+  [type]="InputType.Address"
+  [placeholder]="'first'"
+  [initialValue]="{ value: { addressName: 'my addres' } }"
+  (valueChanged)="dateChanged($event)"
+></case-input>
+
 <div class="card p-0 mb-6">
   <div class="table-container"></div>
 </div>
