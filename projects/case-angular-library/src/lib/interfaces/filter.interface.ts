@@ -11,6 +11,7 @@ export interface Filter {
   properties?: { [key: string]: string }
 
   placeholder?: string
+  secondPlaceholder?: string
   initialValue?: { [key: string]: string }
   inputType: InputType
   className?: string

@@ -15,6 +15,9 @@
           <option value="" disabled selected *ngIf="placeholder">
             {{ placeholder }}
           </option>
+          <option value="" *ngIf="!required">
+            {{ secondPlaceholder || 'Tous' }}
+          </option>
           <option
             [value]="option.value"
             [selected]="initialValue && initialValue.value === option.value"

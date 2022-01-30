@@ -161,6 +161,8 @@
   font-size: $size-normal;
   background-color: $link-alpha03;
   text-align: center;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   border-top: $control-border-width solid $border;
   border-bottom: $control-border-width solid $border;
   color: $grey;
@@ -176,26 +178,53 @@
     font-size: $size-large;
   }
 
-  @include mobile {
-    background: $light;
-    text-align: left !important;
-    border: 0;
-    color: $dark;
-  }
   &:first-child {
     border-left: $control-border-width solid $border;
     border-top-left-radius: $input-radius;
     border-bottom-left-radius: $input-radius;
-    @include mobile {
-      border: 0;
-    }
 
-    + input[angular-mydatepicker] {
-      border-radius: 0;
+    + div > input[angular-mydatepicker] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
-  &:not(:first-child) + input[angular-mydatepicker] {
+  + div > input[angular-mydatepicker] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+input[angular-mydatepicker] {
+  padding-right: $control-height;
+}
+
+.datepicker-clear {
+  position: absolute;
+  top: $control-border-width;
+  right: $control-border-width;
+  width: $control-height;
+  min-width: $control-height;
+  height: calc(#{$control-height} - #{$control-border-width * 2});
+  line-height: $control-height;
+  font-size: $size-normal;
+  text-align: center;
+  color: $grey;
+  &.is-small {
+    font-size: $size-small;
+  }
+  &.is-medium {
+    font-size: $size-medium;
+  }
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+.date-range-wrapper {
+  @include mobile {
+    flex-wrap: wrap;
+    .input-text + div {
+      width: calc(100% - #{$control-height});
+      margin-bottom: $gap;
+    }
   }
 }

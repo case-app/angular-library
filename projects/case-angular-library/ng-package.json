@@ -18,7 +18,7 @@
       "gsap": "gsap"
     }
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "tslib",
     "bulma",
     "bulma-switch",
