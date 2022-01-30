@@ -17,6 +17,5 @@ export enum InputType {
   Password,
   Toggle,
   Radio,
-  Time,
-  Address
+  Time
 }

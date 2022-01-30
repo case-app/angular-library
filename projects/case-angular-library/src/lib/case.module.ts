@@ -83,7 +83,6 @@ import { ResourceService } from './services/resource.service'
 import { UploadService } from './services/upload.service'
 import { VersionService } from './services/version.service'
 import { ViewportService } from './services/viewport.service'
-import { AddressInputComponent } from './elements/inputs/address-input/address-input.component'
 
 // Register locale data
 registerLocaleData(localeFr, 'fr')
@@ -176,8 +175,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     // Default resources.
     RoleCreateEditComponent,
     RoleListComponent,
-    IconYieldComponent,
-    AddressInputComponent
+    IconYieldComponent
   ],
   imports: [
     CommonModule,
@@ -199,10 +197,7 @@ export function jwtOptionsFactory(authService: AuthService) {
       useFactory: adapterFactory
     }),
     ChartsModule,
-    RouterModule,
-    GeoapifyGeocoderAutocompleteModule.withConfig(
-      'b34ce820725a43c5979dbb8215962def'
-    )
+    RouterModule
   ],
   exports: [
     // Pipes.
