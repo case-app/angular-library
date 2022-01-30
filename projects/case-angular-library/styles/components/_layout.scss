@@ -65,13 +65,7 @@ aside {
 main {
   min-height: calc(100vh - #{$gap} - #{$navbar-height});
   margin-top: $gap;
-}
-
-.main__head {
-  display: flex;
-  align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  padding-bottom: $gap;
 }
 
 // IMG block
