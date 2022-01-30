@@ -15,6 +15,7 @@ export interface Field {
   inputType: InputType
 
   placeholder?: string
+  secondPlaceholder?: string
   helpText?: string
   hidden?: boolean
   className?: string

@@ -20,6 +20,7 @@ import { SelectOption } from '../../../interfaces/select-option.interface'
 export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
   @Input() label: string
   @Input() placeholder: string
+  @Input() secondPlaceholder: string
   @Input() helpText: string
   @Input() initialValue: { value: string | number }
   @Input() selectOptions: SelectOption[]

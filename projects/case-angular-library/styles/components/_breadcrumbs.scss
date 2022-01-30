@@ -15,18 +15,4 @@ case-breadcrumbs {
   @include fullhd {
     left: calc(#{$aside-width-fullhd} + #{$main-padding-horizontal});
   }
-
-  ul {
-    display: flex;
-    align-items: center;
-  }
-
-  li {
-    display: inline-flex;
-    align-items: center;
-
-    &:last-child a {
-      color: inherit;
-    }
-  }
 }

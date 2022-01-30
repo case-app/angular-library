@@ -12,6 +12,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
+import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete'
 
 import { CaseChartComponent } from './components/case-chart.component'
 import { CaseCreateEditComponent } from './components/case-create-edit.component'
