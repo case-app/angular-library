@@ -58,5 +58,5 @@
   margin-left: $gap;
 }
 .notification-excerpt {
-  width: calc(100% - #{$gap} - #{notification-dot-width});
+  width: calc(100% - #{$gap} - #{$notification-dot-width});
 }
