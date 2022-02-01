@@ -7,11 +7,9 @@ import {
   OnInit,
   Output
 } from '@angular/core'
-import { Action } from '../../../interfaces/action.interface'
 
 import { DropdownLink } from '../../../interfaces/dropdown-link.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
-import { ActionService } from '../../../services/action.service'
 import { AuthService } from '../../../services/auth.service'
 
 @Component({
@@ -32,7 +30,6 @@ export class ActionDropdownComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private actionService: ActionService,
     private elementRef: ElementRef
   ) {}
 
@@ -44,12 +41,6 @@ export class ActionDropdownComponent implements OnInit {
         (!link.permission || this.permissions.includes(link.permission)) &&
         (!link.condition || link.condition(this.item))
     )
-  }
-
-  // TODO: place this code in a directive to use that in all circunstances.
-  triggerAction(action: () => Action): void {
-    this.actionService.triggerAction(action())
-    this.isActive = false
   }
 
   // Track outside clicks to close dropdown.

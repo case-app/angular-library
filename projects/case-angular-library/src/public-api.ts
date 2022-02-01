@@ -48,6 +48,7 @@ export { MenuItem } from './lib/interfaces/menu-item.interface'
 
 // Directives.
 export { HasPermissionDirective } from './lib/directives/has-permission.directive'
+export { ActionDirective } from './lib/directives/action.directive'
 
 // Services.
 export { AuthService } from './lib/services/auth.service'
