@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
+import { ReplaySubject } from 'rxjs'
 import { ActionType } from '../enums/action-type.enum'
 import { Action } from '../interfaces/action.interface'
+import { FlashMessageService } from './flash-message.service'
+import { ResourceService } from './resource.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActionService {
-  constructor(private router: Router) {}
+  public itemToDelete = new ReplaySubject<any>()
+
+  constructor(
+    private router: Router,
+    private resourceService: ResourceService,
+    private flashMessageService: FlashMessageService
+  ) {}
 
   triggerAction(action: Action) {
     console.log('TRIGGER ACTION ::')
@@ -29,6 +38,7 @@ export class ActionService {
   }
 
   private triggerLink(action: Action): void {
+    console.log(action.link)
     console.log('LINK ACTION ::')
     this.router.navigate([action.link.path], {
       queryParams: action.link.queryParams || {}
@@ -36,41 +46,33 @@ export class ActionService {
   }
 
   private triggerPatch(action: Action): void {
-    // TODO
+    this.resourceService
+      .patch(action.patch.resourceName, action.patch.id, action.patch.suffix)
+      .subscribe(
+        (res) => {
+          this.flashMessageService.success(action.patch.successMessage)
+          this.reload()
+        },
+        (err) => {
+          this.flashMessageService.error(action.patch.errorMessage)
+        }
+      )
   }
 
   private triggerDelete(action: Action): void {
-    // TODO
+    this.itemToDelete.next(action.delete.itemToDelete)
   }
 
   private triggerOpenCreateEditModal(action: Action): void {
     // TODO: Modal is in footer.
   }
 
-  // triggerCustomAction(
-  //   actionButton: ActionButton | DropdownLink,
-  //   item: any
-  // ): void {
-  //   const linkAction = actionButton.linkAction && actionButton.linkAction(item)
-  //   const patchAction =
-  //     actionButton.patchAction && actionButton.patchAction(item)
-
-  //   if (linkAction) {
-  //     this.router.navigate([linkAction.path], {
-  //       queryParams: linkAction.queryParams || {}
-  //     })
-  //   } else if (patchAction) {
-  //     this.resourceService
-  //       .patch(patchAction.resourceName, patchAction.id, patchAction.suffix)
-  //       .subscribe(
-  //         (res) => {
-  //           this.flashMessageService.success(patchAction.successMessage)
-  //           this.reloadPrompted.emit()
-  //         },
-  //         (err) => {
-  //           this.flashMessageService.error(patchAction.errorMessage)
-  //         }
-  //       )
-  //   }
-  // }
+  private reload() {
+    this.router.navigate([this.router.url], {
+      queryParams: {
+        reload: new Date().toISOString()
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
 }

@@ -5,9 +5,11 @@ import {
   OnChanges,
   Output,
   Renderer2,
-  HostListener
+  HostListener,
+  OnInit
 } from '@angular/core'
 import { Router } from '@angular/router'
+import { ActionService } from '../../../services/action.service'
 
 import { FlashMessageService } from '../../../services/flash-message.service'
 import { ResourceService } from '../../../services/resource.service'
@@ -17,8 +19,8 @@ import { ResourceService } from '../../../services/resource.service'
   templateUrl: './confirm-delete-modal.component.html',
   styleUrls: ['./confirm-delete-modal.component.scss']
 })
-export class ConfirmDeleteModalComponent implements OnChanges {
-  @Input() resourceToDelete: any
+export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
+  @Input() itemToDelete: any
   @Input() resourceName: string
   @Input() navigateTo: string
   @Input() emitConfirmation = false
@@ -31,9 +33,16 @@ export class ConfirmDeleteModalComponent implements OnChanges {
   constructor(
     private resourceService: ResourceService,
     private flashMessageService: FlashMessageService,
+    private actionService: ActionService,
     private renderer: Renderer2,
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.actionService.itemToDelete.subscribe((itemToDelete) => {
+      console.log(itemToDelete)
+    })
+  }
 
   ngOnChanges() {
     this.showModal = true
@@ -47,7 +56,7 @@ export class ConfirmDeleteModalComponent implements OnChanges {
       this.deleteConfirmed.emit()
     } else {
       this.resourceService
-        .delete(this.resourceName, this.resourceToDelete.id)
+        .delete(this.resourceName, this.itemToDelete.id)
         .subscribe(
           (res) => {
             this.close()

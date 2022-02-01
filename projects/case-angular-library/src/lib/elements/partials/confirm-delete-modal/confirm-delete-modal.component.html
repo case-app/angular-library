@@ -9,7 +9,7 @@
           <!-- Conditional texts -->
           <p *ngIf="resourceName === 'users'">
             Voulez-vous vraiment supprimer l'utilisateur
-            <strong>{{ resourceToDelete.name }}</strong>
+            <strong>{{ itemToDelete.name }}</strong>
             ?
           </p>
 
@@ -19,9 +19,7 @@
       <div class="columns">
         <div class="column mt-4 pb-0">
           <div
-            class="
-              is-flex is-align-items-stretch is-justify-content-space-between
-            "
+            class="is-flex is-align-items-stretch is-justify-content-space-between"
           >
             <button class="button is-link" (click)="confirmDelete()">
               Supprimer

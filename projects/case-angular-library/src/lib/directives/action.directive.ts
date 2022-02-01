@@ -6,16 +6,12 @@ import { ActionService } from '../services/action.service'
   selector: '[caseAction]'
 })
 export class ActionDirective {
-  @Input() set caseAction(actionInput: Action | (() => Action)) {
-    this.action =
-      typeof actionInput === 'function' ? actionInput() : actionInput
-  }
-  action: Action
+  @Input() caseAction: Action
 
   constructor(private actionService: ActionService) {}
 
   @HostListener('click', ['$event'])
   click() {
-    this.actionService.triggerAction(this.action)
+    this.actionService.triggerAction(this.caseAction)
   }
 }

@@ -22,8 +22,6 @@ export class ActionDropdownComponent implements OnInit {
   @Input() item: any
   @Input() preventDeleteMessage: string
 
-  @Output() itemDeleted: EventEmitter<number> = new EventEmitter()
-
   links: DropdownLink[]
   isActive: boolean
   permissions: string[]

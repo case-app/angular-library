@@ -20,10 +20,14 @@ export const carDefinition: ResourceDefinition = {
     {
       label: '',
       icon: 'icon-file-text',
-      action: () => ({
+      action: (i) => ({
         type: ActionType.Link,
         link: {
-          path: '/create-edit'
+          path: '/create-edit',
+          queryParams: {
+            id: i.id,
+            e: 'ets'
+          }
         }
       })
     }
@@ -31,10 +35,35 @@ export const carDefinition: ResourceDefinition = {
   dropdownLinks: [
     {
       label: 'Générer une facture avec division en haut',
-      action: () => ({
+      action: (i) => ({
         type: ActionType.Link,
         link: {
-          path: '/create-edit'
+          path: '/create-edit',
+          queryParams: {
+            id: i.id,
+            e: 'ets'
+          }
+        }
+      })
+    },
+    {
+      label: 'test patch',
+      action: () => ({
+        type: ActionType.Patch,
+        patch: {
+          resourceName: 'tesss',
+          successMessage: 'orale',
+          errorMessage: 'no mames'
+        }
+      })
+    },
+    {
+      label: 'test delete',
+      action: (car) => ({
+        type: ActionType.Delete,
+        delete: {
+          itemToDelete: car,
+          definition: this
         }
       })
     }

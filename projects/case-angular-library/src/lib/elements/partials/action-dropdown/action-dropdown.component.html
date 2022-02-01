@@ -23,7 +23,7 @@
           [title]="link.title"
           class="dropdown-item"
           [ngClass]="link.className"
-          [caseAction]="link.action"
+          [caseAction]="link.action(item)"
         >
           {{ link.label }}
         </a>

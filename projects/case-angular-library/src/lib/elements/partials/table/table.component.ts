@@ -4,7 +4,6 @@ import { Router } from '@angular/router'
 import { LinkType } from '../../../enums/link-type.enum'
 import { YieldType } from '../../../enums/yield-type.enum'
 import { ActionButton } from '../../../interfaces/action-button.interface'
-import { DropdownLink } from '../../../interfaces/dropdown-link.interface'
 import { OrderByChangedEvent } from '../../../interfaces/order-by-changed-event.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { Yield } from '../../../interfaces/yield.interface'
@@ -22,13 +21,11 @@ export class TableComponent implements OnInit {
   @Input() definition: ResourceDefinition
   @Input() yields: Yield[]
   @Input() hiddenProps: string[] = []
-  @Input() dropdownLinks: DropdownLink[]
   @Input() orderByDesc = false
   @Input() orderBy: string
   @Input() allowOrderBy = true
 
   @Output() customEventEmitter: EventEmitter<any> = new EventEmitter()
-  @Output() reloadPrompted: EventEmitter<void> = new EventEmitter()
   @Output()
   orderByChanged: EventEmitter<OrderByChangedEvent> = new EventEmitter()
 
@@ -127,6 +124,7 @@ export class TableComponent implements OnInit {
         )
       }
     })
+
     // We make the loop on formattedItems instead of items to prevent DOM from creating before finishing format operations.
     this.formattedItems = this.items
   }
@@ -160,10 +158,6 @@ export class TableComponent implements OnInit {
       value = null
     }
     return value
-  }
-
-  openConfirmDeleteModal(itemId: number): void {
-    this.itemToDelete = this.items.find((i) => i.id === itemId)
   }
 
   goToLink(path: string[] | string, isDisabled: boolean): void {
