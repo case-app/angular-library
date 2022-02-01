@@ -41,6 +41,9 @@ export const caseCreateEditTemplate = `
           >
             <case-input
               [type]="field.inputType"
+              [label]="field.label"
+              [placeholder]="field.placeholder"
+              [secondPlaceholder]="field.secondPlaceholder"
               [initialValue]="field.initialValue"
               [searchResources]="field.searchResources"
               [resourceName]="definition.slug"
@@ -49,9 +52,7 @@ export const caseCreateEditTemplate = `
               [selectOptions]="field.selectOptions"
               [min]="field.min"
               [max]="field.max"
-              [label]="field.label"
-              [placeholder]="field.placeholder"
-              [secondPlaceholder]="field.secondPlaceholder"
+              [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
               [validators]="field.validators"
               [showErrors]="showErrors"
               (valueChanged)="onValueChanged($event, field)"

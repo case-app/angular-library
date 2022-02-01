@@ -100,6 +100,7 @@ export { TouchMenuComponent } from './lib/elements/navigation/touch-menu/touch-m
 export { ActionDropdownComponent } from './lib/elements/partials/action-dropdown/action-dropdown.component'
 export { BreadcrumbsComponent } from './lib/elements/partials/breadcrumbs/breadcrumbs.component'
 export { ConfirmDeleteModalComponent } from './lib/elements/partials/confirm-delete-modal/confirm-delete-modal.component'
+export { CreateEditModalComponent } from './lib/elements/partials/create-edit-modal/create-edit-modal.component'
 export { FlashMessageComponent } from './lib/elements/partials/flash-message/flash-message.component'
 export { ImageComponent } from './lib/elements/partials/image/image.component'
 export { MetaComponent } from './lib/elements/partials/meta/meta.component'
@@ -133,7 +134,6 @@ export { RoleCreateEditComponent } from './lib/resources/role/role-create-edit/r
 
 // Templates.
 export { caseCreateEditTemplate } from './lib/templates/case-create-edit.template'
-export { caseCreateEditModalTemplate } from './lib/templates/case-create-edit-modal.template'
 export { caseListTemplate } from './lib/templates/case-list.template'
 
 // Other.

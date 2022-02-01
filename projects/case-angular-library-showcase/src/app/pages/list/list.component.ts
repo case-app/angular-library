@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
+import { ActionType } from '../../../../../case-angular-library/src/lib/enums/action-type.enum'
+import { Action } from '../../../../../case-angular-library/src/lib/interfaces/action.interface'
 import {
   Filter,
   InputType,
@@ -50,6 +52,31 @@ export class ListComponent implements OnInit {
 
   definition: ResourceDefinition = carDefinition
   loading = false
+
+  createTicketAction: Action = {
+    type: ActionType.OpenCreateEditModal,
+    openCreateEditModal: {
+      title: 'Create a ticket',
+      definition: carDefinition,
+      mode: 'create',
+      fields: [
+        {
+          label: 'ticket name',
+          property: 'name',
+          className: 'is-3',
+          inputType: InputType.Text,
+          required: true
+        },
+        {
+          label: 'Is this a technical ticket ?',
+          property: 'isActive',
+          initialValue: { value: false },
+          className: 'is-3',
+          inputType: InputType.Checkbox
+        }
+      ]
+    }
+  }
 
   constructor() {}
 

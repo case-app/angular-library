@@ -1,10 +1,4 @@
-import {
-  Component,
-  HostListener,
-  OnChanges,
-  OnInit,
-  Renderer2
-} from '@angular/core'
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
@@ -17,7 +11,7 @@ import { ResourceService } from '../../../services/resource.service'
   templateUrl: './confirm-delete-modal.component.html',
   styleUrls: ['./confirm-delete-modal.component.scss']
 })
-export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
+export class ConfirmDeleteModalComponent implements OnInit {
   itemToDelete: any
   resourceDefinition: ResourceDefinition
   navigateTo: string
@@ -39,12 +33,8 @@ export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
       this.navigateTo = deleteAction.navigateTo
 
       this.showModal = true
+      this.renderer.addClass(document.querySelector('html'), 'is-clipped')
     })
-  }
-
-  ngOnChanges() {
-    this.showModal = true
-    this.renderer.addClass(document.querySelector('html'), 'is-clipped')
   }
 
   confirmDelete() {

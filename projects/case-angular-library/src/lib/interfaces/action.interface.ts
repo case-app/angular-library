@@ -1,5 +1,6 @@
 import { Params } from '@angular/router'
 import { ActionType } from '../enums/action-type.enum'
+import { Field } from './field.interface'
 import { ResourceDefinition } from './resource-definition.interface'
 
 export interface Action {
@@ -23,5 +24,14 @@ export interface Action {
     itemToDelete: any
     definition: ResourceDefinition
     navigateTo?: string
+  }
+
+  openCreateEditModal?: {
+    title: string
+    fields: Field[]
+    definition: ResourceDefinition
+    mode: string
+    item?: any
+    redirectTo?: string
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { ReplaySubject } from 'rxjs'
 import { ActionType } from '../enums/action-type.enum'
 import { Action } from '../interfaces/action.interface'
+import { Field } from '../interfaces/field.interface'
 import { ResourceDefinition } from '../interfaces/resource-definition.interface'
 import { FlashMessageService } from './flash-message.service'
 import { ResourceService } from './resource.service'
@@ -16,6 +17,14 @@ export class ActionService {
     definition: ResourceDefinition
     navigateTo?: string
   }>()
+  public openCreateEditModalAction = new ReplaySubject<{
+    title: string
+    fields: Field[]
+    definition: ResourceDefinition
+    mode: string
+    item?: any
+    redirectTo?: string
+  }>()
 
   constructor(
     private router: Router,
@@ -24,8 +33,6 @@ export class ActionService {
   ) {}
 
   triggerAction(action: Action) {
-    console.log('TRIGGER ACTION ::')
-
     switch (action.type) {
       case ActionType.Link:
         this.triggerLink(action)
@@ -43,8 +50,6 @@ export class ActionService {
   }
 
   private triggerLink(action: Action): void {
-    console.log(action.link)
-    console.log('LINK ACTION ::')
     this.router.navigate([action.link.path], {
       queryParams: action.link.queryParams || {}
     })
@@ -69,7 +74,7 @@ export class ActionService {
   }
 
   private triggerOpenCreateEditModal(action: Action): void {
-    // TODO: Modal is in footer.
+    this.openCreateEditModalAction.next(action.openCreateEditModal)
   }
 
   private reload() {

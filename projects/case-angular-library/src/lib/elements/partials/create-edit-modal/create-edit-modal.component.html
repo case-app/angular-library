@@ -1,16 +1,10 @@
-export const caseCreateEditModalTemplate = `
-<div class="modal is-active">
+<div class="modal is-active" *ngIf="showModal">
   <div class="modal-background"></div>
   <div class="modal-content notification has-text-weight-light">
     <div class="columns">
       <div class="column">
-        <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
-          Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
-          {{ definition.nameSingular }}
-        </h1>
-        <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'edit'">
-          Modifier {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
-          {{ definition.nameSingular }}
+        <h1 class="title is-2 has-text-weight-light">
+          {{ title }}
         </h1>
       </div>
     </div>
@@ -18,9 +12,16 @@ export const caseCreateEditModalTemplate = `
     <div class="columns is-multiline is-align-items-flex-end">
       <form [formGroup]="form" *ngIf="form" class="full-width">
         <ng-container *ngFor="let field of resolvedFields">
-          <div class="column" [ngClass]="field.className" *ngIf="!field.hidden">
+          <div
+            class="column is-12"
+            [ngClass]="field.className"
+            *ngIf="!field.hidden"
+          >
             <case-input
               [type]="field.inputType"
+              [label]="field.label"
+              [placeholder]="field.placeholder"
+              [secondPlaceholder]="field.secondPlaceholder"
               [initialValue]="field.initialValue"
               [searchResources]="field.searchResources"
               [resourceName]="definition.slug"
@@ -30,8 +31,6 @@ export const caseCreateEditModalTemplate = `
               [min]="field.min"
               [max]="field.max"
               [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
-              [label]="field.label"
-              [placeholder]="field.placeholder"
               [validators]="field.validators"
               [showErrors]="showErrors"
               (valueChanged)="onValueChanged($event, field)"
@@ -43,7 +42,9 @@ export const caseCreateEditModalTemplate = `
 
     <div class="columns">
       <div class="column mt-4 pb-0">
-        <div class="is-flex is-align-items-stretch is-justify-content-space-between">
+        <div
+          class="is-flex is-align-items-stretch is-justify-content-space-between"
+        >
           <button class="button" (click)="close()">Annuler</button>
           <button
             class="button is-link is-hidden-touch"
@@ -67,4 +68,3 @@ export const caseCreateEditModalTemplate = `
     </button>
   </div>
 </div>
-`

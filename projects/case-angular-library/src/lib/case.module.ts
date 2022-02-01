@@ -84,6 +84,7 @@ import { ResourceService } from './services/resource.service'
 import { UploadService } from './services/upload.service'
 import { VersionService } from './services/version.service'
 import { ViewportService } from './services/viewport.service'
+import { CreateEditModalComponent } from './elements/partials/create-edit-modal/create-edit-modal.component'
 
 // Register locale data
 registerLocaleData(localeFr, 'fr')
@@ -179,7 +180,8 @@ export function jwtOptionsFactory(authService: AuthService) {
     RoleListComponent,
     IconYieldComponent,
     FooterComponent,
-    ActionDirective
+    ActionDirective,
+    CreateEditModalComponent
   ],
   imports: [
     CommonModule,
@@ -252,6 +254,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     ActionDropdownComponent,
     BreadcrumbsComponent,
     ConfirmDeleteModalComponent,
+    CreateEditModalComponent,
     FlashMessageComponent,
     ImageComponent,
     MetaComponent,
