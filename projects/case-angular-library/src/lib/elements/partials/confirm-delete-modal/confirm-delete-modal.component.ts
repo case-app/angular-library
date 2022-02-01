@@ -1,16 +1,14 @@
 import {
   Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  Renderer2,
   HostListener,
-  OnInit
+  OnChanges,
+  OnInit,
+  Renderer2
 } from '@angular/core'
 import { Router } from '@angular/router'
-import { ActionService } from '../../../services/action.service'
 
+import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
+import { ActionService } from '../../../services/action.service'
 import { FlashMessageService } from '../../../services/flash-message.service'
 import { ResourceService } from '../../../services/resource.service'
 
@@ -20,13 +18,9 @@ import { ResourceService } from '../../../services/resource.service'
   styleUrls: ['./confirm-delete-modal.component.scss']
 })
 export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
-  @Input() itemToDelete: any
-  @Input() resourceName: string
-  @Input() navigateTo: string
-  @Input() emitConfirmation = false
-
-  @Output() deleteCanceled: EventEmitter<void> = new EventEmitter()
-  @Output() deleteConfirmed: EventEmitter<void> = new EventEmitter()
+  itemToDelete: any
+  resourceDefinition: ResourceDefinition
+  navigateTo: string
 
   showModal: boolean
 
@@ -39,8 +33,12 @@ export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    this.actionService.itemToDelete.subscribe((itemToDelete) => {
-      console.log(itemToDelete)
+    this.actionService.deleteAction.subscribe((deleteAction) => {
+      this.itemToDelete = deleteAction.itemToDelete
+      this.resourceDefinition = deleteAction.definition
+      this.navigateTo = deleteAction.navigateTo
+
+      this.showModal = true
     })
   }
 
@@ -50,44 +48,36 @@ export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
   }
 
   confirmDelete() {
-    // If we choose to emit confirmation, we emit confirmation make any HTTP request.
-    if (this.emitConfirmation) {
-      this.close()
-      this.deleteConfirmed.emit()
-    } else {
-      this.resourceService
-        .delete(this.resourceName, this.itemToDelete.id)
-        .subscribe(
-          (res) => {
-            this.close()
-            // Change query params to force reload on lists.
-            this.router.navigate(
-              [
-                this.navigateTo
-                  ? this.navigateTo
-                  : this.router.url.includes('?')
-                  ? this.router.url.substring(0, this.router.url.indexOf('?'))
-                  : this.router.url
-              ],
-              {
-                queryParams: {
-                  reload: new Date().toISOString()
-                },
-                queryParamsHandling: 'merge'
-              }
-            )
-            this.flashMessageService.success(
-              `La ressource a bien été supprimée`
-            )
-          },
-          (err) => {
-            this.close()
-            this.flashMessageService.error(
-              `Une erreur à lieu et l'élément n'a pas pu être effacé. Veuillez contacter votre administrateur si le problème persiste.`
-            )
-          }
-        )
-    }
+    this.resourceService
+      .delete(this.resourceDefinition.slug, this.itemToDelete.id)
+      .subscribe(
+        (res) => {
+          this.close()
+          // Change query params to force reload on lists.
+          this.router.navigate(
+            [
+              this.navigateTo
+                ? this.navigateTo
+                : this.router.url.includes('?')
+                ? this.router.url.substring(0, this.router.url.indexOf('?'))
+                : this.router.url
+            ],
+            {
+              queryParams: {
+                reload: new Date().toISOString()
+              },
+              queryParamsHandling: 'merge'
+            }
+          )
+          this.flashMessageService.success(`La ressource a bien été supprimée`)
+        },
+        (err) => {
+          this.close()
+          this.flashMessageService.error(
+            `Une erreur à lieu et l'élément n'a pas pu être effacé. Veuillez contacter votre administrateur si le problème persiste.`
+          )
+        }
+      )
   }
 
   close() {
@@ -95,16 +85,11 @@ export class ConfirmDeleteModalComponent implements OnInit, OnChanges {
     this.renderer.removeClass(document.querySelector('html'), 'is-clipped')
   }
 
-  cancel() {
-    this.deleteCanceled.emit()
-    this.close()
-  }
-
   // Click outside closes modal
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
     if (eventTarget.className.includes('modal-background')) {
-      this.deleteCanceled.emit()
+      this.close()
     }
   }
 

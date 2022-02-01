@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { ReplaySubject } from 'rxjs'
 import { ActionType } from '../enums/action-type.enum'
 import { Action } from '../interfaces/action.interface'
+import { ResourceDefinition } from '../interfaces/resource-definition.interface'
 import { FlashMessageService } from './flash-message.service'
 import { ResourceService } from './resource.service'
 
@@ -10,7 +11,11 @@ import { ResourceService } from './resource.service'
   providedIn: 'root'
 })
 export class ActionService {
-  public itemToDelete = new ReplaySubject<any>()
+  public deleteAction = new ReplaySubject<{
+    itemToDelete: any
+    definition: ResourceDefinition
+    navigateTo?: string
+  }>()
 
   constructor(
     private router: Router,
@@ -60,7 +65,7 @@ export class ActionService {
   }
 
   private triggerDelete(action: Action): void {
-    this.itemToDelete.next(action.delete.itemToDelete)
+    this.deleteAction.next(action.delete)
   }
 
   private triggerOpenCreateEditModal(action: Action): void {

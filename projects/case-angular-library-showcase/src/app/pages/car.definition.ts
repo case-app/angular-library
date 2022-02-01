@@ -15,7 +15,7 @@ export const carDefinition: ResourceDefinition = {
   slug: 'cars',
   buttons: [],
   defaultLink: LinkType.CREATE,
-  mainIdentifier: 'id',
+  mainIdentifier: 'name',
   actionButtons: [
     {
       label: '',
@@ -63,7 +63,8 @@ export const carDefinition: ResourceDefinition = {
         type: ActionType.Delete,
         delete: {
           itemToDelete: car,
-          definition: this
+          definition: carDefinition,
+          navigateTo: '/'
         }
       })
     }
