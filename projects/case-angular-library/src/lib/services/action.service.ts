@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { ReplaySubject } from 'rxjs'
+
 import { ActionType } from '../enums/action-type.enum'
-import { Action } from '../interfaces/action.interface'
-import { Field } from '../interfaces/field.interface'
-import { ResourceDefinition } from '../interfaces/resource-definition.interface'
+import { Action } from '../interfaces/actions/action.interface'
+import { DeleteActionConfig } from '../interfaces/actions/delete-action-config.interface'
+import { OpenCreateEditModalActionConfig } from '../interfaces/actions/open-create-edit-modal-action-config.interface'
 import { FlashMessageService } from './flash-message.service'
 import { ResourceService } from './resource.service'
 
@@ -12,19 +13,9 @@ import { ResourceService } from './resource.service'
   providedIn: 'root'
 })
 export class ActionService {
-  public deleteAction = new ReplaySubject<{
-    itemToDelete: any
-    definition: ResourceDefinition
-    navigateTo?: string
-  }>()
-  public openCreateEditModalAction = new ReplaySubject<{
-    title: string
-    fields: Field[]
-    definition: ResourceDefinition
-    mode: string
-    item?: any
-    redirectTo?: string
-  }>()
+  public deleteAction = new ReplaySubject<DeleteActionConfig>()
+  public openCreateEditModalAction =
+    new ReplaySubject<OpenCreateEditModalActionConfig>()
 
   constructor(
     private router: Router,

@@ -1,5 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core'
-import { Action } from '../interfaces/action.interface'
+import { Action } from '../interfaces/actions/action.interface'
 import { ActionService } from '../services/action.service'
 
 @Directive({

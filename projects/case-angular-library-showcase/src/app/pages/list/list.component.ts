@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
 import { ActionType } from '../../../../../case-angular-library/src/lib/enums/action-type.enum'
-import { Action } from '../../../../../case-angular-library/src/lib/interfaces/action.interface'
+import { Action } from '../../../../../case-angular-library/src/lib/interfaces/actions/action.interface'
 import {
   Filter,
   InputType,
@@ -57,6 +57,22 @@ export class ListComponent implements OnInit {
     type: ActionType.OpenCreateEditModal,
     openCreateEditModal: {
       title: 'Create a ticket',
+      helpText:
+        'Creating a new ticket is easy ! Just fill up that form and we will contact you soon.',
+      keyPoints: [
+        {
+          label: 'Weight',
+          value: '300kg'
+        },
+        {
+          label: 'Location',
+          value: 'Lisbon, Portugal'
+        },
+        {
+          label: 'Estimated value',
+          value: '900 M€'
+        }
+      ],
       definition: carDefinition,
       mode: 'create',
       fields: [
@@ -73,6 +89,13 @@ export class ListComponent implements OnInit {
           initialValue: { value: false },
           className: 'is-3',
           inputType: InputType.Checkbox
+        },
+        {
+          label: 'Couleur',
+          property: 'color',
+          className: 'is-6',
+          inputType: InputType.ColorPicker,
+          required: true
         }
       ]
     }

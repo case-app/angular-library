@@ -45,7 +45,8 @@ export const carDefinition: ResourceDefinition = {
             e: 'ets'
           }
         }
-      })
+      }),
+      withDivision: true
     },
     {
       label: 'test patch',
@@ -70,13 +71,13 @@ export const carDefinition: ResourceDefinition = {
       })
     },
     {
-      label: 'test open CEM',
+      label: 'Edit name',
       action: (car) => ({
         type: ActionType.OpenCreateEditModal,
         openCreateEditModal: {
-          title: 'Edit an email',
+          title: `Change le nom rapidement de ${car.name}`,
           definition: carDefinition,
-          mode: 'create',
+          mode: 'edit',
           fields: [
             {
               label: 'name',

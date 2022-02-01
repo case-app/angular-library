@@ -6,6 +6,17 @@
         <h1 class="title is-2 has-text-weight-light">
           {{ title }}
         </h1>
+        <p *ngIf="helpText">{{ helpText }}</p>
+      </div>
+    </div>
+    <div class="columns" *ngIf="keyPoints">
+      <div class="column">
+        <table class="table">
+          <tr *ngFor="let keyPoint of keyPoints">
+            <td>{{ keyPoint.label }}</td>
+            <td>{{ keyPoint.value }}</td>
+          </tr>
+        </table>
       </div>
     </div>
 

@@ -18,7 +18,9 @@ export class CreateEditModalComponent
   implements OnInit
 {
   title: string
+  helpText: string
   mode: string
+  keyPoints: { label: string; value: string }[]
 
   isModal = true
   showModal: boolean
@@ -44,10 +46,12 @@ export class CreateEditModalComponent
   ngOnInit(): void {
     this.actionService.openCreateEditModalAction.subscribe(async (action) => {
       this.title = action.title
+      this.helpText = action.helpText
       this.fields = action.fields
       this.definition = action.definition
       this.mode = action.mode
       this.item = action.item
+      this.keyPoints = action.keyPoints
       this.redirectTo = action.redirectTo
 
       await this.initCreateEditView()

@@ -1,4 +1,4 @@
-import { Action } from './action.interface'
+import { Action } from './actions/action.interface'
 
 export interface DropdownLink {
   label: string
