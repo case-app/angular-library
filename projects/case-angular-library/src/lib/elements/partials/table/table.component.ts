@@ -46,6 +46,7 @@ export class TableComponent implements OnInit {
 
   async ngOnInit() {
     // TODO: reset that code
+    const permissions = []
     // const permissions = await this.authService.getPermissions()
 
     this.yields = this.hiddenProps.length
@@ -103,21 +104,11 @@ export class TableComponent implements OnInit {
       })
 
       // Action buttons.
-      item.actionButtons = []
-      if (
-        this.definition.actionButtons &&
-        this.definition.actionButtons.length
-      ) {
-        this.definition.actionButtons.forEach((actionButton: ActionButton) => {
-          // if (
-          //   (!actionButton.permission ||
-          //     permissions.includes(actionButton.permission)) &&
-          //   (!actionButton.condition || actionButton.condition(item))
-          // ) {
-          //   item.actionButtons.push(actionButton)
-          // }
-        })
-      }
+      item.actionButtons = (this.definition.actionButtons || []).filter(
+        (aB: ActionButton) =>
+          (!aB.permission || permissions.includes(aB.permission)) &&
+          (!aB.condition || aB.condition(item))
+      )
 
       // Check if item can be deleted.
       if (

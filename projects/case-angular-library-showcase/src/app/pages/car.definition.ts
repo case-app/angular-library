@@ -16,6 +16,18 @@ export const carDefinition: ResourceDefinition = {
   buttons: [],
   defaultLink: LinkType.CREATE,
   mainIdentifier: 'id',
+  actionButtons: [
+    {
+      label: '',
+      icon: 'icon-file-text',
+      action: () => ({
+        type: ActionType.Link,
+        link: {
+          path: '/create-edit'
+        }
+      })
+    }
+  ],
   dropdownLinks: [
     {
       label: 'Générer une facture avec division en haut',
