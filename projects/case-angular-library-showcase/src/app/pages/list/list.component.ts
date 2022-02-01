@@ -20,7 +20,10 @@ export class ListComponent implements OnInit {
   InputType = InputType
 
   paginator: Paginator<any> = {
-    data: [{ name: 'Volvo' }, { name: 'Mercedes' }],
+    data: [
+      { id: 1, name: 'Volvo' },
+      { id: 2, name: 'Mercedes' }
+    ],
     currentPage: 1,
     lastPage: 1,
     from: 0,

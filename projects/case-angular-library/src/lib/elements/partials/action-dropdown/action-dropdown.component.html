@@ -18,8 +18,9 @@
   <div class="dropdown-menu is-right" id="dropdown-menu" role="menu">
     <div class="dropdown-content">
       <ng-container *ngFor="let link of links">
+        <hr class="dropdown-divider" *ngIf="link.withDivision" />
         <a
-          (click)="link.action()"
+          (click)="triggerAction(link.action)"
           [title]="link.title"
           class="dropdown-item"
           [ngClass]="link.className"

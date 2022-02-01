@@ -59,6 +59,7 @@ export { ResourceService } from './lib/services/resource.service'
 export { UploadService } from './lib/services/upload.service'
 export { VersionService } from './lib/services/version.service'
 export { ViewportService } from './lib/services/viewport.service'
+export { ActionService } from './lib/services/action.service'
 
 // Components.
 export { CaseCreateEditComponent } from './lib/components/case-create-edit.component'
@@ -103,6 +104,7 @@ export { ImageComponent } from './lib/elements/partials/image/image.component'
 export { MetaComponent } from './lib/elements/partials/meta/meta.component'
 export { PaginationComponent } from './lib/elements/partials/pagination/pagination.component'
 export { TableComponent } from './lib/elements/partials/table/table.component'
+export { FooterComponent } from './lib/elements/partials/footer/footer.component'
 
 // Elements: Yields.
 export { AddressYieldComponent } from './lib/elements/yields/address-yield/address-yield.component'

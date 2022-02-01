@@ -129,11 +129,11 @@
         class="has-text-right"
         *ngIf="definition.actionButtons && definition.actionButtons.length"
       >
+        <!-- TODO: Action button actions -->
         <!-- Action buttons loop -->
         <button
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
-          (click)="triggerCustomAction(actionButton, item)"
         >
           <i
             class="icon is-size-5"
@@ -149,7 +149,6 @@
           [definition]="definition"
           [preventDeleteMessage]="item.preventDeleteMessage"
           (itemDeleted)="openConfirmDeleteModal($event)"
-          (customActionEvent)="triggerCustomAction($event.link, $event.item)"
         ></case-action-dropdown>
       </td>
     </tr>

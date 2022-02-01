@@ -12,7 +12,6 @@ import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
-import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete'
 
 import { CaseChartComponent } from './components/case-chart.component'
 import { CaseCreateEditComponent } from './components/case-create-edit.component'
@@ -83,6 +82,8 @@ import { ResourceService } from './services/resource.service'
 import { UploadService } from './services/upload.service'
 import { VersionService } from './services/version.service'
 import { ViewportService } from './services/viewport.service'
+import { FooterComponent } from './elements/partials/footer/footer.component'
+import { ActionService } from '../public-api'
 
 // Register locale data
 registerLocaleData(localeFr, 'fr')
@@ -175,7 +176,8 @@ export function jwtOptionsFactory(authService: AuthService) {
     // Default resources.
     RoleCreateEditComponent,
     RoleListComponent,
-    IconYieldComponent
+    IconYieldComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -252,6 +254,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     MetaComponent,
     PaginationComponent,
     TableComponent,
+    FooterComponent,
 
     // Elements: Yields.
     AddressYieldComponent,
@@ -288,6 +291,7 @@ export class CaseModule {
         UploadService,
         VersionService,
         ViewportService,
+        ActionService,
         { provide: 'CASE_CONFIG_TOKEN', useValue: configuration }
       ]
     }

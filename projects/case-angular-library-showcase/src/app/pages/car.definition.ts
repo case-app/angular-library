@@ -1,3 +1,4 @@
+import { ActionType } from '../../../../case-angular-library/src/lib/enums/action-type.enum'
 import {
   Gender,
   LinkType,
@@ -15,5 +16,15 @@ export const carDefinition: ResourceDefinition = {
   buttons: [],
   defaultLink: LinkType.CREATE,
   mainIdentifier: 'id',
-  dropdownLinks: []
+  dropdownLinks: [
+    {
+      label: 'Générer une facture avec division en haut',
+      action: () => ({
+        type: ActionType.Link,
+        link: {
+          path: '/create-edit'
+        }
+      })
+    }
+  ]
 }

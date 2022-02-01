@@ -45,7 +45,8 @@ export class TableComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const permissions = await this.authService.getPermissions()
+    // TODO: reset that code
+    // const permissions = await this.authService.getPermissions()
 
     this.yields = this.hiddenProps.length
       ? this.yields.filter(
@@ -108,13 +109,13 @@ export class TableComponent implements OnInit {
         this.definition.actionButtons.length
       ) {
         this.definition.actionButtons.forEach((actionButton: ActionButton) => {
-          if (
-            (!actionButton.permission ||
-              permissions.includes(actionButton.permission)) &&
-            (!actionButton.condition || actionButton.condition(item))
-          ) {
-            item.actionButtons.push(actionButton)
-          }
+          // if (
+          //   (!actionButton.permission ||
+          //     permissions.includes(actionButton.permission)) &&
+          //   (!actionButton.condition || actionButton.condition(item))
+          // ) {
+          //   item.actionButtons.push(actionButton)
+          // }
         })
       }
 
@@ -195,33 +196,6 @@ export class TableComponent implements OnInit {
       this.router.navigate([pathWithoutParams], { queryParams })
     } else {
       this.router.navigate(typeof path === 'string' ? [path] : path)
-    }
-  }
-
-  triggerCustomAction(
-    actionButton: ActionButton | DropdownLink,
-    item: any
-  ): void {
-    const linkAction = actionButton.linkAction && actionButton.linkAction(item)
-    const patchAction =
-      actionButton.patchAction && actionButton.patchAction(item)
-
-    if (linkAction) {
-      this.router.navigate([linkAction.path], {
-        queryParams: linkAction.queryParams || {}
-      })
-    } else if (patchAction) {
-      this.resourceService
-        .patch(patchAction.resourceName, patchAction.id, patchAction.suffix)
-        .subscribe(
-          (res) => {
-            this.flashMessageService.success(patchAction.successMessage)
-            this.reloadPrompted.emit()
-          },
-          (err) => {
-            this.flashMessageService.error(patchAction.errorMessage)
-          }
-        )
     }
   }
 }
