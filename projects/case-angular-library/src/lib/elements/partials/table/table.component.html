@@ -133,7 +133,7 @@
         <button
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
-          [caseAction]="actionButton.action(item)"
+          [caseAction]="actionButton.action"
         >
           <i
             class="icon is-size-5"

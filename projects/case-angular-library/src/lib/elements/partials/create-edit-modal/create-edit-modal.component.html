@@ -1,81 +1,73 @@
 <div class="modal is-active" *ngIf="showModal">
   <div class="modal-background"></div>
-  <div class="modal-content notification has-text-weight-light">
-    <div class="columns">
-      <div class="column">
-        <h1 class="title is-2 has-text-weight-light">
-          {{ title }}
-        </h1>
-        <p *ngIf="helpText">{{ helpText }}</p>
-      </div>
-    </div>
-    <div class="columns" *ngIf="keyPoints">
-      <div class="column">
-        <table class="table">
-          <tr *ngFor="let keyPoint of keyPoints">
-            <td>{{ keyPoint.label }}</td>
-            <td>{{ keyPoint.value }}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <div class="modal-card">
+    <header class="modal-card-head pb-0">
+      <p class="modal-card-title">{{ title }}</p>
+      <a
+        class="is-flex is-align-item-center has-text-dark"
+        aria-label="close"
+        (click)="close()"
+      >
+        <i class="icon icon-x is-size-2"></i>
+      </a>
+    </header>
 
-    <div class="columns is-multiline is-align-items-flex-end">
+    <section class="modal-card-body">
+      <p class="mb-4" *ngIf="helpText">{{ helpText }}</p>
+      <table class="table is-fullwidth is-bordered is-narrow" *ngIf="keyPoints">
+        <tr *ngFor="let keyPoint of keyPoints">
+          <td>{{ keyPoint.label }}</td>
+          <td>{{ keyPoint.value }}</td>
+        </tr>
+      </table>
+
       <form [formGroup]="form" *ngIf="form" class="full-width">
-        <ng-container *ngFor="let field of resolvedFields">
-          <div
-            class="column is-12"
-            [ngClass]="field.className"
-            *ngIf="!field.hidden"
-          >
-            <case-input
-              [type]="field.inputType"
-              [label]="field.label"
-              [placeholder]="field.placeholder"
-              [secondPlaceholder]="field.secondPlaceholder"
-              [initialValue]="field.initialValue"
-              [searchResources]="field.searchResources"
-              [resourceName]="definition.slug"
-              [searchParams]="field.searchParams"
-              [maxSelectedItems]="field.maxSelectedItems"
-              [selectOptions]="field.selectOptions"
-              [min]="field.min"
-              [max]="field.max"
-              [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
-              [validators]="field.validators"
-              [showErrors]="showErrors"
-              (valueChanged)="onValueChanged($event, field)"
-            ></case-input>
-          </div>
-        </ng-container>
-      </form>
-    </div>
-
-    <div class="columns">
-      <div class="column mt-4 pb-0">
-        <div
-          class="is-flex is-align-items-stretch is-justify-content-space-between"
-        >
-          <button class="button" (click)="close()">Annuler</button>
-          <button
-            class="button is-link is-hidden-touch"
-            (click)="submit()"
-            [ngClass]="{ 'is-loading': loading }"
-          >
-            Enregistrer
-          </button>
-          <button
-            class="button is-link is-hidden-desktop"
-            (click)="submit()"
-            [ngClass]="{ 'is-loading': loading }"
-          >
-            <i class="icon icon-save"></i>
-          </button>
+        <div class="columns is-multiline is-align-items-flex-end">
+          <ng-container *ngFor="let field of resolvedFields">
+            <div
+              class="column"
+              [ngClass]="field.className"
+              *ngIf="!field.hidden"
+            >
+              <case-input
+                [type]="field.inputType"
+                [label]="field.label"
+                [placeholder]="field.placeholder"
+                [secondPlaceholder]="field.secondPlaceholder"
+                [initialValue]="field.initialValue"
+                [searchResources]="field.searchResources"
+                [resourceName]="definition.slug"
+                [searchParams]="field.searchParams"
+                [maxSelectedItems]="field.maxSelectedItems"
+                [selectOptions]="field.selectOptions"
+                [min]="field.min"
+                [max]="field.max"
+                [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
+                [validators]="field.validators"
+                [showErrors]="showErrors"
+                (valueChanged)="onValueChanged($event, field)"
+              ></case-input>
+            </div>
+          </ng-container>
         </div>
-      </div>
-    </div>
-    <button class="button is-light close" aria-label="close" (click)="close()">
-      <i class="icon icon-x is-size-2"></i>
-    </button>
+      </form>
+    </section>
+    <footer class="modal-card-foot pt-0">
+      <button class="button is-white" (click)="close()">Annuler</button>
+      <button
+        class="button is-link is-hidden-touch"
+        (click)="submit()"
+        [ngClass]="{ 'is-loading': loading }"
+      >
+        Enregistrer
+      </button>
+      <button
+        class="button is-link is-hidden-desktop"
+        (click)="submit()"
+        [ngClass]="{ 'is-loading': loading }"
+      >
+        <i class="icon icon-save"></i>
+      </button>
+    </footer>
   </div>
 </div>

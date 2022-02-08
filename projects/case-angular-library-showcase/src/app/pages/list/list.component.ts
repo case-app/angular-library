@@ -79,7 +79,7 @@ export class ListComponent implements OnInit {
         {
           label: 'ticket name',
           property: 'name',
-          className: 'is-3',
+          className: 'is-12',
           inputType: InputType.Text,
           required: true
         },
@@ -87,13 +87,13 @@ export class ListComponent implements OnInit {
           label: 'Is this a technical ticket ?',
           property: 'isActive',
           initialValue: { value: false },
-          className: 'is-3',
+          className: 'is-12',
           inputType: InputType.Checkbox
         },
         {
           label: 'Couleur',
           property: 'color',
-          className: 'is-6',
+          className: 'is-12',
           inputType: InputType.ColorPicker,
           required: true
         }
