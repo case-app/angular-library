@@ -30,7 +30,7 @@
     align-items: center;
     flex: none;
     width: 100%;
-    background-color: $side-nav-background;
+    background-color: $sidenav-background-color;
 
     @include desktop {
       width: calc(#{$aside-width-desktop} + 1px);
