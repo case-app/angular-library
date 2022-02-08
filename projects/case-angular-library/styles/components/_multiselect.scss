@@ -1,14 +1,16 @@
-.box {
-  position: absolute;
-  height: auto;
-  min-width: 100%;
-  z-index: 6;
-  > * {
-    padding: 6px $column-gap;
-    display: inline-flex;
-    align-items: start;
-    justify-content: flex-start;
-    width: 100%;
+.multiselect-box {
+  .box {
+    position: absolute;
+    height: auto;
+    min-width: 100%;
+    z-index: 6;
+    > * {
+      padding: 6px $column-gap;
+      display: inline-flex;
+      align-items: start;
+      justify-content: flex-start;
+      width: 100%;
+    }
   }
 }
 
@@ -25,11 +27,6 @@
   line-height: $control-height;
   color: $dark;
   cursor: pointer;
-
-  // &:hover {
-  //   background-color: $white-bis;
-  //   border-color: $border;
-  // }
 
   &:focus,
   .is-focus {

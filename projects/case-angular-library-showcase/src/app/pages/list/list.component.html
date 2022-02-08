@@ -44,14 +44,16 @@
     class="is-flex is-justify-content-space-between is-align-items-center relative"
   >
     <case-meta [paginator]="paginator"> </case-meta>
-    <case-icon-yield
-      icon="icon-grid"
-      tooltip="this is the tooltip There is a link to a 404 in doc. If we paste the snippet in the resource definition page, we have several issues that are note expected. An error says that Invoice cannot be found but It looks complicated to undestand which file we should import to fix this issue. Should we create an interface ? If yes, where and how ? "
-    ></case-icon-yield>
+  </div>
 
-    <case-currency-yield [amount]="30"></case-currency-yield>
-
-    <case-pagination [paginator]="paginator"></case-pagination>
+  <div class="card p-0 mb-6">
+    <div class="table-container">
+      <case-table
+        [items]="paginator.data"
+        [definition]="definition"
+        [yields]="yields"
+      ></case-table>
+    </div>
   </div>
 </ng-container>
 
@@ -81,6 +83,10 @@
 <div class="card p-0 mb-6">
   <div class="table-container"></div>
 </div>
+
+<a class="button is-warning" [caseAction]="createTicketAction"
+  >Create a new ticket (CASE Action)</a
+>
 
 <div *ngIf="loading" class="list-loading pt-7">
   <div></div>

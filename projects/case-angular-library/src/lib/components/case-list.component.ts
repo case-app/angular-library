@@ -50,6 +50,7 @@ export class CaseListComponent {
 
       delete this.paginator
       this.loading = true
+
       this.getItems(queryParams)
         .then((res: Paginator<any> | { filePath: string }) => {
           this.loading = false
@@ -73,7 +74,9 @@ export class CaseListComponent {
     })
   }
 
-  getItems(queryParams: object): Promise<Paginator<any> | any> {
+  getItems(
+    queryParams: object
+  ): Promise<Paginator<any> | { filePath: string }> {
     return this.resourceService
       .list(this.definition.slug, queryParams)
       .toPromise()
@@ -201,15 +204,6 @@ export class CaseListComponent {
 
     this.router.navigate([`/${this.definition.path || this.definition.slug}`], {
       queryParams,
-      queryParamsHandling: 'merge'
-    })
-  }
-
-  reload() {
-    this.router.navigate([`/${this.definition.path || this.definition.slug}`], {
-      queryParams: {
-        reload: new Date().toISOString()
-      },
       queryParamsHandling: 'merge'
     })
   }

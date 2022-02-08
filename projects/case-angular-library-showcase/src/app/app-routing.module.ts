@@ -9,6 +9,10 @@ const routes: Routes = [
     component: ListComponent
   },
   {
+    path: 'list',
+    component: ListComponent
+  },
+  {
     path: 'create-edit',
     component: CreateEditComponent
   }

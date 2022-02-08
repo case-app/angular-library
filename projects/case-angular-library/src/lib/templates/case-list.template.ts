@@ -96,7 +96,6 @@ export const caseListTemplate = `
         [orderBy]="orderBy"
         [orderByDesc]="orderByDesc"
         (orderByChanged)="onOrderByChanged($event)"
-        (reloadPrompted)="reload()"
       ></case-table>
     </div>
   </div>

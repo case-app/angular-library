@@ -3,6 +3,7 @@
   border-radius: 50%;
   border: 1px solid $light;
   position: relative;
+  overflow: hidden;
 
   &.is-number {
     display: flex;

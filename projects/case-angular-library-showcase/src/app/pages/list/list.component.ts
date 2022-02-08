@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Validators } from '@angular/forms'
+import { ActionType } from '../../../../../case-angular-library/src/lib/enums/action-type.enum'
+import { Action } from '../../../../../case-angular-library/src/lib/interfaces/actions/action.interface'
 import {
   Filter,
   InputType,
@@ -20,7 +22,10 @@ export class ListComponent implements OnInit {
   InputType = InputType
 
   paginator: Paginator<any> = {
-    data: [{ name: 'Volvo' }, { name: 'Mercedes' }],
+    data: [
+      { id: 1, name: 'Volvo' },
+      { id: 2, name: 'Mercedes' }
+    ],
     currentPage: 1,
     lastPage: 1,
     from: 0,
@@ -47,6 +52,54 @@ export class ListComponent implements OnInit {
 
   definition: ResourceDefinition = carDefinition
   loading = false
+
+  createTicketAction: Action = {
+    type: ActionType.OpenCreateEditModal,
+    openCreateEditModal: {
+      title: 'Create a ticket',
+      helpText:
+        'Creating a new ticket is easy ! Just fill up that form and we will contact you soon.',
+      keyPoints: [
+        {
+          label: 'Weight',
+          value: '300kg'
+        },
+        {
+          label: 'Location',
+          value: 'Lisbon, Portugal'
+        },
+        {
+          label: 'Estimated value',
+          value: '900 M€'
+        }
+      ],
+      definition: carDefinition,
+      mode: 'create',
+      fields: [
+        {
+          label: 'ticket name',
+          property: 'name',
+          className: 'is-12',
+          inputType: InputType.Text,
+          required: true
+        },
+        {
+          label: 'Is this a technical ticket ?',
+          property: 'isActive',
+          initialValue: { value: false },
+          className: 'is-12',
+          inputType: InputType.Checkbox
+        },
+        {
+          label: 'Couleur',
+          property: 'color',
+          className: 'is-12',
+          inputType: InputType.ColorPicker,
+          required: true
+        }
+      ]
+    }
+  }
 
   constructor() {}
 
