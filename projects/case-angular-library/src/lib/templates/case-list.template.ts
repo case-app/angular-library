@@ -60,6 +60,7 @@ export const caseListTemplate = `
           [label]="filter.label"
           [searchResources]="filter.searchResources"
           [placeholder]="filter.placeholder"
+          [secondPlaceholder]="filter.secondPlaceholder"
           (valueChanged)="onFilterValueChanged($event, filter)"
         ></case-input>
       </div>
@@ -95,7 +96,6 @@ export const caseListTemplate = `
         [orderBy]="orderBy"
         [orderByDesc]="orderByDesc"
         (orderByChanged)="onOrderByChanged($event)"
-        (reloadPrompted)="reload()"
       ></case-table>
     </div>
   </div>

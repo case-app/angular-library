@@ -133,7 +133,7 @@
         <button
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
-          (click)="triggerCustomAction(actionButton, item)"
+          [caseAction]="actionButton.action(item)"
         >
           <i
             class="icon is-size-5"
@@ -148,17 +148,8 @@
           [item]="item"
           [definition]="definition"
           [preventDeleteMessage]="item.preventDeleteMessage"
-          (itemDeleted)="openConfirmDeleteModal($event)"
-          (customActionEvent)="triggerCustomAction($event.link, $event.item)"
         ></case-action-dropdown>
       </td>
     </tr>
   </tbody>
 </table>
-
-<case-confirm-delete-modal
-  [resourceToDelete]="itemToDelete"
-  (deleteCanceled)="itemToDelete = null"
-  [resourceName]="definition.slug"
-  *ngIf="itemToDelete"
-></case-confirm-delete-modal>

@@ -16,13 +16,6 @@ export const roleDefinition: ResourceDefinition = {
   buttons: [LinkType.CREATE],
   defaultLink: LinkType.EDIT,
   dropdownLinks: [
-    {
-      type: LinkType.EDIT,
-      permission: 'editRoles'
-    },
-    {
-      type: LinkType.DELETE,
-      permission: 'deleteRoles'
-    }
+    // TODO: dropdown links.
   ]
 }
