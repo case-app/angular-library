@@ -20,6 +20,7 @@ export { ImageSize } from './lib/enums/image-size.enum'
 export { InputType } from './lib/enums/input-type.enum'
 export { LinkType } from './lib/enums/link-type.enum'
 export { YieldType } from './lib/enums/yield-type.enum'
+export { ActionType } from './lib/enums/action-type.enum'
 
 // Interfaces
 export { CaseConfig } from './lib/interfaces/case-config.interface'

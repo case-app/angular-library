@@ -1,5 +1,5 @@
-import { ActionType } from '../../../../case-angular-library/src/lib/enums/action-type.enum'
 import {
+  ActionType,
   Gender,
   InputType,
   LinkType,
@@ -13,7 +13,8 @@ export const carDefinition: ResourceDefinition = {
   className: 'Car',
   icon: 'icon-file-text',
   gender: Gender.Feminine,
-  slug: 'types',
+  slug: 'cars',
+  path: 'voitures',
   buttons: [],
   defaultLink: LinkType.CREATE,
   mainIdentifier: 'name',

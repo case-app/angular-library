@@ -133,7 +133,7 @@
         <button
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
-          [caseAction]="actionButton.action"
+          [caseAction]="actionButton.action(item)"
         >
           <i
             class="icon is-size-5"
@@ -148,6 +148,7 @@
           [item]="item"
           [definition]="definition"
           [preventDeleteMessage]="item.preventDeleteMessage"
+          *ngIf="definition.dropdownLinks && definition.dropdownLinks.length"
         ></case-action-dropdown>
       </td>
     </tr>

@@ -10,7 +10,7 @@ export class ActionDirective {
 
   constructor(private actionService: ActionService) {}
 
-  @HostListener('click', ['$event'])
+  @HostListener('click')
   click() {
     this.actionService.triggerAction(this.caseAction)
   }

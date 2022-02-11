@@ -1,11 +1,9 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   HostListener,
   Input,
-  OnInit,
-  Output
+  OnInit
 } from '@angular/core'
 
 import { DropdownLink } from '../../../interfaces/dropdown-link.interface'
@@ -32,7 +30,7 @@ export class ActionDropdownComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    // this.permissions = await this.authService.getPermissions()
+    this.permissions = await this.authService.getPermissions()
 
     this.links = this.definition.dropdownLinks.filter(
       (link: DropdownLink) =>
