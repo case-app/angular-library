@@ -5,9 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core'
 })
 export class StripHtmlPipe implements PipeTransform {
   transform(value: string): any {
-    if (value) {
+    if (typeof value === 'string' && value.length) {
       // Remove HTML tags and "&nbsp;".
       return value.replace(/<.*?>/g, '').replace(/&nbsp;/g, ' ')
     }
+    return value
   }
 }
