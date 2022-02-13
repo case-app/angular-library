@@ -2,30 +2,4 @@ button,
 .button {
   font-weight: $weight-bold;
   transition: all 0.1s ease-in-out;
-
-  &.is-large {
-    height: 5rem;
-  }
-
-  .icon {
-    &:first-child:not(:last-child) {
-      @include ltr-property(
-        'margin',
-        calc(
-          #{-1 / 2 * $button-padding-horizontal} - #{$button-border-width} - 13.5px
-        ),
-        false
-      );
-      @include ltr-property('margin', $button-padding-horizontal / 4);
-    }
-    &:last-child:not(:first-child) {
-      @include ltr-property('margin', $button-padding-horizontal / 4, false);
-      @include ltr-property(
-        'margin',
-        calc(
-          #{-1 / 2 * $button-padding-horizontal} - #{$button-border-width} - 13.5px
-        )
-      );
-    }
-  }
 }
