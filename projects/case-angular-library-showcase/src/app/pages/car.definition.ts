@@ -54,7 +54,7 @@ export const carDefinition: ResourceDefinition = {
       action: () => ({
         type: ActionType.Patch,
         patch: {
-          resourceName: 'tesss',
+          path: 'tesss',
           successMessage: 'orale',
           errorMessage: 'no mames'
         }

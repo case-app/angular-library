@@ -47,17 +47,15 @@ export class ActionService {
   }
 
   private triggerPatch(action: Action): void {
-    this.resourceService
-      .patch(action.patch.resourceName, action.patch.id, action.patch.suffix)
-      .subscribe(
-        (res) => {
-          this.flashMessageService.success(action.patch.successMessage)
-          this.reload()
-        },
-        (err) => {
-          this.flashMessageService.error(action.patch.errorMessage)
-        }
-      )
+    this.resourceService.patch(action.patch.path).subscribe(
+      (res) => {
+        this.flashMessageService.success(action.patch.successMessage)
+        this.reload()
+      },
+      (err) => {
+        this.flashMessageService.error(action.patch.errorMessage)
+      }
+    )
   }
 
   private triggerDelete(action: Action): void {
