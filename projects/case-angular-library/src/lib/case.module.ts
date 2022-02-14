@@ -12,13 +12,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
-import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete'
 
+import { ActionService } from '../public-api'
 import { CaseChartComponent } from './components/case-chart.component'
 import { CaseCreateEditComponent } from './components/case-create-edit.component'
 import { CaseDatepickerComponent } from './components/case-datepicker.component'
 import { CaseDetailComponent } from './components/case-detail.component'
 import { CaseListComponent } from './components/case-list.component'
+import { ActionDirective } from './directives/action.directive'
 import { HasPermissionDirective } from './directives/has-permission.directive'
 import { CaseInputComponent } from './elements/inputs/case-input/case-input.component'
 import { CheckboxInputComponent } from './elements/inputs/checkbox-input/checkbox-input.component'
@@ -47,6 +48,7 @@ import { ActionDropdownComponent } from './elements/partials/action-dropdown/act
 import { BreadcrumbsComponent } from './elements/partials/breadcrumbs/breadcrumbs.component'
 import { ConfirmDeleteModalComponent } from './elements/partials/confirm-delete-modal/confirm-delete-modal.component'
 import { FlashMessageComponent } from './elements/partials/flash-message/flash-message.component'
+import { FooterComponent } from './elements/partials/footer/footer.component'
 import { ImageComponent } from './elements/partials/image/image.component'
 import { MetaComponent } from './elements/partials/meta/meta.component'
 import { PaginationComponent } from './elements/partials/pagination/pagination.component'
@@ -73,7 +75,6 @@ import { StripHtmlPipe } from './pipes/strip-html.pipe'
 import { TruncatePipe } from './pipes/truncate.pipe'
 import { RoleCreateEditComponent } from './resources/role/role-create-edit/role-create-edit.component'
 import { RoleListComponent } from './resources/role/role-list/role-list.component'
-
 import { AuthService } from './services/auth.service'
 import { BreadcrumbService } from './services/breadcrumb.service'
 import { EventService } from './services/event.service'
@@ -83,6 +84,7 @@ import { ResourceService } from './services/resource.service'
 import { UploadService } from './services/upload.service'
 import { VersionService } from './services/version.service'
 import { ViewportService } from './services/viewport.service'
+import { CreateEditModalComponent } from './elements/partials/create-edit-modal/create-edit-modal.component'
 
 // Register locale data
 registerLocaleData(localeFr, 'fr')
@@ -107,6 +109,7 @@ export function jwtOptionsFactory(authService: AuthService) {
 
     // Directives.
     HasPermissionDirective,
+    ActionDirective,
 
     // Components.
     CaseCreateEditComponent,
@@ -175,7 +178,10 @@ export function jwtOptionsFactory(authService: AuthService) {
     // Default resources.
     RoleCreateEditComponent,
     RoleListComponent,
-    IconYieldComponent
+    IconYieldComponent,
+    FooterComponent,
+    ActionDirective,
+    CreateEditModalComponent
   ],
   imports: [
     CommonModule,
@@ -207,6 +213,7 @@ export function jwtOptionsFactory(authService: AuthService) {
 
     // Directives.
     HasPermissionDirective,
+    ActionDirective,
 
     // Components.
     CaseCreateEditComponent,
@@ -247,11 +254,13 @@ export function jwtOptionsFactory(authService: AuthService) {
     ActionDropdownComponent,
     BreadcrumbsComponent,
     ConfirmDeleteModalComponent,
+    CreateEditModalComponent,
     FlashMessageComponent,
     ImageComponent,
     MetaComponent,
     PaginationComponent,
     TableComponent,
+    FooterComponent,
 
     // Elements: Yields.
     AddressYieldComponent,
@@ -288,6 +297,7 @@ export class CaseModule {
         UploadService,
         VersionService,
         ViewportService,
+        ActionService,
         { provide: 'CASE_CONFIG_TOKEN', useValue: configuration }
       ]
     }

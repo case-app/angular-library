@@ -18,8 +18,9 @@ export interface ResourceDefinition {
   // Path for communication with remote API.
   slug: string
 
-  // Visible path in URL (if different than slug).
-  path?: string
+  // Visible path in URL.
+  path: string
+
   hasDetailPage?: boolean
   hasListPage?: boolean
 

@@ -1,5 +1,5 @@
 .aside {
-  background: $side-nav-background;
+  background: $sidenav-background-color;
   flex: none;
   @include tablet {
     width: $aside-width-tablet;
@@ -109,7 +109,7 @@
     top: 0;
     left: 100%;
     z-index: 9;
-    background: $side-nav-background;
+    background: $sidenav-background-color;
     box-shadow: 10px 10px 20px rgba(48, 48, 50, 0.07);
 
     li a {

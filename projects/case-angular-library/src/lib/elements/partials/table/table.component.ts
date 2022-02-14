@@ -4,7 +4,6 @@ import { Router } from '@angular/router'
 import { LinkType } from '../../../enums/link-type.enum'
 import { YieldType } from '../../../enums/yield-type.enum'
 import { ActionButton } from '../../../interfaces/action-button.interface'
-import { DropdownLink } from '../../../interfaces/dropdown-link.interface'
 import { OrderByChangedEvent } from '../../../interfaces/order-by-changed-event.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { Yield } from '../../../interfaces/yield.interface'
@@ -22,13 +21,11 @@ export class TableComponent implements OnInit {
   @Input() definition: ResourceDefinition
   @Input() yields: Yield[]
   @Input() hiddenProps: string[] = []
-  @Input() dropdownLinks: DropdownLink[]
   @Input() orderByDesc = false
   @Input() orderBy: string
   @Input() allowOrderBy = true
 
   @Output() customEventEmitter: EventEmitter<any> = new EventEmitter()
-  @Output() reloadPrompted: EventEmitter<void> = new EventEmitter()
   @Output()
   orderByChanged: EventEmitter<OrderByChangedEvent> = new EventEmitter()
 
@@ -45,7 +42,9 @@ export class TableComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const permissions = await this.authService.getPermissions()
+    // TODO: reset that code
+    const permissions = []
+    // const permissions = await this.authService.getPermissions()
 
     this.yields = this.hiddenProps.length
       ? this.yields.filter(
@@ -102,21 +101,11 @@ export class TableComponent implements OnInit {
       })
 
       // Action buttons.
-      item.actionButtons = []
-      if (
-        this.definition.actionButtons &&
-        this.definition.actionButtons.length
-      ) {
-        this.definition.actionButtons.forEach((actionButton: ActionButton) => {
-          if (
-            (!actionButton.permission ||
-              permissions.includes(actionButton.permission)) &&
-            (!actionButton.condition || actionButton.condition(item))
-          ) {
-            item.actionButtons.push(actionButton)
-          }
-        })
-      }
+      item.actionButtons = (this.definition.actionButtons || []).filter(
+        (aB: ActionButton) =>
+          (!aB.permission || permissions.includes(aB.permission)) &&
+          (!aB.condition || aB.condition(item))
+      )
 
       // Check if item can be deleted.
       if (
@@ -135,6 +124,7 @@ export class TableComponent implements OnInit {
         )
       }
     })
+
     // We make the loop on formattedItems instead of items to prevent DOM from creating before finishing format operations.
     this.formattedItems = this.items
   }
@@ -170,10 +160,6 @@ export class TableComponent implements OnInit {
     return value
   }
 
-  openConfirmDeleteModal(itemId: number): void {
-    this.itemToDelete = this.items.find((i) => i.id === itemId)
-  }
-
   goToLink(path: string[] | string, isDisabled: boolean): void {
     if (!path || isDisabled) {
       return
@@ -195,33 +181,6 @@ export class TableComponent implements OnInit {
       this.router.navigate([pathWithoutParams], { queryParams })
     } else {
       this.router.navigate(typeof path === 'string' ? [path] : path)
-    }
-  }
-
-  triggerCustomAction(
-    actionButton: ActionButton | DropdownLink,
-    item: any
-  ): void {
-    const linkAction = actionButton.linkAction && actionButton.linkAction(item)
-    const patchAction =
-      actionButton.patchAction && actionButton.patchAction(item)
-
-    if (linkAction) {
-      this.router.navigate([linkAction.path], {
-        queryParams: linkAction.queryParams || {}
-      })
-    } else if (patchAction) {
-      this.resourceService
-        .patch(patchAction.resourceName, patchAction.id, patchAction.suffix)
-        .subscribe(
-          (res) => {
-            this.flashMessageService.success(patchAction.successMessage)
-            this.reloadPrompted.emit()
-          },
-          (err) => {
-            this.flashMessageService.error(patchAction.errorMessage)
-          }
-        )
     }
   }
 }

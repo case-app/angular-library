@@ -1,21 +1,10 @@
-import { Params } from '@angular/router'
+import { Action } from './actions/action.interface'
 
 export interface ActionButton {
   label: string
+  action: (resource: any) => Action
   icon?: string
   className?: string
   permission?: string
-  linkAction?: (resource: any) => {
-    path: string
-    queryParams?: Params
-  }
-  patchAction?: (resource: any) => {
-    resourceName: string
-    id?: number | string
-    suffix?: string
-    formData?: FormData
-    successMessage: string
-    errorMessage: string
-  }
   condition?: (resource: any) => boolean
 }

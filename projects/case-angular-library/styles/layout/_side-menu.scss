@@ -1,5 +1,5 @@
 %is-hovered {
-  background-color: $nav-item-hover;
+  background-color: $sidenav-item-hover-color;
   color: $link;
 }
 .menu-list {
@@ -18,7 +18,7 @@
     a {
       position: relative;
 
-      color: $nav-item-color;
+      color: $sidenav-item-color;
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
