@@ -121,9 +121,17 @@
           <i class="icon icon-check1" *ngIf="yield.propertyValue"></i>
         </ng-container>
 
-        <ng-container *ngSwitchDefault="">
-          {{ yield.propertyValue | stripHtml }}</ng-container
-        >
+        <case-text-yield
+          *ngSwitchCase="YieldType.Text"
+          [text]="yield.propertyValue"
+          [secondText]="yield.secondPropertyValue"
+        ></case-text-yield>
+
+        <case-text-yield
+          *ngSwitchDefault=""
+          [text]="yield.propertyValue"
+          [secondText]="yield.secondPropertyValue"
+        ></case-text-yield>
       </td>
       <td
         class="has-text-right"

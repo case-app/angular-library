@@ -47,6 +47,7 @@ import { TouchMenuComponent } from './elements/navigation/touch-menu/touch-menu.
 import { ActionDropdownComponent } from './elements/partials/action-dropdown/action-dropdown.component'
 import { BreadcrumbsComponent } from './elements/partials/breadcrumbs/breadcrumbs.component'
 import { ConfirmDeleteModalComponent } from './elements/partials/confirm-delete-modal/confirm-delete-modal.component'
+import { CreateEditModalComponent } from './elements/partials/create-edit-modal/create-edit-modal.component'
 import { FlashMessageComponent } from './elements/partials/flash-message/flash-message.component'
 import { FooterComponent } from './elements/partials/footer/footer.component'
 import { ImageComponent } from './elements/partials/image/image.component'
@@ -64,6 +65,7 @@ import { IconYieldComponent } from './elements/yields/icon-yield/icon-yield.comp
 import { ImageYieldComponent } from './elements/yields/image-yield/image-yield.component'
 import { NumberYieldComponent } from './elements/yields/number-yield/number-yield.component'
 import { ProgressBarYieldComponent } from './elements/yields/progress-bar-yield/progress-bar-yield.component'
+import { TextYieldComponent } from './elements/yields/text-yield/text-yield.component'
 import { CaseConfig } from './interfaces/case-config.interface'
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component'
 import { LoginComponent } from './pages/auth/login/login.component'
@@ -84,7 +86,6 @@ import { ResourceService } from './services/resource.service'
 import { UploadService } from './services/upload.service'
 import { VersionService } from './services/version.service'
 import { ViewportService } from './services/viewport.service'
-import { CreateEditModalComponent } from './elements/partials/create-edit-modal/create-edit-modal.component'
 
 // Register locale data
 registerLocaleData(localeFr, 'fr')
@@ -181,7 +182,8 @@ export function jwtOptionsFactory(authService: AuthService) {
     IconYieldComponent,
     FooterComponent,
     ActionDirective,
-    CreateEditModalComponent
+    CreateEditModalComponent,
+    TextYieldComponent
   ],
   imports: [
     CommonModule,
