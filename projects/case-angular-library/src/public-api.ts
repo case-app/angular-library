@@ -117,10 +117,12 @@ export { CurrencyYieldComponent } from './lib/elements/yields/currency-yield/cur
 export { DateYieldComponent } from './lib/elements/yields/date-yield/date-yield.component'
 export { DownloadYieldComponent } from './lib/elements/yields/download-yield/download-yield.component'
 export { FileIconYieldComponent } from './lib/elements/yields/file-icon-yield/file-icon-yield.component'
-export { ImageYieldComponent } from './lib/elements/yields/image-yield/image-yield.component'
-export { ProgressBarYieldComponent } from './lib/elements/yields/progress-bar-yield/progress-bar-yield.component'
-export { NumberYieldComponent } from './lib/elements/yields/number-yield/number-yield.component'
 export { IconYieldComponent } from './lib/elements/yields/icon-yield/icon-yield.component'
+export { ImageYieldComponent } from './lib/elements/yields/image-yield/image-yield.component'
+export { NumberYieldComponent } from './lib/elements/yields/number-yield/number-yield.component'
+export { ProgressBarYieldComponent } from './lib/elements/yields/progress-bar-yield/progress-bar-yield.component'
+export { SwitchYieldComponent } from './lib/elements/yields/switch-yield/switch-yield.component'
+export { TextYieldComponent } from './lib/elements/yields/text-yield/text-yield.component'
 
 // Pages.
 export { ForgotPasswordComponent } from './lib/pages/auth/forgot-password/forgot-password.component'

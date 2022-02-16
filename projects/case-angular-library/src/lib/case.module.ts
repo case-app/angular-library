@@ -65,6 +65,7 @@ import { IconYieldComponent } from './elements/yields/icon-yield/icon-yield.comp
 import { ImageYieldComponent } from './elements/yields/image-yield/image-yield.component'
 import { NumberYieldComponent } from './elements/yields/number-yield/number-yield.component'
 import { ProgressBarYieldComponent } from './elements/yields/progress-bar-yield/progress-bar-yield.component'
+import { SwitchYieldComponent } from './elements/yields/switch-yield/switch-yield.component'
 import { TextYieldComponent } from './elements/yields/text-yield/text-yield.component'
 import { CaseConfig } from './interfaces/case-config.interface'
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component'
@@ -183,7 +184,8 @@ export function jwtOptionsFactory(authService: AuthService) {
     FooterComponent,
     ActionDirective,
     CreateEditModalComponent,
-    TextYieldComponent
+    TextYieldComponent,
+    SwitchYieldComponent
   ],
   imports: [
     CommonModule,

@@ -13,7 +13,7 @@ export const carDefinition: ResourceDefinition = {
   className: 'Car',
   icon: 'icon-file-text',
   gender: Gender.Feminine,
-  slug: 'cars',
+  slug: 'users',
   path: 'voitures',
   buttons: [],
   defaultLink: LinkType.CREATE,

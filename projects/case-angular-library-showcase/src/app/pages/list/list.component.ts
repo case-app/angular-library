@@ -24,8 +24,8 @@ export class ListComponent implements OnInit {
 
   paginator: Paginator<any> = {
     data: [
-      { id: 1, name: 'Volvo', country: 'Sweden' },
-      { id: 2, name: 'Mercedes', country: 'Germany' }
+      { id: 1, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 2, name: 'Mercedes', country: 'Germany', isActive: false }
     ],
     currentPage: 1,
     lastPage: 1,
@@ -40,6 +40,20 @@ export class ListComponent implements OnInit {
       property: 'name',
       secondProperty: 'country',
       type: YieldType.Text
+    },
+    {
+      label: 'On production',
+      property: 'isActive',
+      secondProperty: 'country',
+      action: (car) => ({
+        type: ActionType.Delete,
+        delete: {
+          itemToDelete: car,
+          definition: carDefinition,
+          navigateTo: '/'
+        }
+      }),
+      type: YieldType.Switch
     }
   ]
   resolvedFilters: Filter[] = [

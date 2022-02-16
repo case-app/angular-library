@@ -10,5 +10,6 @@ export enum YieldType {
   FileIcon,
   Image,
   ProgressBar,
+  Switch,
   Text
 }

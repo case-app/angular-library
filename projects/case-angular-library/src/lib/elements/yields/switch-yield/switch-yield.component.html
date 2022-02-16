@@ -1,0 +1,11 @@
+<div class="field">
+  <input
+    id="switch-{{ uniqueId }}"
+    type="checkbox"
+    name="switch-{{ uniqueId }}"
+    class="switch is-success"
+    [checked]="value"
+    (click)="doAction($event)"
+  />
+  <label for="switch-{{ uniqueId }}">{{ displayValue }}</label>
+</div>
