@@ -20,7 +20,6 @@
       <ng-container *ngFor="let link of links">
         <hr class="dropdown-divider" *ngIf="link.withDivision" />
         <a
-          [title]="link.title"
           class="dropdown-item"
           [ngClass]="link.className"
           [caseAction]="link.action(item)"
