@@ -100,7 +100,7 @@ export class ResourceService {
   }
 
   patch(path: string, formData?: FormData): Observable<any> {
-    return this.http.patch(`${this.config.apiBaseUrl}/${path}`, formData).pipe(
+    return this.http.patch(`${this.config.apiBaseUrl}${path}`, formData).pipe(
       map((res) => {
         return res
       })

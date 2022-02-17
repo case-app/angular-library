@@ -1,4 +1,16 @@
 <ng-container [ngSwitch]="type">
+  <case-address-input
+    [label]="label"
+    [uniqueId]="uniqueId"
+    [placeholder]="placeholder"
+    [initialValue]="initialValue"
+    [showErrors]="showErrors"
+    [validators]="validators"
+    [helpText]="helpText"
+    (valueChanged)="onValueChanged($event)"
+    *ngSwitchCase="InputType.Address"
+  ></case-address-input>
+
   <case-text-input
     [label]="label"
     [uniqueId]="uniqueId"

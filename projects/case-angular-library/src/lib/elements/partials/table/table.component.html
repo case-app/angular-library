@@ -59,7 +59,12 @@
           'has-custom-link': yield.link
         }"
         [ngSwitch]="yield.type"
-        (click)="goToLink(yield.link || item.link, item.isDisabledHighlight)"
+        (click)="
+          goToLink(
+            yield.link || item.link,
+            item.isDisabledHighlight || yield.action
+          )
+        "
       >
         <case-image-yield
           *ngSwitchCase="YieldType.Image"
