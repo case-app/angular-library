@@ -12,6 +12,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { ChartsModule } from 'ng2-charts'
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete'
 
 import { ActionService } from '../public-api'
 import { CaseChartComponent } from './components/case-chart.component'
@@ -21,6 +22,7 @@ import { CaseDetailComponent } from './components/case-detail.component'
 import { CaseListComponent } from './components/case-list.component'
 import { ActionDirective } from './directives/action.directive'
 import { HasPermissionDirective } from './directives/has-permission.directive'
+import { AddressInputComponent } from './elements/inputs/address-input/address-input.component'
 import { CaseInputComponent } from './elements/inputs/case-input/case-input.component'
 import { CheckboxInputComponent } from './elements/inputs/checkbox-input/checkbox-input.component'
 import { ColorPickerInputComponent } from './elements/inputs/color-picker-input/color-picker-input.component'
@@ -121,6 +123,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     CaseDatepickerComponent,
 
     // Elements: Inputs
+    AddressInputComponent,
     CaseInputComponent,
     CheckboxInputComponent,
     ColorPickerInputComponent,
@@ -188,12 +191,18 @@ export function jwtOptionsFactory(authService: AuthService) {
     SwitchYieldComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule,
     AngularMyDatePickerModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    ChartsModule,
+    CommonModule,
     CKEditorModule,
+    GooglePlaceModule,
+    HttpClientModule,
     JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
@@ -201,12 +210,7 @@ export function jwtOptionsFactory(authService: AuthService) {
         deps: [AuthService]
       }
     }),
-    BrowserAnimationsModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
-    ChartsModule,
+    ReactiveFormsModule,
     RouterModule
   ],
   exports: [
@@ -228,6 +232,7 @@ export function jwtOptionsFactory(authService: AuthService) {
     CaseDatepickerComponent,
 
     // Elements: Inputs
+    AddressInputComponent,
     CaseInputComponent,
     CheckboxInputComponent,
     ColorPickerInputComponent,

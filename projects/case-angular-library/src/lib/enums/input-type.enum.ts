@@ -1,4 +1,5 @@
 export enum InputType {
+  Address,
   Checkbox,
   ColorPicker,
   DateRange,

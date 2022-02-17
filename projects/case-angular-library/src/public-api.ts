@@ -72,6 +72,7 @@ export { CaseChartComponent } from './lib/components/case-chart.component'
 export { CaseDatepickerComponent } from './lib/components/case-datepicker.component'
 
 // Elements: Inputs.
+export { AddressInputComponent } from './lib/elements/inputs/address-input/address-input.component'
 export { CaseInputComponent } from './lib/elements/inputs/case-input/case-input.component'
 export { CheckboxInputComponent } from './lib/elements/inputs/checkbox-input/checkbox-input.component'
 export { ColorPickerInputComponent } from './lib/elements/inputs/color-picker-input/color-picker-input.component'

@@ -9,6 +9,7 @@ export const environment = {
   apiBaseUrl: 'http://localhost:3000',
   storagePath: 'http://localhost:3000/storage',
   tokenName: 'CASE_ANGULAR_LIBRARY_TOKEN',
+  googlePlacesAPIKey: 'MY GOOGLE PLACE API KEY',
   tokenAllowedDomains: ['localhost:3000']
 }
 

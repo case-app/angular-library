@@ -22,6 +22,7 @@ import { ListComponent } from './pages/list/list.component'
       appName: environment.appName,
       tokenName: environment.tokenName,
       tokenAllowedDomains: environment.tokenAllowedDomains,
+      googlePlacesAPIKey: environment.googlePlacesAPIKey,
       production: environment.production
     })
   ],
