@@ -77,6 +77,19 @@
             </div>
           </div>
 
+          <!-- Menu links -->
+          <ng-container *ngFor="let link of links">
+            <div *caseHasPermission="{ requireOr: link.permissionsOr || [] }">
+              <a
+                [routerLink]="[link.routePath]"
+                class="dropdown-item is-size-3 become-link tooltip has-tooltip has-tooltip-bottom"
+                [attr.data-tooltip]="link.label"
+              >
+                <i class="icon {{ link.icon }}"></i>
+              </a>
+            </div>
+          </ng-container>
+
           <!-- UserMenu dropdown -->
           <div
             class="dropdown is-right"

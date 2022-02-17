@@ -46,6 +46,7 @@ export { Permission } from './lib/interfaces/resources/permission.interface'
 export { Role } from './lib/interfaces/resources/role.interface'
 export { User } from './lib/interfaces/resources/user.interface'
 export { MenuItem } from './lib/interfaces/menu-item.interface'
+export { TopMenuLink } from './lib/interfaces/top-menu-link.interface'
 
 // Directives.
 export { HasPermissionDirective } from './lib/directives/has-permission.directive'

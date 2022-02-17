@@ -3,15 +3,17 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  Input,
   OnInit
 } from '@angular/core'
 
+import { CaseConfig } from '../../../interfaces/case-config.interface'
+import { Notification } from '../../../interfaces/resources/notification.interface'
+import { User } from '../../../interfaces/resources/user.interface'
+import { TopMenuLink } from '../../../interfaces/top-menu-link.interface'
 import { AuthService } from '../../../services/auth.service'
 import { EventService } from '../../../services/event.service'
 import { ResourceService } from '../../../services/resource.service'
-import { Notification } from '../../../interfaces/resources/notification.interface'
-import { User } from '../../../interfaces/resources/user.interface'
-import { CaseConfig } from '../../../interfaces/case-config.interface'
 
 @Component({
   selector: 'case-top-menu',
@@ -19,6 +21,8 @@ import { CaseConfig } from '../../../interfaces/case-config.interface'
   styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent implements OnInit {
+  @Input() links: TopMenuLink[]
+
   currentUser: User
   isCollapsed = false
   notifications: Notification[]
