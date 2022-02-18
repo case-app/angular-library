@@ -84,8 +84,7 @@
 
         <case-address-yield
           *ngSwitchCase="YieldType.Address"
-          [address]="yield.propertyValue"
-          [openOnGoogleMapsLink]="false"
+          [stringAddress]="yield.propertyValue"
         ></case-address-yield>
 
         <case-download-yield
@@ -164,12 +163,12 @@
         </button>
       </td>
       <td class="has-text-right" *ngIf="definition.dropdownLinks.length">
-        <!-- <case-action-dropdown
+        <case-action-dropdown
           [item]="item"
           [definition]="definition"
           [preventDeleteMessage]="item.preventDeleteMessage"
           *ngIf="definition.dropdownLinks && definition.dropdownLinks.length"
-        ></case-action-dropdown> -->
+        ></case-action-dropdown>
       </td>
     </tr>
   </tbody>
