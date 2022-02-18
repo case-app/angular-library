@@ -59,7 +59,12 @@
           'has-custom-link': yield.link
         }"
         [ngSwitch]="yield.type"
-        (click)="goToLink(yield.link || item.link, item.isDisabledHighlight)"
+        (click)="
+          goToLink(
+            yield.link || item.link,
+            item.isDisabledHighlight || yield.action
+          )
+        "
       >
         <case-image-yield
           *ngSwitchCase="YieldType.Image"
@@ -79,8 +84,7 @@
 
         <case-address-yield
           *ngSwitchCase="YieldType.Address"
-          [address]="yield.propertyValue"
-          [openOnGoogleMapsLink]="false"
+          [stringAddress]="yield.propertyValue"
         ></case-address-yield>
 
         <case-download-yield
@@ -117,13 +121,28 @@
           [progressPercentage]="yield.propertyValue"
         ></case-analog-progress-bar-yield>
 
+        <case-switch-yield
+          *ngSwitchCase="YieldType.Switch"
+          [value]="yield.propertyValue"
+          [displayValue]="yield.secondPropertyValue"
+          [action]="yield.action(item)"
+        ></case-switch-yield>
+
         <ng-container *ngSwitchCase="YieldType.Check">
           <i class="icon icon-check1" *ngIf="yield.propertyValue"></i>
         </ng-container>
 
-        <ng-container *ngSwitchDefault="">
-          {{ yield.propertyValue | stripHtml }}</ng-container
-        >
+        <case-text-yield
+          *ngSwitchCase="YieldType.Text"
+          [text]="yield.propertyValue"
+          [secondText]="yield.secondPropertyValue"
+        ></case-text-yield>
+
+        <case-text-yield
+          *ngSwitchDefault=""
+          [text]="yield.propertyValue"
+          [secondText]="yield.secondPropertyValue"
+        ></case-text-yield>
       </td>
       <td
         class="has-text-right"

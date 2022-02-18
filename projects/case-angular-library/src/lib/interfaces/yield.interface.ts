@@ -1,3 +1,4 @@
+import { Action } from './actions/action.interface'
 import { YieldType } from '../enums/yield-type.enum'
 
 export interface Yield {
@@ -35,6 +36,7 @@ export interface Yield {
 
   // Specific to one or several YieldType.
   icon?: string
+  action?: (resource: any) => Action
 
   // Calculated
   propertyValue?: string

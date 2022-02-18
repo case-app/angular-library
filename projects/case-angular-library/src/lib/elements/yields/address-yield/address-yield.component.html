@@ -1,55 +1,31 @@
-<ng-container *ngIf="parsedAddress && parsedAddress.addressName">
+<ng-container *ngIf="address && address.name">
   <a
     target="_blank"
     class="has-text-black"
-    href="http://maps.google.com/?q={{ parsedAddress.streetNumber }}+{{
-      parsedAddress.route
-    }}+{{ parsedAddress.postalCode }}+{{ parsedAddress.locality }}"
-    *ngIf="openOnGoogleMapsLink"
+    href="http://maps.google.com/?q={{ address.streetNumber }}+{{
+      address.route
+    }}+{{ address.postalCode }}+{{ address.locality }}+{{
+      address.department
+    }}+{{ address.region }}+{{ address.country }}"
   >
-    <ng-container *ngIf="parsedAddress.streetNumber"
-      >{{ parsedAddress.streetNumber }}&nbsp;</ng-container
+    <ng-container *ngIf="address.streetNumber"
+      >{{ address.streetNumber }}&nbsp;</ng-container
     >
-    <ng-container *ngIf="parsedAddress.route"
-      >{{ parsedAddress.route }},&nbsp;</ng-container
+    <ng-container *ngIf="address.route"
+      >{{ address.route }},&nbsp;</ng-container
     >
-    <ng-container *ngIf="parsedAddress.postalCode"
-      >{{ parsedAddress.postalCode }}&nbsp;</ng-container
+    <ng-container *ngIf="address.postalCode"
+      >{{ address.postalCode }}&nbsp;</ng-container
     >
-    <ng-container *ngIf="parsedAddress.locality">{{
-      parsedAddress.locality
-    }}</ng-container>
+    <ng-container *ngIf="address.locality">{{ address.locality }}</ng-container>
     <ng-container
       *ngIf="
-        !parsedAddress.streetNumber &&
-        !parsedAddress.route &&
-        !parsedAddress.postalCode &&
-        !parsedAddress.locality
+        !address.streetNumber &&
+        !address.route &&
+        !address.postalCode &&
+        !address.locality
       "
-      >{{ parsedAddress.addressName }}</ng-container
+      >{{ address.name }}</ng-container
     >
   </a>
-  <span *ngIf="!openOnGoogleMapsLink">
-    <ng-container *ngIf="parsedAddress.streetNumber"
-      >{{ parsedAddress.streetNumber }}&nbsp;</ng-container
-    >
-    <ng-container *ngIf="parsedAddress.route"
-      >{{ parsedAddress.route }},&nbsp;</ng-container
-    >
-    <ng-container *ngIf="parsedAddress.postalCode"
-      >{{ parsedAddress.postalCode }}&nbsp;</ng-container
-    >
-    <ng-container *ngIf="parsedAddress.locality">{{
-      parsedAddress.locality
-    }}</ng-container>
-    <ng-container
-      *ngIf="
-        !parsedAddress.streetNumber &&
-        !parsedAddress.route &&
-        !parsedAddress.postalCode &&
-        !parsedAddress.locality
-      "
-      >{{ parsedAddress.addressName }}</ng-container
-    >
-  </span>
 </ng-container>

@@ -19,7 +19,7 @@ export class FlashMessageService {
     this.timeout = config.flashMessageTimeout || this.defaultTimeout
   }
 
-  success(message: string, sticky = false) {
+  success(message: string, sticky = false): void {
     this.flashMessage.next({ message, className: 'notification is-success' })
     setTimeout(
       () => {
@@ -29,7 +29,7 @@ export class FlashMessageService {
     )
   }
 
-  error(message: string, sticky = false) {
+  error(message: string, sticky = false): void {
     this.flashMessage.next({ message, className: 'notification is-danger' })
     setTimeout(
       () => {
@@ -39,7 +39,7 @@ export class FlashMessageService {
     )
   }
 
-  info(message: string, sticky = false) {
+  info(message: string, sticky = false): void {
     this.flashMessage.next({ message, className: 'notification is-info' })
     setTimeout(
       () => {
