@@ -23,55 +23,51 @@ export class ActionService {
     private flashMessageService: FlashMessageService
   ) {}
 
-  triggerAction(action: Action) {
+  triggerAction(action: Action): Promise<any> {
     switch (action.type) {
       case ActionType.Link:
-        this.triggerLink(action)
-        break
+        return this.triggerLink(action)
       case ActionType.Patch:
-        this.triggerPatch(action)
-        break
+        return this.triggerPatch(action)
       case ActionType.Delete:
-        this.triggerDelete(action)
-        break
+        return this.triggerDelete(action)
       case ActionType.OpenCreateEditModal:
         this.triggerOpenCreateEditModal(action)
         break
     }
   }
 
-  private triggerLink(action: Action): void {
-    this.router.navigate([action.link.path], {
+  private triggerLink(action: Action): Promise<boolean> {
+    return this.router.navigate([action.link.path], {
       queryParams: action.link.queryParams || {}
     })
   }
 
-  private triggerPatch(action: Action): void {
-    this.resourceService.patch(action.patch.path).subscribe(
-      (res) => {
-        this.flashMessageService.success(action.patch.successMessage)
-        this.reload()
-      },
-      (err) => {
-        this.flashMessageService.error(action.patch.errorMessage)
-      }
-    )
+  private triggerPatch(action: Action): Promise<any> {
+    return this.resourceService
+      .patch(action.patch.path)
+      .toPromise()
+      .then(
+        (res) => {
+          this.flashMessageService.success(action.patch.successMessage)
+          return Promise.resolve(res)
+        },
+        (err) => {
+          this.flashMessageService.error(action.patch.errorMessage)
+          return Promise.reject(err)
+        }
+      )
   }
 
-  private triggerDelete(action: Action): void {
+  private triggerDelete(action: Action): Promise<void> {
     this.deleteAction.next(action.delete)
+    // We reject promises to prevent changing
+    return Promise.reject()
   }
 
-  private triggerOpenCreateEditModal(action: Action): void {
+  private triggerOpenCreateEditModal(action: Action): Promise<void> {
     this.openCreateEditModalAction.next(action.openCreateEditModal)
-  }
-
-  private reload() {
-    this.router.navigate([this.router.url], {
-      queryParams: {
-        reload: new Date().toISOString()
-      },
-      queryParamsHandling: 'merge'
-    })
+    // We reject promises to prevent changing
+    return Promise.reject()
   }
 }

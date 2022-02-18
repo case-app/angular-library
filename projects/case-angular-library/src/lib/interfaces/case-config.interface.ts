@@ -5,6 +5,7 @@ export interface CaseConfig {
   appName: string
   tokenName: string
   tokenAllowedDomains: string[]
+  googlePlacesAPIKey?: string
   flashMessageTimeout?: number
   production?: boolean
 }

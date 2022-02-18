@@ -1,10 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+
+import { TopMenuLink } from '../../../case-angular-library/src/lib/interfaces/top-menu-link.interface'
 import {
-  caseConstants,
   FlashMessageService,
-  MenuItem,
-  User
+  MenuItem
 } from '../../../case-angular-library/src/public-api'
 
 @Component({
@@ -18,6 +17,18 @@ export class AppComponent implements OnInit {
   isCollapsed = false
   path: string
   menuItems: MenuItem[] = []
+  topMenuLinks: TopMenuLink[] = [
+    {
+      label: 'Go to create-edit',
+      icon: 'icon-grid',
+      routePath: '/create-edit'
+    },
+    {
+      label: 'Go to create-edit',
+      icon: 'icon-grid',
+      routePath: '/create-edit'
+    }
+  ]
 
   constructor(private flashMessageService: FlashMessageService) {}
 

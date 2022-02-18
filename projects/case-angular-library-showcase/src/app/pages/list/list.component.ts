@@ -7,7 +7,8 @@ import {
   InputType,
   Paginator,
   ResourceDefinition,
-  Yield
+  Yield,
+  YieldType
 } from '../../../../../case-angular-library/src/public-api'
 import { carDefinition } from '../car.definition'
 
@@ -23,8 +24,8 @@ export class ListComponent implements OnInit {
 
   paginator: Paginator<any> = {
     data: [
-      { id: 1, name: 'Volvo' },
-      { id: 2, name: 'Mercedes' }
+      { id: 1, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 2, name: 'Mercedes', country: false, isActive: false }
     ],
     currentPage: 1,
     lastPage: 1,
@@ -36,7 +37,23 @@ export class ListComponent implements OnInit {
   yields: Yield[] = [
     {
       label: 'Name',
-      property: 'name'
+      property: 'name',
+      secondProperty: 'country',
+      type: YieldType.Text
+    },
+    {
+      label: 'On production',
+      property: 'isActive',
+      secondProperty: 'country',
+      action: (car) => ({
+        type: ActionType.Delete,
+        delete: {
+          itemToDelete: car,
+          definition: carDefinition,
+          navigateTo: '/'
+        }
+      }),
+      type: YieldType.Switch
     }
   ]
   resolvedFilters: Filter[] = [

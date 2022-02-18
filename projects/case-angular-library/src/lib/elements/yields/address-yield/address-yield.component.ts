@@ -1,18 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { AddressObject } from '../../../interfaces/address-object.interface'
+import { Component, Input, OnChanges } from '@angular/core'
+
+import { Address } from '../../../interfaces/address.interface'
 
 @Component({
   selector: 'case-address-yield',
   templateUrl: './address-yield.component.html',
   styleUrls: ['./address-yield.component.scss']
 })
-export class AddressYieldComponent implements OnInit {
-  @Input() address: string
-  @Input() openOnGoogleMapsLink = true
+export class AddressYieldComponent implements OnChanges {
+  @Input() stringAddress: string
 
-  parsedAddress: AddressObject
+  address: Address
 
-  ngOnInit() {
-    this.parsedAddress = JSON.parse(this.address)
+  ngOnChanges(): void {
+    if (this.stringAddress) {
+      this.address = JSON.parse(this.stringAddress)
+    }
   }
 }
