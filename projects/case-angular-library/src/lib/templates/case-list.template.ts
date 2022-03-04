@@ -106,7 +106,7 @@ export const caseListTemplate = `
   ></case-pagination>
 </ng-container>
 
-<div *ngIf="loading" class="list-loading pt-7">
+<div *ngIf="loading" class="is-list-loading pt-7">
   <div></div>
   <div></div>
   <div></div>
