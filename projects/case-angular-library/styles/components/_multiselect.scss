@@ -23,7 +23,7 @@
   border-radius: $input-radius;
   box-shadow: none;
   padding: 0 $control-padding-horizontal;
-  font-size: $size-large;
+  font-size: $size-normal;
   line-height: $control-height;
   color: $dark;
   cursor: pointer;
@@ -53,5 +53,15 @@
         box-shadow: $input-focus-box-shadow-size bulmaRgba($color, 0.25);
       }
     }
+  }
+
+  &.is-small {
+    font-size: $size-small;
+  }
+  &.is-medium {
+    font-size: $size-medium;
+  }
+  &.is-large {
+    font-size: $size-large;
   }
 }

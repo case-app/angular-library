@@ -149,7 +149,7 @@
         *ngIf="definition.actionButtons && definition.actionButtons.length"
       >
         <!-- Action buttons loop -->
-        <button
+        <a
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
           [caseAction]="actionButton.action(item)"
@@ -160,7 +160,7 @@
             *ngIf="actionButton.icon"
           ></i>
           {{ actionButton.label }}
-        </button>
+        </a>
       </td>
       <td class="has-text-right" *ngIf="definition.dropdownLinks.length">
         <case-action-dropdown

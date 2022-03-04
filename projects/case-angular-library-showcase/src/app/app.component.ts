@@ -25,7 +25,17 @@ export class AppComponent implements OnInit {
     },
     {
       label: 'Go to create-edit',
-      icon: 'icon-grid',
+      icon: 'icon-user',
+      routePath: '/create-edit'
+    },
+    {
+      label: 'Go to create-edit',
+      icon: 'icon-activity',
+      routePath: '/create-edit'
+    },
+    {
+      label: 'Go to create-edit',
+      icon: 'icon-trash',
       routePath: '/create-edit'
     }
   ]

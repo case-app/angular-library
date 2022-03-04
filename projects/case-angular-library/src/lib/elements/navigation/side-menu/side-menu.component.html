@@ -4,7 +4,7 @@
       <!-- Direct link -->
       <ng-container *ngIf="menuItem.routePath">
         <a [routerLink]="menuItem.routePath" routerLinkActive="is-active">
-          <i class="icon mr-3 is-size-4" [ngClass]="menuItem.icon"></i>
+          <i class="icon mr-3 is-size-4 my-0" [ngClass]="menuItem.icon"></i>
           <span class="pl-1">{{ menuItem.label }}</span>
         </a>
       </ng-container>
@@ -13,7 +13,7 @@
       <ng-container *ngIf="menuItem.items && menuItem.items.length">
         <a (click)="toggleAccordion('accordion-' + i)" class="has-submenu">
           <span>
-            <i class="icon mr-3 is-size-4" [ngClass]="menuItem.icon"></i>
+            <i class="icon mr-3 is-size-4 my-0" [ngClass]="menuItem.icon"></i>
             <span class="pl-1">{{ menuItem.label }}</span>
           </span>
           <i
