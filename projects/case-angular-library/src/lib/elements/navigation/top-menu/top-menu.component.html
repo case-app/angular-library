@@ -21,7 +21,7 @@
 
           <!-- Notifications -->
           <div
-            class="dropdown mr-6 is-right"
+            class="dropdown mr-4 is-right"
             [ngClass]="{ 'is-active': showNotificationMenu }"
           >
             <div class="dropdown-trigger">
@@ -32,7 +32,7 @@
                 (click)="toggleNotificationMenu()"
               >
                 <span class="icon has-text-expo">
-                  <i class="icon icon-bell is-size-4">
+                  <i class="icon icon-bell is-size-4 icon has-text-grey">
                     <span class="has-notification is-link">
                       <span>1</span>
                     </span>
@@ -81,11 +81,11 @@
           <ng-container *ngFor="let link of links">
             <a
               [routerLink]="[link.routePath]"
-              class="button is-circle is-white mr-6"
+              class="button is-circle is-white mr-5 has-tooltip has-tooltip-left"
               [attr.data-tooltip]="link.label"
               *caseHasPermission="{ requireOr: link.permissionsOr || [] }"
             >
-              <span class="icon">
+              <span class="icon has-text-grey">
                 <i class="icon {{ link.icon }} is-size-3"></i>
               </span>
             </a>
