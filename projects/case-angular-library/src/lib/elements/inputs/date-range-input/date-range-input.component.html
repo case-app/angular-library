@@ -15,7 +15,10 @@
           #dp1="angular-mydatepicker"
           formControlName="dateFrom"
         />
-        <a (click)="clear('dp1')" class="datepicker-clear"
+        <a
+          *ngIf="form.value.dateFrom"
+          (click)="clear('dp1')"
+          class="datepicker-clear"
           ><i class="icon icon-x"></i
         ></a>
       </div>
@@ -32,7 +35,10 @@
           #dp2="angular-mydatepicker"
           formControlName="dateTo"
         />
-        <a (click)="clear('dp2')" class="datepicker-clear"
+        <a
+          *ngIf="form.value.dateTo"
+          (click)="clear('dp2')"
+          class="datepicker-clear"
           ><i class="icon icon-x"></i
         ></a>
       </div>

@@ -16,7 +16,7 @@
         #dp="angular-mydatepicker"
         formControlName="date"
       />
-      <a (click)="clear()" class="datepicker-clear"
+      <a *ngIf="form.value.date" (click)="clear()" class="datepicker-clear"
         ><i class="icon icon-x"></i>
       </a>
     </div>
