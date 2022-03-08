@@ -11,7 +11,8 @@ import {
   FlashMessageService,
   InputType,
   ResourceDefinition,
-  ResourceService
+  ResourceService,
+  SelectOption
 } from '../../../../../case-angular-library/src/public-api'
 import { carDefinition } from '../car.definition'
 
@@ -100,6 +101,17 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       className: 'is-12',
       permission: 'addSettings',
       inputType: InputType.ColorPicker
+    },
+    {
+      id: 'projectId',
+      label: 'Rechercher un projet',
+      placeholder:
+        'Rechercher par N° de projet (interne ou client), par client ou responsable...',
+      inputType: InputType.MultiSelect,
+      className: 'is-12',
+      maxSelectedItems: 2,
+      property: 'userIds',
+      selectOptions: () => this.customResourceService.listSelectOptions('users')
     },
     {
       id: 'projectId',

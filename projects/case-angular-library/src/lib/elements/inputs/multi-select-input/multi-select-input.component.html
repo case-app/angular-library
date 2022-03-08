@@ -23,6 +23,9 @@
         {{ itemNamePlural }} sélectionnés</ng-template
       >
     </ng-container>
+    <ng-container *ngIf="selectedOptions.length && maxSelectedItems">
+      sur {{ maxSelectedItems }}</ng-container
+    >
   </div>
 
   <!-- Dropdown checkbox list -->
