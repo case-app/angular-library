@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
-
+import { NavigationEnd, Router, Scroll } from '@angular/router'
 import { TopMenuLink } from '../../../case-angular-library/src/lib/interfaces/top-menu-link.interface'
 import {
   AuthService,
@@ -52,8 +52,20 @@ export class AppComponent implements OnInit {
   constructor(
     private flashMessageService: FlashMessageService,
     private eventService: EventService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof Scroll && event.anchor) {
+        setTimeout(() => {
+          const element = document.getElementById(event.anchor)
+          if (element) {
+            element.scrollIntoView()
+          }
+        }, 100)
+      }
+    })
+  }
 
   ngOnInit() {
     this.authService.currentUser.subscribe((userRes: User) => {

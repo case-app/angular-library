@@ -37,6 +37,7 @@ export const caseCreateEditTemplate = `
           <ng-container *caseHasPermission="field.permission">
             <div
               class="column is-flex is-align-items-flex-end"
+              [id]="field.id"
               [ngClass]="field.className"
               *ngIf="!field.hidden"
             >
