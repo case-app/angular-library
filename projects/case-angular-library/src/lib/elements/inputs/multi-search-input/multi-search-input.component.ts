@@ -106,6 +106,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
       this.form.get('multiSearch').setValue(this.selectedSearchResults)
       this.valueChanged.emit(this.formatToEmit(this.selectedSearchResults))
+      console.log(this.formatToEmit(this.selectedSearchResults))
     }
   }
 
@@ -160,11 +161,9 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
     // If one item only, we return value directly instead of array.
     if (this.maxSelectedItems === 1) {
       const resourceName = Object.keys(emittedValueObject)[0]
-      const response = {}
-      response[resourceName.slice(0, -1) + 'Id'] =
-        emittedValueObject[resourceName][0]
-
-      return response
+      return {
+        [resourceName.toLowerCase() + 'Id']: emittedValueObject[resourceName][0]
+      }
     }
 
     // Format "array-of-ids" name based on resource name. Ex: cars => carIds.

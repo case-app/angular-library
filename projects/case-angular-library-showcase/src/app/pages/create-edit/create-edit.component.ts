@@ -108,9 +108,10 @@ export class CreateEditComponent extends CaseCreateEditComponent {
         'Rechercher par N° de projet (interne ou client), par client ou responsable...',
       inputType: InputType.MultiSearch,
       className: 'is-12',
-      searchResources: [carDefinition, roleDefinition],
+      maxSelectedItems: 1,
+      searchResources: [carDefinition],
       properties: {
-        cartIds: 'carIds'
+        userId: 'userId'
       }
     }
   ]

@@ -10,7 +10,7 @@ export const carDefinition: ResourceDefinition = {
   title: 'Cars',
   nameSingular: 'car',
   namePlural: 'cars',
-  className: 'Car',
+  className: 'User',
   icon: 'icon-file-text',
   gender: Gender.Feminine,
   slug: 'users',
