@@ -82,7 +82,7 @@ export const caseListTemplate = `
   <!-- Right side -->
   <div class="level-right is-hidden-mobile">
   <div class="level-item tags" >
-  <span class="tag" *ngFor="let keyNumber of definition.keyNumbers" [ngClass]="keyNumber.className">
+  <span class="tag" *ngFor="let keyNumber of definition.keyNumbers" [ngClass]="keyNumber.className || 'is-info'">
   <ng-container *ngIf="keyNumber.loading">Loading...</ng-container>
         <ng-container *ngIf="!keyNumber.loading"
           >{{ keyNumber.label }} : {{ keyNumber.value | euros }}</ng-container

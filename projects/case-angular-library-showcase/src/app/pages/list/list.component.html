@@ -48,11 +48,11 @@
 
   <div class="card p-0 mb-6">
     <div class="table-container">
-      <case-table
+      <!-- <case-table
         [items]="paginator.data"
         [definition]="definition"
         [yields]="yields"
-      ></case-table>
+      ></case-table> -->
     </div>
   </div>
 </ng-container>
@@ -76,6 +76,12 @@
   showErrors="true"
   [validators]="requiredValidator"
 ></case-multi-search-input>
+
+<case-rich-text-input
+  [initialValue]="{ value: '' }"
+  [validators]="requiredValidator"
+  [showErrors]="true"
+></case-rich-text-input>
 
 <case-date-range-input
   [placeholder]="'test'"

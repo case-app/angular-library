@@ -4,13 +4,13 @@
   >
   <div
     class="input-wrapper"
-    [ngClass]="{ 'is-danger': showErrors && form.invalid }"
+    [ngClass]="{ 'is-danger': showErrors && required && !content.length }"
   >
     <ckeditor
       id="rich-text-input-{{ uniqueId }}"
       [editor]="editor"
       tagName="textarea"
-      [data]="initialValue ? initialValue.value : null"
+      [data]="content"
       [config]="editorConfig"
       (change)="onChange($event)"
     ></ckeditor>

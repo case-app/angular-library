@@ -17,6 +17,16 @@ export const roleDefinition: ResourceDefinition = {
   hasListPage: true,
   buttons: [LinkType.CREATE],
   defaultLink: LinkType.EDIT,
+  keyNumbers: [
+    {
+      label: 'test',
+      className: 'is-danger',
+      permission: 'readUsers',
+      extraParams: {
+        calculate: 'test'
+      }
+    }
+  ],
   dropdownLinks: [
     {
       label: 'Editer rôle',

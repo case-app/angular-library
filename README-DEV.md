@@ -7,7 +7,7 @@ CASE Angular Library
 ## Installation
 
 ```bash
-$ npm i
+$ npm i --force
 ```
 
 ## Develop
