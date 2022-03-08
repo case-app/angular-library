@@ -29,7 +29,7 @@ export const caseListTemplate = `
     </a>
     <a
       *ngIf="definition.buttons.indexOf(LinkType.CREATE) > -1"
-      class="button is-rounded is-link ml-5 is-hidden-desktop"
+      class="button is-circle is-link ml-5 is-hidden-desktop"
       routerLink="/{{ definition.path || definition.slug }}/create"
     >
       <i class="icon icon-plus"></i>
