@@ -1,0 +1,9 @@
+// TODO: Set is-danger color.
+.is-danger {
+  border: 1px solid pink;
+}
+
+// CKeditor related.
+:host ::ng-deep .ck.ck-label.ck-voice-label {
+  display: none;
+}

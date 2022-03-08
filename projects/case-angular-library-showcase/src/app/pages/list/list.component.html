@@ -78,8 +78,9 @@
 ></case-multi-search-input>
 
 <case-rich-text-input
-  [initialValue]="{ value: 'testetee' }"
-  label="HELLLo"
+  [initialValue]="{ value: '' }"
+  [validators]="requiredValidator"
+  [showErrors]="true"
 ></case-rich-text-input>
 
 <case-date-range-input

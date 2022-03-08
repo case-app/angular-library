@@ -39,8 +39,7 @@ export class RichTextInputComponent implements CaseInput, OnChanges {
       placeholder: this.placeholder
     }
 
-    this.content =
-      (this.initialValue && this.initialValue.value) || 'testesstet'
+    this.content = (this.initialValue && this.initialValue.value) || ''
     this.required = this.validators.includes(Validators.required)
   }
 

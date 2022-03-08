@@ -4,12 +4,11 @@
   >
   <div
     class="input-wrapper"
-    [ngClass]="{ 'is-danger': showErrors && required && !content }"
+    [ngClass]="{ 'is-danger': showErrors && required && !content.length }"
   >
     <ckeditor
       id="rich-text-input-{{ uniqueId }}"
       [editor]="editor"
-      [title]="'sdgsdgd'"
       tagName="textarea"
       [data]="content"
       [config]="editorConfig"
