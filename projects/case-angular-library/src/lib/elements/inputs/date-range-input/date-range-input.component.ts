@@ -9,6 +9,7 @@ import {
 import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms'
 import {
   AngularMyDatePickerDirective,
+  IAngularMyDpOptions,
   IMyDateModel
 } from 'angular-mydatepicker'
 
@@ -36,7 +37,7 @@ export class DateRangeInputComponent
   @Input() showErrors = false
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
-  @Input() copyDateFromOnDateTo = false
+  @Input() copyDateFromOnDateTo: boolean
 
   @Output() valueChanged: EventEmitter<{
     dateFrom: string
@@ -53,6 +54,7 @@ export class DateRangeInputComponent
     dateTo: null
   })
 
+  dateToOptions: IAngularMyDpOptions
   constructor(private formBuilder: FormBuilder) {
     super()
   }
@@ -102,6 +104,12 @@ export class DateRangeInputComponent
           }
         }
       })
+      this.dateToOptions = {
+        dateFormat: 'dd/mm/yyyy',
+        selectorWidth: '310px',
+        selectorHeight: '45px',
+        defaultView: this.form.value.dateTo
+      }
       this.outputValues.dateTo = newDate
     }
 
