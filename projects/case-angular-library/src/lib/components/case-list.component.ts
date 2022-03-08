@@ -10,6 +10,7 @@ import { KeyNumber } from '../interfaces/key-number.interface'
 import { OrderByChangedEvent } from '../interfaces/order-by-changed-event.interface'
 import { Paginator } from '../interfaces/paginator.interface'
 import { ResourceDefinition } from '../interfaces/resource-definition.interface'
+import { AuthService } from '../services/auth.service'
 import { BreadcrumbService } from '../services/breadcrumb.service'
 import { FlashMessageService } from '../services/flash-message.service'
 import { ResourceService } from '../services/resource.service'
@@ -38,6 +39,7 @@ export class CaseListComponent {
     private breadcrumbService: BreadcrumbService,
     private resourceService: ResourceService,
     private flashMessageService: FlashMessageService,
+    private authService: AuthService,
     @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
@@ -103,10 +105,17 @@ export class CaseListComponent {
     return Promise.all(asyncFilterPromises).then(() => filters)
   }
 
-  getKeyNumbers(queryParams: Params) {
+  async getKeyNumbers(queryParams: Params) {
     if (!this.definition.keyNumbers || !this.definition.keyNumbers.length) {
       return
     }
+
+    const permissions = await this.authService.getPermissions()
+    console.log(permissions)
+
+    this.definition.keyNumbers = this.definition.keyNumbers.filter(
+      (kN: KeyNumber) => !kN.permission || permissions.includes(kN.permission)
+    )
 
     this.definition.keyNumbers.forEach((keyNumber: KeyNumber) => {
       if (keyNumber.subscription) {

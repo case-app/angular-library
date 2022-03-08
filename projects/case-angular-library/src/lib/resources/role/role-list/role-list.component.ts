@@ -5,6 +5,7 @@ import { CaseListComponent } from '../../../components/case-list.component'
 import { CaseConfig } from '../../../interfaces/case-config.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { Yield } from '../../../interfaces/yield.interface'
+import { AuthService } from '../../../services/auth.service'
 import { BreadcrumbService } from '../../../services/breadcrumb.service'
 import { FlashMessageService } from '../../../services/flash-message.service'
 import { ResourceService } from '../../../services/resource.service'
@@ -23,6 +24,7 @@ export class RoleListComponent extends CaseListComponent implements OnInit {
     resourceService: ResourceService,
     breadcrumbService: BreadcrumbService,
     flashMessageService: FlashMessageService,
+    authService: AuthService,
     @Inject('CASE_CONFIG_TOKEN') config: CaseConfig
   ) {
     super(
@@ -31,6 +33,7 @@ export class RoleListComponent extends CaseListComponent implements OnInit {
       breadcrumbService,
       resourceService,
       flashMessageService,
+      authService,
       config
     )
   }
