@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core'
+import { Subscription } from 'rxjs'
 
 import { TopMenuLink } from '../../../case-angular-library/src/lib/interfaces/top-menu-link.interface'
 import {
+  AuthService,
+  EventService,
   FlashMessageService,
-  MenuItem
+  MenuItem,
+  User
 } from '../../../case-angular-library/src/public-api'
 
 @Component({
@@ -22,7 +26,8 @@ export class AppComponent implements OnInit {
       label: 'Go to create-edit',
       icon: 'icon-grid',
       routePath: '/create-edit',
-      permissions: 'doNotExist'
+      queryParams: { selectedTab: 'test1' },
+      permission: 'addRoles'
     },
     {
       label: 'Go to create-edit',
@@ -36,14 +41,53 @@ export class AppComponent implements OnInit {
     },
     {
       label: 'Go to create-edit',
-      icon: 'icon-trash',
+      icon: 'icon-pie-chart',
       routePath: '/create-edit'
     }
   ]
 
-  constructor(private flashMessageService: FlashMessageService) {}
+  private currentUser: any
+  private subscription = new Subscription()
+
+  constructor(
+    private flashMessageService: FlashMessageService,
+    private eventService: EventService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
+    this.authService.currentUser.subscribe((userRes: User) => {
+      this.currentUser = userRes
+    })
+
+    this.subscription.add(
+      this.eventService.routeChanged.subscribe((routeChanged) => {
+        // Scroll top
+        window.scrollTo(0, 0)
+
+        this.path = routeChanged.url.includes('?')
+          ? routeChanged.url.substring(0, routeChanged.url.indexOf('?'))
+          : routeChanged.url
+        this.isLogin =
+          this.path.includes('/login') ||
+          this.path.includes('forgot-password') ||
+          this.path.includes('reset-password')
+
+        if (
+          !this.isLogin &&
+          this.authService.isLoggedIn() &&
+          !this.currentUser
+        ) {
+          this.getCurrentUser()
+        }
+      })
+    )
     this.flashMessageService.info('Welcome to CASE Angular Library SHOWCASE')
+  }
+
+  getCurrentUser(): void {
+    this.authService.me().subscribe((userRes: any) => {
+      this.authService.currentUser.next(userRes)
+    })
   }
 }

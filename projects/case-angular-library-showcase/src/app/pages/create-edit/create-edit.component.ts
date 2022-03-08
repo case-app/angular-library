@@ -98,8 +98,8 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       label: 'Couleur',
       property: 'color',
       className: 'is-6',
-      inputType: InputType.ColorPicker,
-      required: true
+      permission: 'addSettings',
+      inputType: InputType.ColorPicker
     },
     {
       label: 'Rechercher un projet',
