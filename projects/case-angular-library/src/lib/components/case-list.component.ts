@@ -111,7 +111,6 @@ export class CaseListComponent {
     }
 
     const permissions = await this.authService.getPermissions()
-    console.log(permissions)
 
     this.definition.keyNumbers = this.definition.keyNumbers.filter(
       (kN: KeyNumber) => !kN.permission || permissions.includes(kN.permission)

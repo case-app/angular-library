@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
     {
       label: 'Go to create-edit',
       icon: 'icon-grid',
-      routePath: '/create-edit'
+      routePath: '/create-edit',
+      permissions: 'doNotExist'
     },
     {
       label: 'Go to create-edit',
