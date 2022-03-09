@@ -106,7 +106,6 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
       this.form.get('multiSearch').setValue(this.selectedSearchResults)
       this.valueChanged.emit(this.formatToEmit(this.selectedSearchResults))
-      console.log(this.formatToEmit(this.selectedSearchResults))
     }
   }
 

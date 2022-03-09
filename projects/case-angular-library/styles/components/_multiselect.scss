@@ -1,16 +1,16 @@
 .multiselect-box {
   .box {
-    position: absolute;
+    @include mobile {
+      position: relative;
+    }
+    @include tablet {
+      position: absolute;
+    }
     height: auto;
+    max-height: 600px;
     min-width: 100%;
     z-index: 6;
-    > * {
-      padding: 6px $column-gap;
-      display: inline-flex;
-      align-items: start;
-      justify-content: flex-start;
-      width: 100%;
-    }
+    overflow-y: auto;
   }
 }
 
