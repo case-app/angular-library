@@ -3,13 +3,15 @@
     <a
       class="has-avatar tooltip has-tooltip has-tooltip-right"
       [routerLink]="imageObject.link"
-      [attr.data-tooltip]="imageObject.label"
+      [attr.data-tooltip]="
+        imageObject.tooltip ? imageObject.tooltip : imageObject.title
+      "
     >
       <case-image
         [path]="imageObject.image"
         [replacement]="defaultImage"
-        [title]="imageObject.label"
-        [alt]="imageObject.label"
+        [title]="imageObject.title"
+        [alt]="imageObject.title"
         className="avatar"
       >
       </case-image>

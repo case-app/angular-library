@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core'
 export class ImageYieldComponent {
   @Input() imageObjects: {
     image: string
-    label?: string
-    secondLabel?: string
+    title?: string
+    tooltip?: string
     link?: string
   }[]
   @Input() defaultImage = '/assets/images/avatar.svg'
