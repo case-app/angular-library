@@ -2,7 +2,11 @@ export const caseListTemplate = `
 <!-- Heading -->
 <div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-2">
   <div class="left-part">
+
     <h1 class="title is-2 has-text-weight-light">
+       <span class="icon is-large">
+          <i class="icon {{definition.icon}} is-size-2 has-text-link"></i>
+        </span>
       {{ definition.title }}
     </h1>
   </div>
