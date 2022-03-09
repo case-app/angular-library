@@ -53,6 +53,7 @@ export const caseCreateEditTemplate = `
               [searchParams]="field.searchParams"
               [maxSelectedItems]="field.maxSelectedItems"
               [selectOptions]="field.selectOptions"
+              [helpText]="field.helpText"
               [min]="field.min"
               [max]="field.max"
               [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
