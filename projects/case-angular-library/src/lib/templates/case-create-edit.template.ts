@@ -2,7 +2,10 @@ export const caseCreateEditTemplate = `
 <section>
   <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
     <div class="left-part">
-      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
+      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'"> 
+       <span class="icon is-large">
+          <i class="icon {{definition.icon}} is-size-2 has-text-link"></i>
+        </span>
         Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
         {{ definition.nameSingular }}
       </h1>
