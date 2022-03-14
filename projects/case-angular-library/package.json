@@ -1,13 +1,13 @@
 {
   "name": "@case-app/angular-library",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "dependencies": {
     "@ckeditor/ckeditor5-angular": "^2.0.2",
     "@ckeditor/ckeditor5-build-classic": "^32.0.0",
     "@fortawesome/fontawesome-free": "^6.0.0",
     "@types/ckeditor__ckeditor5-core": "^11.0.2",
     "angular-calendar": "^0.28.16",
-    "angular-mydatepicker": "^0.10.3",
+    "angular-mydatepicker": "^0.11.5",
     "bulma": "^0.9.3",
     "bulma-switch": "^2.0.0",
     "bulma-tooltip": "^3.0.0",

@@ -7,7 +7,7 @@ import {
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 import { ChangeEvent, CKEditor5 } from '@ckeditor/ckeditor5-angular'
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
 
