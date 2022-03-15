@@ -60,14 +60,12 @@ export class ActionService {
   }
 
   private triggerDelete(action: Action): Promise<void> {
-    this.deleteAction.next(action.delete)
-    // We reject promises to prevent changing
-    return Promise.reject()
+    return Promise.resolve(this.deleteAction.next(action.delete))
   }
 
   private triggerOpenCreateEditModal(action: Action): Promise<void> {
-    this.openCreateEditModalAction.next(action.openCreateEditModal)
-    // We reject promises to prevent changing
-    return Promise.reject()
+    return Promise.resolve(
+      this.openCreateEditModalAction.next(action.openCreateEditModal)
+    )
   }
 }

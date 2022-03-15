@@ -81,9 +81,10 @@
           <ng-container *ngFor="let link of links">
             <a
               [routerLink]="[link.routePath]"
-              class="button is-circle is-white mr-5 has-tooltip has-tooltip-left"
+              [queryParams]="link.queryParams"
               [attr.data-tooltip]="link.label"
-              *caseHasPermission="{ requireOr: link.permissionsOr || [] }"
+              *caseHasPermission="link.permission"
+              class="button is-circle is-white mr-5 has-tooltip has-tooltip-left"
             >
               <span class="icon has-text-grey">
                 <i class="icon {{ link.icon }} is-size-3"></i>

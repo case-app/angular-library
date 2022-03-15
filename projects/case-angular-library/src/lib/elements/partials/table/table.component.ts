@@ -8,8 +8,6 @@ import { OrderByChangedEvent } from '../../../interfaces/order-by-changed-event.
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { Yield } from '../../../interfaces/yield.interface'
 import { AuthService } from '../../../services/auth.service'
-import { FlashMessageService } from '../../../services/flash-message.service'
-import { ResourceService } from '../../../services/resource.service'
 
 @Component({
   selector: 'case-table',
@@ -34,17 +32,10 @@ export class TableComponent implements OnInit {
   itemToDelete: any
   YieldType = YieldType
 
-  constructor(
-    private authService: AuthService,
-    private resourceService: ResourceService,
-    private flashMessageService: FlashMessageService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   async ngOnInit() {
-    // TODO: reset that code
-    const permissions = []
-    // const permissions = await this.authService.getPermissions()
+    const permissions = await this.authService.getPermissions()
 
     this.yields = this.hiddenProps.length
       ? this.yields.filter(

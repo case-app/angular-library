@@ -11,7 +11,8 @@ import {
   FlashMessageService,
   InputType,
   ResourceDefinition,
-  ResourceService
+  ResourceService,
+  SelectOption
 } from '../../../../../case-angular-library/src/public-api'
 import { carDefinition } from '../car.definition'
 
@@ -26,7 +27,7 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       id: 'name',
       label: 'Nom',
       property: 'name',
-      className: 'is-3',
+      className: 'is-12',
       inputType: InputType.Text,
       required: true,
       initialValue: () =>
@@ -53,14 +54,14 @@ export class CreateEditComponent extends CaseCreateEditComponent {
           value: 'test 2'
         }
       ],
-      className: 'is-3',
+      className: 'is-12',
       required: true
     },
     {
       id: 'email',
       label: 'Email',
       property: 'email',
-      className: 'is-3',
+      className: 'is-12',
       inputType: InputType.Email,
       required: true,
       validators: [Validators.email],
@@ -71,7 +72,7 @@ export class CreateEditComponent extends CaseCreateEditComponent {
     {
       label: 'Mot de passe',
       property: 'password',
-      className: 'is-3',
+      className: 'is-12',
       inputType: InputType.Password,
       createValidators: [Validators.required],
       editValidators: [],
@@ -83,7 +84,7 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       label: 'Avatar',
       placeholder: 'Choisir un fichier image',
       property: 'image',
-      className: 'is-3',
+      className: 'is-12',
       inputType: InputType.Image
     },
     {
@@ -91,25 +92,38 @@ export class CreateEditComponent extends CaseCreateEditComponent {
       helpText: `Seul les utilisateurs actifs peuvent se connecter à l'application`,
       property: 'isActive',
       initialValue: { value: false },
-      className: 'is-3',
+      className: 'is-12',
       inputType: InputType.Checkbox
     },
     {
       label: 'Couleur',
       property: 'color',
-      className: 'is-6',
-      inputType: InputType.ColorPicker,
-      required: true
+      className: 'is-12',
+      permission: 'addSettings',
+      inputType: InputType.ColorPicker
     },
     {
+      id: 'projectId',
+      label: 'Rechercher un projet',
+      placeholder:
+        'Rechercher par N° de projet (interne ou client), par client ou responsable...',
+      inputType: InputType.MultiSelect,
+      className: 'is-12',
+      maxSelectedItems: 2,
+      property: 'userIds',
+      selectOptions: () => this.customResourceService.listSelectOptions('users')
+    },
+    {
+      id: 'projectId',
       label: 'Rechercher un projet',
       placeholder:
         'Rechercher par N° de projet (interne ou client), par client ou responsable...',
       inputType: InputType.MultiSearch,
-      className: 'is-6',
-      searchResources: [carDefinition, roleDefinition],
+      className: 'is-12',
+      maxSelectedItems: 1,
+      searchResources: [carDefinition],
       properties: {
-        cartIds: 'carIds'
+        userId: 'userId'
       }
     }
   ]

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { IAngularMyDpOptions, IMyDateModel } from 'angular-mydatepicker'
-import * as moment from 'moment'
+import moment from 'moment'
 
 @Component({
   template: 'NO UI TO BE FOUND HERE!'

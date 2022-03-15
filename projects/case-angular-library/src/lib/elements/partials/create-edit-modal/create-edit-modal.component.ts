@@ -60,6 +60,7 @@ export class CreateEditModalComponent
       this.renderer.addClass(document.querySelector('html'), 'is-clipped')
     })
   }
+
   close() {
     this.showModal = false
     this.renderer.removeClass(document.querySelector('html'), 'is-clipped')
