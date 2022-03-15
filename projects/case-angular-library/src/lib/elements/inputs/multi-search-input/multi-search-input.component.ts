@@ -31,7 +31,6 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   }
   @Input() placeholder: string
   @Input() helpText: string
-
   @Input() resources: ResourceDefinition[]
   @Input() params: { [key: string]: string }
   @Input() maxSelectedItems
@@ -73,14 +72,13 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
   // Fetch full objects from API to display them. Based on initialValue (ids ony).
   getSearchResultObjects(): void {
-    // If we have an initialValue.
     if (
       this.initialValue &&
       Object.values(this.initialValue).some((v) => !!v)
     ) {
       this.resourceService
         .list('search/get-search-result-objects', this.initialValue)
-        .subscribe((initialSearchResultRes) => {
+        .subscribe((initialSearchResultRes: SearchResult[]) => {
           this.selectedSearchResults = initialSearchResultRes
         })
     }
@@ -172,7 +170,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
     }, {})
   }
 
-  // Use arrowKeys and enter to select suggested themes with keyboard
+  // Use arrowKeys and enter to select suggested themes with keyboard.
   navigateSuggestedValues(key: string): void {
     if (key === 'ArrowDown') {
       if (typeof this.focusedItemIndex === 'undefined') {
