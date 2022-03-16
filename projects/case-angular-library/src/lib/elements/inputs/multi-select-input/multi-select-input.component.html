@@ -21,11 +21,11 @@
         >
         <ng-template ngPluralCase="other"
           >{{ selectedOptions.length }} {{ itemNamePlural }} sélectionnés
-          <ng-container *ngIf="selectedOptions.length && maxSelectedItems">
-            sur {{ maxSelectedItems }}</ng-container
-          ></ng-template
-        >
+        </ng-template>
       </ng-container>
+      <ng-container *ngIf="selectedOptions.length && maxSelectedItems">
+        sur {{ maxSelectedItems }}</ng-container
+      >
     </div>
 
     <!-- Dropdown checkbox list -->

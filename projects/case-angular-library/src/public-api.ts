@@ -69,7 +69,6 @@ export { ActionService } from './lib/services/action.service'
 export { CaseCreateEditComponent } from './lib/components/case-create-edit.component'
 export { CaseListComponent } from './lib/components/case-list.component'
 export { CaseDetailComponent } from './lib/components/case-detail.component'
-export { CaseChartComponent } from './lib/components/case-chart.component'
 export { CaseDatepickerComponent } from './lib/components/case-datepicker.component'
 
 // Elements: Inputs.
