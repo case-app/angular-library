@@ -54,7 +54,6 @@ export class DateRangeInputComponent
     dateTo: null
   })
 
-  dateToOptions: IAngularMyDpOptions
   constructor(private formBuilder: FormBuilder) {
     super()
   }
@@ -94,22 +93,15 @@ export class DateRangeInputComponent
     this.outputValues[propName] = newDate
     this.form.get(propName).setValue(newDate)
 
-    if (this.copyDateFromOnDateTo && wasNull && this.outputValues.dateFrom) {
+    if (
+      this.copyDateFromOnDateTo &&
+      this.outputValues.dateFrom &&
+      !this.outputValues.dateTo
+    ) {
       this.form.patchValue({
-        dateTo: {
-          date: {
-            year: event.singleDate.date.year,
-            month: event.singleDate.date.month,
-            day: event.singleDate.date.day
-          }
-        }
+        dateTo: this.formatStandardDate(newDate)
       })
-      this.dateToOptions = {
-        dateFormat: 'dd/mm/yyyy',
-        selectorWidth: '310px',
-        selectorHeight: '45px',
-        defaultView: this.form.value.dateTo
-      }
+
       this.outputValues.dateTo = newDate
     }
 

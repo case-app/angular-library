@@ -29,7 +29,7 @@
           id="date-to-{{ uniqueId }}-input"
           class="input"
           [placeholder]="secondPlaceholder || 'Date de fin...'"
-          [options]="dateToOptions"
+          [options]="datePickerOptions"
           (dateChanged)="onDateChanged($event, 'dateTo')"
           (click)="dp2.openCalendar()"
           #dp2="angular-mydatepicker"

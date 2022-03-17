@@ -17,7 +17,10 @@ export interface Yield {
   tooltip?: string
 
   // Custom link on click.
-  link?: string | ((item: any) => string) | { path: string; queryParams: {} }
+  link?: string | ((item: any) => string)
+
+  // Disable link to main resource. Useful when dealing with yields that have their own links.
+  disableItemLink?: boolean
 
   // Disables possibility to order by this prop. Useful when sorting for this prop does not make sense or is a calculated prop.
   disableOrderBy?: boolean

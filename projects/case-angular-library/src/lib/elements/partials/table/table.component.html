@@ -62,7 +62,9 @@
         (click)="
           goToLink(
             yield.link || item.link,
-            item.isDisabledHighlight || yield.action
+            yield.disableItemLink ||
+              item.isDisabledHighlight ||
+              yield.caseAction
           )
         "
       >

@@ -10,7 +10,7 @@ export class ImageYieldComponent {
     image: string
     title?: string
     tooltip?: string
-    link?: { path?: string; queryParams?: {} }
+    link?: { path: string; queryParams?: { [key: string]: string } }
   }[]
   @Input() defaultImage = '/assets/images/avatar.svg'
   @Input() label: string
