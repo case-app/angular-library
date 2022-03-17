@@ -4,15 +4,12 @@
       class="has-avatar tooltip has-tooltip has-tooltip-right"
       routerLink="{{ imageObject.link ? imageObject.link.path : null }}"
       [queryParams]="imageObject.link ? imageObject.link.queryParams : null"
-      [attr.data-tooltip]="
-        imageObject.tooltip ? imageObject.tooltip : imageObject.title
-      "
     >
       <case-image
         [path]="imageObject.image"
         [replacement]="defaultImage"
-        [title]="imageObject.title"
-        [alt]="imageObject.title"
+        [title]="imageObject.label"
+        [alt]="imageObject.label"
         className="avatar"
       >
       </case-image>

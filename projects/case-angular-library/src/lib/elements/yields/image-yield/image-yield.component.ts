@@ -8,8 +8,7 @@ import { Component, Input } from '@angular/core'
 export class ImageYieldComponent {
   @Input() imageObjects: {
     image: string
-    title?: string
-    tooltip?: string
+    label?: string
     link?: { path: string; queryParams?: { [key: string]: string } }
   }[]
   @Input() defaultImage = '/assets/images/avatar.svg'
