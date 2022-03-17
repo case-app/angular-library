@@ -37,31 +37,34 @@ export const caseCreateEditTemplate = `
       <!-- Fields -->
       <div class="columns is-multiline is-align-items-flex-end">
         <ng-container *ngFor="let field of resolvedFields">
-          <div
-            class="column is-flex is-align-items-flex-end"
-            [ngClass]="field.className"
-            *ngIf="!field.hidden"
-          >
-            <case-input
-              [type]="field.inputType"
-              [label]="field.label"
-              [placeholder]="field.placeholder"
-              [secondPlaceholder]="field.secondPlaceholder"
-              [initialValue]="field.initialValue"
-              [searchResources]="field.searchResources"
-              [resourceName]="definition.slug"
-              [searchParams]="field.searchParams"
-              [maxSelectedItems]="field.maxSelectedItems"
-              [selectOptions]="field.selectOptions"
-              [helpText]="field.helpText"
-              [min]="field.min"
-              [max]="field.max"
-              [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
-              [validators]="field.validators"
-              [showErrors]="showErrors"
-              (valueChanged)="onValueChanged($event, field)"
-            ></case-input>
-          </div>
+          <ng-container *caseHasPermission="field.permission">
+            <div
+              class="column is-flex is-align-items-flex-end"
+              [id]="field.id"
+              [ngClass]="field.className"
+              *ngIf="!field.hidden"
+            >
+              <case-input
+                [type]="field.inputType"
+                [label]="field.label"
+                [placeholder]="field.placeholder"
+                [secondPlaceholder]="field.secondPlaceholder"
+                [initialValue]="field.initialValue"
+                [searchResources]="field.searchResources"
+                [resourceName]="definition.slug"
+                [searchParams]="field.searchParams"
+                [maxSelectedItems]="field.maxSelectedItems"
+                [selectOptions]="field.selectOptions"
+                [helpText]="field.helpText"
+                [min]="field.min"
+                [max]="field.max"
+                [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
+                [validators]="field.validators"
+                [showErrors]="showErrors"
+                (valueChanged)="onValueChanged($event, field)"
+              ></case-input>
+            </div>
+          </ng-container>
         </ng-container>
       </div>
     </div>

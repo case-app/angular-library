@@ -7,7 +7,7 @@ CASE Angular Library
 ## Installation
 
 ```bash
-$ npm i
+$ npm i --force
 ```
 
 ## Develop
@@ -30,6 +30,12 @@ The showcase app in this repository "case-angular-library-showcase" is an exampl
 
 ```bash
 ng serve
+```
+
+At the same time, _you should open a CASE server instance_ at the same time. The best way is to open the [CASE](https://github.com/case-app/case) repository and launch the following task
+
+```bash
+npm run start:server
 ```
 
 To test it before publishing, it is recommended to test it on a local CASE app install with a NPM Link to the library as explained below.

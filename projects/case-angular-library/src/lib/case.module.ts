@@ -11,11 +11,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular'
 import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
-import { ChartsModule } from 'ng2-charts'
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete'
 
 import { ActionService } from '../public-api'
-import { CaseChartComponent } from './components/case-chart.component'
 import { CaseCreateEditComponent } from './components/case-create-edit.component'
 import { CaseDatepickerComponent } from './components/case-datepicker.component'
 import { CaseDetailComponent } from './components/case-detail.component'
@@ -119,7 +117,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     CaseCreateEditComponent,
     CaseListComponent,
     CaseDetailComponent,
-    CaseChartComponent,
     CaseDatepickerComponent,
 
     // Elements: Inputs
@@ -198,7 +195,6 @@ export function jwtOptionsFactory(authService: AuthService) {
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    ChartsModule,
     CommonModule,
     CKEditorModule,
     GooglePlaceModule,
@@ -228,7 +224,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     CaseListComponent,
     CaseDetailComponent,
     CaseCreateEditComponent,
-    CaseChartComponent,
     CaseDatepickerComponent,
 
     // Elements: Inputs

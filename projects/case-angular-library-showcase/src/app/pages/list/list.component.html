@@ -4,7 +4,9 @@
 >
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">Cars (dummy resource)</h1>
-    <p><a routerLink="/create-edit">Go to create edit page</a></p>
+    <p>
+      <a routerLink="/create-edit" fragment="roleId">Go to create edit page</a>
+    </p>
   </div>
 </div>
 
@@ -76,6 +78,12 @@
   showErrors="true"
   [validators]="requiredValidator"
 ></case-multi-search-input>
+
+<case-rich-text-input
+  [initialValue]="{ value: '' }"
+  [validators]="requiredValidator"
+  [showErrors]="true"
+></case-rich-text-input>
 
 <case-date-range-input
   [placeholder]="'test'"

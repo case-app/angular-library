@@ -259,8 +259,9 @@ export class CaseCreateEditComponent {
         this.submitSuccessful.emit()
 
         if (this.isModal) {
-          return
+          return this.close()
         }
+
         let redirectTo: string = this.redirectTo && JSON.parse(this.redirectTo)
         if (!redirectTo) {
           if (this.definition.hasDetailPage) {
@@ -336,5 +337,9 @@ export class CaseCreateEditComponent {
     }
     console.log(invalid)
     return invalid
+  }
+
+  close() {
+    // Empty function to be override in modal.
   }
 }

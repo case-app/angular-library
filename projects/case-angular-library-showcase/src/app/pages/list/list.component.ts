@@ -24,8 +24,16 @@ export class ListComponent implements OnInit {
 
   paginator: Paginator<any> = {
     data: [
-      { id: 1, name: 'Volvo', country: 'Sweden', isActive: true },
-      { id: 2, name: 'Mercedes', country: false, isActive: false }
+      { id: 10, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 11, name: 'Mercedes', country: false, isActive: false },
+      { id: 20, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 21, name: 'Mercedes', country: false, isActive: false },
+      { id: 30, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 31, name: 'Mercedes', country: false, isActive: false },
+      { id: 30, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 31, name: 'Mercedes', country: false, isActive: false },
+      { id: 40, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 41, name: 'Mercedes', country: false, isActive: false }
     ],
     currentPage: 1,
     lastPage: 1,
