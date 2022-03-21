@@ -64,7 +64,8 @@
             yield.link || item.link,
             yield.disableItemLink ||
               item.isDisabledHighlight ||
-              yield.caseAction
+              yield.caseAction ||
+              yield.type === YieldType.Address
           )
         "
       >
