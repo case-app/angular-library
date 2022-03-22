@@ -7,6 +7,7 @@ import {
   InputType,
   Paginator,
   ResourceDefinition,
+  ResourceMode,
   Yield,
   YieldType
 } from '../../../../../case-angular-library/src/public-api'
@@ -56,18 +57,34 @@ export class ListComponent implements OnInit {
       type: YieldType.Currency
     },
     {
-      label: 'On production',
-      property: 'isActive',
-      secondProperty: 'country',
-      action: (car) => ({
-        type: ActionType.Delete,
-        delete: {
-          itemToDelete: car,
+      label: 'Paiement',
+      property: 'payedAt',
+      secondProperty: 'payedAtFormatted',
+      type: YieldType.Switch,
+      action: (invoice) => ({
+        type: ActionType.OpenCreateEditModal,
+        openCreateEditModal: {
+          title: `Attribuer un réglement pour la facture N° ${invoice.number}`,
           definition: carDefinition,
-          navigateTo: '/'
+          mode: ResourceMode.Patch,
+          item: invoice,
+          patchURL: `/invoices/${invoice.id}/pay`,
+          keyPoints: [
+            {
+              label: 'Montant TTC',
+              value: invoice.id.toString()
+            }
+          ],
+          fields: [
+            {
+              label: 'Date du réglement',
+              property: 'payedAt',
+              inputType: InputType.Datepicker,
+              required: true
+            }
+          ]
         }
-      }),
-      type: YieldType.Switch
+      })
     }
   ]
   resolvedFilters: Filter[] = [
@@ -105,7 +122,7 @@ export class ListComponent implements OnInit {
         }
       ],
       definition: carDefinition,
-      mode: 'create',
+      mode: ResourceMode.Create,
       fields: [
         {
           label: 'ticket name',

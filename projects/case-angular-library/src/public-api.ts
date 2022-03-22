@@ -13,16 +13,18 @@ export { EurosPipe } from './lib/pipes/euros.pipe'
 export { StripHtmlPipe } from './lib/pipes/strip-html.pipe'
 export { TruncatePipe } from './lib/pipes/truncate.pipe'
 
-// Enums
+// Enums.
+export { ActionType } from './lib/enums/action-type.enum'
 export { FileMime } from './lib/enums/file-mime.enum'
 export { Gender } from './lib/enums/gender.enum'
 export { ImageSize } from './lib/enums/image-size.enum'
 export { InputType } from './lib/enums/input-type.enum'
 export { LinkType } from './lib/enums/link-type.enum'
+export { ResourceMode } from './lib/enums/resource-mode.enum'
 export { YieldType } from './lib/enums/yield-type.enum'
-export { ActionType } from './lib/enums/action-type.enum'
 
-// Interfaces
+// Interfaces.
+export { Action } from './lib/interfaces/actions/action.interface'
 export { CaseConfig } from './lib/interfaces/case-config.interface'
 export { CaseInput } from './lib/interfaces/case-input.interface'
 export { ActionButton } from './lib/interfaces/action-button.interface'
@@ -47,7 +49,6 @@ export { Role } from './lib/interfaces/resources/role.interface'
 export { User } from './lib/interfaces/resources/user.interface'
 export { MenuItem } from './lib/interfaces/menu-item.interface'
 export { TopMenuLink } from './lib/interfaces/top-menu-link.interface'
-export { Action } from './lib/interfaces/actions/action.interface'
 
 // Directives.
 export { HasPermissionDirective } from './lib/directives/has-permission.directive'

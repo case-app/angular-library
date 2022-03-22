@@ -2,7 +2,6 @@ import { Component } from '@angular/core'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
-import { roleDefinition } from '../../../../../case-angular-library/src/lib/resources/role/role.definition'
 import {
   BreadcrumbService,
   CaseCreateEditComponent,
@@ -11,8 +10,7 @@ import {
   FlashMessageService,
   InputType,
   ResourceDefinition,
-  ResourceService,
-  SelectOption
+  ResourceService
 } from '../../../../../case-angular-library/src/public-api'
 import { carDefinition } from '../car.definition'
 

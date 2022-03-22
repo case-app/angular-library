@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router'
 
 import { CaseCreateEditComponent } from '../../../components/case-create-edit.component'
+import { ResourceMode } from '../../../enums/resource-mode.enum'
 import { ActionService } from '../../../services/action.service'
 import { BreadcrumbService } from '../../../services/breadcrumb.service'
 import { FlashMessageService } from '../../../services/flash-message.service'
@@ -19,7 +20,7 @@ export class CreateEditModalComponent
 {
   title: string
   helpText: string
-  mode: string
+  mode: ResourceMode
   keyPoints: { label: string; value: string }[]
 
   isModal = true
@@ -52,7 +53,9 @@ export class CreateEditModalComponent
       this.mode = action.mode
       this.item = action.item
       this.keyPoints = action.keyPoints
+      this.patchURL = action.patchURL
       this.redirectTo = action.redirectTo
+      this.redirectToQueryParams = action.redirectToQueryParams
 
       await this.initCreateEditView()
 
