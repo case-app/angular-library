@@ -1,7 +1,11 @@
 <table class="table is-fullwidth is-hoverable" width="100%">
   <thead>
     <tr>
-      <th *ngFor="let yield of yields">
+      <th
+        *ngFor="let yield of yields"
+        class="{{ yield.headingClassName }}"
+        [ngClass]="{ 'has-text-right': yield.type === YieldType.Currency }"
+      >
         <span *ngIf="yield.disableOrderBy">{{ yield.label }}</span>
         <a class="no-deco" (click)="order(yield)" *ngIf="!yield.disableOrderBy"
           >{{ yield.label }}
@@ -56,7 +60,8 @@
         class="{{ yield.className }}"
         [ngClass]="{
           pointer: definition.defaultLink,
-          'has-custom-link': yield.link
+          'has-custom-link': yield.link,
+          'has-text-right': yield.type === YieldType.Currency
         }"
         [ngSwitch]="yield.type"
         (click)="
@@ -65,7 +70,8 @@
             yield.disableItemLink ||
               item.isDisabledHighlight ||
               yield.caseAction ||
-              yield.type === YieldType.Address
+              yield.type === YieldType.Address ||
+              yield.type === YieldType.Switch
           )
         "
       >

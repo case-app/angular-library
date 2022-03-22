@@ -34,8 +34,9 @@ export interface Yield {
   // Column width in pixels or in percentage when displayed in a table. Ex: 120, '10%'.
   width?: number | string
 
-  // Class of the yield
+  // Custom classes for yield and heading.
   className?: string
+  headingClassName?: string
 
   // Specific to one or several YieldType.
   icon?: string

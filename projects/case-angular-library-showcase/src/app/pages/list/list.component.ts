@@ -50,6 +50,12 @@ export class ListComponent implements OnInit {
       type: YieldType.Text
     },
     {
+      label: 'Price',
+      property: 'id',
+      headingClassName: 'has-text-info',
+      type: YieldType.Currency
+    },
+    {
       label: 'On production',
       property: 'isActive',
       secondProperty: 'country',
