@@ -57,6 +57,11 @@ export class CaseCreateEditComponent {
     if (this.activatedRoute) {
       this.mode = this.activatedRoute.snapshot.data.mode
       this.redirectTo = this.activatedRoute.snapshot.queryParams.redirectTo
+      this.redirectToQueryParams =
+        this.activatedRoute.snapshot.queryParams.redirectToQueryParams &&
+        JSON.parse(
+          this.activatedRoute.snapshot.queryParams.redirectToQueryParams
+        )
 
       // Apply special rules from queryParams.
       if (this.activatedRoute.snapshot.queryParams.specialRules) {
@@ -262,16 +267,13 @@ export class CaseCreateEditComponent {
       case ResourceMode.Patch:
         observable = this.resourceService.patch(this.patchURL, this.form.value)
         break
-
-      default:
-        break
     }
 
     this.loading = true
     observable.subscribe(
       (res: { id: number }) => {
         this.flashMessageService.success(
-          `${this.definition.gender === 'Masculine' ? 'le' : 'la'} ${
+          `${this.definition.gender === 'Masculine' ? 'Le' : 'La'} ${
             this.definition.nameSingular
           } a bien été ${
             this.mode === ResourceMode.Create
@@ -281,7 +283,7 @@ export class CaseCreateEditComponent {
               : this.definition.gender === 'Masculine'
               ? 'mis à jour'
               : 'mise à jour'
-          }`
+          }.`
         )
         this.loading = false
 
