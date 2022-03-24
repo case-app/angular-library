@@ -8,8 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router'
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt'
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular'
-import { CalendarModule, DateAdapter } from 'angular-calendar'
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { AngularMyDatePickerModule } from 'angular-mydatepicker'
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete'
 
@@ -191,10 +189,6 @@ export function jwtOptionsFactory(authService: AuthService) {
     AngularMyDatePickerModule,
     BrowserModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
     CommonModule,
     CKEditorModule,
     GooglePlaceModule,
