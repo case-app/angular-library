@@ -95,6 +95,28 @@ export class ListComponent implements OnInit {
       initialValue: {
         value: 'true'
       }
+    },
+    {
+      label: 'Select',
+      inputType: InputType.Select,
+      property: 'toBillOnly',
+      selectOptions: [
+        {
+          label: 'value 1',
+          value: 1
+        },
+        {
+          label: 'value 2',
+          value: 2
+        },
+        {
+          label: 'value 3',
+          value: 3
+        }
+      ],
+      initialValue: {
+        value: 3
+      }
     }
   ]
 

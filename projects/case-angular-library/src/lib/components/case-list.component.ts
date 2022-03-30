@@ -146,7 +146,7 @@ export class CaseListComponent {
 
     // Specific filters.
     this.resolvedFilters.forEach((filter: Filter) => {
-      filter.initialValue = {}
+      filter.initialValue = filter.initialValue || {}
 
       if (filter.property) {
         filter.properties = { value: filter.property }
