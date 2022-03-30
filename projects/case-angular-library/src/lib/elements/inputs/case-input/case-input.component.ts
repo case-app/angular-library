@@ -31,7 +31,7 @@ export class CaseInputComponent implements CaseInput {
   @Input() accept: string
   @Input() min: number
   @Input() max: number
-  @Input() maxSelectedItems = 50
+  @Input() maxSelectedItems: number
   @Input() searchParams: { [key: string]: string }
   @Input() copyDateFromOnDateTo = false
   @Input() secondPlaceholder: string
