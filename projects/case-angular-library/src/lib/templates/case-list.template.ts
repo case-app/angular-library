@@ -65,6 +65,7 @@ export const caseListTemplate = `
           [searchResources]="filter.searchResources"
           [placeholder]="filter.placeholder"
           [secondPlaceholder]="filter.secondPlaceholder"
+          [required]="filter.required"
           (valueChanged)="onFilterValueChanged($event, filter)"
         ></case-input>
       </div>

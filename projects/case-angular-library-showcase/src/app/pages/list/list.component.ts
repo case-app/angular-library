@@ -100,6 +100,7 @@ export class ListComponent implements OnInit {
       label: 'Select',
       inputType: InputType.Select,
       property: 'toBillOnly',
+      required: true,
       selectOptions: [
         {
           label: 'value 1',

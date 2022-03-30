@@ -27,13 +27,13 @@ export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
   @Input() showErrors = false
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
+  @Input() required: boolean
 
   @Output() valueChanged: EventEmitter<{
     value: string
   }> = new EventEmitter()
 
   form: FormGroup
-  required: boolean
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -48,7 +48,8 @@ export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
       })
     }
 
-    this.required = this.validators.includes(Validators.required)
+    this.required =
+      this.validators.includes(Validators.required) || this.required
   }
 
   // Reset form value if we change select options.

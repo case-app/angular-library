@@ -11,4 +11,5 @@ export interface CaseInput {
   // Optional
   placeholder?: string
   selectOptions?: any[]
+  required?: boolean
 }

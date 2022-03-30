@@ -35,6 +35,7 @@ export class CaseInputComponent implements CaseInput {
   @Input() searchParams: { [key: string]: string }
   @Input() copyDateFromOnDateTo = false
   @Input() secondPlaceholder: string
+  @Input() required: boolean
 
   @Output() valueChanged: EventEmitter<any> = new EventEmitter()
 

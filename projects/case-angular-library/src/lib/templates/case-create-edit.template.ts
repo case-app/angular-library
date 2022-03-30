@@ -59,6 +59,7 @@ export const caseCreateEditTemplate = `
                 [max]="field.max"
                 [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
                 [validators]="field.validators"
+                [helpText]="field.helpText"
                 [showErrors]="showErrors"
                 (valueChanged)="onValueChanged($event, field)"
               ></case-input>
