@@ -10,8 +10,8 @@
 }
 
 .small-circle {
-  height: math.div(#{$control-height}, 1.75);
-  width: math.div(#{$control-height}, 1.75);
+  height: math.div($control-height, 1.75);
+  width: math.div($control-height, 1.75);
   border-radius: $control-height;
   display: inline-block;
   margin: 5px;
@@ -22,8 +22,8 @@
   }
 
   @include fullhd {
-    height: math.div(#{$control-height}, 1.25);
-    width: math.div(#{$control-height}, 1.25);
+    height: math.div($control-height, 1.25);
+    width: math.div($control-height, 1.25);
     margin: 10px;
   }
 }
