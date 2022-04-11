@@ -3,17 +3,18 @@ import {
   Gender,
   InputType,
   LinkType,
-  ResourceDefinition
+  ResourceDefinition,
+  ResourceMode
 } from '../../../../case-angular-library/src/public-api'
 
 export const carDefinition: ResourceDefinition = {
   title: 'Cars',
   nameSingular: 'car',
   namePlural: 'cars',
-  className: 'Car',
+  className: 'User',
   icon: 'icon-file-text',
   gender: Gender.Feminine,
-  slug: 'users',
+  slug: 'invoices',
   path: 'voitures',
   buttons: [],
   defaultLink: LinkType.CREATE,
@@ -78,7 +79,8 @@ export const carDefinition: ResourceDefinition = {
         openCreateEditModal: {
           title: `Change le nom rapidement de ${car.name}`,
           definition: carDefinition,
-          mode: 'edit',
+          item: car,
+          mode: ResourceMode.Edit,
           fields: [
             {
               label: 'name',

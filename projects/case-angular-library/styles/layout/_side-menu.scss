@@ -17,12 +17,12 @@
 
     a {
       position: relative;
-
       color: $sidenav-item-color;
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
       width: 100%;
+      min-height: 57px;
       padding: 19px $gap;
       transition: color 0.35s ease, background-color 0.05s ease-out;
       -webkit-transition: color 0.35s ease, background-color 0.05s ease-out;

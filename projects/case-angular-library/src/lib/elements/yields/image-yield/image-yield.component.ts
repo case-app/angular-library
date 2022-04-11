@@ -9,8 +9,7 @@ export class ImageYieldComponent {
   @Input() imageObjects: {
     image: string
     label?: string
-    secondLabel?: string
-    link?: string
+    link?: { path: string; queryParams?: { [key: string]: string } }
   }[]
   @Input() defaultImage = '/assets/images/avatar.svg'
   @Input() label: string

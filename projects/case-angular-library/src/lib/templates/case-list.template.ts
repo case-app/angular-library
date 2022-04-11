@@ -2,7 +2,11 @@ export const caseListTemplate = `
 <!-- Heading -->
 <div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-2">
   <div class="left-part">
+
     <h1 class="title is-2 has-text-weight-light">
+       <span class="icon is-large">
+          <i class="icon {{definition.icon}} is-size-2 has-text-link"></i>
+        </span>
       {{ definition.title }}
     </h1>
   </div>
@@ -29,7 +33,7 @@ export const caseListTemplate = `
     </a>
     <a
       *ngIf="definition.buttons.indexOf(LinkType.CREATE) > -1"
-      class="button is-rounded is-link ml-5 is-hidden-desktop"
+      class="button is-circle is-link ml-5 is-hidden-desktop"
       routerLink="/{{ definition.path || definition.slug }}/create"
     >
       <i class="icon icon-plus"></i>
@@ -61,6 +65,7 @@ export const caseListTemplate = `
           [searchResources]="filter.searchResources"
           [placeholder]="filter.placeholder"
           [secondPlaceholder]="filter.secondPlaceholder"
+          [required]="filter.required"
           (valueChanged)="onFilterValueChanged($event, filter)"
         ></case-input>
       </div>
@@ -70,23 +75,27 @@ export const caseListTemplate = `
 
 <!-- List -->
 <ng-container *ngIf="paginator">
-  <div class="is-flex is-justify-content-space-between is-align-items-center relative">
+<!-- Main container -->
+<nav class="level mb-2">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
     <case-meta [paginator]="paginator"></case-meta>
+    </div>
+  </div>
 
-    <!-- Key numbers -->
-    <div class="total total--alt is-hidden-mobile">
-      <span
-        class="badge mb-3"
-        [ngClass]="keyNumber.className"
-        *ngFor="let keyNumber of definition.keyNumbers"
-      >
-        <ng-container *ngIf="keyNumber.loading">Loading...</ng-container>
+  <!-- Right side -->
+  <div class="level-right is-hidden-mobile">
+  <div class="level-item tags" >
+  <span class="tag" *ngFor="let keyNumber of definition.keyNumbers" [ngClass]="keyNumber.className || 'is-info'">
+  <ng-container *ngIf="keyNumber.loading">Loading...</ng-container>
         <ng-container *ngIf="!keyNumber.loading"
           >{{ keyNumber.label }} : {{ keyNumber.value | euros }}</ng-container
         >
-      </span>
-    </div>
+  </span>
   </div>
+  </div>
+</nav>
   <div class="card p-0 mb-6">
     <div class="table-container">
       <case-table
@@ -106,7 +115,7 @@ export const caseListTemplate = `
   ></case-pagination>
 </ng-container>
 
-<div *ngIf="loading" class="list-loading pt-7">
+<div *ngIf="loading" class="is-list-loading pt-7">
   <div></div>
   <div></div>
   <div></div>

@@ -10,8 +10,8 @@
 }
 
 .small-circle {
-  height: #{$control-height / 1.75};
-  width: #{$control-height / 1.75};
+  height: math.div($control-height, 1.75);
+  width: math.div($control-height, 1.75);
   border-radius: $control-height;
   display: inline-block;
   margin: 5px;
@@ -22,8 +22,9 @@
   }
 
   @include fullhd {
-    height: #{$control-height / 1.25};
-    width: #{$control-height / 1.25};
+    height: math.div($control-height, 1.25);
+    width: math.div($control-height, 1.25);
+
     margin: 10px;
   }
 }
@@ -35,4 +36,62 @@
   border-radius: 8px;
   display: inline-block;
   margin: 5px;
+}
+
+@keyframes loadingAnimation {
+  from {
+    background-position: -100vw 0px;
+  }
+
+  to {
+    background-position: 100vw 0px;
+  }
+}
+@-webkit-keyframes loadingAnimation {
+  from {
+    background-position: -100vw 0px;
+  }
+
+  to {
+    background-position: 100vw 0px;
+  }
+}
+
+.is-list-loading {
+  width: 100%;
+  height: auto;
+
+  > div {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 1px;
+    -webkit-animation-name: loadingAnimation;
+    animation-name: loadingAnimation;
+    -webkit-animation-duration: 4.6s;
+    animation-duration: 4.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    background-image: -webkit-linear-gradient(
+      120deg,
+      $white 20%,
+      $grey-lighter 28%,
+      $white 43%
+    );
+    background-image: -moz-linear-gradient(
+      120deg,
+      $white 20%,
+      $grey-lighter 28%,
+      $white 43%
+    );
+    background-image: linear-gradient(
+      120deg,
+      $white 20%,
+      $grey-lighter 28%,
+      $white 43%
+    );
+  }
 }

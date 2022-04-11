@@ -23,6 +23,12 @@ label:not(.file-label):not(.checkbox):not(.image-label) {
   padding-bottom: 5px;
   color: $label-color;
   display: inline-block;
+
+  case-switch-yield & {
+    display: flex;
+    padding-bottom: 0;
+  }
+
   @include touch {
     margin-top: $column-gap;
   }

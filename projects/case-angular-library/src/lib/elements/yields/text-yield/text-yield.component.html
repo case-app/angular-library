@@ -1,5 +1,6 @@
 {{ text | stripHtml }}
 <ng-container *ngIf="secondText">
-  <br />
-  <span class="has-text-grey">{{ secondText | stripHtml }}</span>
+  <p class="my-0 content is-small has-text-grey-dark">
+    {{ secondText | stripHtml }}
+  </p>
 </ng-container>

@@ -4,7 +4,13 @@
 >
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">Cars (dummy resource)</h1>
-    <p><a routerLink="/create-edit">Go to create edit page</a></p>
+    <p>
+      <a routerLink="/create-edit" fragment="roleId">Go to create edit page</a
+      ><br />
+      <a routerLink="/login" fragment="roleId"
+        >Go to login (need CASE server task running)</a
+      ><br />
+    </p>
   </div>
 </div>
 
@@ -31,6 +37,7 @@
           [selectOptions]="filter.selectOptions"
           [label]="filter.label"
           [searchResources]="filter.searchResources"
+          [required]="filter.required"
           [placeholder]="filter.placeholder"
         ></case-input>
       </div>
@@ -77,10 +84,25 @@
   [validators]="requiredValidator"
 ></case-multi-search-input>
 
+<case-rich-text-input
+  [initialValue]="{ value: '' }"
+  [validators]="requiredValidator"
+  [showErrors]="true"
+></case-rich-text-input>
+
 <case-date-range-input
   [placeholder]="'test'"
   [secondPlaceholder]="'date to'"
+  [copyDateFromOnDateTo]="true"
 ></case-date-range-input>
+
+<div class="columns">
+  <div class="column is-3">
+    <case-datepicker-input
+      [initialValue]="{ value: '2022-09-02' }"
+    ></case-datepicker-input>
+  </div>
+</div>
 
 <div class="card p-0 mb-6">
   <div class="table-container"></div>
@@ -90,7 +112,7 @@
   >Create a new ticket (CASE Action)</a
 >
 
-<div *ngIf="loading" class="list-loading pt-7">
+<div *ngIf="loading" class="is-list-loading pt-7">
   <div></div>
   <div></div>
   <div></div>

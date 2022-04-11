@@ -24,12 +24,15 @@ export class HasPermissionDirective implements OnInit {
       this.requiredPermissionsAnd = val.requireAnd
       this.requiredPermissionsOr = val.requireOr
       this.hideIf = val.hideIf
+    } else if (!val) {
+      this.hasPermission = true
     }
   }
 
   private requiredPermissionsAnd: string[]
   private requiredPermissionsOr: string[]
   private hideIf: string[]
+  private hasPermission: boolean
   private isHidden = true
 
   constructor(
@@ -43,7 +46,7 @@ export class HasPermissionDirective implements OnInit {
       const currentUserPermissions: string[] =
         user && user.role ? user.role.permissions.map((p) => p.name) : []
 
-      let hasPermission = true
+      this.hasPermission = true
 
       if (
         this.requiredPermissionsAnd &&
@@ -52,7 +55,7 @@ export class HasPermissionDirective implements OnInit {
           currentUserPermissions.includes(permission)
         )
       ) {
-        hasPermission = false
+        this.hasPermission = false
       }
 
       if (
@@ -62,7 +65,7 @@ export class HasPermissionDirective implements OnInit {
           currentUserPermissions.includes(permission)
         )
       ) {
-        hasPermission = false
+        this.hasPermission = false
       }
 
       if (
@@ -72,10 +75,10 @@ export class HasPermissionDirective implements OnInit {
           currentUserPermissions.includes(permission)
         )
       ) {
-        hasPermission = false
+        this.hasPermission = false
       }
 
-      if (hasPermission) {
+      if (this.hasPermission) {
         if (this.isHidden) {
           this.viewContainer.createEmbeddedView(this.templateRef)
           this.isHidden = false

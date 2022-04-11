@@ -1,5 +1,5 @@
 @include touch {
-  nav {
+  nav.navbar {
     position: relative;
     z-index: 9;
     height: $navbar-height;
@@ -184,10 +184,6 @@
           background-color: transparent;
         }
         transition: color 0.35s ease, background-color 0.05s ease-out;
-        -webkit-transition: color 0.35s ease, background-color 0.05s ease-out;
-        -moz-transition: color 0.35s ease, background-color 0.05s ease-out;
-        -ms-transition: color 0.35s ease, background-color 0.05s ease-out;
-        -o-transition: color 0.35s ease, background-color 0.05s ease-out;
         &.has-submenu {
           justify-content: space-between;
           display: inline-flex;
@@ -217,28 +213,14 @@
             }
           }
         }
-        + ul {
-          padding-left: 0;
-          li a {
-            padding-left: 47px !important;
-          }
-        }
       }
     }
     a {
       border-radius: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      -o-border-radius: 0;
       &:hover {
         background-color: $link;
         color: $light !important;
         transition: color 0.35s ease, background-color 0.05s ease-in;
-        -webkit-transition: color 0.35s ease, background-color 0.05s ease-in;
-        -moz-transition: color 0.35s ease, background-color 0.05s ease-in;
-        -ms-transition: color 0.35s ease, background-color 0.05s ease-in;
-        -o-transition: color 0.35s ease, background-color 0.05s ease-in;
       }
       &.is-active {
         background-color: $link;

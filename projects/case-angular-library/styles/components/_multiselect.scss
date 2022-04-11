@@ -1,16 +1,16 @@
 .multiselect-box {
   .box {
-    position: absolute;
+    @include mobile {
+      position: relative;
+    }
+    @include tablet {
+      position: absolute;
+    }
     height: auto;
+    max-height: 600px;
     min-width: 100%;
     z-index: 6;
-    > * {
-      padding: 6px $column-gap;
-      display: inline-flex;
-      align-items: start;
-      justify-content: flex-start;
-      width: 100%;
-    }
+    overflow-y: auto;
   }
 }
 
@@ -23,7 +23,7 @@
   border-radius: $input-radius;
   box-shadow: none;
   padding: 0 $control-padding-horizontal;
-  font-size: $size-large;
+  font-size: $size-normal;
   line-height: $control-height;
   color: $dark;
   cursor: pointer;
@@ -53,5 +53,15 @@
         box-shadow: $input-focus-box-shadow-size bulmaRgba($color, 0.25);
       }
     }
+  }
+
+  &.is-small {
+    font-size: $size-small;
+  }
+  &.is-medium {
+    font-size: $size-medium;
+  }
+  &.is-large {
+    font-size: $size-large;
   }
 }

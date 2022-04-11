@@ -5,9 +5,9 @@ import {
   OnChanges,
   Output
 } from '@angular/core'
-import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
+import { ValidatorFn, Validators } from '@angular/forms'
 import { ChangeEvent, CKEditor5 } from '@ckeditor/ckeditor5-angular'
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
 
@@ -30,28 +30,22 @@ export class RichTextInputComponent implements CaseInput, OnChanges {
   editor = ClassicEditor
   editorConfig: CKEditor5.Config
 
-  form: FormGroup
+  content: string
   required: boolean
-
-  constructor(private formBuilder: FormBuilder) {}
 
   ngOnChanges() {
     this.editorConfig = {
       toolbar: ['bold', 'italic', 'Link'],
       placeholder: this.placeholder
     }
-    this.form = this.formBuilder.group({
-      richText: [
-        this.initialValue ? this.initialValue.value : '',
-        this.validators || []
-      ]
-    })
+
+    this.content = (this.initialValue && this.initialValue.value) || ''
     this.required = this.validators.includes(Validators.required)
   }
 
   onChange(event: ChangeEvent) {
     const value: string = event.editor.getData()
-    this.form.get('richText').setValue(value)
+    this.content = value
     this.valueChanged.emit({ value })
   }
 }

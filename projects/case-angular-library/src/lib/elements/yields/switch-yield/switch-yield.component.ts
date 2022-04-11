@@ -21,11 +21,8 @@ export class SwitchYieldComponent {
   // Execute CASE Action.
   async doAction(event: Event) {
     event.preventDefault()
-    this.actionService
-      .triggerAction(this.action)
-      .then((res) => {
-        this.value = !this.value
-      })
-      .catch((err) => {})
+    this.actionService.triggerAction(this.action)
+
+    this.value = !this.value
   }
 }

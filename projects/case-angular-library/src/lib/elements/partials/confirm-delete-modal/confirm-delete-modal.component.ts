@@ -14,7 +14,8 @@ import { ResourceService } from '../../../services/resource.service'
 export class ConfirmDeleteModalComponent implements OnInit {
   itemToDelete: any
   resourceDefinition: ResourceDefinition
-  navigateTo: string
+  redirectTo: string
+  redirectToQueryParams: { [key: string]: string }
 
   showModal: boolean
 
@@ -30,7 +31,8 @@ export class ConfirmDeleteModalComponent implements OnInit {
     this.actionService.deleteAction.subscribe((deleteAction) => {
       this.itemToDelete = deleteAction.itemToDelete
       this.resourceDefinition = deleteAction.definition
-      this.navigateTo = deleteAction.navigateTo
+      this.redirectTo = deleteAction.redirectTo
+      this.redirectToQueryParams = deleteAction.redirectToQueryParams
 
       this.showModal = true
       this.renderer.addClass(document.querySelector('html'), 'is-clipped')
@@ -44,21 +46,12 @@ export class ConfirmDeleteModalComponent implements OnInit {
         (res) => {
           this.close()
           // Change query params to force reload on lists.
-          this.router.navigate(
-            [
-              this.navigateTo
-                ? this.navigateTo
-                : this.router.url.includes('?')
-                ? this.router.url.substring(0, this.router.url.indexOf('?'))
-                : this.router.url
-            ],
-            {
-              queryParams: {
-                reload: new Date().toISOString()
-              },
-              queryParamsHandling: 'merge'
-            }
-          )
+          this.router.navigate([this.redirectTo || this.router.url], {
+            queryParams: Object.assign(this.redirectToQueryParams || {}, {
+              reload: new Date().toISOString()
+            }),
+            queryParamsHandling: 'merge'
+          })
           this.flashMessageService.success(`La ressource a bien été supprimée`)
         },
         (err) => {

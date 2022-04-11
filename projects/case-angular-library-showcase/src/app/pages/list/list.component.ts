@@ -7,6 +7,7 @@ import {
   InputType,
   Paginator,
   ResourceDefinition,
+  ResourceMode,
   Yield,
   YieldType
 } from '../../../../../case-angular-library/src/public-api'
@@ -24,8 +25,16 @@ export class ListComponent implements OnInit {
 
   paginator: Paginator<any> = {
     data: [
-      { id: 1, name: 'Volvo', country: 'Sweden', isActive: true },
-      { id: 2, name: 'Mercedes', country: false, isActive: false }
+      { id: 10, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 11, name: 'Mercedes', country: false, isActive: false },
+      { id: 20, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 21, name: 'Mercedes', country: false, isActive: false },
+      { id: 30, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 31, name: 'Mercedes', country: false, isActive: false },
+      { id: 30, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 31, name: 'Mercedes', country: false, isActive: false },
+      { id: 40, name: 'Volvo', country: 'Sweden', isActive: true },
+      { id: 41, name: 'Mercedes', country: false, isActive: false }
     ],
     currentPage: 1,
     lastPage: 1,
@@ -42,18 +51,40 @@ export class ListComponent implements OnInit {
       type: YieldType.Text
     },
     {
-      label: 'On production',
-      property: 'isActive',
-      secondProperty: 'country',
-      action: (car) => ({
-        type: ActionType.Delete,
-        delete: {
-          itemToDelete: car,
+      label: 'Price',
+      property: 'id',
+      headingClassName: 'has-text-info',
+      type: YieldType.Currency
+    },
+    {
+      label: 'Paiement',
+      property: 'payedAt',
+      secondProperty: 'payedAtFormatted',
+      type: YieldType.Switch,
+      action: (invoice) => ({
+        type: ActionType.OpenCreateEditModal,
+        openCreateEditModal: {
+          title: `Attribuer un réglement pour la facture N° ${invoice.number}`,
           definition: carDefinition,
-          navigateTo: '/'
+          mode: ResourceMode.Patch,
+          item: invoice,
+          patchURL: `/invoices/${invoice.id}/pay`,
+          keyPoints: [
+            {
+              label: 'Montant TTC',
+              value: invoice.id.toString()
+            }
+          ],
+          fields: [
+            {
+              label: 'Date du réglement',
+              property: 'payedAt',
+              inputType: InputType.Datepicker,
+              required: true
+            }
+          ]
         }
-      }),
-      type: YieldType.Switch
+      })
     }
   ]
   resolvedFilters: Filter[] = [
@@ -63,6 +94,29 @@ export class ListComponent implements OnInit {
       property: 'toBillOnly',
       initialValue: {
         value: 'true'
+      }
+    },
+    {
+      label: 'Select',
+      inputType: InputType.Select,
+      property: 'toBillOnly',
+      required: true,
+      selectOptions: [
+        {
+          label: 'value 1',
+          value: 1
+        },
+        {
+          label: 'value 2',
+          value: 2
+        },
+        {
+          label: 'value 3',
+          value: 3
+        }
+      ],
+      initialValue: {
+        value: 3
       }
     }
   ]
@@ -91,7 +145,7 @@ export class ListComponent implements OnInit {
         }
       ],
       definition: carDefinition,
-      mode: 'create',
+      mode: ResourceMode.Create,
       fields: [
         {
           label: 'ticket name',

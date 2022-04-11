@@ -1,6 +1,11 @@
-.multiselect-box {
+.multisearch-box {
   .list {
-    position: absolute;
+    @include mobile {
+      position: relative;
+    }
+    @include tablet {
+      position: absolute;
+    }
     top: 100%;
     left: 0;
     z-index: 99;

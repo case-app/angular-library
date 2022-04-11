@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Variables
 @import './variables/all';
 
@@ -7,7 +9,6 @@
 // Dependencies.
 @import 'angular-calendar/scss/angular-calendar';
 @import 'bulma-tooltip/src/sass/index';
-@import 'bulma-switch/src/sass/index';
 
 // Mixins & helpers
 @import './helpers/helpers';
@@ -36,10 +37,13 @@
 @import './components/notification';
 @import './components/pagination';
 @import './components/progress-bar';
+@import './components/rich-text';
 @import './components/spinner';
+@import './components/switch-yield';
 @import './components/table';
 @import './components/tabs';
 @import './components/type';
+@import './components/yield-file-icon';
 
 // Layouts
 @import './layout/error404';

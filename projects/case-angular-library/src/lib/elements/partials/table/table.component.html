@@ -1,7 +1,11 @@
 <table class="table is-fullwidth is-hoverable" width="100%">
-  <thead class="top-margin">
+  <thead>
     <tr>
-      <th *ngFor="let yield of yields">
+      <th
+        *ngFor="let yield of yields"
+        class="{{ yield.headingClassName }}"
+        [ngClass]="{ 'has-text-right': yield.type === YieldType.Currency }"
+      >
         <span *ngIf="yield.disableOrderBy">{{ yield.label }}</span>
         <a class="no-deco" (click)="order(yield)" *ngIf="!yield.disableOrderBy"
           >{{ yield.label }}
@@ -56,13 +60,18 @@
         class="{{ yield.className }}"
         [ngClass]="{
           pointer: definition.defaultLink,
-          'has-custom-link': yield.link
+          'has-custom-link': yield.link,
+          'has-text-right': yield.type === YieldType.Currency
         }"
         [ngSwitch]="yield.type"
         (click)="
           goToLink(
             yield.link || item.link,
-            item.isDisabledHighlight || yield.action
+            yield.disableItemLink ||
+              yield.caseAction ||
+              yield.type === YieldType.Address ||
+              yield.type === YieldType.Switch ||
+              yield.type === YieldType.Download
           )
         "
       >
@@ -149,7 +158,7 @@
         *ngIf="definition.actionButtons && definition.actionButtons.length"
       >
         <!-- Action buttons loop -->
-        <button
+        <a
           *ngFor="let actionButton of item.actionButtons"
           [ngClass]="actionButton.className"
           [caseAction]="actionButton.action(item)"
@@ -160,7 +169,7 @@
             *ngIf="actionButton.icon"
           ></i>
           {{ actionButton.label }}
-        </button>
+        </a>
       </td>
       <td class="has-text-right" *ngIf="definition.dropdownLinks.length">
         <case-action-dropdown
