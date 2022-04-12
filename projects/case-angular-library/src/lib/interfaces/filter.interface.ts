@@ -14,11 +14,14 @@ export interface Filter {
 
   placeholder?: string
   secondPlaceholder?: string
+
+  // Add an initial value to the filter.
   initialValue?: { [key: string]: any }
 
   // Optional, for filters that cannot stay blank. Default false.
   required?: boolean
 
+  // CSS class name for the filter.
   className?: string
 
   // Input-specific props

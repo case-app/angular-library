@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { timer } from 'rxjs'
+
+import { ReplaySubject, timer } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 
 import { LinkType } from '../enums/link-type.enum'
@@ -21,6 +22,8 @@ import { ResourceService } from '../services/resource.service'
 export class CaseListComponent {
   definition: ResourceDefinition
   paginator: Paginator<any>
+  paginator$: ReplaySubject<Paginator<any>> = new ReplaySubject()
+
   createResourcePermission: string
 
   filters: Filter[]
@@ -31,7 +34,6 @@ export class CaseListComponent {
   loading = false
 
   LinkType = LinkType
-  onlyNumbersRegex: RegExp = new RegExp('^[0-9]+$')
 
   constructor(
     private router: Router,
@@ -47,9 +49,23 @@ export class CaseListComponent {
     this.createResourcePermission = `add${this.classify(this.definition.slug)}`
     this.resolvedFilters = await this.resolveFilters(this.filters)
 
-    this.activatedRoute.queryParams.subscribe(async (queryParams) => {
-      this.setFilterInitialValues(queryParams)
+    this.activatedRoute.queryParams.subscribe(async (queryParams: Params) => {
+      this.orderBy = queryParams.orderBy
+      this.orderByDesc = queryParams.orderByDesc === 'true'
 
+      const initialValuesNotInQueryParams: { [key: string]: any } =
+        this.getInitialValuesNotInQueryParams(queryParams)
+
+      // If we have initial values, we add them to the URL queryParams.
+      if (!this.isObjectEmpty(initialValuesNotInQueryParams)) {
+        return this.router.navigate(
+          [`/${this.definition.path || this.definition.slug}`],
+          {
+            queryParams: initialValuesNotInQueryParams,
+            queryParamsHandling: 'merge'
+          }
+        )
+      }
       delete this.paginator
       this.loading = true
 
@@ -61,6 +77,7 @@ export class CaseListComponent {
             return this.exportFile((res as { filePath: string }).filePath)
           } else {
             this.paginator = res as Paginator<any>
+            this.paginator$.next(this.paginator)
           }
 
           this.getKeyNumbers(queryParams)
@@ -139,26 +156,28 @@ export class CaseListComponent {
     })
   }
 
-  setFilterInitialValues(queryParams: Params) {
-    // Common for all lists.
-    this.orderBy = queryParams.orderBy
-    this.orderByDesc = queryParams.orderByDesc === 'true'
-
-    // Specific filters.
-    this.resolvedFilters.forEach((filter: Filter) => {
-      filter.initialValue = filter.initialValue || {}
-
+  // Return an object of filter initial values not in queryParams.
+  getInitialValuesNotInQueryParams(queryParams: Params): {
+    [key: string]: any
+  } {
+    return this.resolvedFilters.reduce((acc, filter: Filter) => {
       if (filter.property) {
         filter.properties = { value: filter.property }
       }
 
-      Object.keys(filter.properties || []).forEach((inputProp: string) => {
-        const filterProp: string = filter.properties[inputProp]
-        if (queryParams[filterProp]) {
-          filter.initialValue[inputProp] = queryParams[filterProp]
+      Object.keys(filter.properties).forEach((inputProp) => {
+        const propName: string = filter.properties[inputProp]
+
+        if (
+          filter.initialValue &&
+          filter.initialValue[inputProp] &&
+          !queryParams[propName]
+        ) {
+          acc[propName] = filter.initialValue[inputProp]
         }
       })
-    })
+      return acc
+    }, {})
   }
 
   setBreadcrumbs() {
@@ -222,7 +241,7 @@ export class CaseListComponent {
       return true
     } else if (value === 'false') {
       return false
-    } else if (this.onlyNumbersRegex.test(value)) {
+    } else if (new RegExp('^[0-9]+$').test(value)) {
       return parseInt(value, 10)
     } else {
       return value
@@ -248,5 +267,13 @@ export class CaseListComponent {
       }
     )
     return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  private isObjectEmpty(obj): boolean {
+    return (
+      obj &&
+      Object.keys(obj).length === 0 &&
+      Object.getPrototypeOf(obj) === Object.prototype
+    )
   }
 }
