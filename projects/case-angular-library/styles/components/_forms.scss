@@ -16,7 +16,7 @@
   color: $input-placeholder-color !important;
 }
 
-label:not(.file-label):not(.checkbox):not(.image-label) {
+label:not(.file-label):not(.checkbox):not(.image-label):not(.is-boxed) {
   font-size: $size-6;
   font-weight: $weight-bold;
   text-transform: uppercase;

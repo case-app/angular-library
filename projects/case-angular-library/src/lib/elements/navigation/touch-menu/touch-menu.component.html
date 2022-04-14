@@ -1,5 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation" #menu>
-  <div>
+  <div
+    class="navbar-wrapper is-flex is-align-items-center is-justify-content-space-between is-flex-direction-row-reverse is-fullheight"
+  >
     <div
       class="dropdown is-right"
       [ngClass]="{ 'is-active': showUserMenu }"
@@ -23,7 +25,7 @@
       </div>
     </div>
     <a
-      class="logo is-flex is-align-items-center is-justify-content-center"
+      class="logo is-flex is-align-items-center is-justify-content-center px-0"
       routerLink="/"
       (click)="closeMenu()"
     >
@@ -32,7 +34,7 @@
 
     <a
       role="button"
-      class="navbar-burger burger"
+      class="navbar-burger burger ml-0"
       aria-label="menu"
       aria-expanded="false"
       data-target="navbarBasicExample"

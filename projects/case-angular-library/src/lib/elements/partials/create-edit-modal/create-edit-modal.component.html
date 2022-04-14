@@ -13,7 +13,7 @@
     </header>
 
     <section class="modal-card-body">
-      <p class="mb-4" *ngIf="helpText">{{ helpText }}</p>
+      <p class="mb-4 is-size-5" *ngIf="helpText">{{ helpText }}</p>
       <table class="table is-fullwidth is-bordered is-narrow" *ngIf="keyPoints">
         <tr *ngFor="let keyPoint of keyPoints">
           <td>{{ keyPoint.label }}</td>
