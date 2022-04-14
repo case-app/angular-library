@@ -315,6 +315,7 @@ export class CaseCreateEditComponent {
         }
         this.router.navigate([this.redirectTo], {
           queryParams: Object.assign(this.redirectToQueryParams || {}, {
+            resourceTouched: res.id,
             reload: new Date().toISOString()
           }),
           queryParamsHandling: 'merge'

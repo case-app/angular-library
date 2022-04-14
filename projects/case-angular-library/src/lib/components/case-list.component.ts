@@ -66,6 +66,9 @@ export class CaseListComponent {
           }
         )
       }
+
+      this.setFilterInitialValues(queryParams)
+
       delete this.paginator
       this.loading = true
 
@@ -153,6 +156,28 @@ export class CaseListComponent {
           keyNumber.loading = false
           keyNumber.value = res
         })
+    })
+  }
+
+  setFilterInitialValues(queryParams: Params) {
+    // Common for all lists.
+    this.orderBy = queryParams.orderBy
+    this.orderByDesc = queryParams.orderByDesc === 'true'
+
+    // Specific filters.
+    this.resolvedFilters.forEach((filter: Filter) => {
+      filter.initialValue = filter.initialValue || {}
+
+      if (filter.property) {
+        filter.properties = { value: filter.property }
+      }
+
+      Object.keys(filter.properties || []).forEach((inputProp: string) => {
+        const filterProp: string = filter.properties[inputProp]
+        if (queryParams[filterProp]) {
+          filter.initialValue[inputProp] = queryParams[filterProp]
+        }
+      })
     })
   }
 
