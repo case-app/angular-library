@@ -3,11 +3,11 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output
 } from '@angular/core'
 import { Router } from '@angular/router'
 
+import { Gender } from '../../../enums/gender.enum'
 import { LinkType } from '../../../enums/link-type.enum'
 import { YieldType } from '../../../enums/yield-type.enum'
 import { ActionButton } from '../../../interfaces/action-button.interface'
@@ -38,6 +38,7 @@ export class TableComponent implements OnChanges {
 
   itemToDelete: any
   YieldType = YieldType
+  Gender = Gender
 
   constructor(private authService: AuthService, private router: Router) {}
 

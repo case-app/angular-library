@@ -94,22 +94,14 @@ hr {
   background-color: $border-color;
 }
 
-a:not(.button) {
+a {
+  cursor: pointer;
   &.no-deco {
     color: inherit;
 
     &:hover,
     &:focus {
       color: inherit;
-    }
-  }
-  &[routerLink],
-  &[href],
-  &[ng-reflect-router-link] {
-    cursor: pointer;
-
-    .main &:hover {
-      text-decoration: underline;
     }
   }
 
@@ -121,6 +113,12 @@ a:not(.button) {
       color: $link !important;
     }
   }
+}
+
+*[routerLink],
+*[href],
+*[ng-reflect-router-link] {
+  cursor: pointer;
 }
 
 .is-italic {

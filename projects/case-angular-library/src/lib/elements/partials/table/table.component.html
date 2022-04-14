@@ -49,7 +49,7 @@
         'is-warning': item.isWarningHighlight,
         'is-info': item.isInfoHighlight,
         'is-success': item.isSuccessHighlight,
-        'is-disabled': item.isDisabledHighlight,
+        'is-dark': item.isDisabledHighlight,
         'is-danger': item.isDangerHighlight
       }"
       class="pos-{{ i }} rev-pos-{{ formattedItems.length - 1 - i }}"
@@ -178,6 +178,17 @@
           [preventDeleteMessage]="item.preventDeleteMessage"
           *ngIf="definition.dropdownLinks && definition.dropdownLinks.length"
         ></case-action-dropdown>
+      </td>
+    </tr>
+    <tr *ngIf="formattedItems && !formattedItems.length">
+      <td [attr.colspan]="yields.length">
+        <ng-container *ngIf="definition.gender === Gender.Feminine"
+          >Aucune</ng-container
+        >
+        <ng-container *ngIf="definition.gender === Gender.Masculine"
+          >Aucun</ng-container
+        >
+        {{ definition.nameSingular }}
       </td>
     </tr>
   </tbody>

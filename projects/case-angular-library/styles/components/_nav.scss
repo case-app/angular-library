@@ -81,7 +81,7 @@
   justify-content: center;
 
   @include desktop {
-    left: calc(#{$aside-width-tablet} + #{$aside-border-width});
+    left: calc(#{$aside-width-desktop} + #{$aside-border-width});
   }
   @include widescreen {
     left: calc(#{$aside-width-widescreen} + #{$aside-border-width});

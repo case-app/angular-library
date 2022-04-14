@@ -21,15 +21,6 @@
       }
     }
     > div:first-child {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      align-items: center;
-      height: 100%;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-
       > a {
         margin: 0;
         padding: 0;
@@ -135,6 +126,7 @@
     position: absolute;
     top: $navbar-height;
     left: -261px;
+    z-index: 99999;
     box-shadow: 1px 0 0 0 rgba($sidenav-background-color, 0.1);
     padding-bottom: 0;
     background-color: $sidenav-background-color;
@@ -252,9 +244,10 @@
     left: 0;
     width: 100vw;
     opacity: 0;
+    z-index: 9999;
     visibility: hidden;
     height: calc(100vh - #{$navbar-height});
-    background: $sidenav-background-color;
+    background: $black;
   }
 
   .link-back {

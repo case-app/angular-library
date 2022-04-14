@@ -5,3 +5,12 @@
     display: block;
   }
 }
+tr {
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    &.is-#{$name} td {
+      background-color: rgba($color, 0.04);
+    }
+  }
+}

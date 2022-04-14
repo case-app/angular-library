@@ -24,7 +24,6 @@
   @include fullhd {
     height: math.div($control-height, 1.25);
     width: math.div($control-height, 1.25);
-
     margin: 10px;
   }
 }

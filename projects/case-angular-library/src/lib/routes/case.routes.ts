@@ -1,4 +1,5 @@
 import { Route } from '@angular/router'
+import { ResourceMode } from '../enums/resource-mode.enum'
 
 import { AuthGuard } from '../guards/auth.guard'
 import { PermissionGuard } from '../guards/permission.guard'
@@ -44,7 +45,7 @@ export const caseRoutes: Route[] = [
     canActivate: [AuthGuard, PermissionGuard],
     data: {
       permission: 'addRoles',
-      mode: 'create'
+      mode: ResourceMode.Create
     }
   },
   {
@@ -53,7 +54,7 @@ export const caseRoutes: Route[] = [
     canActivate: [AuthGuard, PermissionGuard],
     data: {
       permission: 'editRoles',
-      mode: 'edit'
+      mode: ResourceMode.Edit
     }
   },
 
