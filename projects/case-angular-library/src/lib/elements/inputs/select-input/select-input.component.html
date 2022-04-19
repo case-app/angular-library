@@ -4,12 +4,14 @@
       >{{ label }}<span class="has-text-danger" *ngIf="required">*</span>
     </label>
     <div class="control">
-      <div class="select">
+      <div
+        class="select"
+        [ngClass]="{ 'is-danger': showErrors && form.invalid }"
+      >
         <select
           id="select-input-{{ uniqueId }}"
           class="select"
           (change)="onSelect($event.target.value)"
-          [ngClass]="{ 'is-danger': showErrors && form.invalid }"
           formControlName="select"
         >
           <option value="" disabled selected *ngIf="placeholder">
