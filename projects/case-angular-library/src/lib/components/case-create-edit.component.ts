@@ -221,14 +221,22 @@ export class CaseCreateEditComponent {
   onValueChanged(newValue: { [key: string]: any }, field: Field) {
     Object.keys(field.properties).forEach((fieldProp: string) => {
       const controlName: string = field.properties[fieldProp]
-      if (Array.isArray(newValue[fieldProp])) {
+
+      let typedValue: any = newValue[fieldProp]
+
+      if (Array.isArray(typedValue)) {
         // If newValue is array we have to reset the control by putting a new FormArray of FormControls.
         this.form.setControl(
           controlName,
-          new FormArray(newValue[fieldProp].map((v) => new FormControl(v)))
+          new FormArray(typedValue.map((v) => new FormControl(v)))
         )
       } else {
-        this.form.get(controlName).setValue(newValue[fieldProp])
+        // Prevent wrong value from being set from HTML selects.
+        if (typedValue === 'null') {
+          typedValue = null
+        }
+
+        this.form.get(controlName).setValue(typedValue)
       }
     })
 
