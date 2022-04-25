@@ -313,9 +313,20 @@ export class CaseCreateEditComponent {
             }
           }
         }
+
+        if (!this.redirectToQueryParams) {
+          this.redirectToQueryParams = {}
+        }
+
+        // Add query params in redirect URL to plug custom behavior on front (onboarding, etc.).
+        if (this.mode === ResourceMode.Create) {
+          this.redirectToQueryParams.resourceCreated = `${this.definition.className}-${res.id}`
+        } else if (this.mode === ResourceMode.Edit) {
+          this.redirectToQueryParams.resourceEdited = `${this.definition.className}-${res.id}`
+        }
+
         this.router.navigate([this.redirectTo], {
-          queryParams: Object.assign(this.redirectToQueryParams || {}, {
-            resourceTouched: res.id,
+          queryParams: Object.assign(this.redirectToQueryParams, {
             reload: new Date().toISOString()
           }),
           queryParamsHandling: 'merge'
