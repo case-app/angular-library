@@ -42,12 +42,6 @@ export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
       select: [null, this.validators || []]
     })
 
-    if (this.initialValue) {
-      setTimeout(() => {
-        this.form.get('select').setValue(this.initialValue.value)
-      })
-    }
-
     this.required =
       this.validators.includes(Validators.required) || this.required
   }
@@ -57,6 +51,12 @@ export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
     if (this.form && changes.selectOptions) {
       this.form.get('select').setValue('')
       this.valueChanged.emit({ value: null })
+    }
+
+    if (this.initialValue) {
+      setTimeout(() => {
+        this.form.get('select').setValue(this.initialValue.value || null)
+      })
     }
   }
 
