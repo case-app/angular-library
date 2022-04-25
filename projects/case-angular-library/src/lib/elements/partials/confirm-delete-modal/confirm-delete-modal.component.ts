@@ -68,15 +68,17 @@ export class ConfirmDeleteModalComponent implements OnInit {
     this.renderer.removeClass(document.querySelector('html'), 'is-clipped')
   }
 
-  // Click outside closes modal
+  // Click outside closes modal.
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
-    if (eventTarget.className.includes('modal-background')) {
+    if (this.showModal && eventTarget.className.includes('modal-background')) {
       this.close()
     }
   }
 
   @HostListener('document:keydown.escape') onEnterKeydown() {
-    this.close()
+    if (this.showModal) {
+      this.close()
+    }
   }
 }
