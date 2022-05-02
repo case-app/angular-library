@@ -12,6 +12,8 @@
 .small-circle {
   height: math.div($control-height, 1.75);
   width: math.div($control-height, 1.75);
+  min-width: math.div($control-height, 1.75);
+  max-width: math.div($control-height, 1.75);
   border-radius: $control-height;
   display: inline-block;
   margin: 5px;
@@ -32,6 +34,8 @@
 .has-mini-circle .small-circle {
   height: 8px;
   width: 8px;
+  min-width: 8px;
+  max-width: 8px;
   border-radius: 8px;
   display: inline-block;
   margin: 5px;
