@@ -96,6 +96,7 @@ export class MultiSelectInputComponent implements CaseInput, OnChanges {
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
     if (
+      this.showList &&
       !this.elementRef.nativeElement.contains(eventTarget) &&
       !eventTarget.className.includes('mass-selection-button')
     ) {

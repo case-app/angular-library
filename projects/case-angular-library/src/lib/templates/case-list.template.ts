@@ -90,7 +90,7 @@ export const caseListTemplate = `
   <span class="tag" *ngFor="let keyNumber of definition.keyNumbers" [ngClass]="keyNumber.className || 'is-info'">
   <ng-container *ngIf="keyNumber.loading">Loading...</ng-container>
         <ng-container *ngIf="!keyNumber.loading"
-          >{{ keyNumber.label }} : {{ keyNumber.value | euros }}</ng-container
+          >{{ keyNumber.label }}: {{ keyNumber.value | euros }}</ng-container
         >
   </span>
   </div>

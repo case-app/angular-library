@@ -178,7 +178,7 @@ export class CaseCreateEditComponent {
       this.item,
       retrievedItemProp || controlName
     )
-    if (itemValue) {
+    if (itemValue !== null) {
       field.initialValue = {
         [fieldProp]: itemValue
       }
@@ -221,14 +221,22 @@ export class CaseCreateEditComponent {
   onValueChanged(newValue: { [key: string]: any }, field: Field) {
     Object.keys(field.properties).forEach((fieldProp: string) => {
       const controlName: string = field.properties[fieldProp]
-      if (Array.isArray(newValue[fieldProp])) {
+
+      let typedValue: any = newValue[fieldProp]
+
+      if (Array.isArray(typedValue)) {
         // If newValue is array we have to reset the control by putting a new FormArray of FormControls.
         this.form.setControl(
           controlName,
-          new FormArray(newValue[fieldProp].map((v) => new FormControl(v)))
+          new FormArray(typedValue.map((v) => new FormControl(v)))
         )
       } else {
-        this.form.get(controlName).setValue(newValue[fieldProp])
+        // Prevent wrong value from being set from HTML selects.
+        if (typedValue === 'null') {
+          typedValue = null
+        }
+
+        this.form.get(controlName).setValue(typedValue)
       }
     })
 
@@ -248,29 +256,29 @@ export class CaseCreateEditComponent {
       )
     }
 
-    let observable: Observable<any>
+    let action: Observable<any>
 
     switch (this.mode) {
       case ResourceMode.Create:
-        observable = this.resourceService.store(
+        action = this.resourceService.store(
           this.definition.slug,
           this.form.value
         )
         break
       case ResourceMode.Edit:
-        observable = this.resourceService.update(
+        action = this.resourceService.update(
           this.definition.slug,
           this.item.id,
           this.form.value
         )
         break
       case ResourceMode.Patch:
-        observable = this.resourceService.patch(this.patchURL, this.form.value)
+        action = this.resourceService.patch(this.patchURL, this.form.value)
         break
     }
 
     this.loading = true
-    observable.subscribe(
+    action.subscribe(
       (res: { id: number }) => {
         this.flashMessageService.success(
           `${this.definition.gender === 'Masculine' ? 'Le' : 'La'} ${
@@ -313,9 +321,20 @@ export class CaseCreateEditComponent {
             }
           }
         }
+
+        if (!this.redirectToQueryParams) {
+          this.redirectToQueryParams = {}
+        }
+
+        // Add query params in redirect URL to plug custom behavior on front (onboarding, etc.).
+        if (this.mode === ResourceMode.Create) {
+          this.redirectToQueryParams.resourceCreated = `${this.definition.className}-${res.id}`
+        } else if (this.mode === ResourceMode.Edit) {
+          this.redirectToQueryParams.resourceEdited = `${this.definition.className}-${res.id}`
+        }
+
         this.router.navigate([this.redirectTo], {
-          queryParams: Object.assign(this.redirectToQueryParams || {}, {
-            resourceTouched: res.id,
+          queryParams: Object.assign(this.redirectToQueryParams, {
             reload: new Date().toISOString()
           }),
           queryParamsHandling: 'merge'

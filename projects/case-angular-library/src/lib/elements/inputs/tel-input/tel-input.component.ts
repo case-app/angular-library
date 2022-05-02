@@ -3,7 +3,8 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
@@ -30,7 +31,15 @@ export class TelInputComponent implements OnChanges, CaseInput {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.telForm = this.formBuilder.group({
       text: [
         this.initialValue ? this.initialValue.value : null,

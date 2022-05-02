@@ -4,6 +4,7 @@ import {
   Input,
   OnChanges,
   Output,
+  SimpleChanges,
   ViewChild
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms'
@@ -58,7 +59,15 @@ export class DateRangeInputComponent
     super()
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     if (this.initialValue) {
       this.form.setValue({
         dateFrom: this.initialValue.dateFrom

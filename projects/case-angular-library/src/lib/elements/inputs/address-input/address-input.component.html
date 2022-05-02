@@ -4,6 +4,9 @@
   >
   <input
     class="input"
+    [ngClass]="{
+      'is-danger': showErrors && required && !address
+    }"
     ngx-google-places-autocomplete
     [placeholder]="placeholder || 'Chercher une addresse...'"
     [options]="{

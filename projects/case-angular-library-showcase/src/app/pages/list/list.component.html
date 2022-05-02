@@ -67,7 +67,11 @@
 <!-- Inputs -->
 <h2 class="title is-2">Inputs</h2>
 
-<case-address-input label="Addresse de l'entreprise"></case-address-input>
+<case-address-input
+  showErrors="true"
+  [validators]="requiredValidator"
+  label="Addresse de l'entreprise"
+></case-address-input>
 
 <case-email-input
   label="votre email"
@@ -75,6 +79,19 @@
   showErrors="true"
   [validators]="requiredValidator"
 ></case-email-input>
+<case-select-input
+  label="votre email"
+  placeholder="allez..."
+  showErrors="true"
+  selectOptions=" [{
+    label: 'Label 1',
+    value: 'Value 1'
+  }, {
+    label: 'Label 2',
+    value: 'Value 2'
+  }"
+  [validators]="requiredValidator"
+></case-select-input>
 <case-datepicker-input
   showErrors="true"
   [validators]="requiredValidator"
