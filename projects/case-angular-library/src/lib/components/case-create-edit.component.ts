@@ -178,7 +178,7 @@ export class CaseCreateEditComponent {
       this.item,
       retrievedItemProp || controlName
     )
-    if (itemValue) {
+    if (itemValue !== null) {
       field.initialValue = {
         [fieldProp]: itemValue
       }
