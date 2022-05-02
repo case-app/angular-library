@@ -6,11 +6,12 @@ import {
   Input,
   OnChanges,
   Output,
+  SimpleChanges,
   ViewChild
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
-import { CaseConfig } from '../../../interfaces/case-config.interface'
 
+import { CaseConfig } from '../../../interfaces/case-config.interface'
 import { CaseInput } from '../../../interfaces/case-input.interface'
 import { HTMLInputEvent } from '../../../interfaces/html-input-event.interface'
 import { FlashMessageService } from '../../../services/flash-message.service'
@@ -51,7 +52,15 @@ export class FileInputComponent implements CaseInput, OnChanges {
     @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.filePath = this.initialValue ? this.initialValue.value : null
     this.required = this.validators.includes(Validators.required)
   }

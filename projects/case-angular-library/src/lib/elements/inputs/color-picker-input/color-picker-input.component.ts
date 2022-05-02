@@ -5,7 +5,8 @@ import {
   HostListener,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
@@ -41,7 +42,15 @@ export class ColorPickerInputComponent implements CaseInput, OnChanges {
     private elementRef: ElementRef
   ) {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.selectedColor = this.initialValue ? this.initialValue.value : null
 
     this.form = this.formBuilder.group({

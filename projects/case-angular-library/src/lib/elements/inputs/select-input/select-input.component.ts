@@ -5,7 +5,7 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChange
+  SimpleChanges
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
@@ -47,7 +47,15 @@ export class SelectInputComponent implements CaseInput, OnInit, OnChanges {
   }
 
   // Reset form value if we change select options.
-  ngOnChanges(changes: { selectOptions?: SimpleChange }) {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     if (this.form && changes.selectOptions) {
       this.form.get('select').setValue('')
       this.valueChanged.emit({ value: null })

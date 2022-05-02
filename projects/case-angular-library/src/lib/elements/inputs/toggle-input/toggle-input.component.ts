@@ -3,7 +3,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnChanges
+  OnChanges,
+  SimpleChanges
 } from '@angular/core'
 import { CaseInput } from '../../../interfaces/case-input.interface'
 import { ValidatorFn, FormGroup, FormBuilder, Validators } from '@angular/forms'
@@ -32,7 +33,15 @@ export class ToggleInputComponent implements CaseInput, OnChanges {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.form = this.formBuilder.group({
       toggle: [this.initialValue, this.validators || []]
     })

@@ -256,29 +256,29 @@ export class CaseCreateEditComponent {
       )
     }
 
-    let observable: Observable<any>
+    let action: Observable<any>
 
     switch (this.mode) {
       case ResourceMode.Create:
-        observable = this.resourceService.store(
+        action = this.resourceService.store(
           this.definition.slug,
           this.form.value
         )
         break
       case ResourceMode.Edit:
-        observable = this.resourceService.update(
+        action = this.resourceService.update(
           this.definition.slug,
           this.item.id,
           this.form.value
         )
         break
       case ResourceMode.Patch:
-        observable = this.resourceService.patch(this.patchURL, this.form.value)
+        action = this.resourceService.patch(this.patchURL, this.form.value)
         break
     }
 
     this.loading = true
-    observable.subscribe(
+    action.subscribe(
       (res: { id: number }) => {
         this.flashMessageService.success(
           `${this.definition.gender === 'Masculine' ? 'Le' : 'La'} ${
