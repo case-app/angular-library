@@ -210,7 +210,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   // Click outside closes list
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
-    if (!this.elementRef.nativeElement.contains(eventTarget)) {
+    if (this.showList && !this.elementRef.nativeElement.contains(eventTarget)) {
       this.showList = false
     }
   }

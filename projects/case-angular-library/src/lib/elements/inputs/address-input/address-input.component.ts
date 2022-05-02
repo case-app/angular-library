@@ -32,6 +32,7 @@ export class AddressInputComponent implements CaseInput, OnChanges, OnInit {
 
   @Output() valueChanged: EventEmitter<{ value: string }> = new EventEmitter()
 
+  address: Address
   required: boolean
   scriptLoaded = false
 
@@ -64,12 +65,13 @@ export class AddressInputComponent implements CaseInput, OnChanges, OnInit {
     this.required = this.validators.includes(Validators.required)
 
     if (this.initialValue && this.initialValue.value) {
-      this.placeholder = JSON.parse(this.initialValue.value).name
+      this.address = JSON.parse(this.initialValue.value)
+      this.placeholder = this.address.name
     }
   }
 
   onAddressChange(inputAddress: GooglePlaceAddress) {
-    const address: Address = {
+    this.address = {
       name: inputAddress.name,
       streetNumber: this.getAddressComponent(inputAddress, 'street_number'),
       route: this.getAddressComponent(inputAddress, 'route'),
@@ -86,7 +88,7 @@ export class AddressInputComponent implements CaseInput, OnChanges, OnInit {
       country: this.getAddressComponent(inputAddress, 'country')
     }
 
-    this.valueChanged.emit({ value: JSON.stringify(address) })
+    this.valueChanged.emit({ value: JSON.stringify(this.address) })
   }
 
   private getAddressComponent(

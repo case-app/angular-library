@@ -12,10 +12,10 @@
           [ngClass]="{ 'is-danger': showErrors && form.invalid }"
           formControlName="select"
         >
-          <option value="" disabled selected *ngIf="placeholder">
+          <option value="" disabled *ngIf="placeholder">
             {{ placeholder }}
           </option>
-          <option value="" *ngIf="!required">
+          <option [value]="null" selected *ngIf="!required">
             {{ secondPlaceholder || 'Tous' }}
           </option>
           <option
