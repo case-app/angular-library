@@ -29,21 +29,28 @@ export class AuthService {
     this.tokenAllowedDomains = this.config.tokenAllowedDomains
   }
 
-  login(email: string, password: string): Observable<boolean> {
+  login(email: string, password: string): Observable<string> {
     return this.http.post(`${this.baseUrl}/login`, { email, password }).pipe(
-      map((res: { accessToken: string; permissions: string[] }) => {
-        const token = res && res.accessToken
+      map(
+        (res: {
+          accessToken: string
+          permissions: string[]
+          homepagePath: string
+        }) => {
+          const token = res && res.accessToken
 
-        if (token) {
-          this.token = token
-          this.permissions = res.permissions
+          if (token) {
+            this.token = token
+            this.permissions = res.permissions
 
-          // Store JWT token and Permissions in local storage
-          localStorage.setItem(this.config.tokenName, token)
-          return true
+            // Store JWT token and Permissions in local storage
+            localStorage.setItem(this.config.tokenName, token)
+
+            return res.homepagePath
+          }
+          return null
         }
-        return false
-      })
+      )
     )
   }
 
