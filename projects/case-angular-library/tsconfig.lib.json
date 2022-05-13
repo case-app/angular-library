@@ -11,8 +11,7 @@
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "enableIvy": false
+    "strictMetadataEmit": true
   },
   "exclude": ["src/test.ts", "**/*.spec.ts"]
 }

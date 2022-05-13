@@ -2,8 +2,8 @@
   <ng-container *ngIf="imageObjects.length <= maxLength || i < maxLength - 1">
     <a
       class="has-avatar tooltip has-tooltip has-tooltip-right"
-      [routerLink]="imageObject.link"
-      [attr.data-tooltip]="imageObject.label"
+      routerLink="{{ imageObject.link ? imageObject.link.path : null }}"
+      [queryParams]="imageObject.link ? imageObject.link.queryParams : null"
     >
       <case-image
         [path]="imageObject.image"

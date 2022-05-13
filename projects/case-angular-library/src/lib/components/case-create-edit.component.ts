@@ -10,6 +10,7 @@ import {
 } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Observable } from 'rxjs'
+import { ResourceMode } from '../enums/resource-mode.enum'
 
 import { FieldSpecialRule } from '../interfaces/field-special-rule.interface'
 import { Field } from '../interfaces/field.interface'
@@ -31,11 +32,15 @@ export class CaseCreateEditComponent {
   resolvedFields: Field[]
   fields: Field[]
 
-  mode: string
+  mode: ResourceMode
   loading: boolean
   showErrors: boolean
   isModal: boolean
   redirectTo: string
+  redirectToQueryParams: { [key: string]: string }
+  patchURL: string
+
+  ResourceMode = ResourceMode
 
   @Output() submitSuccessful: EventEmitter<void> = new EventEmitter()
 
@@ -52,6 +57,11 @@ export class CaseCreateEditComponent {
     if (this.activatedRoute) {
       this.mode = this.activatedRoute.snapshot.data.mode
       this.redirectTo = this.activatedRoute.snapshot.queryParams.redirectTo
+      this.redirectToQueryParams =
+        this.activatedRoute.snapshot.queryParams.redirectToQueryParams &&
+        JSON.parse(
+          this.activatedRoute.snapshot.queryParams.redirectToQueryParams
+        )
 
       // Apply special rules from queryParams.
       if (this.activatedRoute.snapshot.queryParams.specialRules) {
@@ -61,7 +71,7 @@ export class CaseCreateEditComponent {
       }
 
       // Get remote resource on edit mode.
-      if (this.mode === 'edit') {
+      if (this.mode === ResourceMode.Edit) {
         await this.getItem(this.activatedRoute.snapshot.params.id)
       }
     }
@@ -86,14 +96,16 @@ export class CaseCreateEditComponent {
   async resolveFields(fields: Field[]): Promise<Field[]> {
     const asyncFieldPromises: Promise<any>[] = []
 
-    if (this.mode === 'edit') {
+    if (this.mode === ResourceMode.Edit) {
       Object.assign(this.fieldSpecialRules, this.editModeSpecialRules || {})
     }
 
     fields.forEach((field: Field) => {
       if (field.createValidators && field.editValidators) {
         field.validators =
-          this.mode === 'create' ? field.createValidators : field.editValidators
+          this.mode === ResourceMode.Create
+            ? field.createValidators
+            : field.editValidators
       } else if (!field.validators) {
         field.validators = []
       }
@@ -166,7 +178,7 @@ export class CaseCreateEditComponent {
       this.item,
       retrievedItemProp || controlName
     )
-    if (itemValue) {
+    if (itemValue !== null) {
       field.initialValue = {
         [fieldProp]: itemValue
       }
@@ -199,7 +211,7 @@ export class CaseCreateEditComponent {
         label: this.definition.title
       },
       {
-        label: `${this.mode === 'create' ? 'Ajouter' : 'Modifier'} ${
+        label: `${this.mode === ResourceMode.Create ? 'Ajouter' : 'Modifier'} ${
           this.definition.gender === 'Masculine' ? 'un' : 'une'
         } ${this.definition.nameSingular}`
       }
@@ -209,14 +221,22 @@ export class CaseCreateEditComponent {
   onValueChanged(newValue: { [key: string]: any }, field: Field) {
     Object.keys(field.properties).forEach((fieldProp: string) => {
       const controlName: string = field.properties[fieldProp]
-      if (Array.isArray(newValue[fieldProp])) {
+
+      let typedValue: any = newValue[fieldProp]
+
+      if (Array.isArray(typedValue)) {
         // If newValue is array we have to reset the control by putting a new FormArray of FormControls.
         this.form.setControl(
           controlName,
-          new FormArray(newValue[fieldProp].map((v) => new FormControl(v)))
+          new FormArray(typedValue.map((v) => new FormControl(v)))
         )
       } else {
-        this.form.get(controlName).setValue(newValue[fieldProp])
+        // Prevent wrong value from being set from HTML selects.
+        if (typedValue === 'null') {
+          typedValue = null
+        }
+
+        this.form.get(controlName).setValue(typedValue)
       }
     })
 
@@ -236,22 +256,42 @@ export class CaseCreateEditComponent {
       )
     }
 
-    const observable: Observable<any> =
-      this.mode === 'create'
-        ? this.resourceService.store(this.definition.slug, this.form.value)
-        : this.resourceService.update(
-            this.definition.slug,
-            this.item.id,
-            this.form.value
-          )
+    let action: Observable<any>
+
+    switch (this.mode) {
+      case ResourceMode.Create:
+        action = this.resourceService.store(
+          this.definition.slug,
+          this.form.value
+        )
+        break
+      case ResourceMode.Edit:
+        action = this.resourceService.update(
+          this.definition.slug,
+          this.item.id,
+          this.form.value
+        )
+        break
+      case ResourceMode.Patch:
+        action = this.resourceService.patch(this.patchURL, this.form.value)
+        break
+    }
 
     this.loading = true
-    observable.subscribe(
+    action.subscribe(
       (res: { id: number }) => {
         this.flashMessageService.success(
-          `La resource a bien été ${
-            this.mode === 'create' ? 'créée' : 'mise à jour'
-          }`
+          `${this.definition.gender === 'Masculine' ? 'Le' : 'La'} ${
+            this.definition.nameSingular
+          } a bien été ${
+            this.mode === ResourceMode.Create
+              ? this.definition.gender === 'Masculine'
+                ? 'créé'
+                : 'créée'
+              : this.definition.gender === 'Masculine'
+              ? 'mis à jour'
+              : 'mise à jour'
+          }.`
         )
         this.loading = false
 
@@ -259,27 +299,46 @@ export class CaseCreateEditComponent {
         this.submitSuccessful.emit()
 
         if (this.isModal) {
-          return
+          this.close()
         }
-        let redirectTo: string = this.redirectTo && JSON.parse(this.redirectTo)
-        if (!redirectTo) {
+
+        if (!this.redirectTo) {
           if (this.definition.hasDetailPage) {
-            if (this.mode === 'create') {
-              redirectTo = `/${this.definition.path || this.definition.slug}/${
-                res.id
-              }`
+            if (this.mode === ResourceMode.Create) {
+              this.redirectTo = `/${
+                this.definition.path || this.definition.slug
+              }/${res.id}`
             } else {
-              redirectTo = this.router.url.replace('/edit', '')
+              this.redirectTo = this.router.url.replace('/edit', '')
             }
           } else {
             if (this.definition.hasListPage) {
-              redirectTo = `/${this.definition.path || this.definition.slug}`
+              this.redirectTo = `/${
+                this.definition.path || this.definition.slug
+              }`
             } else {
-              redirectTo = '/'
+              this.redirectTo = '/'
             }
           }
         }
-        this.router.navigateByUrl(redirectTo)
+
+        if (!this.redirectToQueryParams) {
+          this.redirectToQueryParams = {}
+        }
+
+        // Add query params in redirect URL to plug custom behavior on front (onboarding, etc.).
+        if (this.mode === ResourceMode.Create) {
+          this.redirectToQueryParams.resourceCreated = `${this.definition.className}-${res.id}`
+        } else if (this.mode === ResourceMode.Edit) {
+          this.redirectToQueryParams.resourceEdited = `${this.definition.className}-${res.id}`
+        }
+
+        this.router.navigate([this.redirectTo], {
+          queryParams: Object.assign(this.redirectToQueryParams, {
+            reload: new Date().toISOString()
+          }),
+          queryParamsHandling: 'merge'
+        })
       },
       (err: HttpErrorResponse) => {
         this.loading = false
@@ -336,5 +395,9 @@ export class CaseCreateEditComponent {
     }
     console.log(invalid)
     return invalid
+  }
+
+  close() {
+    // Empty function to be override in modal.
   }
 }

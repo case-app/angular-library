@@ -3,7 +3,8 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
@@ -34,7 +35,15 @@ export class RadioInputComponent implements OnChanges, CaseInput {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.form = this.formBuilder.group({
       radio: [null, this.validators || []]
     })

@@ -31,7 +31,6 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   }
   @Input() placeholder: string
   @Input() helpText: string
-
   @Input() resources: ResourceDefinition[]
   @Input() params: { [key: string]: string }
   @Input() maxSelectedItems
@@ -73,14 +72,13 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
 
   // Fetch full objects from API to display them. Based on initialValue (ids ony).
   getSearchResultObjects(): void {
-    // If we have an initialValue.
     if (
       this.initialValue &&
       Object.values(this.initialValue).some((v) => !!v)
     ) {
       this.resourceService
         .list('search/get-search-result-objects', this.initialValue)
-        .subscribe((initialSearchResultRes) => {
+        .subscribe((initialSearchResultRes: SearchResult[]) => {
           this.selectedSearchResults = initialSearchResultRes
         })
     }
@@ -160,11 +158,9 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
     // If one item only, we return value directly instead of array.
     if (this.maxSelectedItems === 1) {
       const resourceName = Object.keys(emittedValueObject)[0]
-      const response = {}
-      response[resourceName.slice(0, -1) + 'Id'] =
-        emittedValueObject[resourceName][0]
-
-      return response
+      return {
+        [resourceName.toLowerCase() + 'Id']: emittedValueObject[resourceName][0]
+      }
     }
 
     // Format "array-of-ids" name based on resource name. Ex: cars => carIds.
@@ -174,7 +170,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
     }, {})
   }
 
-  // Use arrowKeys and enter to select suggested themes with keyboard
+  // Use arrowKeys and enter to select suggested themes with keyboard.
   navigateSuggestedValues(key: string): void {
     if (key === 'ArrowDown') {
       if (typeof this.focusedItemIndex === 'undefined') {
@@ -214,7 +210,7 @@ export class MultiSearchInputComponent implements CaseInput, OnChanges {
   // Click outside closes list
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
-    if (!this.elementRef.nativeElement.contains(eventTarget)) {
+    if (this.showList && !this.elementRef.nativeElement.contains(eventTarget)) {
       this.showList = false
     }
   }

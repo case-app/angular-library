@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(loginForm.value.email, loginForm.value.password)
       .subscribe(
-        () => this.router.navigate([this.redirectTo || '/']),
+        (homepagePath: string) =>
+          this.router.navigate([this.redirectTo || homepagePath || '/']),
         (err: HttpErrorResponse) => {
           this.flashMessageService.error(
             err.status === 401

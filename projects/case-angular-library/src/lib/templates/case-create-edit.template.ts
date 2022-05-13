@@ -2,11 +2,14 @@ export const caseCreateEditTemplate = `
 <section>
   <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
     <div class="left-part">
-      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'create'">
+      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === ResourceMode.Create"> 
+       <span class="icon is-large">
+          <i class="icon {{definition.icon}} is-size-2 has-text-link"></i>
+        </span>
         Ajouter {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
         {{ definition.nameSingular }}
       </h1>
-      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === 'edit'">
+      <h1 class="title is-2 has-text-weight-light" *ngIf="mode === ResourceMode.Edit">
         Modifier {{ definition.gender === 'Masculine' ? 'un' : 'une' }}
         {{ definition.nameSingular }}
       </h1>
@@ -34,30 +37,34 @@ export const caseCreateEditTemplate = `
       <!-- Fields -->
       <div class="columns is-multiline is-align-items-flex-end">
         <ng-container *ngFor="let field of resolvedFields">
-          <div
-            class="column is-flex is-align-items-flex-end"
-            [ngClass]="field.className"
-            *ngIf="!field.hidden"
-          >
-            <case-input
-              [type]="field.inputType"
-              [label]="field.label"
-              [placeholder]="field.placeholder"
-              [secondPlaceholder]="field.secondPlaceholder"
-              [initialValue]="field.initialValue"
-              [searchResources]="field.searchResources"
-              [resourceName]="definition.slug"
-              [searchParams]="field.searchParams"
-              [maxSelectedItems]="field.maxSelectedItems"
-              [selectOptions]="field.selectOptions"
-              [min]="field.min"
-              [max]="field.max"
-              [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
-              [validators]="field.validators"
-              [showErrors]="showErrors"
-              (valueChanged)="onValueChanged($event, field)"
-            ></case-input>
-          </div>
+          <ng-container *caseHasPermission="field.permission">
+            <div
+              class="column is-flex is-align-items-flex-end"
+              [id]="field.id"
+              [ngClass]="field.className"
+              *ngIf="!field.hidden"
+            >
+              <case-input
+                [type]="field.inputType"
+                [label]="field.label"
+                [placeholder]="field.placeholder"
+                [secondPlaceholder]="field.secondPlaceholder"
+                [initialValue]="field.initialValue"
+                [searchResources]="field.searchResources"
+                [resourceName]="definition.slug"
+                [searchParams]="field.searchParams"
+                [maxSelectedItems]="field.maxSelectedItems"
+                [selectOptions]="field.selectOptions"
+                [min]="field.min"
+                [max]="field.max"
+                [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
+                [validators]="field.validators"
+                [helpText]="field.helpText"
+                [showErrors]="showErrors"
+                (valueChanged)="onValueChanged($event, field)"
+              ></case-input>
+            </div>
+          </ng-container>
         </ng-container>
       </div>
     </div>

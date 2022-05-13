@@ -112,6 +112,7 @@ export class TopMenuComponent implements OnInit {
   onClick(target) {
     // We track clicks to close dropdown if open and click outside
     if (
+      (this.showLinkMenu || this.showUserMenu || this.showNotificationMenu) &&
       !this.elementRef.nativeElement
         .querySelector('#create-dropdown')
         .contains(target)

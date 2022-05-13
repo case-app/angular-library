@@ -1,6 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output
+} from '@angular/core'
 import { Router } from '@angular/router'
 
+import { Gender } from '../../../enums/gender.enum'
 import { LinkType } from '../../../enums/link-type.enum'
 import { YieldType } from '../../../enums/yield-type.enum'
 import { ActionButton } from '../../../interfaces/action-button.interface'
@@ -14,7 +21,7 @@ import { AuthService } from '../../../services/auth.service'
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnChanges {
   @Input() items: any[]
   @Input() definition: ResourceDefinition
   @Input() yields: Yield[]
@@ -31,10 +38,11 @@ export class TableComponent implements OnInit {
 
   itemToDelete: any
   YieldType = YieldType
+  Gender = Gender
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  async ngOnInit() {
+  async ngOnChanges() {
     const permissions = await this.authService.getPermissions()
 
     this.yields = this.hiddenProps.length

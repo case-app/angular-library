@@ -19,7 +19,8 @@
   }
 }
 
-.modal.is-large .modal-content {
+.modal.is-large .modal-content,
+.modal.is-large .modal-card {
   @include tablet {
     min-width: 768px;
     max-width: 100vw;

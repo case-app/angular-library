@@ -2,7 +2,11 @@ export const caseListTemplate = `
 <!-- Heading -->
 <div class="is-flex flex-mobile is-justify-content-space-between is-align-items-center mb-2">
   <div class="left-part">
+
     <h1 class="title is-2 has-text-weight-light">
+       <span class="icon is-large">
+          <i class="icon {{definition.icon}} is-size-2 has-text-link"></i>
+        </span>
       {{ definition.title }}
     </h1>
   </div>
@@ -61,6 +65,7 @@ export const caseListTemplate = `
           [searchResources]="filter.searchResources"
           [placeholder]="filter.placeholder"
           [secondPlaceholder]="filter.secondPlaceholder"
+          [required]="filter.required"
           (valueChanged)="onFilterValueChanged($event, filter)"
         ></case-input>
       </div>
@@ -85,7 +90,7 @@ export const caseListTemplate = `
   <span class="tag" *ngFor="let keyNumber of definition.keyNumbers" [ngClass]="keyNumber.className || 'is-info'">
   <ng-container *ngIf="keyNumber.loading">Loading...</ng-container>
         <ng-container *ngIf="!keyNumber.loading"
-          >{{ keyNumber.label }} : {{ keyNumber.value | euros }}</ng-container
+          >{{ keyNumber.label }}: {{ keyNumber.value | euros }}</ng-container
         >
   </span>
   </div>

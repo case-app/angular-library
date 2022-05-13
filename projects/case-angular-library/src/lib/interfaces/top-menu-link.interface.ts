@@ -3,5 +3,5 @@ export interface TopMenuLink {
   icon: string
   routePath: string
   queryParams?: { [key: string]: string }
-  permissions?: string
+  permission?: string
 }

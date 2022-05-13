@@ -39,6 +39,9 @@ export interface Field {
     | { [key: string]: any }
     | (() => Promise<{ [key: string]: any }>)
 
+  // The current user permission needed to render the field.
+  permission?: string
+
   // Input-specific
   selectOptions?: SelectOption[] | (() => Promise<SelectOption[]>)
   searchResources?: ResourceDefinition[]

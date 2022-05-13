@@ -19,6 +19,9 @@ export interface Yield {
   // Custom link on click.
   link?: string | ((item: any) => string)
 
+  // Disable link to main resource. Useful when dealing with yields that have their own links.
+  disableItemLink?: boolean
+
   // Disables possibility to order by this prop. Useful when sorting for this prop does not make sense or is a calculated prop.
   disableOrderBy?: boolean
 
@@ -31,8 +34,9 @@ export interface Yield {
   // Column width in pixels or in percentage when displayed in a table. Ex: 120, '10%'.
   width?: number | string
 
-  // Class of the yield
+  // Custom classes for yield and heading.
   className?: string
+  headingClassName?: string
 
   // Specific to one or several YieldType.
   icon?: string

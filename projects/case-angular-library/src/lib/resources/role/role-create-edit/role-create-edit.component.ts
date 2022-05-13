@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, Validators } from '@angular/forms'
+import { FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
 import { CaseCreateEditComponent } from '../../../components/case-create-edit.component'
-import { InputType } from '../../../enums/input-type.enum'
+import { ResourceMode } from '../../../enums/resource-mode.enum'
 import { Field } from '../../../interfaces/field.interface'
 import { ResourceDefinition } from '../../../interfaces/resource-definition.interface'
 import { Permission } from '../../../interfaces/resources/permission.interface'
@@ -26,6 +26,8 @@ export class RoleCreateEditComponent
   fields: Field[] = roleFields
 
   permissions: Permission[]
+
+  ResourceMode = ResourceMode
 
   constructor(
     activatedRoute: ActivatedRoute,
@@ -72,7 +74,7 @@ export class RoleCreateEditComponent
     this.resolvedFields = await this.resolveFields(this.fields)
 
     // Get remote resource on edit mode.
-    if (this.mode === 'edit') {
+    if (this.mode === ResourceMode.Edit) {
       await this.getItem(this.customActivatedRoute.snapshot.params.id)
     }
 

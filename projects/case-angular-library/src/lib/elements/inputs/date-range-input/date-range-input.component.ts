@@ -4,11 +4,13 @@ import {
   Input,
   OnChanges,
   Output,
+  SimpleChanges,
   ViewChild
 } from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn } from '@angular/forms'
 import {
   AngularMyDatePickerDirective,
+  IAngularMyDpOptions,
   IMyDateModel
 } from 'angular-mydatepicker'
 
@@ -36,7 +38,7 @@ export class DateRangeInputComponent
   @Input() showErrors = false
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
-  @Input() copyDateFromOnDateTo = false
+  @Input() copyDateFromOnDateTo: boolean
 
   @Output() valueChanged: EventEmitter<{
     dateFrom: string
@@ -57,7 +59,15 @@ export class DateRangeInputComponent
     super()
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     if (this.initialValue) {
       this.form.setValue({
         dateFrom: this.initialValue.dateFrom
@@ -92,16 +102,15 @@ export class DateRangeInputComponent
     this.outputValues[propName] = newDate
     this.form.get(propName).setValue(newDate)
 
-    if (this.copyDateFromOnDateTo && wasNull && this.outputValues.dateFrom) {
+    if (
+      this.copyDateFromOnDateTo &&
+      this.outputValues.dateFrom &&
+      !this.outputValues.dateTo
+    ) {
       this.form.patchValue({
-        dateTo: {
-          date: {
-            year: event.singleDate.date.year,
-            month: event.singleDate.date.month,
-            day: event.singleDate.date.day
-          }
-        }
+        dateTo: this.formatStandardDate(newDate)
       })
+
       this.outputValues.dateTo = newDate
     }
 

@@ -4,7 +4,13 @@
 >
   <div class="left-part">
     <h1 class="title is-2 has-text-weight-light">Cars (dummy resource)</h1>
-    <p><a routerLink="/create-edit">Go to create edit page</a></p>
+    <p>
+      <a routerLink="/create-edit" fragment="roleId">Go to create edit page</a
+      ><br />
+      <a routerLink="/login" fragment="roleId"
+        >Go to login (need CASE server task running)</a
+      ><br />
+    </p>
   </div>
 </div>
 
@@ -31,6 +37,7 @@
           [selectOptions]="filter.selectOptions"
           [label]="filter.label"
           [searchResources]="filter.searchResources"
+          [required]="filter.required"
           [placeholder]="filter.placeholder"
         ></case-input>
       </div>
@@ -48,11 +55,11 @@
 
   <div class="card p-0 mb-6">
     <div class="table-container">
-      <!-- <case-table
+      <case-table
         [items]="paginator.data"
         [definition]="definition"
         [yields]="yields"
-      ></case-table> -->
+      ></case-table>
     </div>
   </div>
 </ng-container>
@@ -60,7 +67,11 @@
 <!-- Inputs -->
 <h2 class="title is-2">Inputs</h2>
 
-<case-address-input label="Addresse de l'entreprise"></case-address-input>
+<case-address-input
+  showErrors="true"
+  [validators]="requiredValidator"
+  label="Addresse de l'entreprise"
+></case-address-input>
 
 <case-email-input
   label="votre email"
@@ -68,6 +79,19 @@
   showErrors="true"
   [validators]="requiredValidator"
 ></case-email-input>
+<case-select-input
+  label="votre email"
+  placeholder="allez..."
+  showErrors="true"
+  selectOptions=" [{
+    label: 'Label 1',
+    value: 'Value 1'
+  }, {
+    label: 'Label 2',
+    value: 'Value 2'
+  }"
+  [validators]="requiredValidator"
+></case-select-input>
 <case-datepicker-input
   showErrors="true"
   [validators]="requiredValidator"
@@ -86,7 +110,16 @@
 <case-date-range-input
   [placeholder]="'test'"
   [secondPlaceholder]="'date to'"
+  [copyDateFromOnDateTo]="true"
 ></case-date-range-input>
+
+<div class="columns">
+  <div class="column is-3">
+    <case-datepicker-input
+      [initialValue]="{ value: '2022-09-02' }"
+    ></case-datepicker-input>
+  </div>
+</div>
 
 <div class="card p-0 mb-6">
   <div class="table-container"></div>

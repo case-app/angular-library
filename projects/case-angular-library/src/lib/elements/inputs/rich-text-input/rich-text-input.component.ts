@@ -3,11 +3,12 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 import { ChangeEvent, CKEditor5 } from '@ckeditor/ckeditor5-angular'
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
 
@@ -33,7 +34,15 @@ export class RichTextInputComponent implements CaseInput, OnChanges {
   content: string
   required: boolean
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.editorConfig = {
       toolbar: ['bold', 'italic', 'Link'],
       placeholder: this.placeholder

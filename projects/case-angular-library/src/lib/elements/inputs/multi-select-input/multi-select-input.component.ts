@@ -27,6 +27,7 @@ export class MultiSelectInputComponent implements CaseInput, OnChanges {
   @Input() itemNameSingular = 'élément'
   @Input() itemNamePlural = 'éléments'
   @Input() showErrors = false
+  @Input() maxSelectedItems: number
   @Input() validators: ValidatorFn[] = []
   @Input() uniqueId: string
 
@@ -34,7 +35,7 @@ export class MultiSelectInputComponent implements CaseInput, OnChanges {
     value: any[]
   }> = new EventEmitter()
 
-  selectedOptions: string[] = []
+  selectedOptions: (string | number)[] = []
   showList = false
   required: boolean
   isInputSetUp = false
@@ -64,23 +65,24 @@ export class MultiSelectInputComponent implements CaseInput, OnChanges {
   }
 
   toggleSelected(option: SelectOption) {
-    option.selected = !option.selected
-
-    const index = this.selectedOptions.indexOf(option.value.toString())
+    const index = this.selectedOptions.indexOf(option.value)
     if (index !== -1) {
+      option.selected = !option.selected
       this.selectedOptions.splice(index, 1)
-    } else {
-      this.selectedOptions.push(option.value.toString())
+    } else if (
+      !this.maxSelectedItems ||
+      this.selectedOptions.length < this.maxSelectedItems
+    ) {
+      option.selected = !option.selected
+      this.selectedOptions.push(option.value)
     }
 
-    const newArray = this.selectedOptions
-
-    this.valueChanged.emit({ value: newArray })
+    this.valueChanged.emit({ value: this.selectedOptions })
   }
 
   selectAll() {
     this.selectOptions.forEach((i) => (i.selected = true))
-    this.selectedOptions = this.selectOptions.map((i) => i.value.toString())
+    this.selectedOptions = this.selectOptions.map((i) => i.value)
     this.valueChanged.emit({ value: this.selectedOptions })
   }
 
@@ -94,6 +96,7 @@ export class MultiSelectInputComponent implements CaseInput, OnChanges {
   @HostListener('document:click', ['$event.target'])
   clickOut(eventTarget) {
     if (
+      this.showList &&
       !this.elementRef.nativeElement.contains(eventTarget) &&
       !eventTarget.className.includes('mass-selection-button')
     ) {

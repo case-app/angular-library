@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
 import { CaseInput } from '../../../interfaces/case-input.interface'
@@ -8,7 +15,7 @@ import { CaseInput } from '../../../interfaces/case-input.interface'
   templateUrl: './password-input.component.html',
   styleUrls: ['./password-input.component.scss']
 })
-export class PasswordInputComponent implements OnInit, CaseInput {
+export class PasswordInputComponent implements OnChanges, CaseInput {
   @Input() label: string
   @Input() initialValue: { value: string }
   @Input() placeholder: string
@@ -24,7 +31,15 @@ export class PasswordInputComponent implements OnInit, CaseInput {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.form = this.formBuilder.group({
       password: [
         this.initialValue ? this.initialValue.value : null,

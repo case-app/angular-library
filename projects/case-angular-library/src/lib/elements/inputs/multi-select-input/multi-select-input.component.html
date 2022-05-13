@@ -20,10 +20,12 @@
           >1 {{ itemNameSingular }} sélectionné</ng-template
         >
         <ng-template ngPluralCase="other"
-          >{{ selectedOptions.length }}
-          {{ itemNamePlural }} sélectionnés</ng-template
-        >
+          >{{ selectedOptions.length }} {{ itemNamePlural }} sélectionnés
+        </ng-template>
       </ng-container>
+      <ng-container *ngIf="selectedOptions.length && maxSelectedItems">
+        sur {{ maxSelectedItems }}</ng-container
+      >
     </div>
 
     <!-- Dropdown checkbox list -->

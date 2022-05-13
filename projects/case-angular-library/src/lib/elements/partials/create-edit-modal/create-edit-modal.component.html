@@ -13,7 +13,7 @@
     </header>
 
     <section class="modal-card-body">
-      <p class="mb-4" *ngIf="helpText">{{ helpText }}</p>
+      <p class="mb-4 is-size-5" *ngIf="helpText">{{ helpText }}</p>
       <table class="table is-fullwidth is-bordered is-narrow" *ngIf="keyPoints">
         <tr *ngFor="let keyPoint of keyPoints">
           <td>{{ keyPoint.label }}</td>
@@ -24,30 +24,32 @@
       <form [formGroup]="form" *ngIf="form" class="full-width">
         <div class="columns is-multiline is-align-items-flex-end">
           <ng-container *ngFor="let field of resolvedFields">
-            <div
-              class="column"
-              [ngClass]="field.className"
-              *ngIf="!field.hidden"
-            >
-              <case-input
-                [type]="field.inputType"
-                [label]="field.label"
-                [placeholder]="field.placeholder"
-                [secondPlaceholder]="field.secondPlaceholder"
-                [initialValue]="field.initialValue"
-                [searchResources]="field.searchResources"
-                [resourceName]="definition.slug"
-                [searchParams]="field.searchParams"
-                [maxSelectedItems]="field.maxSelectedItems"
-                [selectOptions]="field.selectOptions"
-                [min]="field.min"
-                [max]="field.max"
-                [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
-                [validators]="field.validators"
-                [showErrors]="showErrors"
-                (valueChanged)="onValueChanged($event, field)"
-              ></case-input>
-            </div>
+            <ng-container *caseHasPermission="field.permission">
+              <div
+                class="column"
+                [ngClass]="field.className"
+                *ngIf="!field.hidden"
+              >
+                <case-input
+                  [type]="field.inputType"
+                  [label]="field.label"
+                  [placeholder]="field.placeholder"
+                  [secondPlaceholder]="field.secondPlaceholder"
+                  [initialValue]="field.initialValue"
+                  [searchResources]="field.searchResources"
+                  [resourceName]="definition.slug"
+                  [searchParams]="field.searchParams"
+                  [maxSelectedItems]="field.maxSelectedItems"
+                  [selectOptions]="field.selectOptions"
+                  [min]="field.min"
+                  [max]="field.max"
+                  [copyDateFromOnDateTo]="field.copyDateFromOnDateTo"
+                  [validators]="field.validators"
+                  [showErrors]="showErrors"
+                  (valueChanged)="onValueChanged($event, field)"
+                ></case-input>
+              </div>
+            </ng-container>
           </ng-container>
         </div>
       </form>

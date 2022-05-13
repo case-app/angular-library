@@ -6,6 +6,7 @@ import {
   Input,
   OnChanges,
   Output,
+  SimpleChanges,
   ViewChild
 } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
@@ -50,7 +51,15 @@ export class ImageInputComponent implements CaseInput, OnChanges {
     @Inject('CASE_CONFIG_TOKEN') private config: CaseConfig
   ) {}
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Prevent value from being reset if showErrors changes.
+    if (
+      Object.keys(changes).length === 1 &&
+      Object.keys(changes)[0] === 'showErrors'
+    ) {
+      return
+    }
+
     this.imagePath = this.initialValue && this.initialValue.value
     this.required = this.validators.includes(Validators.required)
   }
