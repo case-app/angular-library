@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { Router, Scroll } from '@angular/router'
 import { Subscription } from 'rxjs'
-import { NavigationEnd, Router, Scroll } from '@angular/router'
+
 import { TopMenuLink } from '../../../case-angular-library/src/lib/interfaces/top-menu-link.interface'
 import {
   AuthService,

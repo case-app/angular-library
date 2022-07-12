@@ -46,12 +46,15 @@ export class ConfirmDeleteModalComponent implements OnInit {
         (res) => {
           this.close()
           // Change query params to force reload on lists.
-          this.router.navigate([this.redirectTo || this.router.url], {
-            queryParams: Object.assign(this.redirectToQueryParams || {}, {
-              reload: new Date().toISOString()
-            }),
-            queryParamsHandling: 'merge'
-          })
+          this.router.navigate(
+            [this.redirectTo || this.router.url.split('?')[0]],
+            {
+              queryParams: Object.assign(this.redirectToQueryParams || {}, {
+                reload: new Date().toISOString()
+              }),
+              queryParamsHandling: 'merge'
+            }
+          )
           this.flashMessageService.success(`La ressource a bien été supprimée`)
         },
         (err) => {
